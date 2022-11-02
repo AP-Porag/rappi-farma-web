@@ -1,0 +1,25 @@
+name: Deploy Site on push
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Deploying to surge
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install surge and fire deployment
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: npm install
+      - run: npm run generate
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: dist/
