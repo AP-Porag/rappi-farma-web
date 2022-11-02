@@ -1,4 +1,4 @@
 import Vue from 'vue'
-import {WindowsBottomNavigation} from "bottom-navigation-vue";
+import {GrowBottomNavigation} from "bottom-navigation-vue";
 
-Vue.component('GrowBottomNavigation', WindowsBottomNavigation)
+Vue.component('GrowBottomNavigation', GrowBottomNavigation)

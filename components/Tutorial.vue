@@ -34,6 +34,7 @@
       <a href="https://www.instagram.com/zemna/" target="_blank"><font-awesome-icon :icon="['fab', 'instagram']" class="fa-2x" /></a>
       <a href="https://twitter.com/zemna" target="_blank"><font-awesome-icon :icon="['fab', 'twitter']" class="fa-2x" /></a>
     </footer>
+    <GrowBottomNavigation :options="options" v-model="selected" />
   </div>
 </template>
 
@@ -45,6 +46,15 @@
 <script>
 export default {
   name: 'NuxtTutorial',
+  data: () => ({
+    selected: 1,
+    options: [
+      { id: 1, icon: 'fa-solid fa-home', title: 'Home', color: '#5639af' },
+      { id: 2, icon: 'fa-solid fa-magnifying-glass', title: 'Search', color: '#ac4793' },
+      { id: 3, icon: 'fa-solid fa-heart', title: 'Likes', color: '#e2a93a' },
+      { id: 4, icon: 'fa-solid fa-gear', title: 'Settings', color: '#4493a7' }
+    ]
+  }),
 }
 </script>
 <style lang="scss">
