@@ -7,8 +7,6 @@
       <span><span>button</span></span>
     </button>
 
-<!--    <GrowBottomNavigation :options="options" v-model="selected" />-->
-
     <VueSlickCarousel :arrows="true" :dots="true">
       <div>1</div>
       <div>2</div>
@@ -35,11 +33,6 @@
       <a href="https://twitter.com/zemna" target="_blank"><font-awesome-icon :icon="['fab', 'twitter']" class="fa-2x" /></a>
     </footer>
     <GrowBottomNavigation :options="options" v-model="selected" />
-  </div>
-</template>
-
-    <div class="">
-    </div>
   </div>
 </template>
 
