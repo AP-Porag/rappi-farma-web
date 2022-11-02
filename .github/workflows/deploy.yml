@@ -2,7 +2,7 @@ name: Deploy Site on push
 on:
   push:
     branches:
-      - staging
+      - master
 
 jobs:
   build:
