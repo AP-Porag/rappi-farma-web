@@ -33,6 +33,8 @@ export default {
     { src: './plugins/vue-slick-carousel.js' },
     { src: './plugins/bottom-navigation-vue.js',mode: 'client' },
     { src: './plugins/vue-social-chat.js' },
+    { src: './plugins/vue-zoom.js',mode:"client" },
+    { src: './plugins/vue-image-zoom.js',mode:"client" },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

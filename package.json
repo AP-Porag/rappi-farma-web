@@ -22,7 +22,9 @@
     "vue-slick-carousel": "^1.0.6",
     "vue-social-chat": "^0.1.6",
     "vue-social-sharing": "^3.0.9",
-    "vue-template-compiler": "^2.7.10"
+    "vue-template-compiler": "^2.7.10",
+    "vue-image-zoom": "1.0.6",
+    "vue-zoom": "1.1.0"
   },
   "devDependencies": {
     "@nuxtjs/style-resources": "^1.2.1",

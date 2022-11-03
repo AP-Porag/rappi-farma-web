@@ -41,6 +41,12 @@
       <small slot="footer">Opening hours: 8am to 6pm</small>
     </SocialChat>
 
+    <div class="box" @click="c" style="width: 250px;">
+      <v-zoom :img="url" :width="250"></v-zoom>
+    </div>
+
+    <div class="box-box" ></div>
+
     <footer>
       <a href="https://github.com/zemna" target="_blank"><font-awesome-icon :icon="['fab', 'github']" class="fa-2x" /></a>
       <a href="https://www.facebook.com/zemnanet" target="_blank"><font-awesome-icon :icon="['fab', 'facebook']" class="fa-2x" /></a>
@@ -73,9 +79,15 @@ export default {
           alt: 'Alan Ktquez avatar'
         }
       },
-      // ...
-    ]
+    ],
+    url:
+      "https://i.pinimg.com/originals/90/a4/78/90a47821d9451451813f9f3867351b53.jpg"
   }),
+  methods: {
+    c() {
+      this.$zoom(this.url);
+    }
+  }
 }
 </script>
 <style lang="scss">
@@ -99,5 +111,12 @@ export default {
       color: red;
     }
   }
+}
+.box-box {
+  width: 150px;
+  height: 150px;
+  background-image: url(https://i.pinimg.com/originals/90/a4/78/90a47821d9451451813f9f3867351b53.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 </style>
