@@ -53,6 +53,8 @@
       <a href="https://www.instagram.com/zemna/" target="_blank"><font-awesome-icon :icon="['fab', 'instagram']" class="fa-2x" /></a>
       <a href="https://twitter.com/zemna" target="_blank"><font-awesome-icon :icon="['fab', 'twitter']" class="fa-2x" /></a>
     </footer>
+
+    <h1 class="bg-danger">FTP Testing</h1>
     <GrowBottomNavigation :options="options" v-model="selected" />
   </div>
 </template>
