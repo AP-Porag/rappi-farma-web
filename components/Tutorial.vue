@@ -38,7 +38,7 @@
           aria-hidden="true"
         >
       </template>
-      <small slot="footer">Opening hours: 8am to 6pm</small>
+      <small slot="footer">Opening hours: 10am to 6pm</small>
     </SocialChat>
 
     <div class="box" @click="c" style="width: 250px;">
