@@ -26,6 +26,21 @@
       <span>Share on Twitter</span>
     </ShareNetwork>
 
+    <SocialChat
+      icon
+      :attendants="attendants"
+    >
+      <p slot="header">Click on one of our attendants below to chat on WhatsApp.</p>
+      <template v-slot:button>
+        <img
+          src="https://raw.githubusercontent.com/ktquez/vue-social-chat/master/src/icons/whatsapp.svg"
+          alt="icon whatsapp"
+          aria-hidden="true"
+        >
+      </template>
+      <small slot="footer">Opening hours: 8am to 6pm</small>
+    </SocialChat>
+
     <footer>
       <a href="https://github.com/zemna" target="_blank"><font-awesome-icon :icon="['fab', 'github']" class="fa-2x" /></a>
       <a href="https://www.facebook.com/zemnanet" target="_blank"><font-awesome-icon :icon="['fab', 'facebook']" class="fa-2x" /></a>
@@ -46,6 +61,19 @@ export default {
       { id: 2, icon: 'fa-solid fa-magnifying-glass', title: 'Search', color: '#ac4793' },
       { id: 3, icon: 'fa-solid fa-heart', title: 'Likes', color: '#e2a93a' },
       { id: 4, icon: 'fa-solid fa-gear', title: 'Settings', color: '#4493a7' }
+    ],
+    attendants: [
+      {
+        app: 'whatsapp',
+        label: 'Technical support',
+        name: 'Alan Ktquez',
+        number: '5581983383532',
+        avatar: {
+          src: 'https://avatars0.githubusercontent.com/u/8084606?s=460&u=20b6499a416cf7129a18e5c168cf387e159edb1a&v=4',
+          alt: 'Alan Ktquez avatar'
+        }
+      },
+      // ...
     ]
   }),
 }
