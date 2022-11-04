@@ -12,7 +12,9 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel:'preconnect', href: 'https://fonts.gstatic.com'},
+      { rel: 'stylesheet', href: "https:/fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" }
     ]
   },
   script: [
@@ -80,7 +82,9 @@ export default {
     scss: [
       '~/assets/scss/variables.scss',
       '~/assets/scss/mixins.scss',
-      '~/assets/scss/functions.scss'
+      '~/assets/scss/functions.scss',
+      '~/assets/scss/typography.scss',
+      '~/assets/scss/global.scss'
     ],
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

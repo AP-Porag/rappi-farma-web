@@ -1,0 +1,58 @@
+body {
+    font-family: $font-roboto;
+}
+
+h1 {
+    font-size: 52px;
+    line-height: 120%;
+    span {
+        @extend h1;
+    }
+}
+h2 {
+    font-size: 40px;
+    line-height: 120%;
+    span {
+        @extend h2;
+    }
+}
+h3 {
+    font-size: 30px;
+    line-height: 120%;
+    span {
+        @extend h3;
+    }
+}
+h4 {
+    font-size: 24px;
+    line-height: 120%;
+    span {
+        @extend h4;
+    }
+}
+h5 {
+    font-size: 20px;
+    line-height: 120%;
+    span {
+        @extend h5;
+    }
+}
+h6 {
+    font-size: 18px;
+    line-height: 120%;
+    span {
+        @extend h6;
+    }
+}
+.sub-title {
+    font-size: 16px;
+    line-height: 120%;
+}
+.font-14 {
+    font-size: 14px;
+    font-weight: 500;
+}
+.font-12 {
+    font-size: 12px;
+    font-weight: 400;
+}
