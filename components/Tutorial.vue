@@ -124,11 +124,6 @@ export default {
     url:
       "https://i.pinimg.com/originals/90/a4/78/90a47821d9451451813f9f3867351b53.jpg",
   }),
-  methods: {
-    c() {
-      this.$zoom(this.url);
-    }
-  }
 }
 </script>
 <style lang="scss">
