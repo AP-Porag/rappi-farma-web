@@ -13,6 +13,43 @@
       <div>3</div>
       <div>4</div>
     </VueSlickCarousel>
+    <!-- named route -->
+
+    <div class="">
+      <ul>
+        <li>
+          <NuxtLink to="/brand/olay" class="btn-get-started">Brand,Category,Subcategory page</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/categorias/beauty" class="btn-get-started">Single Category page</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/cliente/123" class="btn-get-started">Customer profile page</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/politicas" class="btn-get-started">Terms & Condition,Privacy policies page</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/producto/olay" class="btn-get-started">Single Product page</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/verificar" class="btn-get-started">Checkout page</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/blog" class="btn-get-started">Blog page</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/blog/something" class="btn-get-started">Single blog page</NuxtLink>
+        </li>
+      </ul>
+    </div>
+
+
+
+
+
+
+
     <ShareNetwork
       network="twitter"
       url="https://news.vuejs.org/issues/180"
@@ -26,14 +63,38 @@
       <span>Share on Twitter</span>
     </ShareNetwork>
 
+    <SocialChat
+      icon
+      :attendants="attendants"
+    >
+      <p slot="header">Click on one of our attendants below to chat on WhatsApp.</p>
+      <template v-slot:button>
+        <img
+          src="https://raw.githubusercontent.com/ktquez/vue-social-chat/master/src/icons/whatsapp.svg"
+          alt="icon whatsapp"
+          aria-hidden="true"
+        >
+      </template>
+      <small slot="footer">Opening hours: 10am to 6pm</small>
+    </SocialChat>
+
+    <div class="box" @click="c" style="width: 250px;">
+      <v-zoom :img="url" :width="250"></v-zoom>
+    </div>
+
+    <div class="box-box" ></div>
+
+    <img data-src="https://i.pinimg.com/originals/90/a4/78/90a47821d9451451813f9f3867351b53.jpg" alt="" title="" v-lazy-load>
+    <h1 class="bg-success">FTP Testing</h1>
     <footer>
-      <a href="#"><font-awesome-icon :icon="['fas', 'envelope']" class="fa-2x" /></a>
       <a href="https://github.com/zemna" target="_blank"><font-awesome-icon :icon="['fab', 'github']" class="fa-2x" /></a>
       <a href="https://www.facebook.com/zemnanet" target="_blank"><font-awesome-icon :icon="['fab', 'facebook']" class="fa-2x" /></a>
       <a href="https://www.instagram.com/zemna/" target="_blank"><font-awesome-icon :icon="['fab', 'instagram']" class="fa-2x" /></a>
       <a href="https://twitter.com/zemna" target="_blank"><font-awesome-icon :icon="['fab', 'twitter']" class="fa-2x" /></a>
     </footer>
+
     <GrowBottomNavigation :options="options" v-model="selected" />
+
   </div>
 </template>
 
@@ -47,7 +108,21 @@ export default {
       { id: 2, icon: 'fa-solid fa-magnifying-glass', title: 'Search', color: '#ac4793' },
       { id: 3, icon: 'fa-solid fa-heart', title: 'Likes', color: '#e2a93a' },
       { id: 4, icon: 'fa-solid fa-gear', title: 'Settings', color: '#4493a7' }
-    ]
+    ],
+    attendants: [
+      {
+        app: 'whatsapp',
+        label: 'Technical support',
+        name: 'Alan Ktquez',
+        number: '5581983383532',
+        avatar: {
+          src: 'https://avatars0.githubusercontent.com/u/8084606?s=460&u=20b6499a416cf7129a18e5c168cf387e159edb1a&v=4',
+          alt: 'Alan Ktquez avatar'
+        }
+      },
+    ],
+    url:
+      "https://i.pinimg.com/originals/90/a4/78/90a47821d9451451813f9f3867351b53.jpg",
   }),
 }
 </script>
@@ -60,7 +135,6 @@ export default {
   vertical-align: top;
   text-decoration: none;
   outline: none;
-  @include center-item;
   width: minus(30px, 100px);
 
   // variant
@@ -72,5 +146,12 @@ export default {
       color: red;
     }
   }
+}
+.box-box {
+  width: 150px;
+  height: 150px;
+  background-image: url(https://i.pinimg.com/originals/90/a4/78/90a47821d9451451813f9f3867351b53.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 </style>
