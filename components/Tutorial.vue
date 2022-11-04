@@ -30,13 +30,16 @@
           <NuxtLink to="/politicas" class="btn-get-started">Terms & Condition,Privacy policies page</NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/producto" class="btn-get-started">All Product page</NuxtLink>
-        </li>
-        <li>
           <NuxtLink to="/producto/olay" class="btn-get-started">Single Product page</NuxtLink>
         </li>
         <li>
           <NuxtLink to="/verificar" class="btn-get-started">Checkout page</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/blog" class="btn-get-started">Blog page</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/blog/something" class="btn-get-started">Single blog page</NuxtLink>
         </li>
       </ul>
     </div>

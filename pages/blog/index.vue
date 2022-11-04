@@ -1,6 +1,6 @@
 <template>
   <div class="root">
-    <h3>All product page</h3>
+    <h3>blog main page</h3>
   </div>
 </template>
 
