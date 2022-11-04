@@ -135,7 +135,6 @@ export default {
   vertical-align: top;
   text-decoration: none;
   outline: none;
-  @include center-item;
   width: minus(30px, 100px);
 
   // variant
