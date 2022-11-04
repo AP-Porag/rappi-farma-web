@@ -1,6 +1,24 @@
 <!-- Please remove this file from your project -->
 <template>
-  <div class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0">
+  <div>
+    <header class="ms__header--part">
+      <div class="container">
+        <div class="ms__header--container">
+          <div class="ms__header--logo">
+            <img src="/images/logo.svg" alt="">
+          </div>
+          <div class="ms__header--searchBar">
+            <input type="text" placeholder="Search">
+            <button>search</button>
+          </div>
+          <div class="ms__header--loginWith--cart">
+              <a href="#">Login</a>
+              <a href="#">cart</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- <div class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0">
     <button
       class="app-button"
     >
@@ -48,7 +66,9 @@
       <a href="https://twitter.com/zemna" target="_blank"><font-awesome-icon :icon="['fab', 'twitter']" class="fa-2x" /></a>
     </footer>
     <GrowBottomNavigation :options="options" v-model="selected" />
+  </div> -->
   </div>
+  
 </template>
 
 <script>
@@ -65,7 +85,7 @@ export default {
     attendants: [
       {
         app: 'whatsapp',
-        label: 'Technical support',
+        label: 'Technical support',   
         name: 'Alan Ktquez',
         number: '5581983383532',
         avatar: {
@@ -74,29 +94,19 @@ export default {
         }
       },
       // ...
+
     ]
   }),
 }
 </script>
 <style lang="scss">
-.app-button {
-  position: relative;
-  display: inline-flex;
-  cursor: pointer;
-  white-space: nowrap;
-  vertical-align: top;
-  text-decoration: none;
-  outline: none;
-  @include center-item;
-  width: minus(30px, 100px);
-
-  // variant
-  span{
-    background-color: $primary;
-    color: $white;
-
-    span{
-      color: red;
+// header
+.ms__header--container {
+  @include d-flex();
+  @include align-items(center);
+  .ms__header--logo {
+    img {
+      max-width: 90px;
     }
   }
 }

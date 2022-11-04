@@ -45,8 +45,12 @@ export default {
   ],
   fontawesome: {
     icons: {
-      solid: ['faCog'],
-      regular: ["faEnvelope"],
+      solid: [
+        'faCog'
+      ],
+      regular: [
+        "faEnvelope",
+      ],
       brands: [
         "faGithub",
         "faFacebook",
