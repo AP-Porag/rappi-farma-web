@@ -33,15 +33,17 @@ export default {
     { src: './plugins/vue-slick-carousel.js' },
     { src: './plugins/bottom-navigation-vue.js',mode: 'client' },
     { src: './plugins/vue-social-chat.js' },
+    { src: './plugins/vue-zoom.js',mode:"client" },
+    { src: './plugins/vue-image-zoom.js',mode:"client" },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
-
+  target: 'static',
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/style-resources',
-    '@nuxtjs/fontawesome'
+    '@nuxtjs/fontawesome',
   ],
   fontawesome: {
     icons: {
@@ -69,8 +71,11 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     'vue-social-sharing/nuxt',
+    ['nuxt-lazy-load', {
+      // Default image must be in the static folder
+      defaultImage: '/images/default.svg',
+    }],
   ],
-
   styleResources: {
     scss: [
       '~/assets/scss/variables.scss',

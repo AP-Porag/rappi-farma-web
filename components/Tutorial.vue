@@ -1,24 +1,6 @@
 <!-- Please remove this file from your project -->
 <template>
-  <div>
-    <header class="ms__header--part">
-      <div class="container">
-        <div class="ms__header--container">
-          <div class="ms__header--logo">
-            <img src="/images/logo.svg" alt="">
-          </div>
-          <div class="ms__header--searchBar">
-            <input type="text" placeholder="Search">
-            <button>search</button>
-          </div>
-          <div class="ms__header--loginWith--cart">
-              <a href="#">Login</a>
-              <a href="#">cart</a>
-          </div>
-        </div>
-      </div>
-    </header>
-    <!-- <div class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0">
+  <div class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0">
     <button
       class="app-button"
     >
@@ -44,31 +26,15 @@
       <span>Share on Twitter</span>
     </ShareNetwork>
 
-    <SocialChat
-      icon
-      :attendants="attendants"
-    >
-      <p slot="header">Click on one of our attendants below to chat on WhatsApp.</p>
-      <template v-slot:button>
-        <img
-          src="https://raw.githubusercontent.com/ktquez/vue-social-chat/master/src/icons/whatsapp.svg"
-          alt="icon whatsapp"
-          aria-hidden="true"
-        >
-      </template>
-      <small slot="footer">Opening hours: 8am to 6pm</small>
-    </SocialChat>
-
     <footer>
+      <a href="#"><font-awesome-icon :icon="['fas', 'envelope']" class="fa-2x" /></a>
       <a href="https://github.com/zemna" target="_blank"><font-awesome-icon :icon="['fab', 'github']" class="fa-2x" /></a>
       <a href="https://www.facebook.com/zemnanet" target="_blank"><font-awesome-icon :icon="['fab', 'facebook']" class="fa-2x" /></a>
       <a href="https://www.instagram.com/zemna/" target="_blank"><font-awesome-icon :icon="['fab', 'instagram']" class="fa-2x" /></a>
       <a href="https://twitter.com/zemna" target="_blank"><font-awesome-icon :icon="['fab', 'twitter']" class="fa-2x" /></a>
     </footer>
     <GrowBottomNavigation :options="options" v-model="selected" />
-  </div> -->
   </div>
-  
 </template>
 
 <script>
@@ -81,32 +47,29 @@ export default {
       { id: 2, icon: 'fa-solid fa-magnifying-glass', title: 'Search', color: '#ac4793' },
       { id: 3, icon: 'fa-solid fa-heart', title: 'Likes', color: '#e2a93a' },
       { id: 4, icon: 'fa-solid fa-gear', title: 'Settings', color: '#4493a7' }
-    ],
-    attendants: [
-      {
-        app: 'whatsapp',
-        label: 'Technical support',   
-        name: 'Alan Ktquez',
-        number: '5581983383532',
-        avatar: {
-          src: 'https://avatars0.githubusercontent.com/u/8084606?s=460&u=20b6499a416cf7129a18e5c168cf387e159edb1a&v=4',
-          alt: 'Alan Ktquez avatar'
-        }
-      },
-      // ...
-
     ]
   }),
 }
 </script>
 <style lang="scss">
-// header
-.ms__header--container {
-  @include d-flex();
-  @include align-items(center);
-  .ms__header--logo {
-    img {
-      max-width: 90px;
+.app-button {
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+  white-space: nowrap;
+  vertical-align: top;
+  text-decoration: none;
+  outline: none;
+  @include center-item;
+  width: minus(30px, 100px);
+
+  // variant
+  span{
+    background-color: $primary;
+    color: $white;
+
+    span{
+      color: red;
     }
   }
 }
