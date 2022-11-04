@@ -13,6 +13,40 @@
       <div>3</div>
       <div>4</div>
     </VueSlickCarousel>
+    <!-- named route -->
+
+    <div class="">
+      <ul>
+        <li>
+          <NuxtLink to="/brand/olay" class="btn-get-started">Brand,Category,Subcategory page</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/categorias/beauty" class="btn-get-started">Single Category page</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/cliente/123" class="btn-get-started">Customer profile page</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/politicas" class="btn-get-started">Terms & Condition,Privacy policies page</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/producto" class="btn-get-started">All Product page</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/producto/olay" class="btn-get-started">Single Product page</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/verificar" class="btn-get-started">Checkout page</NuxtLink>
+        </li>
+      </ul>
+    </div>
+
+
+
+
+
+
+
     <ShareNetwork
       network="twitter"
       url="https://news.vuejs.org/issues/180"
@@ -47,6 +81,8 @@
 
     <div class="box-box" ></div>
 
+    <img data-src="https://i.pinimg.com/originals/90/a4/78/90a47821d9451451813f9f3867351b53.jpg" alt="" title="" v-lazy-load>
+    <h1 class="bg-success">FTP Testing</h1>
     <footer>
       <a href="https://github.com/zemna" target="_blank"><font-awesome-icon :icon="['fab', 'github']" class="fa-2x" /></a>
       <a href="https://www.facebook.com/zemnanet" target="_blank"><font-awesome-icon :icon="['fab', 'facebook']" class="fa-2x" /></a>
@@ -54,8 +90,8 @@
       <a href="https://twitter.com/zemna" target="_blank"><font-awesome-icon :icon="['fab', 'twitter']" class="fa-2x" /></a>
     </footer>
 
-    <h1 class="bg-success">FTP Testing</h1>
     <GrowBottomNavigation :options="options" v-model="selected" />
+
   </div>
 </template>
 
@@ -83,7 +119,7 @@ export default {
       },
     ],
     url:
-      "https://i.pinimg.com/originals/90/a4/78/90a47821d9451451813f9f3867351b53.jpg"
+      "https://i.pinimg.com/originals/90/a4/78/90a47821d9451451813f9f3867351b53.jpg",
   }),
   methods: {
     c() {
