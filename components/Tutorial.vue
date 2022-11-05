@@ -84,7 +84,7 @@
             <NuxtLink to="/">
               <figure>
                 <div class="ms__catagories--img">
-                    <img src="https://lh3.googleusercontent.com/kioWxy14UbWkPJARdk87wP5P3ZIVjv5T-y0jei_EsFuWDmlMaMqmfh07ytzZoir6uSTmM3KmTQ7a6DId38PM-T-RD6jwzGyXYZGCLy4j8dkbbSbe=s250-rw" alt="">
+                    <img src="https://lh3.googleusercontent.com/38RrzGADe69egYF6GeQa1Zu4dedME8_aA_b_YYP7pz7jcbPOqzo1cuOUYG8aGzU07-LbQxf_akIvu00OoSaZdOQrBsRJujs4k9X6sFUXpmpJBpWSbg=s250-rw" alt="">
                 </div>
                 <caption>
                   <p class="font-14">Send it Now Venezuela</p>
@@ -94,7 +94,7 @@
             <NuxtLink to="/">
               <figure>
                 <div class="ms__catagories--img">
-                    <img src="https://lh3.googleusercontent.com/kioWxy14UbWkPJARdk87wP5P3ZIVjv5T-y0jei_EsFuWDmlMaMqmfh07ytzZoir6uSTmM3KmTQ7a6DId38PM-T-RD6jwzGyXYZGCLy4j8dkbbSbe=s250-rw" alt="">
+                    <img src="https://lh3.googleusercontent.com/X4AjlbnSo3l_eTU3OxZeXUFlunx-lAMsI96_qM4QHAvpdWp56xLRaouxyO5Vgc8Z7wjK8k5sHOks8BNQSFZqWGtaMxeBgofSjwIES2W2enBMLlUn=s250-rw" alt="">
                 </div>
                 <caption>
                   <p class="font-14">Send it Now Venezuela</p>
@@ -104,7 +104,7 @@
             <NuxtLink to="/">
               <figure>
                 <div class="ms__catagories--img">
-                    <img src="https://lh3.googleusercontent.com/kioWxy14UbWkPJARdk87wP5P3ZIVjv5T-y0jei_EsFuWDmlMaMqmfh07ytzZoir6uSTmM3KmTQ7a6DId38PM-T-RD6jwzGyXYZGCLy4j8dkbbSbe=s250-rw" alt="">
+                    <img src="https://lh3.googleusercontent.com/kRqZ59bChpuriDkwWOjfT8qCH7DIPBe2zTph2Myqjyktmh4lb6kybPUvIrGUhBUc951tUfAIErn0H7My5Vn5CNzKJNKmTeIS1VS02awpEz9Cvdk=s250-rw" alt="">
                 </div>
                 <caption>
                   <p class="font-14">Send it Now Venezuela</p>
@@ -114,7 +114,7 @@
             <NuxtLink to="/">
               <figure>
                 <div class="ms__catagories--img">
-                    <img src="https://lh3.googleusercontent.com/kioWxy14UbWkPJARdk87wP5P3ZIVjv5T-y0jei_EsFuWDmlMaMqmfh07ytzZoir6uSTmM3KmTQ7a6DId38PM-T-RD6jwzGyXYZGCLy4j8dkbbSbe=s250-rw" alt="">
+                    <img src="https://lh3.googleusercontent.com/jGSyR-SXAFlSn4-2sGKwG7qKH2r3KKeL6DrLNopDDnznXniDDIUpB0BtZnPHiDu6m7svfdSC8WoAFXDGfSf65h3oBFl2_8ZpZH_aEwuhJTQ3xzfl=s250-rw" alt="">
                 </div>
                 <caption>
                   <p class="font-14">Send it Now Venezuela</p>
@@ -124,7 +124,7 @@
             <NuxtLink to="/">
               <figure>
                 <div class="ms__catagories--img">
-                    <img src="https://lh3.googleusercontent.com/kioWxy14UbWkPJARdk87wP5P3ZIVjv5T-y0jei_EsFuWDmlMaMqmfh07ytzZoir6uSTmM3KmTQ7a6DId38PM-T-RD6jwzGyXYZGCLy4j8dkbbSbe=s250-rw" alt="">
+                    <img src="https://lh3.googleusercontent.com/gnFtxbssxv57LOEfVd34Kc0199DxQ0OHok8vFaSHZQdfGXKTTQC_wzwjipwsCSdjE_QpCSFBw33Zcztx6_FOO-a29n270woxyCe3d_6qLvMdZ-SGSw=s250-rw" alt="">
                 </div>
                 <caption>
                   <p class="font-14">Send it Now Venezuela</p>
@@ -181,7 +181,7 @@
     <section class="ms__bestDeal--part ic-section-space-bottom">
       <div class="container">
         <div class="ms__card">
-          <div class="ms__title">
+          <div class="ms__title border-0">
             <h4><span class="primary">Hello ! </span> These are the best deals</h4>
           </div>
           <div class="ms__bestDeal--slider slick-slider-relative">
@@ -213,7 +213,7 @@
                 <div class="ms__bestDeal--items">
                   <figure class="position-relative mb-0 p-3">
                     <div class="ms__bestDeal--img">
-                      <img class="img" src="https://lh3.googleusercontent.com/TsJLNi8XOg0RcZamePtm8tryyPHshJuytBsXPw_NQqKuKqQjluzS4hiHkNWFDZbLxLx38sGlfvsjvc_e9HJ2iaudd4hEWKC0Y6udl2JRHGw2P-yFQw=s650-rw" alt="">
+                      <img class="img" src="https://lh3.googleusercontent.com/g8mK1ITmEU2cmbidiOWnrZjPeFWQGGhAWa-rm5Sxfe0eOos43bGMn5ITrz5GWHgrUW3x3X4UAXuM5PmSM1wjYBjfW1gUI0shkEQz10yWGrNRSiv57A=s650-rw" alt="">
                       <div class="tag">
                         <img data-src="images/icon-discount-yellow.svg" alt="" v-lazy-load>
                         <p>30%</p>
@@ -235,7 +235,7 @@
                 <div class="ms__bestDeal--items">
                   <figure class="position-relative mb-0 p-3">
                     <div class="ms__bestDeal--img">
-                      <img class="img" src="https://lh3.googleusercontent.com/TsJLNi8XOg0RcZamePtm8tryyPHshJuytBsXPw_NQqKuKqQjluzS4hiHkNWFDZbLxLx38sGlfvsjvc_e9HJ2iaudd4hEWKC0Y6udl2JRHGw2P-yFQw=s650-rw" alt="">
+                      <img class="img" src="https://lh3.googleusercontent.com/_h61WOqxPpLRy6iCtBJ_DwsMtcWUeDt5ldLPVn_SsxpOfE9a07Az080MJgZUCitsniXlmNAMbbTOLOvQdJXToUyAONhNlpk7Y1BLonhk2CXI5dE=s650-rw" alt="">
                       <div class="tag">
                         <img data-src="images/icon-discount-yellow.svg" alt="" v-lazy-load>
                         <p>30%</p>
@@ -257,7 +257,7 @@
                 <div class="ms__bestDeal--items">
                   <figure class="position-relative mb-0 p-3">
                     <div class="ms__bestDeal--img">
-                      <img class="img" src="https://lh3.googleusercontent.com/TsJLNi8XOg0RcZamePtm8tryyPHshJuytBsXPw_NQqKuKqQjluzS4hiHkNWFDZbLxLx38sGlfvsjvc_e9HJ2iaudd4hEWKC0Y6udl2JRHGw2P-yFQw=s650-rw" alt="">
+                      <img class="img" src="https://lh3.googleusercontent.com/BkT2Q7bOk-cQJQWn7dMFFBq2YqujLieJ3koi6w7l_4sd35u5hpaK6ROtst-oXV7ttKhSfALXoTZwipFZSPG10ltPfa9TqDwLNJQOX0BacMi3D_GWog=s650-rw" alt="">
                       <div class="tag">
                         <img data-src="images/icon-discount-yellow.svg" alt="" v-lazy-load>
                         <p>30%</p>
@@ -317,7 +317,7 @@
                 <div class="ms__bestDeal--items">
                   <figure class="position-relative mb-0 p-3">
                     <div class="ms__bestDeal--img">
-                      <img class="img" src="https://lh3.googleusercontent.com/TsJLNi8XOg0RcZamePtm8tryyPHshJuytBsXPw_NQqKuKqQjluzS4hiHkNWFDZbLxLx38sGlfvsjvc_e9HJ2iaudd4hEWKC0Y6udl2JRHGw2P-yFQw=s650-rw" alt="">
+                      <img class="img" src="https://lh3.googleusercontent.com/kcNux3udj9zDIAW7AX3XFwmb8wbHxC_IQpBc-7jLMNdnsjxWlvUrmHkM81Qq50RgVNG2O1XjVrrD99uBSQQ9FOSKfeTxz6zspHR6Q1X4huFSsvs=s650-rw" alt="">
                       <div class="tag">
                         <img data-src="images/icon-discount-yellow.svg" alt="" v-lazy-load>
                         <p>30%</p>
@@ -339,7 +339,7 @@
                 <div class="ms__bestDeal--items">
                   <figure class="position-relative mb-0 p-3">
                     <div class="ms__bestDeal--img">
-                      <img class="img" src="https://lh3.googleusercontent.com/TsJLNi8XOg0RcZamePtm8tryyPHshJuytBsXPw_NQqKuKqQjluzS4hiHkNWFDZbLxLx38sGlfvsjvc_e9HJ2iaudd4hEWKC0Y6udl2JRHGw2P-yFQw=s650-rw" alt="">
+                      <img class="img" src="https://lh3.googleusercontent.com/BY6nxgV-AlfQXrPnEbn4SNY0rWdmyV3K2FVzGS2XgBTsC57q5BWXwv4WalqDeBuVyihEwRzEfPCBSYSDMxQYMiR8gxTPN3e6nPmlqbYVHrYvDOE=s650-rw" alt="">
                       <div class="tag">
                         <img data-src="images/icon-discount-yellow.svg" alt="" v-lazy-load>
                         <p>30%</p>
@@ -361,7 +361,7 @@
                 <div class="ms__bestDeal--items">
                   <figure class="position-relative mb-0 p-3">
                     <div class="ms__bestDeal--img">
-                      <img class="img" src="https://lh3.googleusercontent.com/TsJLNi8XOg0RcZamePtm8tryyPHshJuytBsXPw_NQqKuKqQjluzS4hiHkNWFDZbLxLx38sGlfvsjvc_e9HJ2iaudd4hEWKC0Y6udl2JRHGw2P-yFQw=s650-rw" alt="">
+                      <img class="img" src="https://lh3.googleusercontent.com/fZjF6ezCz_Hn25TfjacT4hikbJpkFLCGgUI00jb2kS3Aep5EkcjMGo9WmJz2QM91OLmXnYHI_hdJuu7MI_Of77Ii4dKJIGAVr8QRPdX1CZnxVwJ_1g=s650-rw" alt="">
                       <div class="tag">
                         <img data-src="images/icon-discount-yellow.svg" alt="" v-lazy-load>
                         <p>30%</p>
@@ -383,7 +383,7 @@
                 <div class="ms__bestDeal--items">
                   <figure class="position-relative mb-0 p-3">
                     <div class="ms__bestDeal--img">
-                      <img class="img" src="https://lh3.googleusercontent.com/TsJLNi8XOg0RcZamePtm8tryyPHshJuytBsXPw_NQqKuKqQjluzS4hiHkNWFDZbLxLx38sGlfvsjvc_e9HJ2iaudd4hEWKC0Y6udl2JRHGw2P-yFQw=s650-rw" alt="">
+                      <img class="img" src="https://lh3.googleusercontent.com/QLZnvVYa-iMT1wEYCTVhrwCsZRYTnWW7OdwtnngOcyUXpW16eeWvzBm6M9K9WyIYeEkcIbKAM7AChrbqe8EtWIgL4kn074S-w-pcFiHpBWbqWz0=s650-rw" alt="">
                       <div class="tag">
                         <img data-src="images/icon-discount-yellow.svg" alt="" v-lazy-load>
                         <p>30%</p>
@@ -527,7 +527,7 @@
                 <div class="ms__bestDeal--items">
                   <figure class="position-relative mb-0 p-3">
                     <div class="ms__bestDeal--img ms__beatuy--img">
-                      <img class="img" src="/images/beauty-1.png" alt="" v-lazy-load>
+                      <img class="img" src="/images/beauty-2.jpg" alt="" v-lazy-load>
                       <NuxtLink class="wihslist" to="/">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M244 84L255.1 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 0 232.4 0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84C243.1 84 244 84.01 244 84L244 84zM255.1 163.9L210.1 117.1C188.4 96.28 157.6 86.4 127.3 91.44C81.55 99.07 48 138.7 48 185.1V190.9C48 219.1 59.71 246.1 80.34 265.3L256 429.3L431.7 265.3C452.3 246.1 464 219.1 464 190.9V185.1C464 138.7 430.4 99.07 384.7 91.44C354.4 86.4 323.6 96.28 301.9 117.1L255.1 163.9z"/></svg>
                       </NuxtLink>
@@ -556,7 +556,7 @@
                 <div class="ms__bestDeal--items">
                   <figure class="position-relative mb-0 p-3">
                     <div class="ms__bestDeal--img ms__beatuy--img">
-                      <img class="img" src="/images/beauty-1.png" alt="" v-lazy-load>
+                      <img class="img" src="/images/beauty-3.jpg" alt="" v-lazy-load>
                       <NuxtLink class="wihslist" to="/">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M244 84L255.1 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 0 232.4 0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84C243.1 84 244 84.01 244 84L244 84zM255.1 163.9L210.1 117.1C188.4 96.28 157.6 86.4 127.3 91.44C81.55 99.07 48 138.7 48 185.1V190.9C48 219.1 59.71 246.1 80.34 265.3L256 429.3L431.7 265.3C452.3 246.1 464 219.1 464 190.9V185.1C464 138.7 430.4 99.07 384.7 91.44C354.4 86.4 323.6 96.28 301.9 117.1L255.1 163.9z"/></svg>
                       </NuxtLink>
@@ -585,7 +585,7 @@
                 <div class="ms__bestDeal--items">
                   <figure class="position-relative mb-0 p-3">
                     <div class="ms__bestDeal--img ms__beatuy--img">
-                      <img class="img" src="/images/beauty-1.png" alt="" v-lazy-load>
+                      <img class="img" src="/images/beauty-4.jpg" alt="" v-lazy-load>
                       <NuxtLink class="wihslist" to="/">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M244 84L255.1 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 0 232.4 0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84C243.1 84 244 84.01 244 84L244 84zM255.1 163.9L210.1 117.1C188.4 96.28 157.6 86.4 127.3 91.44C81.55 99.07 48 138.7 48 185.1V190.9C48 219.1 59.71 246.1 80.34 265.3L256 429.3L431.7 265.3C452.3 246.1 464 219.1 464 190.9V185.1C464 138.7 430.4 99.07 384.7 91.44C354.4 86.4 323.6 96.28 301.9 117.1L255.1 163.9z"/></svg>
                       </NuxtLink>
@@ -915,7 +915,7 @@
                 <div class="ms__official--items">
                   <NuxtLink to="/">
                     <div class="ms__official--img">
-                      <img src="/images/story-1.png" alt="" class="img-fluid" v-lazy-load>
+                      <img src="/images/story-2.png" alt="" class="img-fluid" v-lazy-load>
                     </div>
                     <p>Pharmatodo Brand</p>
                   </NuxtLink>
@@ -925,7 +925,7 @@
                 <div class="ms__official--items">
                   <NuxtLink to="/">
                     <div class="ms__official--img">
-                      <img src="/images/story-1.png" alt="" class="img-fluid" v-lazy-load>
+                      <img src="/images/story-3.png" alt="" class="img-fluid" v-lazy-load>
                     </div>
                     <p>Pharmatodo Brand</p>
                   </NuxtLink>
@@ -935,7 +935,7 @@
                 <div class="ms__official--items">
                   <NuxtLink to="/">
                     <div class="ms__official--img">
-                      <img src="/images/story-1.png" alt="" class="img-fluid" v-lazy-load>
+                      <img src="/images/story-4.png" alt="" class="img-fluid" v-lazy-load>
                     </div>
                     <p>Pharmatodo Brand</p>
                   </NuxtLink>
@@ -945,7 +945,7 @@
                 <div class="ms__official--items">
                   <NuxtLink to="/">
                     <div class="ms__official--img">
-                      <img src="/images/story-1.png" alt="" class="img-fluid" v-lazy-load>
+                      <img src="/images/story-5.png" alt="" class="img-fluid" v-lazy-load>
                     </div>
                     <p>Pharmatodo Brand</p>
                   </NuxtLink>
@@ -955,7 +955,7 @@
                 <div class="ms__official--items">
                   <NuxtLink to="/">
                     <div class="ms__official--img">
-                      <img src="/images/story-1.png" alt="" class="img-fluid" v-lazy-load>
+                      <img src="/images/story-6.png" alt="" class="img-fluid" v-lazy-load>
                     </div>
                     <p>Pharmatodo Brand</p>
                   </NuxtLink>
@@ -965,7 +965,7 @@
                 <div class="ms__official--items">
                   <NuxtLink to="/">
                     <div class="ms__official--img">
-                      <img src="/images/story-1.png" alt="" class="img-fluid" v-lazy-load>
+                      <img src="/images/story-7.png" alt="" class="img-fluid" v-lazy-load>
                     </div>
                     <p>Pharmatodo Brand</p>
                   </NuxtLink>
@@ -1317,14 +1317,15 @@ export default {
   @include bd-radius(10px);
   background-color: #fff;
   box-shadow: $box-shadow;
+  padding: 20px 0;
   figure {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0;
     .ms__catagories--img {
-      width: 8rem;
-      height: 8rem;
+      width: 5rem;
+      height: 5rem;
       background-color: #fff; 
       border-radius: 50%;
       text-align: center;
@@ -1340,6 +1341,7 @@ export default {
     caption {
       p {
         text-align: center;
+        font-size: 14px;
       }
     }
   }

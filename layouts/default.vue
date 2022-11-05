@@ -2,7 +2,7 @@
 <div>
   <partialsHeader/>
   <nuxt/>
-  <!-- <partialsFooter/> -->
+  <partialsFooter/>
 </div>
 </template>
 <script>
