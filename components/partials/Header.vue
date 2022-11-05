@@ -7,11 +7,19 @@
           </div>
           <div class="ms__header--searchBar position-relative">
             <input type="text" placeholder="Search">
-            <button>search</button>
+            <button>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg>
+            </button>
           </div>
           <div class="ms__header--loginWith--cart">
-              <a href="#">Login</a>
-              <a href="#">cart</a>
+              <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M272 304h-96C78.8 304 0 382.8 0 480c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32C448 382.8 369.2 304 272 304zM48.99 464C56.89 400.9 110.8 352 176 352h96c65.16 0 119.1 48.95 127 112H48.99zM224 256c70.69 0 128-57.31 128-128c0-70.69-57.31-128-128-128S96 57.31 96 128C96 198.7 153.3 256 224 256zM224 48c44.11 0 80 35.89 80 80c0 44.11-35.89 80-80 80S144 172.1 144 128C144 83.89 179.9 48 224 48z"/></svg>
+                Login
+              </a>
+              <a href="#"> 
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M24 0C10.7 0 0 10.7 0 24S10.7 48 24 48H76.1l60.3 316.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24-10.7 24-24s-10.7-24-24-24H179.9l-9.1-48h317c14.3 0 26.9-9.5 30.8-23.3l54-192C578.3 52.3 563 32 541.8 32H122l-2.4-12.5C117.4 8.2 107.5 0 96 0H24zM176 512c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm336-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48z"/></svg>
+                cart
+              </a>
           </div>
         </div>
       </div>
@@ -134,7 +142,7 @@ export default {
   @include d-flex();
   @include align-items(center);
   @include justify-content(space-between);
-  gap: 200px;
+  gap: 100px;
   .ms__header--logo {
     img {
       max-width: 70px;
@@ -171,20 +179,37 @@ export default {
       background-color: $primary;
       border: none;
       border-radius: 0 2rem 2rem 0;
-      
+      svg {
+        width: 20px;
+        path {
+          fill: white;
+        }
+      }
     }
   }
   // cart
   .ms__header--loginWith--cart {
     @include d-flex();
-    gap: 20px;
+    gap: 30px;
+    a {
+      @include d-flex();
+      flex-wrap: nowrap;
+      gap: 10px;
+      svg {
+        width: 20px;
+        path {
+          fill: $primary;
+        }
+      }
+    }
   }
 }
 .ms__navbar--part {
   background-color: $primary;
+  box-shadow: $box-shadow;
   .ms__navbar--container {
     position: relative;
-  margin-top: 10px;
+    margin-top: 10px;
   .ms__navbar--nav {
     @include d-flex();
     @include align-items(center);
