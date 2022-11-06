@@ -68,7 +68,7 @@
             <h4><span class="primary">Hello ! </span> These are the best deals</h4>
           </div>
           <div class="ms__bestDeal--slider slick-slider-relative">
-            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSeting" v-if="deals.length">
+            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSetting" v-if="deals.length">
               <div v-for="deal in deals" :key="deal.id">
                   <div class="ms__bestDeal--items">
                     <div class="figure position-relative mb-0 p-3">
@@ -106,7 +106,7 @@
             <h4 class="title primary mb-0">Featured</h4>
           </div>
           <div class="ms__bestDeal--slider slick-slider-relative">
-            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSeting" v-if="features.length">
+            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSetting" v-if="features.length">
               <div v-for="feature in features" :key="feature.id">
                   <div class="ms__bestDeal--items">
                     <div class="figure position-relative mb-0 p-3">
@@ -149,7 +149,7 @@
             </div>
           </div>
           <div class="ms__beatuy--slider mb-4 ms__bestDeal--slider slick-slider-relative">
-            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSeting" v-if="beauties.length">
+            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSetting" v-if="beauties.length">
               <div v-for="beauty in beauties" :key="beauty.id">
                 <div class="ms__bestDeal--items">
                   <div class="figure position-relative mb-0 p-3">
@@ -220,7 +220,7 @@
             <h4 class="title primary mb-0">Health and medicine</h4>
           </div>
           <div class="ms__beatuy--slider mb-4 ms__bestDeal--slider slick-slider-relative">
-            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSeting" v-if="medicines.length">
+            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSetting" v-if="medicines.length">
               <div v-for="medicine in medicines" :key="medicine.id">
                 <div class="ms__bestDeal--items">
                   <div class="figure position-relative mb-0 p-3">
@@ -270,7 +270,7 @@
             <h4 class="title primary mb-0">official Brands</h4>
           </div>
           <div class="ms__beatuy--slider mb-4 ms__bestDeal--slider slick-slider-relative">
-            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderThreeSeting" v-if="brands.length">
+            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderThreeSetting" v-if="brands.length">
               <div v-for="brand in brands" :key="brand.id">
                 <div class="ms__official--items">
                   <NuxtLink :to="brand.path">
@@ -433,14 +433,14 @@ export default {
       slidesToShow: 8,
       slidesToScroll: 1
     },
-    sliderTwoSeting: {
+    sliderTwoSetting: {
       infinite:true,
       arrows: true,
       dots: true,
       slidesToShow: 4,
       slidesToScroll: 1
     },
-    sliderThreeSeting: {
+    sliderThreeSetting: {
       infinite:true,
       arrows: true,
       dots: true,
