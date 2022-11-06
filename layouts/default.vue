@@ -1,10 +1,8 @@
 <template>
-<div>
-<ClientOnly>
+<div id="app">
   <partialsHeader/>
   <nuxt/>
   <partialsFooter/>
-  </ClientOnly>
 </div>
 </template>
 <script>
