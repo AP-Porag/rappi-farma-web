@@ -1,5 +1,9 @@
 <template>
-  <nuxt/>
+  <div>
+    <partialsHeader/>
+    <nuxt/>
+    <partialsFooter/>
+  </div>
 </template>
 <script>
 export default {
