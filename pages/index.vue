@@ -1,17 +1,17 @@
 <template>
   <div>
     <!-- banner part start -->
-    <section class="ms__banner--part">
-      <div class="container slick-slider-relative">
-        <VueSlickCarousel :arrows="true" :dots="false" v-if="banners.length">
-          <div class="ms__banner--items" v-for="banner in banners" :key="banner.id">
-            <NuxtLink :to="banner.path">
-              <img :data-src="banner.image"  class="img-fluid w-100" alt="" v-lazy-load>
-            </NuxtLink>
-          </div>
-        </VueSlickCarousel>
-      </div>
-    </section>
+<!--    <section class="ms__banner&#45;&#45;part">-->
+<!--      <div class="container slick-slider-relative">-->
+<!--        <VueSlickCarousel :arrows="true" :dots="false" v-if="banners.length">-->
+<!--          <div class="ms__banner&#45;&#45;items" v-for="banner in banners" :key="banner.id">-->
+<!--            <NuxtLink :to="banner.path">-->
+<!--              <img :data-src="banner.image"  class="img-fluid w-100" alt="" v-lazy-load>-->
+<!--            </NuxtLink>-->
+<!--          </div>-->
+<!--        </VueSlickCarousel>-->
+<!--      </div>-->
+<!--    </section>-->
     <!-- banner part end -->
 
     <!-- advertisment -->
@@ -332,22 +332,6 @@
         </div>
       </div>
     </section>
-<!--    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0">-->
-<!--      <SocialChat-->
-<!--        icon-->
-<!--        :attendants="attendants"-->
-<!--      >-->
-<!--        <p slot="header">Click on one of our attendants below to chat on WhatsApp.</p>-->
-<!--        <template v-slot:button>-->
-<!--          <img-->
-<!--            src="https://raw.githubusercontent.com/ktquez/vue-social-chat/master/src/icons/whatsapp.svg"-->
-<!--            alt="icon whatsapp"-->
-<!--            aria-hidden="true"-->
-<!--          >-->
-<!--        </template>-->
-<!--        <small slot="footer">Opening hours: 10am to 6pm</small>-->
-<!--      </SocialChat>-->
-<!--    </div>-->
   </div>
 
 </template>
