@@ -332,102 +332,22 @@
         </div>
       </div>
     </section>
-    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0">
-      <!-- <button
-        class="app-button"
-      >
-        <span><span>button</span></span>
-      </button> -->
-
-      <!-- <VueSlickCarousel :arrows="true" :dots="true">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-      </VueSlickCarousel> -->
-      <!-- named route -->
-
-      <!-- <div class="">
-        <ul>
-          <li>
-            <NuxtLink to="/brand/olay" class="btn-get-started">Brand,Category,Subcategory page</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink to="/categorias/beauty" class="btn-get-started">Single Category page</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink to="/cliente/123" class="btn-get-started">Customer profile page</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink to="/politicas" class="btn-get-started">Terms & Condition,Privacy policies page</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink to="/producto/olay" class="btn-get-started">Single Product page</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink to="/verificar" class="btn-get-started">Checkout page</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink to="/blog" class="btn-get-started">Blog page</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink to="/blog/something" class="btn-get-started">Single blog page</NuxtLink>
-          </li>
-        </ul>
-      </div> -->
-
-
-
-
-
-
-
-      <!-- <ShareNetwork
-        network="twitter"
-        url="https://news.vuejs.org/issues/180"
-        title="Say hi to Vite! A brand new, extremely fast development setup for Vue."
-        description="This week, I’d like to introduce you to 'Vite', which means 'Fast'. It’s a brand new development setup created by Evan You."
-        quote="The hot reload is so fast it\'s near instant. - Evan You"
-        hashtags="vuejs,vite,javascript"
-        twitterUser="youyuxi"
-      >
-        <i class="fab fah fa-lg fa-twitter"></i>
-        <span>Share on Twitter</span>
-      </ShareNetwork> -->
-
-      <SocialChat
-        icon
-        :attendants="attendants"
-      >
-        <p slot="header">Click on one of our attendants below to chat on WhatsApp.</p>
-        <template v-slot:button>
-          <img
-            src="https://raw.githubusercontent.com/ktquez/vue-social-chat/master/src/icons/whatsapp.svg"
-            alt="icon whatsapp"
-            aria-hidden="true"
-          >
-        </template>
-        <small slot="footer">Opening hours: 10am to 6pm</small>
-      </SocialChat>
-
-      <!-- <div class="box" @click="c" style="width: 250px;">
-        <v-zoom :img="url" :width="250"></v-zoom>
-      </div> -->
-
-      <!-- <div class="box-box" ></div>
-
-      <img data-src="https://i.pinimg.com/originals/90/a4/78/90a47821d9451451813f9f3867351b53.jpg" alt="" title="" v-lazy-load>
-      <h1 class="bg-success">FTP Testing</h1> -->
-      <!-- <footer>
-        <a href="https://github.com/zemna" target="_blank"><font-awesome-icon :icon="['fab', 'github']" class="fa-2x" /></a>
-        <a href="https://www.facebook.com/zemnanet" target="_blank"><font-awesome-icon :icon="['fab', 'facebook']" class="fa-2x" /></a>
-        <a href="https://www.instagram.com/zemna/" target="_blank"><font-awesome-icon :icon="['fab', 'instagram']" class="fa-2x" /></a>
-        <a href="https://twitter.com/zemna" target="_blank"><font-awesome-icon :icon="['fab', 'twitter']" class="fa-2x" /></a>
-      </footer> -->
-
-      <!-- <GrowBottomNavigation :options="options" v-model="selected" /> -->
-
-    </div>
+<!--    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0">-->
+<!--      <SocialChat-->
+<!--        icon-->
+<!--        :attendants="attendants"-->
+<!--      >-->
+<!--        <p slot="header">Click on one of our attendants below to chat on WhatsApp.</p>-->
+<!--        <template v-slot:button>-->
+<!--          <img-->
+<!--            src="https://raw.githubusercontent.com/ktquez/vue-social-chat/master/src/icons/whatsapp.svg"-->
+<!--            alt="icon whatsapp"-->
+<!--            aria-hidden="true"-->
+<!--          >-->
+<!--        </template>-->
+<!--        <small slot="footer">Opening hours: 10am to 6pm</small>-->
+<!--      </SocialChat>-->
+<!--    </div>-->
   </div>
 
 </template>
