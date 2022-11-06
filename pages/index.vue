@@ -340,25 +340,6 @@
 export default {
   name: 'IndexPage',
   data: () => ({
-    selected: 1,
-    options: [
-      { id: 1, icon: 'fa-solid fa-home', title: 'Home', color: '#5639af' },
-      { id: 2, icon: 'fa-solid fa-magnifying-glass', title: 'Search', color: '#ac4793' },
-      { id: 3, icon: 'fa-solid fa-heart', title: 'Likes', color: '#e2a93a' },
-      { id: 4, icon: 'fa-solid fa-gear', title: 'Settings', color: '#4493a7' }
-    ],
-    attendants: [
-      {
-        app: 'whatsapp',
-        label: 'Technical support',
-        name: 'Alan Ktquez',
-        number: '5581983383532',
-        avatar: {
-          src: 'https://avatars0.githubusercontent.com/u/8084606?s=460&u=20b6499a416cf7129a18e5c168cf387e159edb1a&v=4',
-          alt: 'Alan Ktquez avatar'
-        }
-      },
-    ],
     banners:[
       {id:'1.1',path:'/',image:'images/banner/banner-1.jpeg'},
       {id:'1.2',path:'/',image:'images/banner/banner-2.jpeg'},
