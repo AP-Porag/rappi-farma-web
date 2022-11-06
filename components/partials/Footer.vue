@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="ms__footer--img">
-                        <img data-src="/images/logo-farmatodo.svg" class="img-fluid w-100" alt="" v-lazy-load>
+                        <img data-src="/images/logo.svg" class="img-fluid w-100" alt="" v-lazy-load>
                     </div>
                 </div>
                 <div class="col-lg-3">
@@ -210,7 +210,7 @@
                 </ul>
             </div>
             <div class="ms_copyRight">
-                <p>© 2022 Farmatodo Colombia SA Designed by </p>
+                <p>© 2022 RappiFarma Colombia SA Designed by </p>
                 <span>COL-V5099-1.2.0</span>
             </div>
         </div>
