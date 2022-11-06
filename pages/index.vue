@@ -1,17 +1,17 @@
 <template>
   <div>
     <!-- banner part start -->
-<!--    <section class="ms__banner&#45;&#45;part">-->
-<!--      <div class="container slick-slider-relative">-->
-<!--        <VueSlickCarousel :arrows="true" :dots="false" v-if="banners.length">-->
-<!--          <div class="ms__banner&#45;&#45;items" v-for="banner in banners" :key="banner.id">-->
-<!--            <NuxtLink :to="banner.path">-->
-<!--              <img :data-src="banner.image"  class="img-fluid w-100" alt="" v-lazy-load>-->
-<!--            </NuxtLink>-->
-<!--          </div>-->
-<!--        </VueSlickCarousel>-->
-<!--      </div>-->
-<!--    </section>-->
+    <section class="ms__banner--part">
+      <div class="container slick-slider-relative">
+        <VueSlickCarousel :arrows="true" :dots="false" v-if="banners.length">
+          <div class="ms__banner--items" v-for="banner in banners" :key="banner.id">
+            <NuxtLink :to="banner.path">
+              <img :data-src="banner.image"  class="img-fluid w-100" alt="" v-lazy-load>
+            </NuxtLink>
+          </div>
+        </VueSlickCarousel>
+      </div>
+    </section>
     <!-- banner part end -->
 
     <!-- advertisment -->
