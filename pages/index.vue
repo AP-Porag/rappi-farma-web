@@ -44,14 +44,14 @@
           <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderOneSetting">
             <div class="" v-for="category in categories" :key="category.id">
               <NuxtLink :to="category.path">
-                <figure>
+                <div class="figure">
                   <div class="ms__catagories--img">
                     <img :data-src="category.image" alt="" v-lazy-load>
                   </div>
-                  <caption>
+                  <div class="caption">
                     <p class="font-14">Send it Now Venezuela</p>
-                  </caption>
-                </figure>
+                  </div>
+                </div>
               </NuxtLink>
             </div>
           </VueSlickCarousel>
@@ -72,7 +72,7 @@
               <div v-for="deal in deals" :key="deal.id">
                 <NuxtLink :to="deal.path">
                   <div class="ms__bestDeal--items">
-                    <figure class="position-relative mb-0 p-3">
+                    <div class="figure position-relative mb-0 p-3">
                       <div class="ms__bestDeal--img">
                         <img :data-src="deal.image" class="img-fluid" alt="" v-lazy-load>
                         <div class="tag">
@@ -84,7 +84,7 @@
                         <p>Hasta el 35% en {{deal.title}} </p>
                         <div class="offer-description-ribbon"></div>
                       </div>
-                    </figure>
+                    </div>
                     <div class="ms__card--btn">
                       <nuxt-link :to="deal.path" class="btn btn-primary btn-md w-100">See More</nuxt-link>
                     </div>
@@ -110,7 +110,7 @@
               <div v-for="feature in features" :key="feature.id">
                 <NuxtLink :to="feature.path">
                   <div class="ms__bestDeal--items">
-                    <figure class="position-relative mb-0 p-3">
+                    <div class="figure position-relative mb-0 p-3">
                       <div class="ms__bestDeal--img">
                         <img class="img-fluid" :data-src="feature.image" alt="" v-lazy-load>
                       </div>
@@ -118,7 +118,7 @@
                         <p>{{feature.title}}</p>
                         <div class="offer-description-ribbon"></div>
                       </div>
-                    </figure>
+                    </div>
                     <div class="ms__card--btn">
                       <nuxt-link to="" class="btn btn-primary btn-md w-100">See More</nuxt-link>
                     </div>
@@ -152,7 +152,7 @@
             <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSeting">
               <div v-for="beauty in beauties" :key="beauty.id">
                 <div class="ms__bestDeal--items">
-                  <figure class="position-relative mb-0 p-3">
+                  <div class="figure position-relative mb-0 p-3">
                     <div class="ms__bestDeal--img ms__beatuy--img">
                       <nuxt-link :to="beauty.path">
                         <img class="img" :data-src="beauty.image" alt="" v-lazy-load>
@@ -178,7 +178,7 @@
                         <span>{{beauty.stars}} ({{beauty.review}})</span>
                       </div>
                     </div>
-                  </figure>
+                  </div>
                   <div class="ms__card--btn">
                     <nuxt-link :to="beauty.path" class="btn btn-primary btn-md w-100">Add</nuxt-link>
                   </div>
@@ -223,7 +223,7 @@
             <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSeting">
               <div v-for="medicine in medicines" :key="medicine.id">
                 <div class="ms__bestDeal--items">
-                  <figure class="position-relative mb-0 p-3">
+                  <div class="figure position-relative mb-0 p-3">
                     <div class="ms__bestDeal--img ms__beatuy--img">
                       <nuxt-link :to="medicine.path">
                         <img class="img" :data-src="medicine.image" alt="" v-lazy-load>
@@ -249,7 +249,7 @@
                         <span>{{medicine.stars}} ({{medicine.review}})</span>
                       </div>
                     </div>
-                  </figure>
+                  </div>
                   <div class="ms__card--btn">
                     <nuxt-link :to="medicine.path" class="btn btn-primary btn-md w-100">Add</nuxt-link>
                   </div>
@@ -666,7 +666,7 @@ export default {
   background-color: #fff;
   box-shadow: $box-shadow;
   padding: 20px 0;
-  figure {
+  .figure {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -686,7 +686,7 @@ export default {
         @include bd-radius(10px);
       }
     }
-    caption {
+    .caption {
       p {
         text-align: center;
         font-size: 14px;
