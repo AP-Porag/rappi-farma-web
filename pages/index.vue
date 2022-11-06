@@ -3,7 +3,7 @@
     <!-- banner part start -->
     <section class="ms__banner--part">
       <div class="container slick-slider-relative">
-        <VueSlickCarousel :arrows="true" :dots="false">
+        <VueSlickCarousel :arrows="true" :dots="false" v-if="banners.length">
           <div class="ms__banner--items" v-for="banner in banners" :key="banner.id">
             <NuxtLink :to="banner.path">
               <img :data-src="banner.image"  class="img-fluid w-100" alt="" v-lazy-load>
@@ -41,7 +41,7 @@
     <section class="ms__catagories--part ic-section-space">
       <div class="container slick-slider-relative">
         <div class="ms__catagories--sliders">
-          <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderOneSetting">
+          <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderOneSetting" v-if="categories.length">
             <div class="" v-for="category in categories" :key="category.id">
               <NuxtLink :to="category.path">
                 <div class="figure">
@@ -68,13 +68,14 @@
             <h4><span class="primary">Hello ! </span> These are the best deals</h4>
           </div>
           <div class="ms__bestDeal--slider slick-slider-relative">
-            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSeting">
+            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSeting" v-if="deals.length">
               <div v-for="deal in deals" :key="deal.id">
-                <NuxtLink :to="deal.path">
                   <div class="ms__bestDeal--items">
                     <div class="figure position-relative mb-0 p-3">
                       <div class="ms__bestDeal--img">
-                        <img :data-src="deal.image" class="img-fluid" alt="" v-lazy-load>
+                        <nuxt-link :to="deal.path">
+                          <img :data-src="deal.image" class="img-fluid" alt="" v-lazy-load>
+                        </nuxt-link>
                         <div class="tag">
                           <img data-src="images/icon-discount-yellow.svg" alt="" v-lazy-load>
                           <p>{{deal.discount}}</p>
@@ -89,7 +90,6 @@
                       <nuxt-link :to="deal.path" class="btn btn-primary btn-md w-100">See More</nuxt-link>
                     </div>
                   </div>
-                </NuxtLink>
               </div>
             </VueSlickCarousel>
           </div>
@@ -106,13 +106,14 @@
             <h4 class="title primary mb-0">Featured</h4>
           </div>
           <div class="ms__bestDeal--slider slick-slider-relative">
-            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSeting">
+            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSeting" v-if="features.length">
               <div v-for="feature in features" :key="feature.id">
-                <NuxtLink :to="feature.path">
                   <div class="ms__bestDeal--items">
                     <div class="figure position-relative mb-0 p-3">
                       <div class="ms__bestDeal--img">
-                        <img class="img-fluid" :data-src="feature.image" alt="" v-lazy-load>
+                        <nuxt-link :to="feature.path">
+                          <img class="img-fluid" :data-src="feature.image" alt="" v-lazy-load>
+                        </nuxt-link>
                       </div>
                       <div class="offer-description">
                         <p>{{feature.title}}</p>
@@ -123,7 +124,6 @@
                       <nuxt-link to="" class="btn btn-primary btn-md w-100">See More</nuxt-link>
                     </div>
                   </div>
-                </NuxtLink>
               </div>
             </VueSlickCarousel>
           </div>
@@ -140,7 +140,7 @@
             <h4 class="title primary mb-0">Beauty</h4>
           </div>
           <div class="row row-cols-lg-5">
-            <div class="col" v-for="menu in menus" :key="menu.id">
+            <div class="col" v-for="menu in menus" :key="menu.id" v-if="menus.length">
               <div class="ms__beatuy__advertisment--items">
                 <nuxt-link :to="menu.path">
                   <img :data-src="menu.image" alt="" class="img-fluid w-100" v-lazy-load>
@@ -149,7 +149,7 @@
             </div>
           </div>
           <div class="ms__beatuy--slider mb-4 ms__bestDeal--slider slick-slider-relative">
-            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSeting">
+            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSeting" v-if="beauties.length">
               <div v-for="beauty in beauties" :key="beauty.id">
                 <div class="ms__bestDeal--items">
                   <div class="figure position-relative mb-0 p-3">
@@ -220,7 +220,7 @@
             <h4 class="title primary mb-0">Health and medicine</h4>
           </div>
           <div class="ms__beatuy--slider mb-4 ms__bestDeal--slider slick-slider-relative">
-            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSeting">
+            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSeting" v-if="medicines.length">
               <div v-for="medicine in medicines" :key="medicine.id">
                 <div class="ms__bestDeal--items">
                   <div class="figure position-relative mb-0 p-3">
@@ -270,7 +270,7 @@
             <h4 class="title primary mb-0">official Brands</h4>
           </div>
           <div class="ms__beatuy--slider mb-4 ms__bestDeal--slider slick-slider-relative">
-            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderThreeSeting">
+            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderThreeSeting" v-if="brands.length">
               <div v-for="brand in brands" :key="brand.id">
                 <div class="ms__official--items">
                   <NuxtLink :to="brand.path">
