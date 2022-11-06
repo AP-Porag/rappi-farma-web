@@ -477,7 +477,7 @@
                     <div class="ms__bestDeal--information">
                       <NuxtLink to="/"><h6 class="title">Nivea Milk Cream</h6></NuxtLink>
                       <NuxtLink to="/"><p class="discription">Body Nourishing Hydra Iq X1000ml</p></NuxtLink>
-                      
+
                       <p class="price">$41,20</p>
                       <p class="price-unit">Milliliter at $41.80</p>
                       <div class="star">
@@ -506,7 +506,7 @@
                     <div class="ms__bestDeal--information">
                       <NuxtLink to="/"><h6 class="title">Nivea Milk Cream</h6></NuxtLink>
                       <NuxtLink to="/"><p class="discription">Body Nourishing Hydra Iq X1000ml</p></NuxtLink>
-                      
+
                       <p class="price">$41,20</p>
                       <p class="price-unit">Milliliter at $41.80</p>
                       <div class="star">
@@ -535,7 +535,7 @@
                     <div class="ms__bestDeal--information">
                       <NuxtLink to="/"><h6 class="title">Nivea Milk Cream</h6></NuxtLink>
                       <NuxtLink to="/"><p class="discription">Body Nourishing Hydra Iq X1000ml</p></NuxtLink>
-                      
+
                       <p class="price">$41,20</p>
                       <p class="price-unit">Milliliter at $41.80</p>
                       <div class="star">
@@ -564,7 +564,7 @@
                     <div class="ms__bestDeal--information">
                       <NuxtLink to="/"><h6 class="title">Nivea Milk Cream</h6></NuxtLink>
                       <NuxtLink to="/"><p class="discription">Body Nourishing Hydra Iq X1000ml</p></NuxtLink>
-                      
+
                       <p class="price">$41,20</p>
                       <p class="price-unit">Milliliter at $41.80</p>
                       <div class="star">
@@ -593,7 +593,7 @@
                     <div class="ms__bestDeal--information">
                       <NuxtLink to="/"><h6 class="title">Nivea Milk Cream</h6></NuxtLink>
                       <NuxtLink to="/"><p class="discription">Body Nourishing Hydra Iq X1000ml</p></NuxtLink>
-                      
+
                       <p class="price">$41,20</p>
                       <p class="price-unit">Milliliter at $41.80</p>
                       <div class="star">
@@ -622,7 +622,7 @@
                     <div class="ms__bestDeal--information">
                       <NuxtLink to="/"><h6 class="title">Nivea Milk Cream</h6></NuxtLink>
                       <NuxtLink to="/"><p class="discription">Body Nourishing Hydra Iq X1000ml</p></NuxtLink>
-                      
+
                       <p class="price">$41,20</p>
                       <p class="price-unit">Milliliter at $41.80</p>
                       <div class="star">
@@ -723,7 +723,7 @@
                     <div class="ms__bestDeal--information">
                       <NuxtLink to="/"><h6 class="title">Nivea Milk Cream</h6></NuxtLink>
                       <NuxtLink to="/"><p class="discription">Body Nourishing Hydra Iq X1000ml</p></NuxtLink>
-                      
+
                       <p class="price">$41,20</p>
                       <p class="price-unit">Milliliter at $41.80</p>
                       <div class="star">
@@ -752,7 +752,7 @@
                     <div class="ms__bestDeal--information">
                       <NuxtLink to="/"><h6 class="title">Nivea Milk Cream</h6></NuxtLink>
                       <NuxtLink to="/"><p class="discription">Body Nourishing Hydra Iq X1000ml</p></NuxtLink>
-                      
+
                       <p class="price">$41,20</p>
                       <p class="price-unit">Milliliter at $41.80</p>
                       <div class="star">
@@ -781,7 +781,7 @@
                     <div class="ms__bestDeal--information">
                       <NuxtLink to="/"><h6 class="title">Nivea Milk Cream</h6></NuxtLink>
                       <NuxtLink to="/"><p class="discription">Body Nourishing Hydra Iq X1000ml</p></NuxtLink>
-                      
+
                       <p class="price">$41,20</p>
                       <p class="price-unit">Milliliter at $41.80</p>
                       <div class="star">
@@ -810,7 +810,7 @@
                     <div class="ms__bestDeal--information">
                       <NuxtLink to="/"><h6 class="title">Nivea Milk Cream</h6></NuxtLink>
                       <NuxtLink to="/"><p class="discription">Body Nourishing Hydra Iq X1000ml</p></NuxtLink>
-                      
+
                       <p class="price">$41,20</p>
                       <p class="price-unit">Milliliter at $41.80</p>
                       <div class="star">
@@ -839,7 +839,7 @@
                     <div class="ms__bestDeal--information">
                       <NuxtLink to="/"><h6 class="title">Nivea Milk Cream</h6></NuxtLink>
                       <NuxtLink to="/"><p class="discription">Body Nourishing Hydra Iq X1000ml</p></NuxtLink>
-                      
+
                       <p class="price">$41,20</p>
                       <p class="price-unit">Milliliter at $41.80</p>
                       <div class="star">
@@ -868,7 +868,7 @@
                     <div class="ms__bestDeal--information">
                       <NuxtLink to="/"><h6 class="title">Nivea Milk Cream</h6></NuxtLink>
                       <NuxtLink to="/"><p class="discription">Body Nourishing Hydra Iq X1000ml</p></NuxtLink>
-                      
+
                       <p class="price">$41,20</p>
                       <p class="price-unit">Milliliter at $41.80</p>
                       <div class="star">
@@ -1035,7 +1035,7 @@
           <div class="col-lg-3">
             <div class="ms__article--items">
               <h6>Online Drugstore: Address 24 Hours</h6>
-              <div class="ms__article--text"> 
+              <div class="ms__article--text">
                 <p>Hello, Welcome to Farmatodo! If you still do not know our portfolio, we tell you that we have everything you need in one place:</p>
                 <p>You will find from <NuxtLink to="/"><u>drugstore and pharmacy</u></NuxtLink> products , since we are specialists in medicines and all products related to health care , to all pantry products such as tortillas, soft drinks and much more. In other words, you can buy everything in one place and one click away.</p>
               </div>
@@ -1044,7 +1044,7 @@
           <div class="col-lg-3">
             <div class="ms__article--items">
               <h6>How to explore our page and categories?</h6>
-              <div class="ms__article--text"> 
+              <div class="ms__article--text">
                 <p>The first thing you should do is familiarize yourself with it. At the top you will find several tabs, which are made up of Health and Medicines , Beauty , Baby Care , Personal Care , Food and Drinks , and everything related to the home, pets, fun, among others.</p>
                 <p>From there, a universe of options will be displayed to guide you and take you to the products you are looking for. In addition, you can find many more outstanding services such as our address 24 hours a day, 7 days a week , the world of product offers in all categories , EnvíaloYa Venezuela and Medical Services.</p>
                 <p><b>Let yourself go and live a unique experience with Farmatodo!</b></p>
@@ -1054,7 +1054,7 @@
           <div class="col-lg-3">
             <div class="ms__article--items">
               <h6>Say goodbye to pain!</h6>
-              <div class="ms__article--text"> 
+              <div class="ms__article--text">
                 <p>Do not stop your daily activities and relieve these symptoms with medications for general discomfort. We know that sometimes our body presents different general pains due to the constant physical activities that we carry out and these signs of discomfort can also occur internally in the body due to a poor diet.</p>
                 <p>At Farmatodo you can find pills for colic and relieve those natural pains. In addition, you can browse and find creams for muscle and joint pain. This way you will be able to continue with your daily tasks. Browse, discover, choose your product and receive it at home in less than 35 minutes!</p>
               </div>
@@ -1063,7 +1063,7 @@
           <div class="col-lg-3">
             <div class="ms__article--items">
               <h6>Prevent flu symptoms!</h6>
-              <div class="ms__article--text"> 
+              <div class="ms__article--text">
                 <p>We know that sometimes our body receives small bacteria that are acquired from objects that we touch in the streets or simply when we speak very close to a person who may have the flu. We can control these types of symptoms with good pills for the flu or anti- flu medications , so the next day you will feel better and your energy will be at 100%.</p>
                 <p>Avoid flu symptoms with a good hand cleaning every time you get home or visit a family member, remember that washing and the duration of it is essential to avoid infections. In addition, a good antibacterial gel can prevent you from contracting unwanted bacteria.</p>
               </div>
@@ -1169,440 +1169,13 @@
 
   </div>
   </div>
-  
+
 </template>
 
 <script>
 export default {
   name: 'NuxtTutorial',
-  data: () => ({
-    selected: 1,
-    options: [
-      { id: 1, icon: 'fa-solid fa-home', title: 'Home', color: '#5639af' },
-      { id: 2, icon: 'fa-solid fa-magnifying-glass', title: 'Search', color: '#ac4793' },
-      { id: 3, icon: 'fa-solid fa-heart', title: 'Likes', color: '#e2a93a' },
-      { id: 4, icon: 'fa-solid fa-gear', title: 'Settings', color: '#4493a7' }
-    ],
-    attendants: [
-      {
-        app: 'whatsapp',
-        label: 'Technical support',
-        name: 'Alan Ktquez',
-        number: '5581983383532',
-        avatar: {
-          src: 'https://avatars0.githubusercontent.com/u/8084606?s=460&u=20b6499a416cf7129a18e5c168cf387e159edb1a&v=4',
-          alt: 'Alan Ktquez avatar'
-        }
-      },
-    ],
-    sliderOneSetting: {
-        arrows: true,
-        dots: true,
-        slidesToShow: 8,
-        slidesToScroll: 1
-      },
-      sliderTwoSeting: {
-        infinite:true,
-        arrows: true,
-        dots: true,
-        slidesToShow: 4,
-        slidesToScroll: 1
-      },
-      sliderThreeSeting: {
-        infinite:true,
-        arrows: true,
-        dots: true,
-        slidesToShow: 8,
-        slidesToScroll: 1
-      },
-    url:
-      "https://i.pinimg.com/originals/90/a4/78/90a47821d9451451813f9f3867351b53.jpg",
-  }),
-  methods: {
-    c() {
-      this.$zoom(this.url);
-    }
-  }
+
 }
 </script>
-<style lang="scss">
-.ms__banner--part {
-  .container {
-    position: relative;
-  }
-  .slick-track{
-    height: 380px;
-  }
-  .ms__banner--items {
-      max-height: 480px;
-      height: 100%;
-      @include bd-radius(10px);
-    img {
-      max-height: 380px;
-      height: 100%;
-      @include bd-radius(10px);
-    }
-  }
-  
-  // .slick-dots {
-  //   position: absolute;
-  //   bottom: 10px;
-  //   left: 50%;
-  //   transform: translateX(-50%);
-  //   z-index: 1;
-  //   display: flex!important;
-  //   gap: 5px;
-  //   li {
-  //     button {
-  //       width: 15px;
-  //       height: 15px;
-  //       @include bd-radius(50%);
-  //       background-color: $white;
-  //       border: 1px solid gray;
-  //       color: transparent;
 
-  //     }
-  //     &.slick-active {
-  //       button {
-  //         background-color: $primary;
-  //       }
-  //     }
-  //   }
-  // }
-}
-.slick-slider-relative {
-  position: relative;
-  .slick-arrow {
-    width: 50px;
-    height: 50px;
-    @include bd-radius(50%);
-    background-color: $white;
-    outline: 0;
-    border: 1px solid $gray-light;
-    &::before {
-      color: #202020;
-    }
-    &.slick-prev {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      left: 0;
-      z-index: 1;
-    }
-    &.slick-next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: 0;
-      z-index: 1;
-    }
-  }
-}
-// advertisment
-.ms__advertisment--part {
-  padding-top: 50px;
-}
-.ms__advertisment--img {
-  box-shadow: $box-shadow;
-  height: 200px;
-  @include bd-radius(10px);
-  img {
-    height: 100%;
-    @include bd-radius(10px);
-  }
-}
-
-// catagories
-.ms__catagories--sliders {
-  @include bd-radius(10px);
-  background-color: #fff;
-  box-shadow: $box-shadow;
-  padding: 20px 0;
-  figure {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    .ms__catagories--img {
-      width: 5rem;
-      height: 5rem;
-      background-color: #fff; 
-      border-radius: 50%;
-      text-align: center;
-      img {
-        width: auto;
-        max-width: 100%;
-        max-height: 100%;
-        height: max-content;
-        background-color: #fff;
-        @include bd-radius(10px);
-      }
-    }
-    caption {
-      p {
-        text-align: center;
-        font-size: 14px;
-      }
-    }
-  }
-}
-
-// best deal 
-.ms__bestDeal--slider {
-  .slick-slide {
-    padding: 10px;
-  }
-}
-.ms__bestDeal--items {
-    background: #fff;
-    border-radius: 0.5rem;
-    border: 1px solid #e9eaed;
-    box-shadow: $box-shadow;
-    // margin: 10px;
-    .ms__bestDeal--img {
-      position: relative;
-      height: 248px;
-      text-align: center;
-      &.ms__beatuy--img {
-        height: 170px;
-      }
-      .img {
-        width: auto;
-        max-width: 100%;
-        max-height: 100%;
-        height: max-content;
-        margin: 0 auto;
-      }
-      .tag {
-        position: absolute;
-        top: 0;
-        left: 0;
-        img {
-          width: 3rem;
-          height: 3rem;
-          transform: rotate(180deg);
-        }
-        p {
-          font-weight: 700;
-          top: 1rem;
-          left: 0.8rem;
-          position: absolute;
-          color: #000;
-          font-size: 12px;
-        }
-      }
-      .wihslist {
-        position: absolute;
-        display: inline-block;
-        top: 10px;
-        right: 10px;
-        svg {
-          width: 20px;
-        }
-      }
-    }
-    .offer-description {
-      position: relative;
-      left: -23px;
-
-      // height: 2.8rem;
-      font-family: Helvetica,sans-serif;
-      border-radius: 0 1rem 0 0;
-      border: 2px solid #fdd756;
-      background-color: #fff;
-      color: #000;
-      font-weight: 500;
-      margin-top: 0;
-      margin-bottom: 0;
-      overflow: visible!important;
-      padding: 5px 10px;
-      p {
-        font-size: 14px;
-        margin-bottom: 0;
-          text-align: left;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        -webkit-line-clamp: 2;
-      }
-      .offer-description-ribbon {
-        position: absolute;
-        left: 0.5px;
-        bottom: -7px;
-        border: 5px solid;
-        border-right: 5px solid #c39c03;
-        width: 5px;
-        height: 2px;
-        color: transparent;
-        transform: rotate(135deg);
-        z-index: 1;
-      }
-    }
-    .ms__bestDeal--information {
-      h6 {
-        font-size: 15px;
-        line-height: 24px;
-        color: #202020;
-      }
-      .discription {
-        font-size: 13px;
-        line-height: 20px;
-        color: $gray-deep;
-      }
-      .price {
-        font-size: 18px;
-        font-weight: 600;
-        color: $primary;
-      }
-      .price-unit {
-        font-size: 10px;
-        line-height: 16px;
-        color: $gray-deep;
-      }
-      .star {
-        padding-top: 15px;
-        @include d-flex();
-        @include align-items(center);
-        gap:10px;
-        span {
-          font-size: 14px;
-        }
-        svg {
-          width: 16px;
-          fill: #fdd756;
-        }
-      }
-    }
-    .ms__card--btn {
-      padding: 0 16px 16px 16px;
-    }
-  }
-.ms__card {
-  box-shadow: $box-shadow;
-  background-color: #fff;
-  @include bd-radius(10px);
-  padding: 20px;
-  .ms__title {
-    margin-bottom: 20px;
-    border-bottom: 1px solid $gray-light;
-    .title {
-      position: relative;
-      padding-bottom: 10px;
-      display: inline-block;
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 3px;
-        width: 100%;
-        background-color: $primary;
-      }
-    }
-  }
-}
-.ms__beatuy--logos {
-  height: 5rem;
-  .col-lg-2 {
-    height: auto;
-    max-height: 100%;
-    max-width: 50%;
-  }
-  .ms__beatuy__advertisment--items {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    img {
-      width: auto;
-      height: auto;
-      max-height: 100%;
-      max-width: 71%;
-    }
-  }
-}
-.ms__add--img {
-  img {
-    @include bd-radius(10px);
-  }
-}
-// beauty
-.ms__beatuy--slider {
-  padding-top: 20px;
-}
-// official
-.ms__official--items {
-  text-align: center;
-  .ms__official--img {
-    width: 120px;
-    height: 120px;
-    @include bd-radius(50%);
-    border: 1px solid $gray-light;
-    text-align: center;
-    padding: 10px;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    img {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-    }
-  }
-  P {
-    font-size: 12px;
-    color: $gray-deep;
-  }
-}
-.ms__article--items {
-  h6 {
-    font-size: 15px;
-    font-weight: 700;
-    color: #202020;
-    padding-bottom: 15px;
-  }
-  p {
-    font-size: 13px;
-    color: $gray-deep;
-    padding-bottom: 15px;
-    a {
-      font-size: 13px;
-      color: $gray-deep;
-    }
-  }
-}
-
-
-
-
-.app-button {
-  position: relative;
-  display: inline-flex;
-  cursor: pointer;
-  white-space: nowrap;
-  vertical-align: top;
-  text-decoration: none;
-  outline: none;
-  width: minus(30px, 100px);
-
-  // variant
-  span{
-    background-color: $primary;
-    color: $white;
-
-    span{
-      color: red;
-    }
-  }
-}
-.box-box {
-  width: 150px;
-  height: 150px;
-  background-image: url(https://i.pinimg.com/originals/90/a4/78/90a47821d9451451813f9f3867351b53.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-</style>
