@@ -12,7 +12,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' },
       { rel:'preconnect', href: 'https://fonts.gstatic.com'},
       { rel: 'stylesheet', href: "https:/fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" }
     ]
@@ -75,7 +75,7 @@ export default {
     'vue-social-sharing/nuxt',
     ['nuxt-lazy-load', {
       // Default image must be in the static folder
-      defaultImage: '/images/default.svg',
+      defaultImage: '/images/loader.gif',
     }],
   ],
   styleResources: {
@@ -92,7 +92,6 @@ export default {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: '/',
   },
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     loaders: {
@@ -103,6 +102,7 @@ export default {
         implementation: require('sass'),
       },
     },
-  }
+  },
+  loading: '~/components/LoadingBar.vue',
 
 }

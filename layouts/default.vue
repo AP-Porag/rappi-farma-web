@@ -1,9 +1,9 @@
 <template>
-<div>
-  <partialsHeader/>
-  <nuxt/>
-  <partialsFooter/>
-</div>
+  <div>
+    <partialsHeader/>
+    <nuxt/>
+    <partialsFooter/>
+  </div>
 </template>
 <script>
 export default {
