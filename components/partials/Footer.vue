@@ -243,10 +243,10 @@
   <style lang="scss" scoped>
   .ms__footer--part {
     background-color: #192E5A;
-    padding-top: 30px;
+    padding-top: 30px;  
     .ms__footer--img {
         img {
-            max-width: 300px;
+            max-width: 200px;
         }
     }
     .ms__footer--links {

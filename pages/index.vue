@@ -70,27 +70,29 @@
           <div class="ms__bestDeal--slider slick-slider-relative">
             <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSetting" v-if="deals.length">
               <div v-for="deal in deals" :key="deal.id">
-                  <div class="ms__bestDeal--items">
+                <div class="ms__bestDeal--items">
                     <div class="figure position-relative mb-0 p-3">
-                      <div class="ms__bestDeal--img">
+                        <div class="ms__bestDeal--img">
                         <nuxt-link :to="deal.path">
-                          <img :data-src="deal.image" class="img-fluid" alt="" v-lazy-load>
+                            <img :data-src="deal.image" class="img-fluid" alt="" v-lazy-load>
                         </nuxt-link>
                         <div class="tag">
-                          <img data-src="images/icon-discount-yellow.svg" alt="" v-lazy-load>
-                          <p>{{deal.discount}}</p>
+                            <img data-src="images/icon-discount-yellow.svg" alt="" v-lazy-load>
+                            <p>{{deal.discount}}</p>
                         </div>
-                      </div>
-                      <div class="offer-description">
+                        </div>
+                        <div class="offer-description">
                         <p>Hasta el 35% en {{deal.title}} </p>
                         <div class="offer-description-ribbon"></div>
-                      </div>
+                        </div>
                     </div>
                     <div class="ms__card--btn">
-                      <nuxt-link :to="deal.path" class="btn btn-primary btn-md w-100">See More</nuxt-link>
+                        <nuxt-link :to="deal.path" class="btn btn-primary btn-md w-100">See More</nuxt-link>
                     </div>
-                  </div>
+                </div>
               </div>
+              
+              <!-- <ProductoProduct  :product="deal" /> -->
             </VueSlickCarousel>
           </div>
         </div>
@@ -150,16 +152,14 @@
           </div>
           <div class="ms__beatuy--slider mb-4 ms__bestDeal--slider slick-slider-relative">
             <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSetting" v-if="beauties.length">
-              <div v-for="beauty in beauties" :key="beauty.id">
+              <ProductoProduct v-for="beauty in beauties" :key="beauty.id" :product="beauty" />
+              <!-- <div >
                 <div class="ms__bestDeal--items">
                   <div class="figure position-relative mb-0 p-3">
                     <div class="ms__bestDeal--img ms__beatuy--img">
                       <nuxt-link :to="beauty.path">
                         <img class="img" :data-src="beauty.image" alt="" v-lazy-load>
                       </nuxt-link>
-                      <!--                      <NuxtLink class="wihslist" to="/">-->
-<!--                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M244 84L255.1 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 0 232.4 0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84C243.1 84 244 84.01 244 84L244 84zM255.1 163.9L210.1 117.1C188.4 96.28 157.6 86.4 127.3 91.44C81.55 99.07 48 138.7 48 185.1V190.9C48 219.1 59.71 246.1 80.34 265.3L256 429.3L431.7 265.3C452.3 246.1 464 219.1 464 190.9V185.1C464 138.7 430.4 99.07 384.7 91.44C354.4 86.4 323.6 96.28 301.9 117.1L255.1 163.9z"/></svg>-->
-<!--                      </NuxtLink>-->
                     </div>
                     <div class="ms__bestDeal--information">
                       <NuxtLink :to="beauty.path"><h6 class="title">{{beauty.title}}</h6></NuxtLink>
@@ -183,7 +183,7 @@
                     <nuxt-link :to="beauty.path" class="btn btn-primary btn-md w-100">Add</nuxt-link>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </VueSlickCarousel>
           </div>
           <div class="ms__beatuy--logos">
@@ -221,16 +221,14 @@
           </div>
           <div class="ms__beatuy--slider mb-4 ms__bestDeal--slider slick-slider-relative">
             <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSetting" v-if="medicines.length">
-              <div v-for="medicine in medicines" :key="medicine.id">
+              <ProductoProduct v-for="medicine in medicines" :key="medicine.id" :product="medicine" />
+              <!-- <div v-for="medicine in medicines" :key="medicine.id">
                 <div class="ms__bestDeal--items">
                   <div class="figure position-relative mb-0 p-3">
                     <div class="ms__bestDeal--img ms__beatuy--img">
                       <nuxt-link :to="medicine.path">
                         <img class="img" :data-src="medicine.image" alt="" v-lazy-load>
                       </nuxt-link>
-                      <!--                      <NuxtLink class="wihslist" to="/">-->
-                      <!--                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M244 84L255.1 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 0 232.4 0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84C243.1 84 244 84.01 244 84L244 84zM255.1 163.9L210.1 117.1C188.4 96.28 157.6 86.4 127.3 91.44C81.55 99.07 48 138.7 48 185.1V190.9C48 219.1 59.71 246.1 80.34 265.3L256 429.3L431.7 265.3C452.3 246.1 464 219.1 464 190.9V185.1C464 138.7 430.4 99.07 384.7 91.44C354.4 86.4 323.6 96.28 301.9 117.1L255.1 163.9z"/></svg>-->
-                      <!--                      </NuxtLink>-->
                     </div>
                     <div class="ms__bestDeal--information">
                       <NuxtLink :to="medicine.path"><h6 class="title">{{medicine.title}}</h6></NuxtLink>
@@ -254,7 +252,7 @@
                     <nuxt-link :to="medicine.path" class="btn btn-primary btn-md w-100">Add</nuxt-link>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </VueSlickCarousel>
           </div>
         </div>

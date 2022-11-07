@@ -106,6 +106,7 @@
                     <a href="#" class="btn-border">see more</a>
                   </div>
                 </div>
+                
                 <div class="col-xl-8">
                   <div class="ms__related--sliders slick-slider-relative">
                     <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderFourSeting">
