@@ -416,7 +416,7 @@
         <div class="col-lg-4">
           <div class="ms__advertisment--img">
             <NuxtLink to="#">
-              <img src="https://lh3.googleusercontent.com/aNhViKeDIO-b9GTduQ8ke68-gZHNG1PVCP8cnIxNA0lDusqc111GqJClNqhUQozV7QXs_ya_5oDnMs4aVe1BdifH9WcN-m1klXz4XWOJc3_U5OphKw=s5000" alt="" class="img-fluid w-100" v-lazy-load></img>
+              <img src="https://lh3.googleusercontent.com/aNhViKeDIO-b9GTduQ8ke68-gZHNG1PVCP8cnIxNA0lDusqc111GqJClNqhUQozV7QXs_ya_5oDnMs4aVe1BdifH9WcN-m1klXz4XWOJc3_U5OphKw=s5000" alt="" class="img-fluid w-100" v-lazy-load>
             </NuxtLink>
           </div>
         </div>
