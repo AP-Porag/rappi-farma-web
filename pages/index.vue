@@ -579,11 +579,9 @@ export default {
 }
 
 // best deal
-.ms__bestDeal--slider {
-  .slick-slide {
+.slick-slide {
     padding: 10px;
   }
-}
 .ms__bestDeal--items {
   background: #fff;
   border-radius: 0.5rem;
