@@ -3,7 +3,9 @@
       <div class="container">
         <div class="ms__header--container">
           <div class="ms__header--logo">
-            <img src="/images/logo.svg" alt="" v-lazy-load>
+            <nuxt-link to="/">
+              <img src="/images/logo.svg" alt="" v-lazy-load>
+            </nuxt-link>
           </div>
           <div class="ms__header--searchBar position-relative">
             <input type="text" placeholder="Search">
@@ -16,7 +18,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M272 304h-96C78.8 304 0 382.8 0 480c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32C448 382.8 369.2 304 272 304zM48.99 464C56.89 400.9 110.8 352 176 352h96c65.16 0 119.1 48.95 127 112H48.99zM224 256c70.69 0 128-57.31 128-128c0-70.69-57.31-128-128-128S96 57.31 96 128C96 198.7 153.3 256 224 256zM224 48c44.11 0 80 35.89 80 80c0 44.11-35.89 80-80 80S144 172.1 144 128C144 83.89 179.9 48 224 48z"/></svg>
                 Login
               </a>
-              <a href="#"> 
+              <a href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M24 0C10.7 0 0 10.7 0 24S10.7 48 24 48H76.1l60.3 316.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24-10.7 24-24s-10.7-24-24-24H179.9l-9.1-48h317c14.3 0 26.9-9.5 30.8-23.3l54-192C578.3 52.3 563 32 541.8 32H122l-2.4-12.5C117.4 8.2 107.5 0 96 0H24zM176 512c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm336-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48z"/></svg>
                 cart
               </a>
@@ -29,7 +31,7 @@
         <nav class="ms__navbar--container">
           <ul class="ms__navbar--nav">
             <li class="ms__navbar--items">
-              <NuxtLink class="ms__navbar--links" to="/">Salud y medicamentos</NuxtLink>
+              <NuxtLink class="ms__navbar--links" to="/categorias/belleza">Salud y medicamentos</NuxtLink>
               <div class="ms__navbar--MegadropDwon">
                   <div class="ms__dropDwon--items">
                     <h6>Heading 1</h6>
@@ -102,24 +104,96 @@
                     </ul>
                   </div>
               </div>
-            </li> 
-            <li class="ms__navbar--items">
-              <NuxtLink class="ms__navbar--links" to="/">Belleza</NuxtLink>
             </li>
             <li class="ms__navbar--items">
-              <NuxtLink class="ms__navbar--links" to="/">Cuidado del bebé</NuxtLink>
+              <NuxtLink class="ms__navbar--links" to="/categorias/belleza">Belleza</NuxtLink>
+              <div class="ms__navbar--MegadropDwon">
+                <div class="ms__dropDwon--items">
+                  <h6>Heading 2</h6>
+                  <ul>
+                    <li>
+                      <NuxtLink class="ms__dropDwon--links" to="/">Belleza</NuxtLink>
+                    </li>
+                    <li>
+                      <NuxtLink class="ms__dropDwon--links" to="/">Belleza</NuxtLink>
+                    </li>
+                    <li>
+                      <NuxtLink class="ms__dropDwon--links" to="/">Belleza</NuxtLink>
+                    </li>
+                  </ul>
+                </div>
+                <div class="ms__dropDwon--items">
+                  <h6>Heading 1</h6>
+                  <ul>
+                    <li>
+                      <NuxtLink class="ms__dropDwon--links" to="/">Belleza</NuxtLink>
+                    </li>
+                    <li>
+                      <NuxtLink class="ms__dropDwon--links" to="/">Belleza</NuxtLink>
+                    </li>
+                    <li>
+                      <NuxtLink class="ms__dropDwon--links" to="/">Belleza</NuxtLink>
+                    </li>
+                  </ul>
+                </div>
+                <div class="ms__dropDwon--items">
+                  <h6>Heading 1</h6>
+                  <ul>
+                    <li>
+                      <NuxtLink class="ms__dropDwon--links" to="/">Belleza</NuxtLink>
+                    </li>
+                    <li>
+                      <NuxtLink class="ms__dropDwon--links" to="/">Belleza</NuxtLink>
+                    </li>
+                    <li>
+                      <NuxtLink class="ms__dropDwon--links" to="/">Belleza</NuxtLink>
+                    </li>
+                  </ul>
+                </div>
+                <div class="ms__dropDwon--items">
+                  <h6>Heading 1</h6>
+                  <ul>
+                    <li>
+                      <NuxtLink class="ms__dropDwon--links" to="/">Belleza</NuxtLink>
+                    </li>
+                    <li>
+                      <NuxtLink class="ms__dropDwon--links" to="/">Belleza</NuxtLink>
+                    </li>
+                    <li>
+                      <NuxtLink class="ms__dropDwon--links" to="/">Belleza</NuxtLink>
+                    </li>
+                  </ul>
+                </div>
+                <div class="ms__dropDwon--items">
+                  <h6>Heading 1</h6>
+                  <ul>
+                    <li>
+                      <NuxtLink class="ms__dropDwon--links" to="/">Belleza</NuxtLink>
+                    </li>
+                    <li>
+                      <NuxtLink class="ms__dropDwon--links" to="/">Belleza</NuxtLink>
+                    </li>
+                    <li>
+                      <NuxtLink class="ms__dropDwon--links" to="/">Belleza</NuxtLink>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </li>
             <li class="ms__navbar--items">
-              <NuxtLink class="ms__navbar--links" to="/">Cuidado personal</NuxtLink>
+              <NuxtLink class="ms__navbar--links" to="/categorias/belleza">Cuidado del bebé</NuxtLink>
             </li>
             <li class="ms__navbar--items">
-              <NuxtLink class="ms__navbar--links" to="/">Alimentos y bebidas</NuxtLink>
+              <NuxtLink class="ms__navbar--links" to="/categorias/belleza">Cuidado personal</NuxtLink>
             </li>
             <li class="ms__navbar--items">
-              <NuxtLink class="ms__navbar--links" to="/">Hogar, mascotas y otros.</NuxtLink>
+              <NuxtLink class="ms__navbar--links" to="/categorias/belleza">Alimentos y bebidas</NuxtLink>
             </li>
             <li class="ms__navbar--items">
-              <NuxtLink class="ms__navbar--links" to="/">Ingresar cupón</NuxtLink>
+              <NuxtLink class="ms__navbar--links" to="/categorias/belleza">Hogar, mascotas y otros.</NuxtLink>
+            </li>
+            <li class="ms__navbar--items">
+              <NuxtLink class="ms__navbar--links" to="/categorias/belleza">Ingresar cupón</NuxtLink>
             </li>
           </ul>
         </nav>
@@ -127,7 +201,7 @@
     </div>
     </header>
 </template>
-  
+
 <script>
 export default {
   name: "Header"
