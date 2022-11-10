@@ -105,18 +105,29 @@
             </div>
             <div class="col-lg-9">
               <div class="ms__catagoriesFilter--right">
-                <h5 class="subCatagories__title">Drugstore</h5>
-                <ul class="page--navigation">
-                  <li>
-                    <a href="#">Health and medicines / </a>
-                  </li>
-                  <li>
-                    <a href="#">Health and medicines / </a>
-                  </li>
-                  <li>
-                    <a href="#">Drugstore</a>
-                  </li>
-                </ul>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <h5 class="subCatagories__title">Drugstore</h5>
+                    <ul class="page--navigation">
+                      <li>
+                        <a href="#">Health and medicines / </a>
+                      </li>
+                      <li>
+                        <a href="#">Health and medicines / </a>
+                      </li>
+                      <li>
+                        <a href="#">Drugstore</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="ms__filter--search">
+                      <a href="#" class="ic-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M14 14v6l-4 2v-8L4 5V3h16v2l-6 9zM6.404 5L12 13.394 17.596 5H6.404z"/></svg>
+                         Filter search</a>
+                    </div>
+                  </div>
+                </div>
 
                 <div class="row g-4">
                   <ProductoProduct class="col-lg-4" v-for="beauty in beauties" :key="beauty.id" :product="beauty" />

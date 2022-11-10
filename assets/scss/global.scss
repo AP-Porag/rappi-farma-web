@@ -19,3 +19,44 @@ a {
 .ic-section-space-bottom {
   padding-bottom: 30px;
 }
+
+.ic-btn {
+  height: 44px;
+  padding: 0 24px;
+  @include bd-radius(4px);
+  background-color: $primary;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  @include transition(0.3s);
+  i {
+    color: #fff;
+    margin-right: 8px;
+  }
+  svg {
+    fill: #fff;
+    margin-right: 8px;
+  }
+  &:hover {
+    background-color: #1b88f5;
+    color: #fff;
+  }
+}
+
+.ic-btn-outline {
+  @extend .ic-btn;
+  background-color: transparent;
+  border: 1px solid $primary;
+  color: $primary;
+  font-weight: 500;
+  svg {
+    fill: $primary;
+    margin-right: 8px;
+  }
+  &:hover {
+    svg {
+      fill: #fff;
+    }
+  }
+}
