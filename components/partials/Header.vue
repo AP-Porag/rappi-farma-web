@@ -3,7 +3,9 @@
       <div class="container">
         <div class="ms__header--container">
           <div class="ms__header--logo">
-            <img src="/images/logo.svg" alt="" v-lazy-load>
+            <NuxtLink to="/">
+              <img src="/images/logo.svg" alt="" v-lazy-load>
+            </NuxtLink>
           </div>
           <div class="ms__header--searchBar position-relative">
             <input type="text" placeholder="Search">
