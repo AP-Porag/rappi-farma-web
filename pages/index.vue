@@ -91,7 +91,7 @@
                     </div>
                 </div>
               </div>
-              
+
               <!-- <ProductoProduct  :product="deal" /> -->
             </VueSlickCarousel>
           </div>
@@ -429,7 +429,7 @@ export default {
       arrows: true,
       dots: true,
       slidesToShow: 8,
-      slidesToScroll: 1
+      slidesToScroll: 1,
     },
     sliderTwoSetting: {
       infinite:true,
