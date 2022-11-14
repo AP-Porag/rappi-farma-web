@@ -5,42 +5,6 @@
         <div class="row">
           <div class="col-lg-6">
             <div class="ms__product--image">
-              <div class="ms__small--products">
-                <VueSlickCarousel
-                  :arrows="false"
-                  :dots="false"
-                  v-bind="productSliderSmall"
-                >
-                  <div class="ms__small--img">
-                    <img
-                      data-src="https://lh3.googleusercontent.com/q64qBvzPC2pmyckLfiDCkwdNqT76T5mTq7PqeFwYcC4W1p2ukqYdFUCz-jWUlcLt9SXa_jwrVSGzWEGYRRMzsE5gPfei5wpbnCk"
-                      alt=""
-                      v-lazy-load
-                    />
-                  </div>
-                  <div class="ms__small--img">
-                    <img
-                      data-src="https://lh3.googleusercontent.com/BvyK96ucNVhgPHJFfrIm3F8sym4p0OTxwDiaHuIlnznry27407u5V8_MxoxnIgRc3BxY2-IRvcqllvRtaDL6Gx5v8m7aW-zLYAA"
-                      alt=""
-                      v-lazy-load
-                    />
-                  </div>
-                  <div class="ms__small--img">
-                    <img
-                      data-src="https://lh3.googleusercontent.com/G89__YBPFmeOFPUS9Y-ra9JteRYoztxoG6vrgznzih5OdjgURoPNc3JdpIBx5TcS6wLvNTmTa5yYlXgsPEBPqj2HeB0DOpqehA"
-                      alt=""
-                      v-lazy-load
-                    />
-                  </div>
-                  <div class="ms__small--img">
-                    <img
-                      data-src="https://lh3.googleusercontent.com/G89__YBPFmeOFPUS9Y-ra9JteRYoztxoG6vrgznzih5OdjgURoPNc3JdpIBx5TcS6wLvNTmTa5yYlXgsPEBPqj2HeB0DOpqehA"
-                      alt=""
-                      v-lazy-load
-                    />
-                  </div>
-                </VueSlickCarousel>
-              </div>
               <div class="ms__large--image">
                 <div>
                   <img
