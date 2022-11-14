@@ -4,9 +4,9 @@
       <div class="container">
         <div class="ms__header--container">
           <div class="ms__header--logo">
-            <nuxt-link to="/">
+            <NuxtLink to="/">
               <img src="/images/logo.svg" alt="" v-lazy-load>
-            </nuxt-link>
+            </NuxtLink>
           </div>
           <div class="ms__header--searchBar position-relative">
             <input type="text" placeholder="Search">
@@ -203,7 +203,7 @@
     </header>
     <!-- cart start -->
     <div class="ic__shopping--overlay"></div>
-    <div class="ic__shopping--cart active">
+    <div class="ic__shopping--cart">
         <div class="ic__shopping--top">
             <a href="#" class="ic__cart--closed">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
