@@ -2,6 +2,26 @@
   <div>
     <section class="ms__customer--profile ic-section-space">
       <div class="container">
+        <div>
+                <vue-tabs active-tab-color="#e74c3c"
+            active-text-color="white"
+            type="pills"
+            :start-index="1"
+            direction="vertical"
+  >
+                <v-tab title="First tab" icon="ti-user">
+                  <h2 class="text-bg-primary">First tab content</h2>
+                </v-tab>
+
+                <v-tab title="Second tab" icon="ti-settings">
+                  Second tab content
+                </v-tab>
+
+                <v-tab title="Third tab" icon="ti-check">
+                  Third tab content
+                </v-tab>
+              </vue-tabs>
+              </div>
         <div class="row">
           <div class="col-lg-4">
             <div class="ms__customer--avatar">
@@ -23,7 +43,8 @@
                 <h5>Alex Mitchell</h5>
                 <p>alexmitchell@gmail.com</p>
               </div>
-              <ul class="customer-nav">
+              
+              <ul class="customer-nav"> 
                 <li>
                   <NuxtLink to="#" class="active">Basic Info</NuxtLink>
                 </li>

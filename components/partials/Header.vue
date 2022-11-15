@@ -203,7 +203,7 @@
     </header>
     <!-- cart start -->
     <div class="ic__shopping--overlay"></div>
-    <div class="ic__shopping--cart ">
+    <div class="ic__shopping--cart">
         <div class="ic__shopping--top">
             <a href="#" class="ic__cart--closed">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
@@ -510,8 +510,8 @@ export default {
       padding-bottom: 20px;
     }
   }
-
-  .ic__shopping--cart--head {
+}
+.ic__shopping--cart--head {
     background-color: $gray-100;
     @include d-flex();
     @include justify-content(space-between);
@@ -681,8 +681,6 @@ export default {
       }
     }
   }
-}
-
 .ic__shopping--bottom {
   margin-top: auto;
   @include d-flex();
