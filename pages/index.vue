@@ -335,8 +335,10 @@
 </template>
 
 <script>
+import NuxtTutorial from "~/components/Tutorial";
 export default {
   name: 'IndexPage',
+  components: {NuxtTutorial},
   data: () => ({
     banners:[
       {id:'1.1',path:'/',image:'images/banner/banner-1.jpeg'},
