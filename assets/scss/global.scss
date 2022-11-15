@@ -44,8 +44,9 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  border: 0;
   color: #fff;
-  @include transition(0.3s);
+  @include transition(0.3s);  
   i {
     color: #fff;
     margin-right: 8px;
@@ -86,5 +87,22 @@ a {
     td {
       padding: 8px;
     }
+  }
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+input {
+  border-radius: 2px!important;
+  border: 1px solid $gray-light!important;
+  width: 100%!important;
+  &:focus {
+    box-shadow: none!important;
+  }
+  &::placeholder {
+    font-size: 14px!important;
+    color: #c5c5c5!important;
   }
 }
