@@ -1,11 +1,12 @@
 <template>
+  <div>
     <header class="ms__header--part">
       <div class="container">
         <div class="ms__header--container">
           <div class="ms__header--logo">
-            <nuxt-link to="/">
+            <NuxtLink to="/">
               <img src="/images/logo.svg" alt="" v-lazy-load>
-            </nuxt-link>
+            </NuxtLink>
           </div>
           <div class="ms__header--searchBar position-relative">
             <input type="text" placeholder="Search">
@@ -200,6 +201,116 @@
       </div>
     </div>
     </header>
+    <!-- cart start -->
+    <div class="ic__shopping--overlay"></div>
+    <div class="ic__shopping--cart">
+        <div class="ic__shopping--top">
+            <a href="#" class="ic__cart--closed">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/></svg>
+            </a>
+            <h5>Your Cart</h5>
+            <div class="ic__shopping--cart--head">
+                <p>Product</p>
+                <p>Price</p>
+            </div>
+            <div class="ic__shopping-scrollbar">
+                <div class="ic__shopping--img">
+                    <img data-src="https://lh3.googleusercontent.com/q64qBvzPC2pmyckLfiDCkwdNqT76T5mTq7PqeFwYcC4W1p2ukqYdFUCz-jWUlcLt9SXa_jwrVSGzWEGYRRMzsE5gPfei5wpbnCk" alt="cart" v-lazy-load>
+                     <div class="ic__shopping-info">
+                        <p class="ic__cart--name">Shiloh Swivel Accen Chair</p>
+                        <div class="ic-cart-quantity d-flex align-items-center">
+                            <div class="ic-quantity">
+                                <button class="ic-quantity-minus">
+                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/>
+                                  </svg>
+                                </button>
+                                <input type="number" class="form-control" value="1" min="1" readonly="">
+                                <button class="ic-quantity-plus">
+                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+                                  </svg>
+                                </button>
+                            </div>
+                            <!-- <p class="ps-2 green">In Stock</p> -->
+                        </div>
+                    </div>
+                    <div class="ic__shopping--price">
+                        <p>$22.49</p>
+                        <a href="#"><i class="ri-delete-bin-line"></i> Delete</a>
+                    </div>
+                </div>
+                <div class="ic__shopping--img">
+                  <img data-src="https://lh3.googleusercontent.com/q64qBvzPC2pmyckLfiDCkwdNqT76T5mTq7PqeFwYcC4W1p2ukqYdFUCz-jWUlcLt9SXa_jwrVSGzWEGYRRMzsE5gPfei5wpbnCk" alt="cart" v-lazy-load>
+                    <div class="ic__shopping-info">
+                        <p class="ic__cart--name">Shiloh Swivel Accen Chair</p>
+                        <div class="ic-cart-quantity d-flex align-items-center">
+                          <div class="ic-quantity">
+                                <button class="ic-quantity-minus">
+                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/>
+                                  </svg>
+                                </button>
+                                <input type="number" class="form-control" value="1" min="1" readonly="">
+                                <button class="ic-quantity-plus">
+                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+                                  </svg>
+                                </button>
+                            </div>
+                            <!-- <p class="ps-2 red">Out of Stock</p> -->
+                        </div>
+                    </div>
+                    <div class="ic__shopping--price">
+                        <p>$22.49</p>
+                        <a href="#"><i class="ri-delete-bin-line"></i> Delete</a>
+                    </div>
+                </div>
+                <div class="ic__shopping--img">
+                  <img data-src="https://lh3.googleusercontent.com/q64qBvzPC2pmyckLfiDCkwdNqT76T5mTq7PqeFwYcC4W1p2ukqYdFUCz-jWUlcLt9SXa_jwrVSGzWEGYRRMzsE5gPfei5wpbnCk" alt="cart" v-lazy-load>
+                    <div class="ic__shopping-info">
+                        <p class="ic__cart--name">Shiloh Swivel Accen Chair</p>
+                        <div class="ic-cart-quantity d-flex align-items-center">
+                          <div class="ic-quantity">
+                                <button class="ic-quantity-minus">
+                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/>
+                                  </svg>
+                                </button>
+                                <input type="number" class="form-control" value="1" min="1" readonly="">
+                                <button class="ic-quantity-plus">
+                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+                                  </svg>
+                                </button>
+                            </div>
+                            <!-- <p class="ps-2 green">In Stock</p> -->
+                        </div>
+                    </div>
+                    <div class="ic__shopping--price">
+                        <p>$22.49</p>
+                        <a href="#"><i class="ri-delete-bin-line"></i> Delete</a>
+                    </div>
+                </div>
+            </div>
+            <!-- total -->
+            <div class="ic--subtotal">
+                <p><span>Subtotal</span> <span>$39.05</span></p>
+                <p><span>Shipping</span> <span>$10.22</span></p>
+            </div>
+            <div class="ic--total">
+                <p><span>Total</span> <span>$59.25</span></p>
+            </div>
+        </div>
+        <div class="ic__shopping--bottom">
+            <a href="#" class="ic-btn">Go To Checkout</a>
+            <a href="#" class="ic-btn-outline">Continue shopping</a>
+        </div>
+    </div>
+    <!-- cart end -->
+
+  </div>
 </template>
 
 <script>
@@ -334,7 +445,272 @@ export default {
         }
     }
   }
+  }
 }
+
+// 
+
+.ic__shopping--cart {
+  @include d-flex();
+  flex-wrap: nowrap;
+  flex-direction: column;
+  @include justify-content(space-between);
+  padding: 40px;
+  width: 480px;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0px 14px 40px rgba(115, 115, 115, 0.15);
+  z-index: 999;
+  transform: translateX(150%);
+  @include transition-linear(0.6s);
+
+  @media #{$max480} {
+    width: 338px;
+    padding: 20px;
+  }
+  @media #{$max374} {
+    width: 100%;
+    padding: 20px;
+  }
+
+  @media #{$max1440} {
+    gap: 104px;
+    overflow-y: auto;
+  }
+
+  &.active {
+    transform: translateX(0);
+  }
+
+  .ic__shopping--top {
+    position: relative;
+
+    .ic__cart--closed {
+      position: absolute;
+      top: 0;
+      right: 20px;
+      svg {
+        width: 18px;
+        fill: $secondary;
+      }
+      i {
+        font-size: 20px;
+        color: $error-500;
+      }
+    }
+
+    h5 {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 32px;
+      color: $ebony-clay;
+      padding-bottom: 20px;
+    }
+  }
+
+  .ic__shopping--cart--head {
+    background-color: $gray-100;
+    @include d-flex();
+    @include justify-content(space-between);
+    @include bd-radius(8px);
+
+    p {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+      color: $ebony-clay;
+      padding: 10px;
+    }
+  }
+
+  .ic__shopping-scrollbar {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .ic__shopping--img {
+    padding-top: 15px;
+    @include d-flex();
+
+    @media #{$max374} {
+      flex-direction: column;
+      gap: 20px;
+      padding: 15px;
+      border-bottom: 1px solid $gray-100;
+    }
+
+    img {
+      width: 70px;
+      height: 70px;
+      @include bd-radius(10px);
+      margin-right: 14px;
+      border: 1px solid #ddd;
+
+      @media #{$max374} {
+        margin: 0 auto;
+      }
+    }
+
+    .ic__shopping-info {
+      width: 180px;
+
+      @media #{$max480} {
+        width: 154px;
+      }
+
+      @media #{$max374} {
+        width: 100%;
+        text-align: center;
+      }
+
+      .ic__cart--name {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        color: $ebony-clay;
+        padding-bottom: 6px;
+      }
+
+      .ic-cart-quantity {
+        @media #{$max374} {
+          @include justify-content(center);
+        }
+
+        .ic-quantity {
+          height: 28px;
+          display: flex;
+          align-items: center;
+          button {
+            background-color: transparent;
+            border: 0;
+            svg {
+              width: 15px;
+              height: 15px;
+            }
+            i {
+              font-size: 14px;
+            }
+          }
+        }
+
+        .ic-quantity input {
+          height: 28px;
+          margin-left: 2px;
+          box-shadow: none;
+          width: 70px;
+          @media #{$max1800} {
+            margin-right: 0px;
+          }
+        }
+      }
+    }
+  }
+
+  .ic__shopping--price {
+    flex: 1;
+    text-align: right;
+    @include d-flex();
+    flex-direction: column;
+    @include justify-content(space-between);
+
+    @media #{$max374} {
+      text-align: center;
+    }
+
+    p {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    a {
+      @include d-flex();
+      gap: 4px;
+      @include justify-content(flex-end);
+      color: $gray-500;
+
+      @media #{$max374} {
+        @include justify-content(center);
+      }
+    }
+  }
+
+  .ic--subtotal {
+    padding: 15px 0 15px 0;
+    border-top: 1px solid $gray-300;
+    border-bottom: 1px solid $gray-300;
+    margin-top: 15px;
+
+    p {
+      @include d-flex();
+      @include align-items();
+      @include justify-content(space-between);
+
+      &:not(:last-child) {
+        padding-bottom: 8px;
+      }
+
+      span {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 20px;
+        color: $shuttle-gray;
+      }
+    }
+  }
+
+  .ic--total {
+    padding-top: 15px;
+
+    p {
+      @include d-flex();
+      @include align-items();
+      @include justify-content(space-between);
+
+      span {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+        color: $ebony-clay;
+      }
+    }
+  }
+}
+
+.ic__shopping--bottom {
+  margin-top: auto;
+  @include d-flex();
+  gap: 20px;
+
+  @media #{$max374} {
+    flex-direction: column;
+  }
+
+  a {
+    flex: 1;
+    height: 44px;
+    font-weight: 500;
+    padding: 0 17px;
+    @include bd-radius(8px);
+
+    @media #{$max374} {
+      flex: 0 0 auto;
+    }
+
+    @media #{$max1440} {
+      font-size: 14px;
+    }
+
+    &.ic-btn-outline {
+      border: 1px solid $primary;
+    }
+  }
 }
 
 </style>

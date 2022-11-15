@@ -1,3 +1,19 @@
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @include bd-radius(30px);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $primary;
+  @include bd-radius(30px);
+}
 
 ul {
   padding: 0;
