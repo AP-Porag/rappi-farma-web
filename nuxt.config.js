@@ -29,7 +29,7 @@ export default {
     'vue-slick-carousel/dist/vue-slick-carousel.css',
   ],
 
- 
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: './plugins/vue-slick-carousel.js' },
@@ -37,6 +37,7 @@ export default {
     { src: './plugins/vue-social-chat.js' },
     { src: './plugins/vue-zoom.js',mode:"client" },
     { src: './plugins/vue-image-zoom.js',mode:"client" },
+    { src: './plugins/vue-nav-tabs.js' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
