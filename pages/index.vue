@@ -1,6 +1,5 @@
 <template>
   <div>
-    <nuxt-tutorial/>
     <!-- banner part start -->
     <section class="ms__banner--part">
       <div class="container slick-slider-relative">

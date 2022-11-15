@@ -203,7 +203,7 @@
     </header>
     <!-- cart start -->
     <div class="ic__shopping--overlay"></div>
-    <div class="ic__shopping--cart">
+    <div class="ic__shopping--cart ">
         <div class="ic__shopping--top">
             <a href="#" class="ic__cart--closed">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
