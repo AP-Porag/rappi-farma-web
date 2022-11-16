@@ -344,8 +344,8 @@ export default {
       font-size: 1.2rem;
       display: flex;
       align-items: center;
-      border: 1px solid $primary;
-      border-radius: 4rem 4rem 4rem 4rem;
+      border: 1px solid $primary!important;
+      border-radius: 4rem 4rem 4rem 4rem!important;
       padding: 0 90px 0 30px;
       font-size: 14px;
       &:focus-visible {

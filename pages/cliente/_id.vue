@@ -3,65 +3,36 @@
     <section class="ms__customer--profile ic-section-space">
       <div class="container">
         <div>
-                <vue-tabs active-tab-color="#e74c3c"
+          <div class="ms__customer--avatar">
+            <div class="ms__img">
+              <img
+                data-src="/images/profile-cover.png"
+                class="img-fluid"
+                alt=""
+                v-lazy-load
+              />
+            </div>
+            <div class="ms__avatar--profiles">
+              <img
+                data-src="/images/profile-pic.png"
+                class="img-fluid"
+                alt=""
+                v-lazy-load
+              />
+              <h5>Alex Mitchell</h5>
+              <p>alexmitchell@gmail.com</p>
+            </div>
+          </div>
+
+          <vue-tabs
+            active-tab-color="#e74c3c"
             active-text-color="white"
             type="pills"
             :start-index="1"
             direction="vertical"
-  >
-                <v-tab title="First tab" icon="ti-user">
-                  <h2 class="text-bg-primary">First tab content</h2>
-                </v-tab>
-
-                <v-tab title="Second tab" icon="ti-settings">
-                  Second tab content
-                </v-tab>
-
-                <v-tab title="Third tab" icon="ti-check">
-                  Third tab content
-                </v-tab>
-              </vue-tabs>
-              </div>
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="ms__customer--avatar">
-              <div class="ms__img">
-                <img
-                  data-src="/images/profile-cover.png"
-                  class="img-fluid"
-                  alt=""
-                  v-lazy-load
-                />
-              </div>
-              <div class="ms__avatar--profiles">
-                <img
-                  data-src="/images/profile-pic.png"
-                  class="img-fluid"
-                  alt=""
-                  v-lazy-load
-                />
-                <h5>Alex Mitchell</h5>
-                <p>alexmitchell@gmail.com</p>
-              </div>
-              
-              <ul class="customer-nav"> 
-                <li>
-                  <NuxtLink to="#" class="active">Basic Info</NuxtLink>
-                </li>
-                <li>
-                  <NuxtLink to="#"> Update Profile</NuxtLink>
-                </li>
-                <li>
-                  <NuxtLink to="#"> Service History</NuxtLink>
-                </li>
-                <li>
-                  <NuxtLink to="#"> Service History</NuxtLink>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-8">
-            <div class="ms__customer--content">
+          >
+            <v-tab title="Basic Info" icon="ti-user">
+              <div class="ms__customer--content">
                 <h4>Personal Info</h4>
                 <form action="#">
                   <div class="row">
@@ -119,7 +90,130 @@
                   <button class="ic-btn">Submit</button>
                 </form>
               </div>
-          </div>
+            </v-tab>
+
+            <v-tab title="Update Profile" icon="ti-settings">
+              <div class="ms__customer--content">
+                <h4>Update Profile</h4>
+                <form action="#">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="#">First name</label>
+                        <input
+                          type="text"
+                          placeholder="First name"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="#">Last name</label>
+                        <input
+                          type="text"
+                          placeholder="Last name"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="#">Image</label>
+                        <input
+                          type="file"
+                          placeholder="Role"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="#">Email</label>
+                        <input
+                          type="email"
+                          placeholder="Email"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="#">Phone Number</label>
+                        <input
+                          type="number"
+                          placeholder="Email"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <button class="ic-btn">Submit</button>
+                </form>
+              </div>
+            </v-tab>
+
+            <v-tab title="Service History" icon="ti-check">
+              <div class="ms__customer--content">
+                <h4>Personal Info</h4>
+                <form action="#">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="#">First name</label>
+                        <input
+                          type="text"
+                          placeholder="First name"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="#">Last name</label>
+                        <input
+                          type="text"
+                          placeholder="Last name"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="#">Role</label>
+                        <input
+                          type="text"
+                          placeholder="Role"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="#">Email</label>
+                        <input
+                          type="email"
+                          placeholder="Email"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="#">Phone Number</label>
+                        <input
+                          type="number"
+                          placeholder="Email"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <button class="ic-btn">Submit</button>
+                </form>
+              </div>
+            </v-tab>
+          </vue-tabs>
         </div>
       </div>
     </section>
