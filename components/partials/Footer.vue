@@ -17,7 +17,7 @@
           </SocialChat>
         </div>
         <div class="container">
-            <div class="row">
+            <div class="row g-4">
                 <div class="col-lg-3">
                     <div class="ms__footer--img">
                         <img data-src="/images/logo.svg" class="img-fluid w-100" alt="" v-lazy-load>
@@ -145,7 +145,7 @@
             <div class="ms__bottom-footer">
                 <div class="row">
                     <div class="col-lg-9 m-auto">
-                        <div class="row">
+                        <div class="row g-4">
                             <div class="col-lg-2">
                                 <div class="ms__banking--img">
                                     <img src="/images/banking/visa-footer.svg" alt="" v-lazy-load>
@@ -245,11 +245,20 @@
     background-color: #192E5A;
     padding-top: 30px;  
     .ms__footer--img {
+        @media #{$max991} {
+               text-align: center;
+            }
         img {
             max-width: 200px;
+            @media #{$max1399} {
+                max-width: 100px;
+            }
         }
     }
     .ms__footer--links {
+        @media #{$max991} {
+               text-align: center;
+            }
         h6 {
             color: $white;
             font-size: 16px;

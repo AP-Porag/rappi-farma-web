@@ -6,7 +6,7 @@
         <VueSlickCarousel :arrows="true" :dots="false" v-if="banners.length">
           <div class="ms__banner--items" v-for="banner in banners" :key="banner.id">
             <NuxtLink :to="banner.path">
-              <img :data-src="banner.image"  class="img-fluid w-100" alt="" v-lazy-load>
+              <img :data-src="banner.image"  class="img-fluid" alt="" v-lazy-load>
             </NuxtLink>
           </div>
         </VueSlickCarousel>
@@ -17,15 +17,15 @@
     <!-- advertisment -->
     <section class="ms__advertisment--part">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-6 m-auto">
+        <div class="row g-4">
+          <div class="col-lg-6 col-md-6">
             <NuxtLink to="/">
               <div class="ms__advertisment--img">
                 <img data-src="/images/a-1.webp"  class="img-fluid w-100" alt="" v-lazy-load>
               </div>
             </NuxtLink>
           </div>
-          <div class="col-lg-6 m-auto">
+          <div class="col-lg-6  col-md-6">
             <NuxtLink to="/">
               <div class="ms__advertisment--img">
                 <img data-src="/images/a-2.webp"  class="img-fluid w-100" alt="" v-lazy-load>
@@ -187,7 +187,7 @@
             </VueSlickCarousel>
           </div>
           <div class="ms__beatuy--logos">
-            <div class="row">
+            <div class="row g-4">
               <div class="col-lg-2" v-for="brand in beautyBrands" :key="brand.id">
                 <div class="ms__beatuy__advertisment--items">
                   <NuxtLink :to="brand.path">
@@ -268,7 +268,7 @@
             <h4 class="title primary mb-0">official Brands</h4>
           </div>
           <div class="ms__beatuy--slider mb-4 ms__bestDeal--slider slick-slider-relative">
-            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderThreeSetting" v-if="brands.length">
+            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderFourSetting" v-if="brands.length">
               <div v-for="brand in brands" :key="brand.id">
                 <div class="ms__official--items">
                   <NuxtLink :to="brand.path">
@@ -432,20 +432,140 @@ export default {
       dots: true,
       slidesToShow: 8,
       slidesToScroll: 1,
+      responsive: [
+     {
+      breakpoint: 1200,
+      settings: {
+        "slidesToShow": 6,
+        "slidesToScroll": 1,
+      }
+    },
+     {
+      breakpoint: 1024,
+      settings: {
+        "slidesToShow": 4,
+        "slidesToScroll": 1,
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        "slidesToShow": 3,
+        "slidesToScroll": 1,
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        "slidesToShow": 2,
+        "slidesToScroll": 1
+      }
+    }
+  ]
     },
     sliderTwoSetting: {
       infinite:true,
       arrows: true,
       dots: true,
       slidesToShow: 4,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      responsive: [
+     {
+      breakpoint: 1200,
+      settings: {
+        "slidesToShow": 3,
+        "slidesToScroll": 1,
+      }
+    },
+     {
+      breakpoint: 991,
+      settings: {
+        "slidesToShow": 2,
+        "slidesToScroll": 1,
+      }
+    },
+    {
+      breakpoint: 767,
+      settings: {
+        "slidesToShow": 2,
+        "slidesToScroll": 1,
+      }
+    },
+    {
+      breakpoint: 575,
+      settings: {
+        "slidesToShow": 1,
+        "slidesToScroll": 1
+      }
+    }
+  ]
     },
     sliderThreeSetting: {
       infinite:true,
       arrows: true,
       dots: true,
       slidesToShow: 8,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      responsive: [
+     {
+      breakpoint: 1200,
+      settings: {
+        "slidesToShow": 3,
+        "slidesToScroll": 1,
+      }
+    },
+    {
+      breakpoint: 767,
+      settings: {
+        "slidesToShow": 2,
+        "slidesToScroll": 1,
+      }
+    },
+    {
+      breakpoint: 575,
+      settings: {
+        "slidesToShow": 1,
+        "slidesToScroll": 1
+      }
+    }
+  ]
+    },
+    sliderFourSetting: {
+      infinite:true,
+      arrows: true,
+      dots: true,
+      slidesToShow: 8,
+      slidesToScroll: 1,
+      responsive: [
+     {
+      breakpoint: 1200,
+      settings: {
+        "slidesToShow": 6,
+        "slidesToScroll": 1,
+      }
+    },
+     {
+      breakpoint: 1024,
+      settings: {
+        "slidesToShow": 4,
+        "slidesToScroll": 1,
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        "slidesToShow": 3,
+        "slidesToScroll": 1,
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        "slidesToShow": 2,
+        "slidesToScroll": 1
+      }
+    }
+  ]
     },
     url:
       "https://i.pinimg.com/originals/90/a4/78/90a47821d9451451813f9f3867351b53.jpg",
@@ -463,17 +583,15 @@ export default {
   .container {
     position: relative;
   }
-  .slick-track{
-    height: 380px;
-  }
   .ms__banner--items {
     max-height: 480px;
     height: 100%;
     @include bd-radius(10px);
     img {
-      max-height: 380px;
+      // max-height: 380px;
       height: 100%;
       @include bd-radius(10px);
+      // width: 100%;
     }
   }
 
@@ -596,6 +714,9 @@ export default {
     text-align: center;
     &.ms__beatuy--img {
       height: 170px;
+      img {
+        height: 100%;
+      }
     }
     .img {
       width: auto;
@@ -733,7 +854,7 @@ export default {
   }
 }
 .ms__beatuy--logos {
-  height: 5rem;
+  // height: 5rem;
   .col-lg-2 {
     height: auto;
     max-height: 100%;
@@ -777,6 +898,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
     img {
       max-width: 100%;
       max-height: 100%;

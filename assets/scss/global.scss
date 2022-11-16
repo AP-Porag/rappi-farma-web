@@ -29,7 +29,7 @@ a {
 }
 
 .ic-section-space {
-  padding: 30px;
+  padding: 30px 0;
 }
 
 .ic-section-space-top {
@@ -78,6 +78,7 @@ a {
   svg {
     fill: $primary;
     margin-right: 8px;
+    width: 19px;
   }
 
   &:hover {
@@ -131,6 +132,7 @@ input {
       max-width: 100%;
       max-height: 100%;
       height: 100%;
+      width: 100%;
     }
   }
 

@@ -19,7 +19,7 @@
       <div class="container">
         <h4 class="heading">SHOP BY CATEGORIES</h4>
         <div class="row g-1">
-          <div class="col-xl-3">
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
             <NuxtLink to="#">
                 <div class="ms__products--items position-relative">
                   <img src="https://lh3.googleusercontent.com/dWxWKkEFooCLL3_OfTii08yzst1jvD9jtH_GF7hfMDHc6I2h2GXyqjJPDVPbEFH5uzGcCnxaFDATK-z5BRQl9PaHUrQf-01VpX_zi8KAeO0j8Icn6w" class="img-fluid w-100" alt="" v-lazay-load>
@@ -27,7 +27,7 @@
               </div>
             </NuxtLink>
           </div>
-          <div class="col-xl-3">
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
             <NuxtLink to="#">
                 <div class="ms__products--items position-relative">
                   <img src="https://lh3.googleusercontent.com/Vwehu35y071G1y7B1T_0-TE3s7-tQO0kIRa-LyCH6qlv0ODZM0-Ndhlk_k6OuhsHkQABuZFTysbNX5eP_-YZgikwg5zscLThjxP7Rgv1mSIWPZnv" class="img-fluid w-100" alt="" v-lazay-load>
@@ -35,7 +35,7 @@
               </div>
             </NuxtLink>
           </div>
-          <div class="col-xl-3">
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
             <NuxtLink to="#">
                 <div class="ms__products--items position-relative">
                   <img src="https://lh3.googleusercontent.com/Sh6yzOs7sp8Vm0sEuK2dMOQlddrIhSJV2p-fpMPGisCt7A6ATYIIGnbukSo8rG7GuQFCLyZQV5ii8gqb-lSuotC4j7kFNoFt04JTYhUdwWZhgiU" class="img-fluid w-100" alt="" v-lazay-load>
@@ -43,7 +43,7 @@
               </div>
             </NuxtLink>
           </div>
-          <div class="col-xl-3">
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
             <NuxtLink to="#">
                 <div class="ms__products--items position-relative">
                   <img src="https://lh3.googleusercontent.com/xu4Q02kXPEZXOQJevmh7l9wvUCUXdDvA3lIJB-Y4CQmFOq8AOe1sy5gVwjHlatRH03_55YACKLyMILTa07dVPINR6fVVn9Ua1bW3oOxB3z8Ivwd51A" class="img-fluid w-100" alt="" v-lazay-load>
@@ -347,7 +347,7 @@
     <section class="ms__video--tutorial ic-section-space">
       <div class="container">
         <h4 class="heading">A ROUTINE FOR EVERY MOMENT</h4>
-        <div class="row">
+        <div class="row g-4">
           <div class="col-lg-4">
             <div class="ratio ratio-16x9">
               <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
@@ -371,7 +371,7 @@
     <!-- media card -->
     <section class="ic-section-space-bottom">
       <div class="container">
-        <div class="row">
+        <div class="row g-4">
           <div class="col-lg-6">
             <div class="card mb-3 h-100" >
               <div class="row g-0 h-100">
@@ -412,15 +412,15 @@
     <!-- adveertismet -->
     <section class="ic-section-space-bottom">
       <div class="container">
-        <div class="row">
-        <div class="col-lg-4">
+        <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
           <div class="ms__advertisment--img">
             <NuxtLink to="#">
               <img src="https://lh3.googleusercontent.com/aNhViKeDIO-b9GTduQ8ke68-gZHNG1PVCP8cnIxNA0lDusqc111GqJClNqhUQozV7QXs_ya_5oDnMs4aVe1BdifH9WcN-m1klXz4XWOJc3_U5OphKw=s5000" alt="" class="img-fluid w-100" v-lazy-load>
             </NuxtLink>
           </div>
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-8 col-md-6">
           <div class="ms__advertisment--img">
             <NuxtLink to="#">
             <img src="https://lh3.googleusercontent.com/enzFazRFCip530rH6WNPrxQDpcmmIEGjIFs5cFKfyQ9V599RP-DO7NP7YFsTzIAHrR95Ji5pw6j2dxAKekK_SqiRNQuqTa9vxRUk2HIPu6LN3mJA=s5000" alt="" class="img-fluid w-100" v-lazy-load>
@@ -453,19 +453,68 @@ export default {
         arrows: true,
         dots: false,
         slidesToShow: 2,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        responsive: [
+
+    {
+      breakpoint: 575,
+      settings: {
+        "slidesToShow": 1,
+        "slidesToScroll": 1
+      }
+    }
+  ]
       },
       beautySliderSetting: {
         arrows: true,
         dots: true,
         slidesToShow: 5,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        responsive: [
+     {
+      breakpoint: 1200,
+      settings: {
+        "slidesToShow": 3,
+        "slidesToScroll": 1,
+      }
+    },
+     {
+      breakpoint: 991,
+      settings: {
+        "slidesToShow": 2,
+        "slidesToScroll": 1,
+      }
+    },
+    {
+      breakpoint: 767,
+      settings: {
+        "slidesToShow": 2,
+        "slidesToScroll": 1,
+      }
+    },
+    {
+      breakpoint: 575,
+      settings: {
+        "slidesToShow": 1,
+        "slidesToScroll": 1
+      }
+    }
+  ]
     },
     sliderBeautyOfEnhance: {
         arrows: true,
         dots: true,
         slidesToShow: 2,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        responsive: [
+    {
+      breakpoint: 575,
+      settings: {
+        "slidesToShow": 1,
+        "slidesToScroll": 1
+      }
+    }
+  ]
     },
   })
 }

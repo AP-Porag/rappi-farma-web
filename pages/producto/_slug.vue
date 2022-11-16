@@ -312,6 +312,7 @@ export default {
       border: 1px solid $gray-deep;
       border-radius: 4px;
       padding: 10px;
+      width: 80px!important;
       &:focus {
         outline: 0;
       }
