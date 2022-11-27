@@ -60,3 +60,11 @@ h6 {
 h1,h2,h3,h4,h5,h6,p{
     margin: 0;
 }
+
+button {
+    outline: 0;
+    border: 0;
+    &:focus {
+        outline: 0;
+    }
+}
