@@ -141,7 +141,7 @@
           <div class="ms__title">
             <h4 class="title primary mb-0">Beauty</h4>
           </div>
-          <div class="row row-cols-lg-5">
+          <div class="row row-cols-lg-5 row-cols-1">
             <div class="col" v-for="menu in menus" :key="menu.id" v-if="menus.length">
               <div class="ms__beatuy__advertisment--items">
                 <nuxt-link :to="menu.path">

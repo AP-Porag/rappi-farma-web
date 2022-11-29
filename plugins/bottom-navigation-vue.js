@@ -1,4 +1,5 @@
 import Vue from 'vue'
-import {GrowBottomNavigation} from "bottom-navigation-vue";
+import { SwipeBottomNavigation } from "bottom-navigation-vue";
+// import "bottom-navigation-vue/dist/style.css";
 
-Vue.component('GrowBottomNavigation', GrowBottomNavigation)
+Vue.component('SwipeBottomNavigation', SwipeBottomNavigation)

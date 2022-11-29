@@ -13,7 +13,7 @@
             <!-- <button>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg>
             </button> -->
-            <div class="ms__header--searchBar--dropdwon">
+            <!-- <div class="ms__header--searchBar--dropdwon">
               <ul>
                 <li>
                   <NuxtLink to="#"> Vistos recientemente</NuxtLink>
@@ -92,7 +92,7 @@
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> -->
           </div>
           <div class="ms__header--loginWith--cart">
               <a href="#" class="ic-btn-outline">
@@ -283,7 +283,7 @@
     </header>
     <!-- cart start -->
     <div class="ic__shopping--overlay"></div>
-    <div class="ic__shopping--cart active">
+    <div class="ic__shopping--cart">
         <div class="ic__shopping--top">
             <a href="#" class="ic__cart--closed">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
@@ -449,8 +449,11 @@ export default {
       align-items: center;
       border: 1px solid $primary!important;
       border-radius: 4rem 4rem 4rem 4rem!important;
-      padding: 0 90px 0 30px;
+      padding: 0 30px 0 30px;
       font-size: 14px;
+      @media #{$max575} {
+        padding: 0 10px 0 10px;
+      }
       &:focus-visible {
         outline: 0;
       }
@@ -495,6 +498,9 @@ export default {
 .ms__navbar--part {
   background-color: $primary;
   box-shadow: $box-shadow;
+  @media #{$max991} {
+    display: none;
+  }
   .ms__navbar--container {
     position: relative;
     margin-top: 10px;
@@ -566,7 +572,17 @@ export default {
 }
 
 // 
-
+.ic__shopping--overlay {
+  &.active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($color: #000000, $alpha: 0.4);
+    z-index: 9;
+  }
+}
 .ic__shopping--cart {
   @include d-flex();
   flex-wrap: nowrap;

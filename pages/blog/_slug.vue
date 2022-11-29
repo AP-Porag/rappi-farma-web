@@ -560,6 +560,10 @@ h4 {
     color: $ebony-clay;
     padding-top: 28px;
     padding-bottom: 15px;
+    @media #{$max991} {
+        font-size: 24px;
+    line-height: 26px;
+    }
 }
 
 h2 {

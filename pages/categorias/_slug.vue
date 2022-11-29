@@ -66,7 +66,7 @@
               <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
             </div>
             <div class="ms__products--related">
-              <div class="row">
+              <div class="row g-4">
                 <div class="col-xl-4">
                   <div class="ms__products-names">
                     <h5>Revitalif Hyaluronic Acid Filler Serum</h5>
@@ -99,7 +99,7 @@
               <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
             </div>
             <div class="ms__products--related">
-              <div class="row">
+              <div class="row g-4">
                 <div class="col-xl-4">
                   <div class="ms__products-names">
                     <h5>Revitalif Hyaluronic Acid Filler Serum</h5>
@@ -229,7 +229,7 @@
     <section class="ms__enhanceBeauty--part ic-section-space">
       <div class="container">
         <div class="ms__card">
-          <div class="row">
+          <div class="row g-4">
             <div class="col-xl-4">
               <div class="ms__products-names">
                 <h4 class="primary mb-3">enhance your beauty</h4>

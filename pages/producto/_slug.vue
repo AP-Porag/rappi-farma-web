@@ -3,7 +3,7 @@
     <section class="ms__product-details ic-section-space">
       <div class="container">
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-6 col-md-5">
             <div class="ms__product--image">
               <div class="ms__large--image">
                 <div>
@@ -17,7 +17,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-6 col-md-7">
             <div class="ms__product--names">
               <h3>
                 Pestañina Maybelline The Colossal Volum Express a prueba de agua
@@ -158,11 +158,11 @@
         <div class="row">
           <div class="col-lg-9 m-auto">
             <div class="ms__feedback--mains">
-              <div class="row">
-                <div class="col-lg-6">
+              <div class="row g-4">
+                <div class="col-lg-6 col-md-6 text-center text-md-left">
                   <h3>customer feedback</h3>
                 </div>
-                <div class="col-lg-6 text-end">
+                <div class="col-lg-6 col-md-6 text-center text-md-end">
                   <button class="btn btn-primary">Qualify</button>
                 </div>
               </div>
@@ -220,7 +220,37 @@ export default {
       arrows: true,
       dots: true,
       slidesToShow: 4,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      responsive: [
+     {
+      breakpoint: 1200,
+      settings: {
+        "slidesToShow": 3,
+        "slidesToScroll": 1,
+      }
+    },
+     {
+      breakpoint: 991,
+      settings: {
+        "slidesToShow": 2,
+        "slidesToScroll": 1,
+      }
+    },
+    {
+      breakpoint: 767,
+      settings: {
+        "slidesToShow": 2,
+        "slidesToScroll": 1,
+      }
+    },
+    {
+      breakpoint: 575,
+      settings: {
+        "slidesToShow": 1,
+        "slidesToScroll": 1
+      }
+    }
+  ]
     },
     beauties:[
       {id:'6.1',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'/images/beauty-1.png'},
@@ -259,6 +289,9 @@ export default {
     }
   }
   .ms__large--image {
+    @media #{$max767} {
+      margin-bottom: 20px;
+    }
     flex: 1;
   }
   .ms__large--image {
@@ -273,6 +306,9 @@ export default {
   h3 {
     font-size: 24px;
     padding-bottom: 15px;
+    @media #{$max767} {
+      font-size: 20px;
+    }
     svg {
       width: 20px;
       margin-left: 10px;

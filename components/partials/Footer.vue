@@ -214,9 +214,12 @@
                 <span>COL-V5099-1.2.0</span>
             </div>
         </div>
+        <div class="d-lg-none">
+            <SwipeBottomNavigation :options="options" v-model="selected" />
+        </div>
     </footer>
   </template>
-
+  
   <script>
   export default {
     name: "Footer",
@@ -234,6 +237,14 @@
             }
           },
           // ...
+        ],
+        selected: 1,
+        options: [
+            { id: 1, icon: 'fa-solid fa-house', title: 'Home' },
+            { id: 2, icon: 'fa-solid fa-magnifying-glass', title: 'Search' },
+            { id: 3, icon: 'fa-solid fa-plus', title: 'Setting' },
+            { id: 4, icon: 'fas fa-bell', title: 'Notification' },
+            { id: 5, icon: 'fa-solid fa-gear', title: 'Setting' }
         ]
       }
     }
