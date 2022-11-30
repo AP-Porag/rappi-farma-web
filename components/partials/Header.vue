@@ -571,12 +571,6 @@ export default {
   }
   }
 }
-
-<<<<<<< HEAD
-//
-
-=======
-//
 .ic__shopping--overlay {
   &.active {
     position: fixed;
@@ -588,7 +582,6 @@ export default {
     z-index: 9;
   }
 }
->>>>>>> 2d84db80b08c53ddc59fd5a47864927e7004b490
 .ic__shopping--cart {
   @include d-flex();
   flex-wrap: nowrap;
