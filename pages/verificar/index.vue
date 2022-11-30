@@ -293,6 +293,9 @@ export default {
 <style lang="scss" scoped>
 .checkout-cart {
   padding: 20px 100px;
+  @media #{$max1199} {
+    padding: 20px 20px;
+  }
 }
 .ic__shopping--cart--head {
   background-color: $gray-100;

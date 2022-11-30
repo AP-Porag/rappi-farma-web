@@ -74,7 +74,9 @@ a {
   border: 1px solid $primary;
   color: $primary;
   font-weight: 500;
-
+  @media #{$max767} {
+    padding: 0 10px;
+  }
   svg {
     fill: $primary;
     margin-right: 8px;
@@ -175,10 +177,17 @@ input {
     }
   }
 }
-
+.figure  {
+  width: 100%;
+}
 .vue-tabs {
   gap: 24px;
   align-items: flex-start;
+}
+.vue-tabs {
+  @media #{$max767} {
+    flex-direction: column;
+  }
 }
 .left-vertical-tabs {
   flex: 0 0 356px;
@@ -187,7 +196,14 @@ input {
   background-color: #fff;
   box-shadow: 0px 4px 20px rgb(23 23 23 / 5%);
   border-radius: 6px;
-
+  @media #{$max1399} {
+    flex: 0 0 231px;
+    width: 231px;
+  }
+  @media #{$max767} {
+    flex: 0 0 100%;
+    width: 100%;
+  }
   .nav-stacked {
     flex-direction: column;
 
@@ -210,5 +226,16 @@ input {
         }
       }
     }
+  }
+}
+
+.vsc-popup-header {
+  background-color: $primary;
+}
+
+.vsc-popup-button--default {
+  background-color: $primary;
+  &:hover {
+    box-shadow: 0 0 0 3px #fff,0 0 0 6px $primary;
   }
 }

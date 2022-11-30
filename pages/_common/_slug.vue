@@ -19,7 +19,7 @@
       <!-- sub catagoris -->
       <section class="ms__catagoriesFilter--part ic-section-space">
         <div class="container">
-          <div class="row">
+          <div class="row g-4">
             <div class="col-lg-3">
               <div class="ms__catagoriesFilter--left">
                 <h5>Catagories Name</h5>
@@ -130,7 +130,7 @@
                 </div>
 
                 <div class="row g-4">
-                  <ProductoProduct class="col-lg-4" v-for="beauty in beauties" :key="beauty.id" :product="beauty" />
+                  <ProductoProduct class="col-lg-4 col-md-6" v-for="beauty in beauties" :key="beauty.id" :product="beauty" />
                 </div>
               </div>
             </div> 
@@ -138,6 +138,73 @@
         </div>
       </section>
       <!-- sub catagoris -->
+      <div class="ic__shopping--overlay"></div>
+    <div class="ic__shopping--cart active">
+        <div class="ic__shopping--top">
+            <a href="#" class="ic__cart--closed">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/></svg>
+            </a>
+            <h5>Filter Search</h5>
+            <div class="ms__filter--buttons">
+              <h3>Brand:</h3>
+              <ul>
+                <li>
+                  <button>Allegro</button>
+                </li>
+                <li>
+                  <button>love</button>
+                </li>
+                <li>
+                  <button>bamboo bath</button>
+                </li>
+                <li>
+                  <button>Jade</button>
+                </li>
+                <li>
+                  <button class="active">Allegro</button>
+                </li>
+                <li>
+                  <button>love</button>
+                </li>
+                <li>
+                  <button>bamboo bath</button>
+                </li>
+                <li>
+                  <button>Jade</button>
+                </li>
+                <li>
+                  <button>Allegro</button>
+                </li>
+                <li>
+                  <button>love</button>
+                </li>
+                <li>
+                  <button>bamboo bath</button>
+                </li>
+                <li>
+                  <button>Jade</button>
+                </li>
+                <li>
+                  <button>Allegro</button>
+                </li>
+                <li>
+                  <button>love</button>
+                </li>
+                <li>
+                  <button>bamboo bath</button>
+                </li>
+                <li>
+                  <button>Jade</button>
+                </li>
+
+              </ul>
+            </div>
+        </div>
+        <div class="ic__shopping--bottom text-center">
+            <a href="#" class="ic-btn">Filter</a>
+        </div>
+    </div>
   </div>
 </template>
 
@@ -165,6 +232,117 @@ export default {
 </script>
 
 <style lang="scss">
+.ms__filter--search {
+  text-align: right;
+  @media #{$max991}{
+    margin-bottom: 30px;
+    text-align: left;
+  }
+}
+.ic__shopping--overlay {
+  &.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($color: #000000, $alpha: 0.4);
+    z-index: 9;
+  }
+}
+.ms__filter--buttons {
+  padding-top: 30px;
+  height: 345px;
+  overflow-y: auto;
+  h3 {
+    padding-bottom: 20px;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    li {
+      button {
+        padding: 7px 9px;
+        border-radius: 32px;
+        border: 1px solid #333;
+        background-color: #fff;
+        transition: 0.3s;
+        &:hover {
+          background-color: $primary;
+          color: #fff;
+          border: 1px solid $primary;
+        }
+        &.active {
+          background-color: $primary;
+          color: #fff;
+          border: 1px solid $primary;
+        }
+      }
+    }
+  }
+}
+.ic__shopping--cart {
+  @include d-flex();
+  flex-wrap: nowrap;
+  flex-direction: column;
+  @include justify-content(space-between);
+  padding: 40px;
+  width: 480px;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0px 14px 40px rgba(115, 115, 115, 0.15);
+  z-index: 999;
+  transform: translateX(150%);
+  @include transition-linear(0.6s);
+
+  @media #{$max480} {
+    width: 338px;
+    padding: 20px;
+  }
+  @media #{$max374} {
+    width: 100%;
+    padding: 20px;
+  }
+
+  @media #{$max1440} {
+    gap: 104px;
+    overflow-y: auto;
+  }
+
+  &.active {
+    transform: translateX(0);
+  }
+
+  .ic__shopping--top {
+    position: relative;
+
+    .ic__cart--closed {
+      position: absolute;
+      top: 0;
+      right: 20px;
+      svg {
+        width: 18px;
+        fill: $secondary;
+      }
+      i {
+        font-size: 20px;
+        color: $error-500;
+      }
+    }
+
+    h5 {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 32px;
+      color: $ebony-clay;
+      padding-bottom: 20px;
+    }
+  }
+}
   .ms__subCatagories--part {
     .slick-slider {
       
