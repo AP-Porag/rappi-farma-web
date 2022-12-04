@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="ms__header--part">
+    <header class="ms__header--part" :class="{ 'onScroll': !view.topOfPage}">
       <div class="container">
         <div class="ms__header--container">
           <div class="ms__header--logo">
@@ -9,100 +9,98 @@
             </NuxtLink>
           </div>
           <div class="ms__header--searchBar position-relative">
-            <input type="text" placeholder="Search">
+            <input type="text" placeholder="búsqueda" v-model="keywords">
             <!-- <button>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg>
             </button> -->
-            <div class="ms__header--searchBar--dropdwon">
-              <ul>
-                <li>
-                  <NuxtLink to="#"> Vistos recientemente</NuxtLink>
-                </li>
-                <li>
-                  <NuxtLink to="#"> Vistos recientemente</NuxtLink>
+            <div class="ms__header--searchBar--dropdwon" v-if="keywords.length >= 3">
+              <ul v-if="items.length > 0">
+                <li v-for="item in items" :key="item.id">
+                  <NuxtLink to="/producto"> Vistos recientemente</NuxtLink>
                 </li>
               </ul>
-              <div class="ms__recent-product">
-                <ul>
-                  <li>
-                    <NuxtLink to="#">
-                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>
-                      <p> Hasta 35% en Dermo con Prime </p>
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink to="#">
-                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>
-                      <p> Hasta 35% en Dermo con Prime </p>
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink to="#">
-                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>
-                      <p> Hasta 35% en Dermo con Prime </p>
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink to="#">
-                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>
-                      <p> Hasta 35% en Dermo con Prime </p>
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink to="#">
-                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>
-                      <p> Hasta 35% en Dermo con Prime </p>
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink to="#">
-                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>
-                      <p> Hasta 35% en Dermo con Prime </p>
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink to="#">
-                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>
-                      <p> Hasta 35% en Dermo con Prime </p>
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink to="#">
-                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>
-                      <p> Hasta 35% en Dermo con Prime </p>
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink to="#">
-                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>
-                      <p> Hasta 35% en Dermo con Prime </p>
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink to="#">
-                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>
-                      <p> Hasta 35% en Dermo con Prime </p>
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink to="#">
-                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>
-                      <p> Hasta 35% en Dermo con Prime </p>
-                    </NuxtLink>
-                  </li>
-                </ul>
-              </div>
+              <ul v-else>
+                <li>
+                  <p>no hay productos coincidentes</p>
+                </li>
+              </ul>
+<!--              <div class="ms__recent-product">-->
+<!--                <ul>-->
+<!--                  <li>-->
+<!--                    <NuxtLink to="#">-->
+<!--                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>-->
+<!--                      <p> Hasta 35% en Dermo con Prime </p>-->
+<!--                    </NuxtLink>-->
+<!--                  </li>-->
+<!--                  <li>-->
+<!--                    <NuxtLink to="#">-->
+<!--                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>-->
+<!--                      <p> Hasta 35% en Dermo con Prime </p>-->
+<!--                    </NuxtLink>-->
+<!--                  </li>-->
+<!--                  <li>-->
+<!--                    <NuxtLink to="#">-->
+<!--                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>-->
+<!--                      <p> Hasta 35% en Dermo con Prime </p>-->
+<!--                    </NuxtLink>-->
+<!--                  </li>-->
+<!--                  <li>-->
+<!--                    <NuxtLink to="#">-->
+<!--                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>-->
+<!--                      <p> Hasta 35% en Dermo con Prime </p>-->
+<!--                    </NuxtLink>-->
+<!--                  </li>-->
+<!--                  <li>-->
+<!--                    <NuxtLink to="#">-->
+<!--                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>-->
+<!--                      <p> Hasta 35% en Dermo con Prime </p>-->
+<!--                    </NuxtLink>-->
+<!--                  </li>-->
+<!--                  <li>-->
+<!--                    <NuxtLink to="#">-->
+<!--                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>-->
+<!--                      <p> Hasta 35% en Dermo con Prime </p>-->
+<!--                    </NuxtLink>-->
+<!--                  </li>-->
+<!--                  <li>-->
+<!--                    <NuxtLink to="#">-->
+<!--                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>-->
+<!--                      <p> Hasta 35% en Dermo con Prime </p>-->
+<!--                    </NuxtLink>-->
+<!--                  </li>-->
+<!--                  <li>-->
+<!--                    <NuxtLink to="#">-->
+<!--                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>-->
+<!--                      <p> Hasta 35% en Dermo con Prime </p>-->
+<!--                    </NuxtLink>-->
+<!--                  </li>-->
+<!--                  <li>-->
+<!--                    <NuxtLink to="#">-->
+<!--                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>-->
+<!--                      <p> Hasta 35% en Dermo con Prime </p>-->
+<!--                    </NuxtLink>-->
+<!--                  </li>-->
+<!--                  <li>-->
+<!--                    <NuxtLink to="#">-->
+<!--                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>-->
+<!--                      <p> Hasta 35% en Dermo con Prime </p>-->
+<!--                    </NuxtLink>-->
+<!--                  </li>-->
+<!--                  <li>-->
+<!--                    <NuxtLink to="#">-->
+<!--                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>-->
+<!--                      <p> Hasta 35% en Dermo con Prime </p>-->
+<!--                    </NuxtLink>-->
+<!--                  </li>-->
+<!--                </ul>-->
+<!--              </div>-->
             </div>
           </div>
           <div class="ms__header--loginWith--cart">
-              <a href="#" class="ic-btn-outline">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M4 22a8 8 0 1 1 16 0h-2a6 6 0 1 0-12 0H4zm8-9c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6zm0-2c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/></svg>
-                <span>Login</span>
-              </a>
-              <a href="#" class="ic-btn-outline">
+              <button class="ic-btn-outline" @click="cartBox = !cartBox">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M4 6.414L.757 3.172l1.415-1.415L5.414 5h15.242a1 1 0 0 1 .958 1.287l-2.4 8a1 1 0 0 1-.958.713H6v2h11v2H5a1 1 0 0 1-1-1V6.414zM6 7v6h11.512l1.8-6H6zm-.5 16a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm12 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg>
                 <span>cart</span>
-              </a>
+              </button>
           </div>
         </div>
       </div>
@@ -262,19 +260,28 @@
               </div>
             </li>
             <li class="ms__navbar--items">
-              <NuxtLink class="ms__navbar--links" to="/categorias/belleza">Cuidado del bebé</NuxtLink>
+              <NuxtLink class="ms__navbar--links" to="/categorias/belleza">Baby care</NuxtLink>
             </li>
             <li class="ms__navbar--items">
-              <NuxtLink class="ms__navbar--links" to="/categorias/belleza">Cuidado personal</NuxtLink>
+              <NuxtLink class="ms__navbar--links" to="/producto">Producto</NuxtLink>
             </li>
             <li class="ms__navbar--items">
-              <NuxtLink class="ms__navbar--links" to="/categorias/belleza">Alimentos y bebidas</NuxtLink>
+              <button class="btn btn-sm btn-success">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M4 22a8 8 0 1 1 16 0h-2a6 6 0 1 0-12 0H4zm8-9c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6zm0-2c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/></svg>
+                <span>Signup/Sign in</span>
+              </button>
             </li>
             <li class="ms__navbar--items">
-              <NuxtLink class="ms__navbar--links" to="/categorias/belleza">Hogar, mascotas y otros.</NuxtLink>
+              <NuxtLink to="/cliente/1" class="btn btn-sm btn-dark">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M4 22a8 8 0 1 1 16 0h-2a6 6 0 1 0-12 0H4zm8-9c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6zm0-2c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/></svg>
+                <span>My Account</span>
+              </NuxtLink>
             </li>
             <li class="ms__navbar--items">
-              <NuxtLink class="ms__navbar--links" to="/categorias/belleza">Ingresar cupón</NuxtLink>
+              <button class="btn btn-sm btn-warning">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M4 22a8 8 0 1 1 16 0h-2a6 6 0 1 0-12 0H4zm8-9c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6zm0-2c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/></svg>
+                <span>Logout</span>
+              </button>
             </li>
           </ul>
         </nav>
@@ -282,13 +289,13 @@
     </div>
     </header>
     <!-- cart start -->
-    <div class="ic__shopping--overlay active"></div>
-    <div class="ic__shopping--cart active">
+    <div class="ic__shopping--overlay" :class="{active:cartBox}" @click="cartBox = !cartBox"></div>
+    <div class="ic__shopping--cart" :class="{active:cartBox}">
         <div class="ic__shopping--top">
-            <a href="#" class="ic__cart--closed">
+            <button class="ic__cart--closed" @click="cartBox = !cartBox">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                 <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/></svg>
-            </a>
+            </button>
             <h5>Your Cart</h5>
             <div class="ic__shopping--cart--head">
                 <p>Product</p>
@@ -384,8 +391,8 @@
             </div>
         </div>
         <div class="ic__shopping--bottom">
-            <a href="#" class="ic-btn">Go To Checkout</a>
-            <a href="#" class="ic-btn-outline">Continue shopping</a>
+          <NuxtLink to="/verificar" class="ic-btn" @click.native="cartBox = !cartBox" >Go To Checkout</NuxtLink>
+            <button class="ic-btn-outline" @click="cartBox = !cartBox">Continue shopping</button>
         </div>
     </div>
     <!-- cart end -->
@@ -395,7 +402,29 @@
 
 <script>
 export default {
-  name: "Header"
+  name: "Header",
+  data(){
+    return{
+      view: {
+        topOfPage: true
+      },
+      cartBox:false,
+      keywords:'',
+      items:[]
+    }
+  },
+  beforeMount() {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  methods: {
+    handleScroll(){
+      if(window.pageYOffset>250){
+        if(this.view.topOfPage) this.view.topOfPage = false
+      } else {
+        if(!this.view.topOfPage) this.view.topOfPage = true
+      }
+    }
+  }
 }
 </script>
 
@@ -418,7 +447,23 @@ export default {
   }
 }
 .ms__header--part {
-  padding: 10px 0;
+  padding-top: 10px;
+  background-color: #fff;
+  &.onScroll {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    width: 100%;
+    -webkit-animation: .95s ease-in-out 0s normal none 1 running fadeInDown;
+    animation: .95s ease-in-out 0s normal none 1 running fadeInDown;
+    -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.1);
+
+  }
 }
 .ms__header--container {
   @include d-flex();

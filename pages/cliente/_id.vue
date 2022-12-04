@@ -31,7 +31,7 @@
             :start-index="1"
             direction="vertical"
           >
-            <v-tab title="Basic Info" icon="ti-user">
+            <v-tab title="Manage Account" icon="ti-user">
               <div class="ms__customer--content">
                 <h4>Personal Info</h4>
                 <form action="#">
@@ -92,7 +92,7 @@
               </div>
             </v-tab>
 
-            <v-tab title="Update Profile" icon="ti-settings">
+            <v-tab title="Recent Orders" icon="ti-settings">
               <div class="ms__customer--content">
                 <h4>Update Profile</h4>
                 <form action="#">
@@ -153,7 +153,7 @@
               </div>
             </v-tab>
 
-            <v-tab title="Service History" icon="ti-check">
+            <v-tab title="Orders History" icon="ti-check">
               <div class="ms__customer--content">
                 <h4>Personal Info</h4>
                 <form action="#">

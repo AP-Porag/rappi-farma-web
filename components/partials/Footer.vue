@@ -6,7 +6,7 @@
             :attendants="attendants"
           >
             <p slot="header">Click on one of our attendants below to chat on WhatsApp.</p>
-            <template v-slot:button>
+            <template>
               <img
                 src="https://raw.githubusercontent.com/ktquez/vue-social-chat/master/src/icons/whatsapp.svg"
                 alt="icon whatsapp"
@@ -215,11 +215,11 @@
             </div>
         </div>
         <div class="d-lg-none">
-            <SwipeBottomNavigation :options="options" v-model="selected" />
+          <SwipeBottomNavigation :options="options" v-model="selected" />
         </div>
     </footer>
   </template>
-  
+
   <script>
   export default {
     name: "Footer",
@@ -254,7 +254,7 @@
   <style lang="scss" scoped>
   .ms__footer--part {
     background-color: #192E5A;
-    padding-top: 30px;  
+    padding-top: 30px;
     .ms__footer--img {
         @media #{$max991} {
                text-align: center;

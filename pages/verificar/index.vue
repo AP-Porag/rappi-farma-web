@@ -272,7 +272,7 @@
                     </div>
                   </div>
                   <div class="ic__shopping--bottom">
-                    <a href="#" class="ic-btn">Go To Checkout</a>
+                    <a href="#" class="ic-btn">Confirmar pedido</a>
                   </div>
                 </div>
               </div>
