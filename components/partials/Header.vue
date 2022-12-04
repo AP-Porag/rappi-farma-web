@@ -391,7 +391,6 @@
     <!-- cart end -->
 
   </div>
-  </div>
 </template>
 
 <script>
