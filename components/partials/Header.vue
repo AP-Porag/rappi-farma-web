@@ -136,17 +136,17 @@
       <div class="ms__navbar--part">
         <div class="container">
           <nav class="ms__navbar--container">
-            <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 3v2H3V3h9zm4 16v2H3v-2h13zm6-8v2H3v-2h19z"/></svg>
-            </button>
-            <ul class="dropdown-menu show">
-              <li><NuxtLink class="dropdown-item" to="/categorias/belleza">Salud y medicamentos</NuxtLink></li>
-              <li><NuxtLink class="dropdown-item" to="/categorias/belleza">Belleza</NuxtLink></li>
-              <li><NuxtLink class="dropdown-item" to="/categorias/belleza">Baby care</NuxtLink></li>
-              <li><NuxtLink class="dropdown-item" to="/categorias/belleza">Producto</NuxtLink></li>
-            </ul>
-          </div>
+            <div class="d-sm-block d-md-none">
+              <button class="btn btn-outline-dark" @click="menuBox = !menuBox">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 3v2H3V3h9zm4 16v2H3v-2h13zm6-8v2H3v-2h19z"/></svg>
+              </button>
+              <ul class="dropdown-menu" :class="{ show: menuBox }">
+                <li><NuxtLink class="dropdown-item" to="/categorias/belleza">Salud y medicamentos</NuxtLink></li>
+                <li><NuxtLink class="dropdown-item" to="/categorias/belleza">Belleza</NuxtLink></li>
+                <li><NuxtLink class="dropdown-item" to="/categorias/belleza">Baby care</NuxtLink></li>
+                <li><NuxtLink class="dropdown-item" to="/categorias/belleza">Producto</NuxtLink></li>
+              </ul>
+            </div>
             <ul class="ms__navbar--nav">
               <li class="ms__navbar--items">
                 <NuxtLink class="ms__navbar--links" to="/categorias/belleza"
@@ -375,7 +375,7 @@
             </ul>
             <ul class="ms-auto ic__login--signUp">
               <li class="ms__navbar--items">
-                <button class="btn btn-sm btn-success">
+                <button class="btn btn-sm btn-outline-light border" @click="loginModal = !loginModal">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -391,7 +391,7 @@
                 </button>
               </li>
               <li class="ms__navbar--items">
-                <button class="btn btn-sm btn-warning">
+                <button class="btn btn-sm btn-outline-light border">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M6 8V7a6 6 0 1 1 12 0v1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h2zm13 2H5v10h14V10zm-8 5.732a2 2 0 1 1 2 0V18h-2v-2.268zM8 8h8V7a4 4 0 1 0-8 0v1z"/></svg>
                   <span>Logout</span>
                 </button>
@@ -584,10 +584,10 @@
     </div>
     <!-- cart end -->
     <!-- The Modal -->
-    <div id="myModal" class="ms_modal">
+    <div id="myModal" class="ms_modal" :class="{ 'd-block': loginModal }" @click="loginModal = !loginModal">
       <!-- Modal content -->
       <div class="ms_modal-content">
-        <span class="close">&times;</span>
+        <button class="close" @click="loginModal = !loginModal">&times;</button>
         <form action="#">
           <div class="form-group">
             <label for="#">Email</label>
@@ -617,7 +617,7 @@
                 Remember Me
               </label>
             </div>
-            <a href="#">Forgot password?</a>
+            <a href="#">Already have an account</a>
           </div>
           <div>
             <button class="btn btn-primary">Login</button>
@@ -637,6 +637,8 @@ export default {
         topOfPage: true
       },
       cartBox:false,
+      menuBox:false,
+      loginModal:false,
       keywords:'',
       items:[]
     }
@@ -795,6 +797,8 @@ export default {
   .ms__navbar--container {
     position: relative;
     margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
     display: flex;
     align-items: center;
     .ms__navbar--nav {
