@@ -687,7 +687,7 @@ export default {
     transition: 0.5s;
     -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.1);
-    animation: spin .3s alternate;
+    animation: spin .6s alternate;
   }
 }
 @keyframes spin {
