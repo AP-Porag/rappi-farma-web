@@ -21,7 +21,7 @@
         <div class="container">
           <div class="row g-4">
             <div class="col-lg-3">
-              <a href="#" class="#" >Catagories Name Filter</a>
+              <a href="#" class="d-lg-none">Catagories Name Filter</a>
               <div class="ic__catagoriesFilter--overlay"></div>
               <div class="ms__catagoriesFilter--left">
                 <a href="#" class="catagoriesFilter--closed">
