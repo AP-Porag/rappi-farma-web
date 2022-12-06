@@ -455,3 +455,31 @@ input {
 .rate-area > label:hover ~ input:checked ~ label {
 	color: gold;
 }
+
+
+.ms__social--details {
+  padding-top: 30px;
+  ul {
+    @include d-flex();
+    align-items: center;
+    gap: 15px;
+    li {
+      a {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        @include bd-radius(50%);
+        background-color: #1b88f5;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        svg {
+          fill: #fff;
+        }
+        i {
+          color: #fff;
+        }
+      }
+    }
+  }
+}

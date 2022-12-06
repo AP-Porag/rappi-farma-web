@@ -136,6 +136,17 @@
       <div class="ms__navbar--part">
         <div class="container">
           <nav class="ms__navbar--container">
+            <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 3v2H3V3h9zm4 16v2H3v-2h13zm6-8v2H3v-2h19z"/></svg>
+            </button>
+            <ul class="dropdown-menu show">
+              <li><NuxtLink class="dropdown-item" to="/categorias/belleza">Salud y medicamentos</NuxtLink></li>
+              <li><NuxtLink class="dropdown-item" to="/categorias/belleza">Belleza</NuxtLink></li>
+              <li><NuxtLink class="dropdown-item" to="/categorias/belleza">Baby care</NuxtLink></li>
+              <li><NuxtLink class="dropdown-item" to="/categorias/belleza">Producto</NuxtLink></li>
+            </ul>
+          </div>
             <ul class="ms__navbar--nav">
               <li class="ms__navbar--items">
                 <NuxtLink class="ms__navbar--links" to="/categorias/belleza"
@@ -664,7 +675,7 @@ export default {
   }
 }
 .ms__header--part {
-  padding-top: 10px;
+  // padding-top: 10px;
   background-color: #fff;
   &.onScroll {
     position: fixed;
@@ -690,6 +701,7 @@ export default {
   @include d-flex();
   @include align-items(center);
   @include justify-content(space-between);
+  padding: 10px 0;
   gap: 211px;
   @media #{$max1399} {
     gap: 80px;
@@ -777,6 +789,9 @@ export default {
 .ms__navbar--part {
   background-color: $primary;
   box-shadow: $box-shadow;
+  @media #{$max991}{
+    padding: 10px 0;
+  }
   .ms__navbar--container {
     position: relative;
     margin-top: 10px;
@@ -787,7 +802,9 @@ export default {
       @include align-items(center);
       flex-wrap: nowrap;
       gap: 30px;
-      overflow-x: auto;
+      @media #{$max991}{
+        display: none;
+      }
       .ms__navbar--items {
         .ms__navbar--links {
           color: $white;
@@ -813,6 +830,9 @@ export default {
           z-index: -1;
           @include d-flex();
           gap: 10px;
+          @media #{$max991} {
+            display: none;
+          }
           .ms__dropDwon--items {
             flex: 0 0 calc(25% - 10px);
             width: calc(25% - 10px);

@@ -38,6 +38,21 @@
                 <button class="minize">+</button>
               </div>
               <a href="#" class="ic-btn">Add Products</a>
+
+              <div class="ms__social--details">
+                <ul>
+                  <li>
+                    <a href="#">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/></svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/></svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -143,7 +158,6 @@
           <div class="ms__related--slider slick-slider-relative">
             <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSetting" v-if="beauties.length">
               <ProductoProduct v-for="beauty in beauties" :key="beauty.id" :product="beauty" />
-             
             </VueSlickCarousel>
           </div>
         </div>
