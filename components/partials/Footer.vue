@@ -23,7 +23,7 @@
                         <img data-src="/images/logo.svg" class="img-fluid w-100" alt="" v-lazy-load>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 d-none d-lg-block">
                     <div class="ms__footer--links">
                         <h6>OUR SHOPS</h6>
                         <ul>
@@ -47,7 +47,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 d-none d-lg-block">
                     <div class="ms__footer--links">
                         <h6>CATEGORIES</h6>
                         <ul>
@@ -99,7 +99,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 d-none d-lg-block">
                     <div class="ms__footer--links">
                         <h6>OTHER LINKS</h6>
                         <ul>
@@ -144,7 +144,7 @@
             </div>
             <div class="ms__bottom-footer">
                 <div class="row">
-                    <div class="col-lg-9 m-auto">
+                    <div class="col-lg-9 m-auto d-none d-lg-block">
                         <div class="row g-4">
                             <div class="col-lg-2">
                                 <div class="ms__banking--img">
@@ -214,9 +214,6 @@
                 <span>COL-V5099-1.2.0</span>
             </div>
         </div>
-        <div class="d-lg-none">
-          <SwipeBottomNavigation :options="options" v-model="selected" />
-        </div>
     </footer>
   </template>
 
@@ -269,6 +266,7 @@
     .ms__footer--links {
         @media #{$max991} {
                text-align: center;
+               display: none;
             }
         h6 {
             color: $white;

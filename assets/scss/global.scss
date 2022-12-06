@@ -74,9 +74,24 @@ a {
   border: 1px solid $primary;
   color: $primary;
   font-weight: 500;
+  position: relative;
   @media #{$max767} {
     padding: 0 10px;
   }
+p {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #1b88f5;
+  font-size: 12px;
+  color: #fff;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
   svg {
     fill: $primary;
     margin-right: 8px;
@@ -123,13 +138,15 @@ input {
 
 
 .ms__customer--avatar {
-  box-shadow: 0px 4px 20px rgba(23, 23, 23, 0.05);
+  box-shadow: $box-shadow;
   border-radius: 6px;
   background-color: #fff;
   margin-bottom: 30px;
+
   .ms__img {
     border-radius: 6px 6px 0 0;
     height: 200px;
+
     img {
       max-width: 100%;
       max-height: 100%;
@@ -143,21 +160,26 @@ input {
     text-align: center;
     padding-bottom: 25px;
     border-bottom: 1px solid #eaeff3;
+
     img {
       width: 110px;
       height: 110px;
       border-radius: 50%;
       margin-bottom: 20px;
     }
+
     h5 {
       padding-bottom: 8px;
     }
+
     p {
       color: $primary;
     }
   }
+
   .customer-nav {
     padding-top: 20px;
+
     li {
       a {
         display: block;
@@ -165,10 +187,12 @@ input {
         color: #202020;
         font-weight: 500;
         transition: 0.3s;
+
         &:hover {
           color: $primary;
           background-color: rgba(65, 144, 222, 0.103);
         }
+
         &.active {
           color: $primary;
           background-color: rgba(65, 144, 222, 0.103);
@@ -177,33 +201,40 @@ input {
     }
   }
 }
-.figure  {
+
+.figure {
   width: 100%;
 }
+
 .vue-tabs {
   gap: 24px;
   align-items: flex-start;
 }
+
 .vue-tabs {
   @media #{$max767} {
     flex-direction: column;
   }
 }
+
 .left-vertical-tabs {
   flex: 0 0 356px;
   width: 356px;
   padding: 20px 0;
   background-color: #fff;
-  box-shadow: 0px 4px 20px rgb(23 23 23 / 5%);
+  box-shadow: $box-shadow;
   border-radius: 6px;
+
   @media #{$max1399} {
     flex: 0 0 231px;
     width: 231px;
   }
+
   @media #{$max767} {
     flex: 0 0 100%;
     width: 100%;
   }
+
   .nav-stacked {
     flex-direction: column;
 
@@ -228,14 +259,157 @@ input {
     }
   }
 }
-
+.tab-content {
+  flex: 1;
+  width: 100%;
+}
 .vsc-popup-header {
   background-color: $primary;
 }
 
 .vsc-popup-button--default {
+  @media #{$max991} {
+    position: absolute;
+    bottom: 60px;
+  }
+
   background-color: $primary;
+
   &:hover {
-    box-shadow: 0 0 0 3px #fff,0 0 0 6px $primary;
+    box-shadow: 0 0 0 3px #fff, 0 0 0 6px $primary;
+  }
+}
+
+/* The Modal (background) */
+.ms_modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 9;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+
+  /* Black w/ opacity */
+  .active {
+    display: block;
+  }
+}
+
+/* Modal Content/Box */
+.ms_modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 40px 20px;
+  border: 1px solid #888;
+
+  @media (min-width: 576px) {
+    width: 500px;
+  }
+
+  @media (max-width: 575px) {
+    width: 100%;
+  }
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.form-check {
+  .form-check-input {
+    width: 1rem !important;
+  }
+}
+
+.ms__login--check {
+  @include d-flex();
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.btn {
+  svg {
+    fill: #fff;
+  }
+}
+
+.ms__recentOrder--items {
+  box-shadow: $box-shadow;
+  border-radius: 10px;
+  padding: 8px;
+  display: grid;
+  grid-template-columns: 100px 200px 1fr 1fr 1fr;
+  gap: 10px;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-bottom: 20px;
+  @media #{$max991} {
+    grid-template-columns: inherit;
+    justify-items: center;
+    justify-content: space-evenly;
+  }
+  .ms__recentOrder--img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .ms__recentOrder--name {
+    @media #{$max991} {
+      text-align: center;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
+  .ms__recentOrder--oty {
+    @media #{$max991} {
+      text-align: center;
+    }
+    p {
+      font-size: 14px;
+      color: $gray-500;
+      font-weight: 600;
+    }
+  }
+  .ms__recentOrder--date {
+    @media #{$max991} {
+      text-align: center;
+    }
+    p {
+      font-size: 14px;
+      color: $gray-500;
+    }
   }
 }

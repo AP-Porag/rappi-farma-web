@@ -1,6 +1,6 @@
 <template>
   <div>
-      <section class="ms__subCatagories--part">
+      <section class="ms__subCatagories--part ic-section-space">
         <div class="container slick-slider-relative">
           <VueSlickCarousel :arrows="true" :dots="false" setting="subCatagoriesSlider">
             <div>
@@ -21,7 +21,12 @@
         <div class="container">
           <div class="row g-4">
             <div class="col-lg-3">
+              <a href="#" class="#" >Catagories Name Filter</a>
+              <div class="ic__catagoriesFilter--overlay"></div>
               <div class="ms__catagoriesFilter--left">
+                <a href="#" class="catagoriesFilter--closed">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg>
+                </a>
                 <h5>Catagories Name</h5>
                 <ul class="ms__catagoriesnav">
                   <li class="ms__catagorisItems">
@@ -233,6 +238,17 @@ export default {
 </script>
 
 <style lang="scss">
+.ic__catagoriesFilter--overlay {
+    &.active {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 9;
+    }
+}
 .ms__filter--search {
   text-align: right;
   @media #{$max991}{
@@ -344,9 +360,9 @@ export default {
     }
   }
 }
+
   .ms__subCatagories--part {
     .slick-slider {
-
       .slick-slide {
         padding: 0;
       }
@@ -355,11 +371,39 @@ export default {
   .ms__catagoriesFilter--left {
     padding: 20px;
     box-shadow: $box-shadow;
+    position: relative;
     @include bd-radius(6px);
+    @media #{$max991} {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #fff;
+      height: 100%;
+      z-index: 999;
+      width: 300px;
+      transform: translateX(-100%);
+      transition: 0.4s;
+      &.active {
+        transform: translateX(0);
+      }
+    }
+    .catagoriesFilter--closed {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        @media (min-width: 992px) {
+          display: none;
+        }
+      }
+   
     h5 {
       padding-bottom: 20px;
     }
     .ms__catagoriesnav {
+      @media #{$max991} {
+      height: 100%;
+      overflow-y: auto;
+    }
       .ms__catagorisItems {
        > a {
           color: $black;

@@ -78,6 +78,16 @@
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
+                        <label for="#">Image</label>
+                        <input
+                          type="file"
+                          placeholder="Role"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
                         <label for="#">Phone Number</label>
                         <input
                           type="number"
@@ -94,123 +104,99 @@
 
             <v-tab title="Recent Orders" icon="ti-settings">
               <div class="ms__customer--content">
-                <h4>Update Profile</h4>
-                <form action="#">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label for="#">First name</label>
-                        <input
-                          type="text"
-                          placeholder="First name"
-                          class="form-control"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label for="#">Last name</label>
-                        <input
-                          type="text"
-                          placeholder="Last name"
-                          class="form-control"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label for="#">Image</label>
-                        <input
-                          type="file"
-                          placeholder="Role"
-                          class="form-control"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label for="#">Email</label>
-                        <input
-                          type="email"
-                          placeholder="Email"
-                          class="form-control"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label for="#">Phone Number</label>
-                        <input
-                          type="number"
-                          placeholder="Email"
-                          class="form-control"
-                        />
-                      </div>
-                    </div>
+                <div class="ms__recentOrder--items">
+                  <div class="ms__recentOrder--img">
+                    <img
+                  data-src="/images/profile-pic.png"
+                  class="img-fluid"
+                  alt=""
+                  v-lazy-load
+                />
                   </div>
-                  <button class="ic-btn">Submit</button>
-                </form>
+                  <div class="ms__recentOrder--name">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet, sunt!</p>
+                  </div>
+                  <div class="ms__recentOrder--oty">
+                    <p>Qty:1</p>
+                  </div>
+                  <div class="ms__recentOrder--status">
+                    <span class="badge text-bg-success">Delivered</span>
+                  </div>
+                  <div class="ms__recentOrder--date">
+                    <p>Delivered on 18 Nov 2022</p>
+                  </div>
+                </div>
+                <div class="ms__recentOrder--items">
+                  <div class="ms__recentOrder--img">
+                    <img
+                  data-src="/images/profile-pic.png"
+                  class="img-fluid"
+                  alt=""
+                  v-lazy-load
+                />
+                  </div>
+                  <div class="ms__recentOrder--name">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet, sunt!</p>
+                  </div>
+                  <div class="ms__recentOrder--oty">
+                    <p>Qty:1</p>
+                  </div>
+                  <div class="ms__recentOrder--status">
+                    <span class="badge text-bg-success">Delivered</span>
+                  </div>
+                  <div class="ms__recentOrder--date">
+                    <p>Delivered on 18 Nov 2022</p>
+                  </div>
+                </div>
               </div>
             </v-tab>
 
             <v-tab title="Orders History" icon="ti-check">
               <div class="ms__customer--content">
-                <h4>Personal Info</h4>
-                <form action="#">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label for="#">First name</label>
-                        <input
-                          type="text"
-                          placeholder="First name"
-                          class="form-control"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label for="#">Last name</label>
-                        <input
-                          type="text"
-                          placeholder="Last name"
-                          class="form-control"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label for="#">Role</label>
-                        <input
-                          type="text"
-                          placeholder="Role"
-                          class="form-control"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label for="#">Email</label>
-                        <input
-                          type="email"
-                          placeholder="Email"
-                          class="form-control"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label for="#">Phone Number</label>
-                        <input
-                          type="number"
-                          placeholder="Email"
-                          class="form-control"
-                        />
-                      </div>
-                    </div>
+                <div class="ms__recentOrder--items">
+                  <div class="ms__recentOrder--img">
+                    <img
+                  data-src="/images/profile-pic.png"
+                  class="img-fluid"
+                  alt=""
+                  v-lazy-load
+                />
                   </div>
-                  <button class="ic-btn">Submit</button>
-                </form>
+                  <div class="ms__recentOrder--name">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet, sunt!</p>
+                  </div>
+                  <div class="ms__recentOrder--oty">
+                    <p>Qty:1</p>
+                  </div>
+                  <div class="ms__recentOrder--status">
+                    <span class="badge text-bg-success">Delivered</span>
+                  </div>
+                  <div class="ms__recentOrder--date">
+                    <p>Delivered on 18 Nov 2022</p>
+                  </div>
+                </div>
+                <div class="ms__recentOrder--items">
+                  <div class="ms__recentOrder--img">
+                    <img
+                  data-src="/images/profile-pic.png"
+                  class="img-fluid"
+                  alt=""
+                  v-lazy-load
+                />
+                  </div>
+                  <div class="ms__recentOrder--name">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet, sunt!</p>
+                  </div>
+                  <div class="ms__recentOrder--oty">
+                    <p>Qty:1</p>
+                  </div>
+                  <div class="ms__recentOrder--status">
+                    <span class="badge text-bg-success">Delivered</span>
+                  </div>
+                  <div class="ms__recentOrder--date">
+                    <p>Delivered on 18 Nov 2022</p>
+                  </div>
+                </div>
               </div>
             </v-tab>
           </vue-tabs>
@@ -276,7 +262,7 @@ export default {
 }
 
 .ms__customer--content {
-  box-shadow: 0px 4px 20px rgba(23, 23, 23, 0.05);
+  box-shadow: $box-shadow;
   background-color: #fff;
   padding: 30px;
   border-radius: 6px;

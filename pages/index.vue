@@ -3,7 +3,7 @@
     <!-- banner part start -->
     <section class="ms__banner--part">
       <div class="container slick-slider-relative">
-        <VueSlickCarousel :arrows="true" :dots="false" v-if="banners.length">
+        <VueSlickCarousel :arrows="true" v-bind="sliderOneBanner" :dots="false" v-if="banners.length">
           <div class="ms__banner--items" v-for="banner in banners" :key="banner.id">
             <NuxtLink :to="banner.path">
               <img :data-src="banner.image"  class="img-fluid" alt="" v-lazy-load>
@@ -425,6 +425,9 @@ export default {
       {id:'9.10',title:'Pink Week',path:'/',image:'/images/story-5.png'},
       {id:'9.11',title:'Pink Week',path:'/',image:'/images/story-1.png'},
     ],
+    sliderOneBanner: {
+      autoplay:true,
+    },
     sliderOneSetting: {
       arrows: true,
       dots: true,
@@ -651,11 +654,20 @@ export default {
 // advertisment
 .ms__advertisment--part {
   padding-top: 50px;
+  @media #{$max575}{
+    padding-top: 30px;
+  }
 }
 .ms__advertisment--img {
   box-shadow: $box-shadow;
   height: 200px;
   @include bd-radius(10px);
+  @media #{$max575}{
+    height: 120px;
+  }
+  @media #{$max480}{
+    height: 110px;
+  }
   img {
     height: 100%;
     @include bd-radius(10px);
