@@ -39,6 +39,7 @@ export default {
     { src: './plugins/vue-zoom.js',mode:"client" },
     { src: './plugins/vue-image-zoom.js',mode:"client" },
     { src: './plugins/vue-nav-tabs.js' },
+    { src: '~/plugins/infiniteloading', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -92,7 +93,8 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    proxy: true,
+    baseURL: process.env.API_URL,
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

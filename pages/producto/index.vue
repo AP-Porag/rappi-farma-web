@@ -135,7 +135,8 @@
                 </div>
 
                 <div class="row g-4">
-                  <ProductoProduct class="col-lg-4 col-md-6" v-for="beauty in beauties" :key="beauty.id" :product="beauty" />
+                  <ProductoProduct class="col-lg-4 col-md-6" v-for="product in products" :key="product.id" :product="product" />
+                  <infinite-loading v-if="products.length" spinner="bubbles" @infinite="infiniteScroll"></infinite-loading>
                 </div>
               </div>
             </div>
@@ -224,16 +225,45 @@ export default {
       slidesToShow: 1,
       slidesToScroll: 1
     },
-    beauties:[
-      {id:'6.1',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/producto/sunface-sunscreen',image:'/images/beauty-1.png'},
-      {id:'6.2',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/producto/sunface-sunscreen',image:'/images/beauty-2.jpg'},
-      {id:'6.3',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/producto/sunface-sunscreen',image:'/images/beauty-3.jpg'},
-      {id:'6.4',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/producto/sunface-sunscreen',image:'/images/beauty-4.jpg'},
-      {id:'6.5',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/producto/sunface-sunscreen',image:'/images/beauty-1.png'},
-      {id:'6.6',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/producto/sunface-sunscreen',image:'/images/beauty-2.jpg'},
-    ],
     filterBox:false,
+    products:[],
+    page: 1
   }),
+  computed: {
+    url() {
+      return "http://localhost:8000/api/v1/product?page=" + this.page;
+    }
+  },
+  created() {
+    this.getAllProducts();
+  },
+  // mounted() {
+  //   this.getAllProducts();
+  //   console.log(this.products)
+  // },
+  methods:{
+    async getAllProducts() {
+      const response = await this.$axios.get(this.url);
+      this.products = response.data.data.items;
+    },
+    infiniteScroll($state) {
+      setTimeout(() => {
+        this.page++; // next page
+        this.$axios.get(this.url)
+          .then(response => {
+            if (response.data.data.items.length > 1) { // check if any left
+              response.data.data.items.forEach(product => this.products.push(product)); // push it into the items array so we can display the data
+              $state.loaded();
+            } else {
+              $state.complete();
+            }
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      }, 1000);
+    },
+  }
 }
 </script>
 
@@ -395,7 +425,7 @@ export default {
           display: none;
         }
       }
-   
+
     h5 {
       padding-bottom: 20px;
     }

@@ -113,7 +113,7 @@
                 />
               </svg>
               <span>cart</span>
-              <p class="cart--count">10</p>
+              <p class="cart--count">{{shoppingCart.length}}</p>
             </button>
             <NuxtLink to="/cliente/1" class="ic-btn-outline">
                   <svg
@@ -422,17 +422,17 @@
           <p>Price</p>
         </div>
         <div class="ic__shopping-scrollbar">
-          <div class="ic__shopping--img">
+          <div class="ic__shopping--img" v-for="product in shoppingCart" :key="product.productId">
             <img
-              data-src="https://lh3.googleusercontent.com/q64qBvzPC2pmyckLfiDCkwdNqT76T5mTq7PqeFwYcC4W1p2ukqYdFUCz-jWUlcLt9SXa_jwrVSGzWEGYRRMzsE5gPfei5wpbnCk"
+              :data-src="product.productImage"
               alt="cart"
               v-lazy-load
             />
             <div class="ic__shopping-info">
-              <p class="ic__cart--name">Shiloh Swivel Accen Chair</p>
+              <p class="ic__cart--name">{{product.productName}}</p>
               <div class="ic-cart-quantity d-flex align-items-center">
                 <div class="ic-quantity">
-                  <button class="ic-quantity-minus">
+                  <button class="ic-quantity-minus" @click.prevent="decreaseCartQuantity(product)">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 448 512"
@@ -445,11 +445,10 @@
                   <input
                     type="number"
                     class="form-control"
-                    value="1"
-                    min="1"
-                    readonly=""
+                    :value="product.productQuantity"
+                    readonly
                   />
-                  <button class="ic-quantity-plus">
+                  <button class="ic-quantity-plus" @click.prevent="increaseCartQuantity(product)">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 448 512"
@@ -464,110 +463,18 @@
               </div>
             </div>
             <div class="ic__shopping--price">
-              <p>$22.49</p>
-              <a href="#"><i class="ri-delete-bin-line"></i> Delete</a>
-            </div>
-          </div>
-          <div class="ic__shopping--img">
-            <img
-              data-src="https://lh3.googleusercontent.com/q64qBvzPC2pmyckLfiDCkwdNqT76T5mTq7PqeFwYcC4W1p2ukqYdFUCz-jWUlcLt9SXa_jwrVSGzWEGYRRMzsE5gPfei5wpbnCk"
-              alt="cart"
-              v-lazy-load
-            />
-            <div class="ic__shopping-info">
-              <p class="ic__cart--name">Shiloh Swivel Accen Chair</p>
-              <div class="ic-cart-quantity d-flex align-items-center">
-                <div class="ic-quantity">
-                  <button class="ic-quantity-minus">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 448 512"
-                    >
-                      <path
-                        d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"
-                      />
-                    </svg>
-                  </button>
-                  <input
-                    type="number"
-                    class="form-control"
-                    value="1"
-                    min="1"
-                    readonly=""
-                  />
-                  <button class="ic-quantity-plus">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 448 512"
-                    >
-                      <path
-                        d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
-                      />
-                    </svg>
-                  </button>
-                </div>
-                <!-- <p class="ps-2 red">Out of Stock</p> -->
-              </div>
-            </div>
-            <div class="ic__shopping--price">
-              <p>$22.49</p>
-              <a href="#"><i class="ri-delete-bin-line"></i> Delete</a>
-            </div>
-          </div>
-          <div class="ic__shopping--img">
-            <img
-              data-src="https://lh3.googleusercontent.com/q64qBvzPC2pmyckLfiDCkwdNqT76T5mTq7PqeFwYcC4W1p2ukqYdFUCz-jWUlcLt9SXa_jwrVSGzWEGYRRMzsE5gPfei5wpbnCk"
-              alt="cart"
-              v-lazy-load
-            />
-            <div class="ic__shopping-info">
-              <p class="ic__cart--name">Shiloh Swivel Accen Chair</p>
-              <div class="ic-cart-quantity d-flex align-items-center">
-                <div class="ic-quantity">
-                  <button class="ic-quantity-minus">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 448 512"
-                    >
-                      <path
-                        d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"
-                      />
-                    </svg>
-                  </button>
-                  <input
-                    type="number"
-                    class="form-control"
-                    value="1"
-                    min="1"
-                    readonly=""
-                  />
-                  <button class="ic-quantity-plus">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 448 512"
-                    >
-                      <path
-                        d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
-                      />
-                    </svg>
-                  </button>
-                </div>
-                <!-- <p class="ps-2 green">In Stock</p> -->
-              </div>
-            </div>
-            <div class="ic__shopping--price">
-              <p>$22.49</p>
-              <a href="#"><i class="ri-delete-bin-line"></i> Delete</a>
+              <p>${{(product.productPrice * product.productQuantity).toFixed(2)}}</p>
+              <a href="#" @click.prevent="removeFromCart(product)"><i class="ri-delete-bin-line text-danger"></i>Remove</a>
             </div>
           </div>
         </div>
         <!-- total -->
         <div class="ic--subtotal">
-          <p><span>Subtotal</span> <span>$39.05</span></p>
-          <p><span>Shipping</span> <span>$10.22</span></p>
+          <p><span>Subtotal</span> <span>${{subTotal.toFixed(2)}}</span></p>
+          <p><span>Shipping</span> <span>${{shippingCharge.toFixed(2)}}</span></p>
         </div>
         <div class="ic--total">
-          <p><span>Total</span> <span>$59.25</span></p>
+          <p><span>Total</span> <span>${{finalTotal.toFixed(2)}}</span></p>
         </div>
       </div>
       <div class="ic__shopping--bottom">
@@ -629,6 +536,7 @@
 </template>
 
 <script>
+import { mapState,mapGetters } from 'vuex'
 export default {
   name: "Header",
   data(){
@@ -640,20 +548,87 @@ export default {
       menuBox:false,
       loginModal:false,
       keywords:'',
-      items:[]
+      items:[],
+      shoppingCart : [],
+      shippingCharge : 0,
+      subTotal : 0,
+      finalTotal:0,
     }
+  },
+  watch:{
+    shoppingCart:{
+      handler(newValue){
+        localStorage.setItem('rappiCart',JSON.stringify(newValue));
+      },deep:true
+    },
+  },
+  mounted() {
+    this.shoppingCart = JSON.parse(localStorage.getItem('rappiCart') || "[]");
+    this.shippingCharge = JSON.parse(localStorage.getItem('rappiShippingCost') || "");
+    this.countFinalTotal();
+    this.countSubTotal();
   },
   beforeMount() {
     window.addEventListener('scroll', this.handleScroll)
   },
   methods: {
+    removeFromCart(product){
+      const shoppingCart = this.shoppingCart;
+      const productIndex = shoppingCart.findIndex(item => item.productId == product.productId)
+      shoppingCart.splice(productIndex,1)
+      this.countSubTotal();
+      this.countFinalTotal();
+    },
+    increaseCartQuantity(product){
+      const shoppingCart = this.shoppingCart;
+      const found = shoppingCart.find(item => item.productId == product.productId)
+      if(found){
+        found.productQuantity++;
+        this.countSubTotal();
+        this.countFinalTotal();
+      }else{
+        console.log("product not found")
+      }
+    },
+    decreaseCartQuantity(product){
+      const shoppingCart = this.shoppingCart;
+      const found = shoppingCart.find(item => item.productId == product.productId)
+      if(found){
+        if (found.productQuantity > 1){
+          found.productQuantity--;
+          this.countSubTotal();
+          this.countFinalTotal();
+        }else {
+          console.log('Decrease quantity not allow !,Please remove.')
+        }
+      }else{
+        console.log("product not found")
+      }
+    },
+    countSubTotal(){
+      let total = 0;
+      this.shoppingCart.filter((item) => {
+        total += (item.productPrice * item.productQuantity);
+      });
+      this.subTotal = total;
+    },
+    countFinalTotal(){
+      let finalTotal = 0;
+      let total = 0;
+      this.shoppingCart.filter((item) => {
+        total += (item.productPrice * item.productQuantity);
+      });
+
+      finalTotal = total + this.shippingCharge;
+      this.finalTotal = finalTotal;
+    },
     handleScroll(){
       if(window.pageYOffset>250){
         if(this.view.topOfPage) this.view.topOfPage = false
       } else {
         if(!this.view.topOfPage) this.view.topOfPage = true
       }
-    }
+    },
   }
 }
 </script>
