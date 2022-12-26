@@ -1,52 +1,60 @@
 <template>
-  <div class="root">
+  <div class="root py-5">
     <section class="ms__checkout--part ic-section-space">
       <div class="container">
         <form action="#">
           <div class="ms__card">
-            <div class="row">
+            <div class="row py-5">
               <div class="col-lg-6">
                 <div class="ms__title">
                   <h4 class="title">Personal Details</h4>
                 </div>
                 <div class="row mb-4">
                   <div class="col-lg-6">
-                    <div class="from-group">
-                      <label for="#">First Name</label>
+                    <div class="from-group mt-3">
+                      <label for="first_name">First Name</label>
                       <input
                         type="text"
-                        placeholder="First Name"
+                        id="first_name"
+                        placeholder="Your first name"
                         class="form-control"
+                        v-model="form_data.first_name"
                       />
                     </div>
                   </div>
                   <div class="col-lg-6">
-                    <div class="from-group">
-                      <label for="#">Last Name</label>
+                    <div class="from-group mt-3">
+                      <label for="last_name">Last Name</label>
                       <input
                         type="text"
-                        placeholder="Last Name"
+                        id="last_name"
+                        placeholder="Your last name"
                         class="form-control"
+                        v-model="form_data.last_name"
                       />
                     </div>
                   </div>
                   <div class="col-lg-6">
-                    <div class="from-group">
-                      <label for="#">Email</label>
+                    <div class="from-group mt-3">
+                      <label for="email">Your email</label>
                       <input
                         type="email"
-                        placeholder="Email"
+                        id="email"
+                        placeholder="Your email"
                         class="form-control"
+                        v-model="form_data.email"
                       />
                     </div>
                   </div>
                   <div class="col-lg-6">
-                    <div class="from-group">
-                      <label for="#">Phone </label>
+                    <div class="from-group mt-3">
+                      <label for="phone">Phone </label>
                       <input
-                        type="number"
-                        placeholder="Phone"
+                        type="text"
+                        id="phone"
+                        placeholder="Your phone number"
                         class="form-control"
+                        v-model="form_data.phone"
                       />
                     </div>
                   </div>
@@ -56,45 +64,75 @@
                 </div>
                 <div class="row">
                   <div class="col-lg-6">
-                    <div class="from-group">
-                      <label for="#">Address</label>
+                    <div class="from-group mt-3">
+                      <label for="address">Address</label>
                       <input
                         type="text"
-                        placeholder="Address"
+                        id="address"
+                        placeholder="Full shipping address"
                         class="form-control"
+                        v-model="form_data.address"
                       />
                     </div>
                   </div>
                   <div class="col-lg-6">
-                    <div class="from-group">
-                      <label for="#">Zip Code</label>
+                    <div class="from-group mt-3">
+                      <label for="zip_code">Zip Code</label>
                       <input
                         type="text"
-                        placeholder="Zip Code"
+                        id="zip_code"
+                        placeholder="Your zip code"
                         class="form-control"
+                        v-model="form_data.zip_code"
                       />
                     </div>
                   </div>
                   <div class="col-lg-6">
-                    <div class="from-group">
-                      <label for="#">City</label>
+                    <div class="from-group mt-3">
+                      <label for="city">City</label>
                       <input
-                        type="email"
-                        placeholder="City"
+                        type="text"
+                        id="city"
+                        placeholder="Your city"
                         class="form-control"
+                        v-model="form_data.city"
                       />
                     </div>
                   </div>
                   <div class="col-lg-6">
-                    <div class="from-group">
-                      <label for="#">Country </label>
+                    <div class="from-group mt-3">
+                      <label for="country">Country </label>
                       <input
-                        type="number"
-                        placeholder="Country"
+                        type="text"
+                        id="country"
+                        placeholder="Your country"
                         class="form-control"
+                        v-model="form_data.country"
                       />
                     </div>
                   </div>
+                  <div class="col-lg-6">
+                    <div class="from-group mt-3">
+                      <label for="whatsApp">WhatsApp </label>
+                      <input
+                        type="text"
+                        id="whatsApp"
+                        placeholder="your whatsApp number"
+                        class="form-control"
+                        v-model="form_data.whatsapp"
+                      />
+                    </div>
+                  </div>
+<!--                  <div class="col-lg-6">-->
+<!--                    <div class="mt-3 d-flex justify-content-between">-->
+<!--                      <input-->
+<!--                        type="checkbox"-->
+<!--                        id="terms_conditions"-->
+<!--                        v-model="form_data.agree_terms"-->
+<!--                      />-->
+<!--                      <label class="small">I agree with all <nuxt-link to="#">terms & conditions</nuxt-link> </label>-->
+<!--                    </div>-->
+<!--                  </div>-->
                 </div>
               </div>
               <div class="col-lg-6">
@@ -164,8 +202,8 @@
                       <p><span>Total</span> <span>${{form_data.total_price.toFixed(2)}}</span></p>
                     </div>
                   </div>
-                  <div class="ic__shopping--bottom">
-                    <a href="#" class="ic-btn">Confirmar pedido</a>
+                  <div class="ic__shopping--bottom mt-3">
+                    <button class="btn ic-btn w-100" @click.prevent="submit">Confirmar pedido</button>
                   </div>
                 </div>
               </div>
@@ -189,16 +227,12 @@ export default {
         email:'',
         phone:'',
         whatsapp:'',
-        alternative_phone:'',
         address:'',
         city:'',
         country:'',
-        province:'',
         zip_code:'',
-        agree_terms:false,
         total_quantity:0,
         subtotal:0,
-        shipping_cost:0,
         shipping_type:'shipping',
         order_status:'pending',
         discount_type :'',
@@ -222,6 +256,11 @@ export default {
     this.countFinalTotal();
     this.countSubTotal();
     this.setCartProduct();
+  },
+  computed: {
+    url() {
+      return "http://localhost:8000/api/v1/order";
+    }
   },
   methods: {
     setCartProduct(){
@@ -290,6 +329,16 @@ export default {
       finalTotal = total + this.form_data.shippingCharge;
       this.form_data.total_price = finalTotal;
     },
+    async submit(){
+      console.log('submitted')
+      await this.$axios.post(this.url,this.form_data)
+        .then(response => {
+          console.log(response)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
   }
 
 }
