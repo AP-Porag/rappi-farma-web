@@ -333,7 +333,30 @@ export default {
       console.log('submitted')
       await this.$axios.post(this.url,this.form_data)
         .then(response => {
-          console.log(response)
+          if (response.data.status == 200){
+            this.form_data.first_name = '';
+            this.form_data.last_name='';
+            this.form_data.email='';
+              this.form_data.phone='';
+              this.form_data.whatsapp='';
+              this.form_data.address='';
+              this.form_data.city='';
+              this.form_data.country='';
+              this.form_data.zip_code='';
+              this.form_data.total_quantity=0;
+              this.form_data.subtotal=0;
+              this.form_data.shipping_type='shipping';
+              this.form_data.order_status='pending';
+              this.form_data.discount_type ='';
+              this.form_data.discount_amount=0;
+              this.form_data.total_price=0;
+              this.form_data.shippingCharge = 0;
+              this.form_data.products=[]
+
+            window.localStorage.setItem('rappiCart', []);
+            window.location.reload()
+
+          }
         })
         .catch(err => {
           console.log(err)
