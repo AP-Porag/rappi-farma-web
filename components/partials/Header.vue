@@ -115,19 +115,11 @@
               <span>cart</span>
               <p class="cart--count">{{shoppingCart.length}}</p>
             </button>
-            <NuxtLink to="/cliente/1" class="ic-btn-outline">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                  >
-                    <path fill="none" d="M0 0h24v24H0z" />
-                    <path
-                      d="M4 22a8 8 0 1 1 16 0h-2a6 6 0 1 0-12 0H4zm8-9c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6zm0-2c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"
-                    />
-                  </svg>
-                  <span>My Account</span>
+            <NuxtLink :to="`/cliente/${user.id}`" class="ic-btn-outline" v-if="user.token">
+                  <div class="avatar_box">
+                    <img :src="user.avatar_url" alt="" class="avatar_img img-fluid">
+                  </div>
+                  <span>Mi cuenta</span>
                 </NuxtLink>
           </div>
         </div>
@@ -374,8 +366,8 @@
               </li>
             </ul>
             <ul class="ms-auto ic__login--signUp">
-              <li class="ms__navbar--items">
-                <button class="btn btn-sm btn-outline-light border" @click="loginModal = !loginModal">
+              <li class="ms__navbar--items" v-if="!user.token">
+                <nuxt-link class="btn btn-sm btn-outline-light border" to="/autenticación/acceso">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -387,13 +379,13 @@
                       d="M4 22a8 8 0 1 1 16 0h-2a6 6 0 1 0-12 0H4zm8-9c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6zm0-2c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"
                     />
                   </svg>
-                  <span>Signup/Sign in</span>
-                </button>
+                  <span>Acceso/Registro</span>
+                </nuxt-link>
               </li>
-              <li class="ms__navbar--items">
-                <button class="btn btn-sm btn-outline-light border">
+              <li class="ms__navbar--items" v-if="user.token">
+                <button class="btn btn-sm btn-outline-light border" @click="logout">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M6 8V7a6 6 0 1 1 12 0v1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h2zm13 2H5v10h14V10zm-8 5.732a2 2 0 1 1 2 0V18h-2v-2.268zM8 8h8V7a4 4 0 1 0-8 0v1z"/></svg>
-                  <span>Logout</span>
+                  <span>cerrar sesión</span>
                 </button>
               </li>
             </ul>
@@ -491,47 +483,47 @@
     </div>
     <!-- cart end -->
     <!-- The Modal -->
-    <div id="myModal" class="ms_modal" :class="{ 'd-block': loginModal }" @click="loginModal = !loginModal">
-      <!-- Modal content -->
-      <div class="ms_modal-content">
-        <button class="close" @click="loginModal = !loginModal">&times;</button>
-        <form action="#">
-          <div class="form-group">
-            <label for="#">Email</label>
-            <input
-              type="text"
-              placeholder="Enter Your Email"
-              class="form-control"
-            />
-          </div>
-          <div class="form-group">
-            <label for="#">Password</label>
-            <input
-              type="password"
-              placeholder="Enter Your Password"
-              class="form-control"
-            />
-          </div>
-          <div class="ms__login--check mb-3">
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault"
-              />
-              <label class="form-check-label" for="flexCheckDefault">
-                Remember Me
-              </label>
-            </div>
-            <a href="#">Already have an account</a>
-          </div>
-          <div>
-            <button class="btn btn-primary">Login</button>
-          </div>
-        </form>
-      </div>
-    </div>
+<!--    <div id="myModal" class="ms_modal" :class="{ 'd-block': loginModal }" @click="loginModal = !loginModal">-->
+<!--      &lt;!&ndash; Modal content &ndash;&gt;-->
+<!--      <div class="ms_modal-content">-->
+<!--        <button class="close" @click="loginModal = !loginModal">&times;</button>-->
+<!--        <form action="#">-->
+<!--          <div class="form-group">-->
+<!--            <label for="#">Email</label>-->
+<!--            <input-->
+<!--              type="text"-->
+<!--              placeholder="Enter Your Email"-->
+<!--              class="form-control"-->
+<!--            />-->
+<!--          </div>-->
+<!--          <div class="form-group">-->
+<!--            <label for="#">Password</label>-->
+<!--            <input-->
+<!--              type="password"-->
+<!--              placeholder="Enter Your Password"-->
+<!--              class="form-control"-->
+<!--            />-->
+<!--          </div>-->
+<!--          <div class="ms__login&#45;&#45;check mb-3">-->
+<!--            <div class="form-check">-->
+<!--              <input-->
+<!--                class="form-check-input"-->
+<!--                type="checkbox"-->
+<!--                value=""-->
+<!--                id="flexCheckDefault"-->
+<!--              />-->
+<!--              <label class="form-check-label" for="flexCheckDefault">-->
+<!--                Remember Me-->
+<!--              </label>-->
+<!--            </div>-->
+<!--            <a href="#">Already have an account</a>-->
+<!--          </div>-->
+<!--          <div>-->
+<!--            <button class="btn btn-primary">Login</button>-->
+<!--          </div>-->
+<!--        </form>-->
+<!--      </div>-->
+<!--    </div>-->
   </div>
 </template>
 
@@ -553,6 +545,7 @@ export default {
       shippingCharge : 0,
       subTotal : 0,
       finalTotal:0,
+      user:[],
     }
   },
   watch:{
@@ -561,10 +554,19 @@ export default {
         localStorage.setItem('rappiCart',JSON.stringify(newValue));
       },deep:true
     },
+    user:{
+      handler(){
+        if (this.user.token){
+          this.$router.push('/')
+        }
+      }
+    }
   },
   mounted() {
+    this.user = JSON.parse(localStorage.getItem('rappiCustomer') || "[]");
     this.shoppingCart = JSON.parse(localStorage.getItem('rappiCart') || "[]");
     this.shippingCharge = JSON.parse(localStorage.getItem('rappiShippingCost') || "");
+
     this.countFinalTotal();
     this.countSubTotal();
   },
@@ -629,11 +631,37 @@ export default {
         if(!this.view.topOfPage) this.view.topOfPage = true
       }
     },
+    async logout(){
+      console.log('submitted')
+      await this.$axios.post('http://localhost:8000/api/v1/logout')
+        .then(response => {
+          if (response.data.status == 200){
+            window.localStorage.setItem('rappiCustomer','[]');
+            window.location.reload()
+          }else {
+            console.log('Something went wrong !')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.avatar_box{
+  height: 30px;
+  width: 30px;
+  margin-right: 15px;
+  border-radius: 50px;
+}
+.avatar_img{
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+}
 .ms__recent-product {
   overflow-x: auto;
   ul {

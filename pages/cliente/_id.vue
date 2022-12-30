@@ -14,13 +14,13 @@
             </div>
             <div class="ms__avatar--profiles">
               <img
-                data-src="/images/profile-pic.png"
+                :data-src="user.avatar_url"
                 class="img-fluid"
                 alt=""
                 v-lazy-load
               />
-              <h5>Alex Mitchell</h5>
-              <p>alexmitchell@gmail.com</p>
+              <h5>{{user.fullName}}</h5>
+              <p>{{user.email}}</p>
             </div>
           </div>
 
@@ -104,26 +104,31 @@
 
             <v-tab title="Recent Orders" icon="ti-settings">
               <div class="ms__customer--content">
-                <div class="ms__recentOrder--items">
-                  <div class="ms__recentOrder--img">
-                    <img
-                  data-src="/images/profile-pic.png"
-                  class="img-fluid"
-                  alt=""
-                  v-lazy-load
-                />
+                <div class="border border-2">
+                  <div class="ms__recentOrder_header d-flex justify-content-between">
+                    <p class="order-id">#012345678</p>
+                    <div class="ms__recentOrder--status">
+                      <span class="badge text-bg-success">Delivered</span>
+                    </div>
                   </div>
-                  <div class="ms__recentOrder--name">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet, sunt!</p>
-                  </div>
-                  <div class="ms__recentOrder--oty">
-                    <p>Qty:1</p>
-                  </div>
-                  <div class="ms__recentOrder--status">
-                    <span class="badge text-bg-success">Delivered</span>
-                  </div>
-                  <div class="ms__recentOrder--date">
-                    <p>Delivered on 18 Nov 2022</p>
+                  <div class="ms__recentOrder--items">
+                    <div class="ms__recentOrder--img">
+                      <img
+                        data-src="/images/profile-pic.png"
+                        class="img-fluid"
+                        alt=""
+                        v-lazy-load
+                      />
+                    </div>
+                    <div class="ms__recentOrder--name">
+                      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet, sunt!</p>
+                    </div>
+                    <div class="ms__recentOrder--oty">
+                      <p>Qty:1</p>
+                    </div>
+                    <div class="ms__recentOrder--date">
+                      <p>Delivered on 18 Nov 2022</p>
+                    </div>
                   </div>
                 </div>
                 <div class="ms__recentOrder--items">
@@ -208,7 +213,23 @@
 
 <script>
 export default {
-  name: "_id"
+  name: "_id",
+  data(){
+    return{
+      user:[],
+    }
+  },
+  created() {
+
+  },
+  mounted() {
+    this.user = JSON.parse(localStorage.getItem('rappiCustomer') || "[]");
+    if (!this.user.token){
+      this.$router.push('/')
+    }else {
+      this.$router.push(`/cliente/${this.user.id}`)
+    }
+  },
 }
 </script>
 
@@ -271,4 +292,5 @@ export default {
     padding-bottom: 20px;
   }
 }
+
 </style>

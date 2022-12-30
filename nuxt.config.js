@@ -39,7 +39,8 @@ export default {
     { src: './plugins/vue-zoom.js',mode:"client" },
     { src: './plugins/vue-image-zoom.js',mode:"client" },
     { src: './plugins/vue-nav-tabs.js' },
-    { src: '~/plugins/infiniteloading', ssr: false }
+    { src: '~/plugins/infiniteloading', ssr: false },
+    { src: '~/plugins/vue-toast-notification.js', mode: 'client' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
