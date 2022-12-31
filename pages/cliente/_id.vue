@@ -222,14 +222,14 @@ export default {
   created() {
 
   },
-  mounted() {
-    this.user = JSON.parse(localStorage.getItem('rappiCustomer') || "[]");
-    if (!this.user.token){
-      this.$router.push('/')
-    }else {
-      this.$router.push(`/cliente/${this.user.id}`)
-    }
-  },
+  // mounted() {
+  //   this.user = JSON.parse(localStorage.getItem('rappiCustomer') || "[]");
+  //   if (!this.user.token){
+  //     this.$router.push('/')
+  //   }else {
+  //     this.$router.push(`/cliente/${this.user.id}`)
+  //   }
+  // },
 }
 </script>
 
