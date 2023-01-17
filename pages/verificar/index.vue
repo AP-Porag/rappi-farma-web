@@ -123,16 +123,16 @@
                       />
                     </div>
                   </div>
-<!--                  <div class="col-lg-6">-->
-<!--                    <div class="mt-3 d-flex justify-content-between">-->
-<!--                      <input-->
-<!--                        type="checkbox"-->
-<!--                        id="terms_conditions"-->
-<!--                        v-model="form_data.agree_terms"-->
-<!--                      />-->
-<!--                      <label class="small">I agree with all <nuxt-link to="#">terms & conditions</nuxt-link> </label>-->
-<!--                    </div>-->
-<!--                  </div>-->
+                  <!--                  <div class="col-lg-6">-->
+                  <!--                    <div class="mt-3 d-flex justify-content-between">-->
+                  <!--                      <input-->
+                  <!--                        type="checkbox"-->
+                  <!--                        id="terms_conditions"-->
+                  <!--                        v-model="form_data.agree_terms"-->
+                  <!--                      />-->
+                  <!--                      <label class="small">I agree with all <nuxt-link to="#">terms & conditions</nuxt-link> </label>-->
+                  <!--                    </div>-->
+                  <!--                  </div>-->
                 </div>
               </div>
               <div class="col-lg-6">
@@ -188,7 +188,7 @@
                           </div>
                         </div>
                         <div class="ic__shopping--price">
-                          <p>${{(product.productPrice * product.productQuantity).toFixed(2)}}</p>
+                          <p>${{(product.productDiscountPrice * product.productQuantity).toFixed(2)}}</p>
                           <a href="#" @click.prevent="removeFromCart(product)"><i class="ri-delete-bin-line text-danger"></i>Remove</a>
                         </div>
                       </div>
@@ -252,15 +252,15 @@ export default {
   },
   mounted() {
     this.shoppingCart = JSON.parse(localStorage.getItem('rappiCart') || "[]");
-    this.form_data.shippingCharge = JSON.parse(localStorage.getItem('rappiShippingCost') || "");
+    //this.form_data.shippingCharge = JSON.parse(localStorage.getItem('rappiShippingCost') || "");
     this.countFinalTotal();
     this.countSubTotal();
     this.setCartProduct();
   },
   computed: {
-    url() {
-      return "http://localhost:8000/api/v1/order";
-    }
+    // url() {
+    //   return "http://localhost:8000/api/v1/order";
+    // }
   },
   methods: {
     setCartProduct(){
@@ -269,7 +269,7 @@ export default {
         obj['id']=pr.productId;
         obj['name']=pr.productName;
         obj['image']=pr.productImage;
-        obj['price']=pr.productPrice;
+        obj['price']=pr.productDiscountPrice;
         obj['quantity']=pr.productQuantity;
 
         this.form_data.products.push(obj)
@@ -279,7 +279,7 @@ export default {
     removeFromCart(product){
       const shoppingCart = this.shoppingCart;
       const productIndex = shoppingCart.findIndex(item => item.productId == product.productId)
-      shoppingCart.splice(productIndex,1)
+      shoppingCart.splice(productIndex,1);
       this.countSubTotal();
       this.countFinalTotal();
       this.setCartProduct();
@@ -315,7 +315,7 @@ export default {
     countSubTotal(){
       let total = 0;
       this.shoppingCart.filter((item) => {
-        total += (item.productPrice * item.productQuantity);
+        total += (item.productDiscountPrice * item.productQuantity);
       });
       this.form_data.subtotal = total;
     },
@@ -323,15 +323,15 @@ export default {
       let finalTotal = 0;
       let total = 0;
       this.shoppingCart.filter((item) => {
-        total += (item.productPrice * item.productQuantity);
+        total += (item.productDiscountPrice * item.productQuantity);
       });
 
       finalTotal = total + this.form_data.shippingCharge;
       this.form_data.total_price = finalTotal;
     },
     async submit(){
-      console.log('submitted')
-      await this.$axios.post(this.url,this.form_data)
+      //console.log('submitted')
+      await this.$axios.post('/order',this.form_data)
         .then(response => {
           if (response.data.status == 200){
             this.form_data.first_name = '';

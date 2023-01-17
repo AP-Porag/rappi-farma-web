@@ -28,7 +28,7 @@ export default {
     {
       src: "~/assets/bootstrap/js/bootstrap.bundle.js",
       type: "text/javascript"
-    }
+    },
   ],
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -45,8 +45,10 @@ export default {
     { src: './plugins/vue-zoom.js',mode:"client" },
     { src: './plugins/vue-image-zoom.js',mode:"client" },
     { src: './plugins/vue-nav-tabs.js' },
+    { src: './plugins/vue-phone-number-input.js' },
     { src: '~/plugins/infiniteloading', ssr: false },
-    { src: '~/plugins/vue-toast-notification.js', mode: 'client' }
+    { src: '~/plugins/vue-toast-notification.js', mode: 'client' },
+    { src: '~/plugins/lodash.js'}
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

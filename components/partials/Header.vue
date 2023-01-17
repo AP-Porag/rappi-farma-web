@@ -5,7 +5,7 @@
         <div class="ms__header--container">
           <div class="ms__header--logo">
             <NuxtLink to="/">
-              <img src="/images/logo.svg" alt="" v-lazy-load />
+              <img :src="this.$store.state.settings.site_logo" alt="" v-lazy-load />
             </NuxtLink>
           </div>
           <div class="ms__header--searchBar position-relative">
@@ -114,6 +114,7 @@
               </svg>
               <span>cart</span>
               <p class="cart--count">{{shoppingCart.length}}</p>
+<!--              <p class="cart&#45;&#45;count">{{countTotalItemInCart}}</p>-->
             </button>
             <NuxtLink :to="`/cliente/${user.id}`" class="ic-btn-outline" v-if="user.token">
                   <div class="avatar_box">
@@ -455,7 +456,7 @@
               </div>
             </div>
             <div class="ic__shopping--price">
-              <p>${{(product.productPrice * product.productQuantity).toFixed(2)}}</p>
+              <p>${{(product.productDiscountPrice * product.productQuantity).toFixed(2)}}</p>
               <a href="#" @click.prevent="removeFromCart(product)"><i class="ri-delete-bin-line text-danger"></i>Remove</a>
             </div>
           </div>
@@ -542,12 +543,18 @@ export default {
       keywords:'',
       items:[],
       shoppingCart : [],
+      shopping_cart_count :'',
       shippingCharge : 0,
       subTotal : 0,
       finalTotal:0,
       user:[],
     }
   },
+  // computed:{
+  //   countTotalItemInCart(){
+  //     return this.shoppingCart.length;
+  //   },
+  // },
   watch:{
     shoppingCart:{
       handler(newValue){
@@ -566,6 +573,7 @@ export default {
     this.user = JSON.parse(localStorage.getItem('rappiCustomer') || "[]");
     this.shoppingCart = JSON.parse(localStorage.getItem('rappiCart') || "[]");
     //this.shippingCharge = JSON.parse(localStorage.getItem('rappiShippingCost') || "");
+    //this.shippingCharge = this.$store.state.settings.admin_shipping_charge;
     this.shippingCharge = 0;
 
     this.countFinalTotal();
@@ -611,7 +619,7 @@ export default {
     countSubTotal(){
       let total = 0;
       this.shoppingCart.filter((item) => {
-        total += (item.productPrice * item.productQuantity);
+        total += (item.productDiscountPrice * item.productQuantity);
       });
       this.subTotal = total;
     },
@@ -619,7 +627,7 @@ export default {
       let finalTotal = 0;
       let total = 0;
       this.shoppingCart.filter((item) => {
-        total += (item.productPrice * item.productQuantity);
+        total += (item.productDiscountPrice * item.productQuantity);
       });
 
       finalTotal = total + this.shippingCharge;

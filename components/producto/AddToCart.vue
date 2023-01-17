@@ -3,6 +3,8 @@
 </template>
 
 <script>
+import VueToast from "~/plugins/vue-toast-notification";
+
 export default {
   name: "AddToCart",
   props:["id","title","original_price","discount_price","thumb","quantity","discount_type","discount_value"],
@@ -29,12 +31,12 @@ export default {
     shoppingCart:{
       handler(newValue){
         localStorage.setItem('rappiCart',JSON.stringify(newValue));
+        //console.log(this.shoppingCart)
       },deep:true
     }
   },
   methods:{
     addToCart(){
-      console.log('clicked')
       let exist = false;
       if (this.shoppingCart.length > 0){
         for (const cartItem of this.shoppingCart){
@@ -42,6 +44,8 @@ export default {
             cartItem.productQuantity = cartItem.productQuantity + 1;
             exist = true;
             break;
+          }else {
+            this.shoppingCart.push(this.item)
           }
         }
       }
@@ -49,6 +53,9 @@ export default {
       if (!exist){
         this.shoppingCart.push(this.item)
       }
+
+      this.$toast.success('Added to cart successfully !')
+
     }
   },
 }

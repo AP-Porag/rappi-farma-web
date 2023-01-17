@@ -58,6 +58,7 @@
     },
     methods:{
       async calculatePrice(){
+        //console.log(this.product)
         let self = this;
         if (this.product.discount !=null){
 
@@ -75,6 +76,8 @@
           let price = this.product.price * 1
           this.price = price.toFixed(2)
           this.discountPrice = price.toFixed(2)
+          //console.log('discount price = '+this.discountPrice)
+          //console.log('original price = '+this.price)
         }
       },
     },

@@ -103,18 +103,19 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input
-                          id="phone"
-                          v-model="form_data.phone"
-                          type="number"
-                          placeholder="Email"
-                          class="form-control"
-                          required
-                        />
+<!--                        <input-->
+<!--                          id="phone"-->
+<!--                          v-model="form_data.phone"-->
+<!--                          type="number"-->
+<!--                          placeholder="Email"-->
+<!--                          class="form-control"-->
+<!--                          required-->
+<!--                        />-->
+                        <vue-phone-number-input id="phone" required="true" v-model="form_data.phone" default-country-code="US" />
                       </div>
                     </div>
                   </div>
-                  <button class="ic-btn" @click="submit">Save</button>
+                  <button class="ic-btn" @click.prevent="submit">Save</button>
                 </form>
               </div>
             </v-tab>
@@ -292,6 +293,7 @@ export default {
   name: "_id",
   data(){
     return{
+      auth_user:[],
       user:[],
       last_five_orders:[],
       all_orders:[],
@@ -308,18 +310,14 @@ export default {
   created() {
     this.getLastFiveOrder();
     this.getAllOrder();
+    this.getUserData();
   },
   mounted() {
-    this.user = JSON.parse(localStorage.getItem('rappiCustomer') || "[]");
-    if (!this.user.token){
+    this.auth_user = JSON.parse(localStorage.getItem('rappiCustomer') || "[]");
+    if (!this.auth_user.token){
       this.$router.push('/')
     }else {
-      this.$router.push(`/cliente/${this.user.id}`)
-      this.form_data.first_name = this.user.first_name
-      this.form_data.last_name = this.user.last_name
-      this.form_data.email = this.user.email
-      this.form_data.phone = this.user.phone
-      this.form_data.date_of_birth = this.user.date_of_birth
+      this.$router.push(`/cliente/${this.auth_user.id}`)
     }
   },
   methods:{
@@ -338,27 +336,30 @@ export default {
         formData.append(key, value)
       })
 
-      await this.$axios.post(`/customer/profile-update/${this.$route.params.id}`,formData, {headers: {'content-type':'multipart/form-data;charset=utf-8; boundary='+ Math.random().toString().substr(2)}})
-        .then((response)=>{
-          if (response.data.status != 200){
-            this.message = response.data.message;
+      try {
+        await this.$axios.post(`/customer/profile-update/${this.$route.params.id}`,formData, {headers: {'content-type':'multipart/form-data;charset=utf-8; boundary='+ Math.random().toString().substr(2)}})
+          .then((response)=>{
+            if (response.data.status != 200){
+              this.message = response.data.message;
+              this.error = true;
+            }else {
+              window.location.reload();
+              this.message = response.data.message;
+              this.success = true;
+            }
+          })
+          .catch((error)=>{
+            this.message = 'Something went wrong !';
             this.error = true;
-          }else {
-            window.location.reload();
-            this.message = response.data.message;
-            this.success = true;
-          }
-        })
-        .catch((error)=>{
-          this.message = 'Something went wrong !';
-          this.error = true;
-        })
+          })
+      }catch (e) {
+        console.log(e.message)
+      }
     },
     async getLastFiveOrder(){
       try {
         const response = await this.$axios.get(`/order/last-five-order/${this.$route.params.id}`);
         this.last_five_orders = response.data.data.items;
-        console.log(response)
       }catch (e) {
         console.log(e.message)
       }
@@ -371,6 +372,19 @@ export default {
         console.log(e.message)
       }
     },
+    async getUserData(){
+      try {
+        const response = await this.$axios.get(`/customer/details/${this.$route.params.id}`);
+        this.user = response.data.data;
+        this.form_data.first_name = this.user.first_name
+        this.form_data.last_name = this.user.last_name
+        this.form_data.email = this.user.email
+        this.form_data.phone = this.user.phone
+        this.form_data.date_of_birth = this.user.date_of_birth
+      }catch (e) {
+        console.log(e.message)
+      }
+    }
   }
 }
 </script>
