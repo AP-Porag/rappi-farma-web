@@ -634,7 +634,7 @@ export default {
     },
     async logout(){
       console.log('submitted')
-      await this.$axios.post('http://localhost:8000/api/v1/logout')
+      await this.$axios.post('/logout')
         .then(response => {
           if (response.data.status == 200){
             window.localStorage.setItem('rappiCustomer','[]');
