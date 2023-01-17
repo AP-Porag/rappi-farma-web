@@ -104,6 +104,83 @@
 
             <v-tab title="Recent Orders" icon="ti-settings">
               <div class="ms__customer--content">
+                <div class="ms__customer--container">
+                  <div class="ms__recentOrder_header d-flex justify-content-between">
+                    <p class="order-id">#012345678</p>
+                    <div class="ms__recentOrder--status">
+                      <span class="badge text-bg-success">Delivered</span>
+                    </div>
+                  </div>
+                  <div class="ms__recentOrder--items">
+                    <div class="ms__recentOrder--img">
+                      <img
+                        data-src="/images/profile-pic.png"
+                        class="img-fluid"
+                        alt=""
+                        v-lazy-load
+                      />
+                    </div>
+                    <div class="ms__recentOrder--name">
+                      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet, sunt!</p>
+                    </div>
+                    <div class="ms__recentOrder--oty">
+                      <p>Qty:1</p>
+                    </div>
+                    <div class="ms__recentOrder--date">
+                      <p>Delivered on 18 Nov 2022</p>
+                    </div>
+                    <div>
+                      <NuxtLink to="/">MakeView</NuxtLink>
+                    </div>
+                  </div>
+                  <div class="ms__recentOrder--items">
+                    <div class="ms__recentOrder--img">
+                      <img
+                        data-src="/images/profile-pic.png"
+                        class="img-fluid"
+                        alt=""
+                        v-lazy-load
+                      />
+                    </div>
+                    <div class="ms__recentOrder--name">
+                      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet, sunt!</p>
+                    </div>
+                    <div class="ms__recentOrder--oty">
+                      <p>Qty:1</p>
+                    </div>
+                    <div class="ms__recentOrder--date">
+                      <p>Delivered on 18 Nov 2022</p>
+                    </div>
+                    <div>
+                      <NuxtLink to="/review/1">MakeView</NuxtLink>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </v-tab>
+
+            <v-tab title="Orders History" icon="ti-check">
+              <div class="ms__customer--content position-relative">
+                <!-- <div class="ms__recentOrder--items">
+                  <div class="ms__recentOrder--img">
+                    <img
+                  data-src="/images/profile-pic.png"
+                  class="img-fluid"
+                  alt=""
+                  v-lazy-load
+                />
+                  </div>
+                  <div class="ms__recentOrder--name">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet, sunt!</p>
+                  </div>
+                  <div class="ms__recentOrder--oty">
+                    <p>Qty:1</p>
+                  </div>
+                  <div class="ms__recentOrder--status">
+                    <span class="badge text-bg-success">Delivered</span>
+                  </div>
+                  <div class="ms__recentOrder--date">
+                    <p>Delivered on 18 Nov 2022</p>
                 <div class="border border-2">
                   <div class="ms__recentOrder_header d-flex justify-content-between">
                     <p class="order-id">#012345678</p>
@@ -152,54 +229,121 @@
                   <div class="ms__recentOrder--date">
                     <p>Delivered on 18 Nov 2022</p>
                   </div>
-                </div>
-              </div>
-            </v-tab>
-
-            <v-tab title="Orders History" icon="ti-check">
-              <div class="ms__customer--content">
-                <div class="ms__recentOrder--items">
-                  <div class="ms__recentOrder--img">
-                    <img
-                  data-src="/images/profile-pic.png"
-                  class="img-fluid"
-                  alt=""
-                  v-lazy-load
-                />
+                </div> -->
+                <div class="timeline">
+                  <div class="timeline-container right">
+                    <div class="content">
+                      <p class="date">12.31.2022</p>
+                      <div class="ms__customer--container">
+                        <div class="ms__recentOrder_header d-flex justify-content-between">
+                          <p class="order-id">#012345678</p>
+                          <div class="ms__recentOrder--status">
+                            <span class="badge text-bg-success">Delivered</span>
+                          </div>
+                        </div>
+                        <div class="ms__recentOrder--items">
+                          <div class="ms__recentOrder--img">
+                            <img
+                              data-src="/images/profile-pic.png"
+                              class="img-fluid"
+                              alt=""
+                              v-lazy-load
+                            />
+                          </div>
+                          <div class="ms__recentOrder--name">
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet, sunt!</p>
+                          </div>
+                          <div class="ms__recentOrder--oty">
+                            <p>Qty:1</p>
+                          </div>
+                          <div class="ms__recentOrder--date">
+                            <p>Delivered on 18 Nov 2022</p>
+                          </div>
+                          <div>
+                            <NuxtLink to="/">MakeView</NuxtLink>
+                          </div>
+                        </div>
+                        <div class="ms__recentOrder--items">
+                          <div class="ms__recentOrder--img">
+                            <img
+                              data-src="/images/profile-pic.png"
+                              class="img-fluid"
+                              alt=""
+                              v-lazy-load
+                            />
+                          </div>
+                          <div class="ms__recentOrder--name">
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet, sunt!</p>
+                          </div>
+                          <div class="ms__recentOrder--oty">
+                            <p>Qty:1</p>
+                          </div>
+                          <div class="ms__recentOrder--date">
+                            <p>Delivered on 18 Nov 2022</p>
+                          </div>
+                          <div>
+                            <NuxtLink to="/review/1">MakeView</NuxtLink>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="ms__recentOrder--name">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet, sunt!</p>
-                  </div>
-                  <div class="ms__recentOrder--oty">
-                    <p>Qty:1</p>
-                  </div>
-                  <div class="ms__recentOrder--status">
-                    <span class="badge text-bg-success">Delivered</span>
-                  </div>
-                  <div class="ms__recentOrder--date">
-                    <p>Delivered on 18 Nov 2022</p>
-                  </div>
-                </div>
-                <div class="ms__recentOrder--items">
-                  <div class="ms__recentOrder--img">
-                    <img
-                  data-src="/images/profile-pic.png"
-                  class="img-fluid"
-                  alt=""
-                  v-lazy-load
-                />
-                  </div>
-                  <div class="ms__recentOrder--name">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet, sunt!</p>
-                  </div>
-                  <div class="ms__recentOrder--oty">
-                    <p>Qty:1</p>
-                  </div>
-                  <div class="ms__recentOrder--status">
-                    <span class="badge text-bg-success">Delivered</span>
-                  </div>
-                  <div class="ms__recentOrder--date">
-                    <p>Delivered on 18 Nov 2022</p>
+                  <div class="timeline-container right">
+                    <div class="content">
+                      <p class="date">12.31.2022</p>
+                      <div class="ms__customer--container">
+                        <div class="ms__recentOrder_header d-flex justify-content-between">
+                          <p class="order-id">#012345678</p>
+                          <div class="ms__recentOrder--status">
+                            <span class="badge text-bg-success">Delivered</span>
+                          </div>
+                        </div>
+                        <div class="ms__recentOrder--items">
+                          <div class="ms__recentOrder--img">
+                            <img
+                              data-src="/images/profile-pic.png"
+                              class="img-fluid"
+                              alt=""
+                              v-lazy-load
+                            />
+                          </div>
+                          <div class="ms__recentOrder--name">
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet, sunt!</p>
+                          </div>
+                          <div class="ms__recentOrder--oty">
+                            <p>Qty:1</p>
+                          </div>
+                          <div class="ms__recentOrder--date">
+                            <p>Delivered on 18 Nov 2022</p>
+                          </div>
+                          <div>
+                            <NuxtLink to="/">MakeView</NuxtLink>
+                          </div>
+                        </div>
+                        <div class="ms__recentOrder--items">
+                          <div class="ms__recentOrder--img">
+                            <img
+                              data-src="/images/profile-pic.png"
+                              class="img-fluid"
+                              alt=""
+                              v-lazy-load
+                            />
+                          </div>
+                          <div class="ms__recentOrder--name">
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet, sunt!</p>
+                          </div>
+                          <div class="ms__recentOrder--oty">
+                            <p>Qty:1</p>
+                          </div>
+                          <div class="ms__recentOrder--date">
+                            <p>Delivered on 18 Nov 2022</p>
+                          </div>
+                          <div>
+                            <NuxtLink to="/review/1">MakeView</NuxtLink>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -290,6 +434,17 @@ export default {
   height: 100%;
   h4 {
     padding-bottom: 20px;
+  }
+  .ms__customer--container {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    .ms__recentOrder_header {
+      padding: 8px;
+      border-bottom: 1px solid #ccc;
+    }
+    .ms__recentOrder--items {
+      box-shadow: none  !important;
+    }
   }
 }
 
