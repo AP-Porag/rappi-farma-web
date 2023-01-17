@@ -231,11 +231,12 @@ export default {
   }),
   computed: {
     url() {
-      return "http://localhost:8000/api/v1/product?page=" + this.page;
+      return "https://rappi-farma-admin.asrafporag.me/api/v1/product?page=" + this.page;
     }
   },
   created() {
     this.getAllProducts();
+    console.log(this.products)
   },
   // mounted() {
   //   this.getAllProducts();
@@ -243,8 +244,12 @@ export default {
   // },
   methods:{
     async getAllProducts() {
-      const response = await this.$axios.get(this.url);
-      this.products = response.data.data.items;
+      try {
+        const response = await this.$axios.get(`/product?page=${this.page}`);
+        this.products = response.data.data.items;
+      }catch (e) {
+        console.log(e.message)
+      }
     },
     infiniteScroll($state) {
       setTimeout(() => {

@@ -565,7 +565,8 @@ export default {
   mounted() {
     this.user = JSON.parse(localStorage.getItem('rappiCustomer') || "[]");
     this.shoppingCart = JSON.parse(localStorage.getItem('rappiCart') || "[]");
-    this.shippingCharge = JSON.parse(localStorage.getItem('rappiShippingCost') || "");
+    //this.shippingCharge = JSON.parse(localStorage.getItem('rappiShippingCost') || "");
+    this.shippingCharge = 0;
 
     this.countFinalTotal();
     this.countSubTotal();
