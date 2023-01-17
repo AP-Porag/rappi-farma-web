@@ -231,7 +231,6 @@ export default {
   }),
   created() {
     this.getAllProducts();
-    console.log(this.$store.state.settings)
   },
   methods:{
     async getAllProducts() {

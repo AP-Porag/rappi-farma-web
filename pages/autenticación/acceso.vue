@@ -6,7 +6,7 @@
           <div class="ms__card">
             <div class="row">
               <div class="col-lg-6">
-                <img src="/images/illustration/Login-pana.svg" alt="" v-lazy-load />
+                <img :src="this.$store.state.settings.website_login_bg" alt="" v-lazy-load />
               </div>
               <div class="col-lg-6">
                 <div class="py-5">
@@ -67,8 +67,7 @@ export default {
   },
   methods:{
     async submit(){
-      console.log('submitted')
-      await this.$axios.post('http://localhost:8000/api/v1/login',this.form_data)
+      await this.$axios.post('/login',this.form_data)
         .then(response => {
           if (response.data.status == 200){
             let user = response.data.data
