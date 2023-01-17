@@ -229,19 +229,9 @@ export default {
     products:[],
     page: 1
   }),
-  computed: {
-    url() {
-      return "https://rappi-farma-admin.asrafporag.me/api/v1/product?page=" + this.page;
-    }
-  },
   created() {
     this.getAllProducts();
-    console.log(this.products)
   },
-  // mounted() {
-  //   this.getAllProducts();
-  //   console.log(this.products)
-  // },
   methods:{
     async getAllProducts() {
       try {
@@ -254,18 +244,25 @@ export default {
     infiniteScroll($state) {
       setTimeout(() => {
         this.page++; // next page
-        this.$axios.get(this.url)
-          .then(response => {
-            if (response.data.data.items.length > 1) { // check if any left
-              response.data.data.items.forEach(product => this.products.push(product)); // push it into the items array so we can display the data
-              $state.loaded();
-            } else {
-              $state.complete();
-            }
-          })
-          .catch(err => {
-            console.log(err);
-          });
+
+        try {
+          this.$axios.get(`/product?page=${this.page}`)
+            .then(response => {
+              if (response.data.data.items.length > 1) { // check if any left
+                response.data.data.items.forEach(product => this.products.push(product));
+                // push it into the items array so we can display the data
+                $state.loaded();
+              } else {
+                $state.complete();
+              }
+            })
+            .catch(err => {
+              console.log(err);
+            });
+        }catch (e) {
+          console.log(e.message)
+        }
+
       }, 1000);
     },
   }
