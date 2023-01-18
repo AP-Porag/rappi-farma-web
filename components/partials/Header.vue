@@ -553,11 +553,6 @@ export default {
   created() {
     this.$nuxt.$on('eventAddToCart', ($event) => this.handleEventAddToCart($event))
   },
-  // computed:{
-  //   countTotalItemInCart(){
-  //     return this.shoppingCart.length;
-  //   },
-  // },
   watch:{
     shoppingCart:{
       handler(newValue){
