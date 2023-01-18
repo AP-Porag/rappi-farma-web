@@ -550,11 +550,11 @@ export default {
       user:[],
     }
   },
-  // computed:{
-  //   countTotalItemInCart(){
-  //     return this.shoppingCart.length;
-  //   },
-  // },
+  computed:{
+    countTotalItemInCart(){
+      return this.shoppingCart.length;
+    },
+  },
   watch:{
     shoppingCart:{
       handler(newValue){
