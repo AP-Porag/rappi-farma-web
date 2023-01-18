@@ -399,6 +399,9 @@ export default {
         padding: 0;
       }
     }
+    .slick-track {
+      height: 334px;
+    }
   }
   .ms__catagoriesFilter--left {
     padding: 20px;

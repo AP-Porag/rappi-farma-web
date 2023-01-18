@@ -17,6 +17,7 @@
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "bottom-navigation-vue": "^2.5.2",
     "core-js": "^3.25.3",
+    "force": "^0.0.3",
     "lodash": "^4.17.21",
     "metismenu": "^3.0.7",
     "nuxt": "^2.15.8",

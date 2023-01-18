@@ -5,7 +5,7 @@
         <form action="#">
           <div class="ms__card">
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-lg-6 d-none d-lg-block">
                 <img src="/images/illustration/Sign-up-rafiki.svg" alt="" v-lazy-load />
               </div>
               <div class="col-lg-6">

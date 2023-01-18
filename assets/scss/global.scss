@@ -504,10 +504,11 @@ input {
 		position: absolute;
 		width: 4px;
     background-color: #ededed;
-		top: 0;
-		bottom: 0;
+		top: 79px;
+    bottom: 0;
     left: 151px;
-		margin-left: -3px;
+    margin-left: -3px;
+    height: calc(100% - 81px);
     @media #{$max1399} {
       left: 141px;
     }

@@ -806,11 +806,23 @@ export default {
       font-size: 15px;
       line-height: 24px;
       color: #202020;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1; /* number of lines to show */
+              line-clamp: 1; 
+      -webkit-box-orient: vertical;
     }
     .discription {
       font-size: 13px;
       line-height: 20px;
       color: $gray-deep;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1; /* number of lines to show */
+              line-clamp: 1; 
+      -webkit-box-orient: vertical;
     }
     .price {
       font-size: 18px;
