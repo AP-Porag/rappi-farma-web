@@ -27,7 +27,9 @@
             </div>
             <div class="ms__card--btn">
               <a href="#" class="btn btn-primary btn-md w-100" @click.prevent="$nuxt.$emit('eventAddToCart', item)">Add to cart</a>
-              <div class="btn btn-primary btn-md w-100"></div>
+<!--              <div class="btn btn-primary btn-md w-100" v-if="checkIfExistInCartOrNot(product.id)">-->
+
+<!--              </div>-->
 <!--              <ProductoAddToCart-->
 <!--                :id="product.id"-->
 <!--                :title="product.name"-->
@@ -56,6 +58,7 @@
         price:'',
         discount_value:'',
         discount_type:'',
+        shoppingCart : [],
         item :{
           productName: this.product.name,
           productImage: this.product.thumb,
@@ -94,9 +97,28 @@
           //console.log('original price = '+this.price)
         }
       },
+      // checkIfExistInCartOrNot(product_id){
+      //
+      //   // if exist return true;
+      //   // if not exist return false;
+      //   const shoppingCart = this.shoppingCart;
+      //   const found = shoppingCart.find(item => item.productId === product_id)
+      //   if(found){
+      //     return true;
+      //   }else{
+      //     return false;
+      //   }
+      //
+      // },
     },
     created() {
       this.calculatePrice();
+    },
+    mounted() {
+      this.shoppingCart = JSON.parse(localStorage.getItem('rappiCart') || "[]");
+    },
+    computed:{
+
     },
   }
   </script>

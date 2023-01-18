@@ -595,7 +595,7 @@ export default {
     },
     increaseCartQuantity(product){
       const shoppingCart = this.shoppingCart;
-      const found = shoppingCart.find(item => item.productId == product.productId)
+      const found = shoppingCart.find(item => item.productId === product.productId)
       if(found){
         found.productQuantity++;
         this.countSubTotal();
