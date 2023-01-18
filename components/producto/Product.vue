@@ -26,16 +26,18 @@
             </div>
             </div>
             <div class="ms__card--btn">
-              <ProductoAddToCart
-                :id="product.id"
-                :title="product.name"
-                :original_price="product.price"
-                :discount_price="discountPrice"
-                :thumb="product.thumb"
-                :quantity="product.current_stock"
-                :discount_type="product.discount_type"
-                :discount_value="product.discount"
-              ></ProductoAddToCart>
+              <a href="#" class="btn btn-primary btn-md w-100" @click.prevent="$nuxt.$emit('eventAddToCart', item)">Add to cart</a>
+              <div class="btn btn-primary btn-md w-100"></div>
+<!--              <ProductoAddToCart-->
+<!--                :id="product.id"-->
+<!--                :title="product.name"-->
+<!--                :original_price="product.price"-->
+<!--                :discount_price="discountPrice"-->
+<!--                :thumb="product.thumb"-->
+<!--                :quantity="product.current_stock"-->
+<!--                :discount_type="product.discount_type"-->
+<!--                :discount_value="product.discount"-->
+<!--              ></ProductoAddToCart>-->
 
             </div>
         </div>
@@ -54,6 +56,17 @@
         price:'',
         discount_value:'',
         discount_type:'',
+        item :{
+          productName: this.product.name,
+          productImage: this.product.thumb,
+          productOriginalPrice: this.product.price,
+          productDiscountPrice: '',
+          productId: this.product.id,
+          productStockQuantity: this.product.current_stock,
+          productQuantity: 1,
+          discount_type: this.product.discount_type,
+          discount_value: this.product.discount,
+        },
       }
     },
     methods:{
@@ -76,6 +89,7 @@
           let price = this.product.price * 1
           this.price = price.toFixed(2)
           this.discountPrice = price.toFixed(2)
+          this.item.productDiscountPrice = price.toFixed(2)
           //console.log('discount price = '+this.discountPrice)
           //console.log('original price = '+this.price)
         }

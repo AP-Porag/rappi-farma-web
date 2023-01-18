@@ -550,11 +550,14 @@ export default {
       user:[],
     }
   },
-  computed:{
-    countTotalItemInCart(){
-      return this.shoppingCart.length;
-    },
+  created() {
+    this.$nuxt.$on('eventAddToCart', ($event) => this.handleEventAddToCart($event))
   },
+  // computed:{
+  //   countTotalItemInCart(){
+  //     return this.shoppingCart.length;
+  //   },
+  // },
   watch:{
     shoppingCart:{
       handler(newValue){
@@ -641,7 +644,6 @@ export default {
       }
     },
     async logout(){
-      console.log('submitted')
       await this.$axios.post('/logout')
         .then(response => {
           if (response.data.status == 200){
@@ -654,7 +656,23 @@ export default {
         .catch(err => {
           console.log(err)
         })
-    }
+    },
+    handleEventAddToCart(e) {
+      //console.log(e)
+      let item = e;
+      let exists = false
+
+      for (const cartItem of this.shoppingCart) {
+        if (cartItem.productId === item.productId) {
+          cartItem.productQuantity = cartItem.productQuantity + 1
+          exists = true
+          break
+        }
+      }
+      if (!exists) {
+        this.shoppingCart.push(item)
+      }
+    },
   }
 }
 </script>
@@ -896,7 +914,7 @@ export default {
     width: 100%;
     height: 100%;
     background: rgba($color: #000000, $alpha: 0.4);
-    z-index: 9;
+    z-index: 9999;
   }
 }
 .ic__shopping--cart {
@@ -912,7 +930,7 @@ export default {
   right: 0;
   background-color: #fff;
   box-shadow: 0px 14px 40px rgba(115, 115, 115, 0.15);
-  z-index: 999;
+  z-index: 9999;
   transform: translateX(150%);
   @include transition-linear(0.6s);
 
