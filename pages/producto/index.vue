@@ -227,15 +227,23 @@ export default {
     },
     filterBox:false,
     products:[],
-    page: 1
+    page: 1,
+    keywords:null,
+    category_id:null,
+    brand_id:null,
   }),
   created() {
+
+  },
+  mounted() {
+    this.getKeyWordsFromLocalstorage()
     this.getAllProducts();
+    localStorage.removeItem('rappiKywords');
   },
   methods:{
     async getAllProducts() {
       try {
-        const response = await this.$axios.get(`/product?page=${this.page}`);
+        const response = await this.$axios.get(`/product?page=${this.page}&keywords=${this.keywords}&category=${this.category_id}&brand=${this.brand_id}`);
         this.products = response.data.data.items;
       }catch (e) {
         console.log(e.message)
@@ -246,7 +254,7 @@ export default {
         this.page++; // next page
 
         try {
-          this.$axios.get(`/product?page=${this.page}`)
+          this.$axios.get(`/product?page=${this.page}&keywords=${this.keywords}&category=${this.category_id}&brand=${this.brand_id}`)
             .then(response => {
               if (response.data.data.items.length > 1) { // check if any left
                 response.data.data.items.forEach(product => this.products.push(product));
@@ -264,6 +272,14 @@ export default {
         }
 
       }, 1000);
+    },
+    getKeyWordsFromLocalstorage(){
+      let keywords = localStorage.getItem('rappiKywords');
+      if (keywords != ''){
+        this.keywords = keywords;
+      }else {
+        localStorage.removeItem('rappiKywords');
+      }
     },
   }
 }

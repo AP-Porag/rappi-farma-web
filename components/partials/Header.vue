@@ -9,7 +9,10 @@
             </NuxtLink>
           </div>
           <div class="ms__header--searchBar position-relative">
-            <input type="text" placeholder="búsqueda" v-model="keywords" />
+            <input type="text" placeholder="búsqueda"
+                   @focus="show = true"
+                   @blur="show = false"
+                   v-model="keywords" />
             <!-- <button>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg>
             </button> -->
@@ -19,7 +22,7 @@
             >
               <ul v-if="items.length > 0">
                 <li v-for="item in items" :key="item.id">
-                  <NuxtLink to="/producto"> Vistos recientemente</NuxtLink>
+                  <NuxtLink to="/producto" @click.native="itemSelected"> {{item.name}}</NuxtLink>
                 </li>
               </ul>
               <ul v-else>
@@ -540,6 +543,7 @@ export default {
       cartBox:false,
       menuBox:false,
       loginModal:false,
+      show:false,
       keywords:'',
       items:[],
       shoppingCart : [],
@@ -564,6 +568,15 @@ export default {
         if (this.user.token){
           this.$router.push('/')
         }
+      }
+    },
+    keywords(after, before) {
+      if (this.keywords != ''){
+        this.items=[];
+        this.getSearchedItem();
+        this.setKeywordToLocalStorage();
+      }else {
+        window.localStorage.removeItem('rappiKywords');
       }
     }
   },
@@ -668,6 +681,27 @@ export default {
         this.shoppingCart.push(item)
       }
     },
+    async getSearchedItem() {
+      if (this.keywords !='' && this.keywords.length >= 3){
+        await this.$axios.get('/product/get/search-products', { params: { keywords: this.keywords } })
+          .then(response => {
+            this.items = response.data.data.items
+
+          })
+          .catch(error => {
+            console.log(error)
+          });
+      }
+
+    },
+    setKeywordToLocalStorage(){
+      window.localStorage.removeItem('rappiKywords');
+      window.localStorage.setItem('rappiKywords', this.keywords);
+    },
+    itemSelected(){
+      window.location.reload()
+    }
+
   }
 }
 </script>
