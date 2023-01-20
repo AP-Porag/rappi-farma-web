@@ -144,225 +144,228 @@
               </ul>
             </div>
             <ul class="ms__navbar--nav">
-              <li class="ms__navbar--items">
-                <NuxtLink class="ms__navbar--links" to="/categorias/belleza"
-                  >Salud y medicamentos</NuxtLink
+              <li class="ms__navbar--items" v-if="categories.length"
+              v-for="(category,index) in categories"
+                  :key="category.id"
+              >
+                <NuxtLink class="ms__navbar--links text-capitalize" :to="`/producto?category=`+category.slug"
+                  >{{category.name}}</NuxtLink
                 >
-                <div class="ms__navbar--MegadropDwon">
-                  <div class="ms__dropDwon--items">
-                    <h6>Heading 1</h6>
-                    <ul>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="ms__dropDwon--items">
-                    <h6>Heading 1</h6>
-                    <ul>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="ms__dropDwon--items">
-                    <h6>Heading 1</h6>
-                    <ul>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="ms__dropDwon--items">
-                    <h6>Heading 1</h6>
-                    <ul>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="ms__dropDwon--items">
-                    <h6>Heading 1</h6>
-                    <ul>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+<!--                <div class="ms__navbar&#45;&#45;MegadropDwon">-->
+<!--                  <div class="ms__dropDwon&#45;&#45;items">-->
+<!--                    <h6>Heading 1</h6>-->
+<!--                    <ul>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                    </ul>-->
+<!--                  </div>-->
+<!--                  <div class="ms__dropDwon&#45;&#45;items">-->
+<!--                    <h6>Heading 1</h6>-->
+<!--                    <ul>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                    </ul>-->
+<!--                  </div>-->
+<!--                  <div class="ms__dropDwon&#45;&#45;items">-->
+<!--                    <h6>Heading 1</h6>-->
+<!--                    <ul>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                    </ul>-->
+<!--                  </div>-->
+<!--                  <div class="ms__dropDwon&#45;&#45;items">-->
+<!--                    <h6>Heading 1</h6>-->
+<!--                    <ul>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                    </ul>-->
+<!--                  </div>-->
+<!--                  <div class="ms__dropDwon&#45;&#45;items">-->
+<!--                    <h6>Heading 1</h6>-->
+<!--                    <ul>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                    </ul>-->
+<!--                  </div>-->
+<!--                </div>-->
               </li>
-              <li class="ms__navbar--items">
-                <NuxtLink class="ms__navbar--links" to="/categorias/belleza"
-                  >Belleza</NuxtLink
-                >
-                <div class="ms__navbar--MegadropDwon">
-                  <div class="ms__dropDwon--items">
-                    <h6>Heading 2</h6>
-                    <ul>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="ms__dropDwon--items">
-                    <h6>Heading 1</h6>
-                    <ul>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="ms__dropDwon--items">
-                    <h6>Heading 1</h6>
-                    <ul>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="ms__dropDwon--items">
-                    <h6>Heading 1</h6>
-                    <ul>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="ms__dropDwon--items">
-                    <h6>Heading 1</h6>
-                    <ul>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                      <li>
-                        <NuxtLink class="ms__dropDwon--links" to="/"
-                          >Belleza</NuxtLink
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-              <li class="ms__navbar--items">
-                <NuxtLink class="ms__navbar--links" to="/categorias/belleza"
-                  >Baby care</NuxtLink
-                >
-              </li>
+<!--              <li class="ms__navbar&#45;&#45;items">-->
+<!--                <NuxtLink class="ms__navbar&#45;&#45;links" to="/categorias/belleza"-->
+<!--                  >Belleza</NuxtLink-->
+<!--                >-->
+<!--                <div class="ms__navbar&#45;&#45;MegadropDwon">-->
+<!--                  <div class="ms__dropDwon&#45;&#45;items">-->
+<!--                    <h6>Heading 2</h6>-->
+<!--                    <ul>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                    </ul>-->
+<!--                  </div>-->
+<!--                  <div class="ms__dropDwon&#45;&#45;items">-->
+<!--                    <h6>Heading 1</h6>-->
+<!--                    <ul>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                    </ul>-->
+<!--                  </div>-->
+<!--                  <div class="ms__dropDwon&#45;&#45;items">-->
+<!--                    <h6>Heading 1</h6>-->
+<!--                    <ul>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                    </ul>-->
+<!--                  </div>-->
+<!--                  <div class="ms__dropDwon&#45;&#45;items">-->
+<!--                    <h6>Heading 1</h6>-->
+<!--                    <ul>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                    </ul>-->
+<!--                  </div>-->
+<!--                  <div class="ms__dropDwon&#45;&#45;items">-->
+<!--                    <h6>Heading 1</h6>-->
+<!--                    <ul>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <NuxtLink class="ms__dropDwon&#45;&#45;links" to="/"-->
+<!--                          >Belleza</NuxtLink-->
+<!--                        >-->
+<!--                      </li>-->
+<!--                    </ul>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </li>-->
+<!--              <li class="ms__navbar&#45;&#45;items">-->
+<!--                <NuxtLink class="ms__navbar&#45;&#45;links" to="/categorias/belleza"-->
+<!--                  >Baby care</NuxtLink-->
+<!--                >-->
+<!--              </li>-->
               <li class="ms__navbar--items">
                 <NuxtLink class="ms__navbar--links" to="/producto"
                   >Producto</NuxtLink
@@ -540,6 +543,7 @@ export default {
       view: {
         topOfPage: true
       },
+      categories: [],
       cartBox:false,
       menuBox:false,
       loginModal:false,
@@ -555,6 +559,7 @@ export default {
     }
   },
   created() {
+    this.loadCategoryDataWithBrand()
     this.$nuxt.$on('eventAddToCart', ($event) => this.handleEventAddToCart($event))
   },
   watch:{
@@ -589,6 +594,7 @@ export default {
 
     this.countFinalTotal();
     this.countSubTotal();
+    console.log(this.categories)
   },
   beforeMount() {
     window.addEventListener('scroll', this.handleScroll)
@@ -700,6 +706,14 @@ export default {
     },
     itemSelected(){
       window.location.reload()
+    },
+    async loadCategoryDataWithBrand(){
+      try {
+        const response = await this.$axios.get('/category/front/category-brand');
+        this.categories = response.data.data.items
+      }catch (e) {
+        console.log(e.message)
+      }
     }
 
   }
@@ -1210,6 +1224,8 @@ export default {
   position: absolute;
   left: 0;
   width: 100%;
+  height: 300px;
+  overflow-y: auto;
   background-color: #fff;
   padding: 20px;
   box-shadow: 0 0 0.7rem 0 rgba(0, 0, 0, 0.199);
@@ -1220,8 +1236,15 @@ export default {
     }
   ul {
     li {
+      padding: 5px 15px;
+      &:hover{
+        color: #3a7842;
+        background-color: rgba(58, 120, 66, 0.1);
+        border-radius: 4px;
+      }
       a,p {
         font-size: 14px;
+        color: #5c6268;
       }
     }
   }

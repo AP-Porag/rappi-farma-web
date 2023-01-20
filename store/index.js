@@ -1,6 +1,7 @@
 export const state = () =>({
-        settings:[]
-      })
+  settings:[],
+  categories:[],
+})
 export const getters = () => ({
       // totalPrice: state => {
       //   let total = 0;
@@ -95,6 +96,9 @@ export const getters = () => ({
     // },
     SET_SETTINGS(state, payload) {
       state.settings = payload
+    },
+    SET_CATEGORIES(state, payload) {
+      state.categories = payload
     }
   }
 export const actions = {

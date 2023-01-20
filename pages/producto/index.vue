@@ -229,11 +229,14 @@ export default {
     products:[],
     page: 1,
     keywords:null,
-    category_id:null,
+    category_slug : this.$route.query.category ? this.$route.query.category : null,
     brand_id:null,
   }),
   created() {
 
+  },
+  watch: {
+    'this.$route.query': 'this.getAllProducts'
   },
   mounted() {
     this.getKeyWordsFromLocalstorage()
@@ -243,7 +246,7 @@ export default {
   methods:{
     async getAllProducts() {
       try {
-        const response = await this.$axios.get(`/product?page=${this.page}&keywords=${this.keywords}&category=${this.category_id}&brand=${this.brand_id}`);
+        const response = await this.$axios.get(`/product?page=${this.page}&keywords=${this.keywords}&category=${this.category_slug}&brand=${this.brand_id}`);
         this.products = response.data.data.items;
       }catch (e) {
         console.log(e.message)
@@ -254,7 +257,7 @@ export default {
         this.page++; // next page
 
         try {
-          this.$axios.get(`/product?page=${this.page}&keywords=${this.keywords}&category=${this.category_id}&brand=${this.brand_id}`)
+          this.$axios.get(`/product?page=${this.page}&keywords=${this.keywords}&category=${this.category_slug}&brand=${this.brand_id}`)
             .then(response => {
               if (response.data.data.items.length > 1) { // check if any left
                 response.data.data.items.forEach(product => this.products.push(product));
