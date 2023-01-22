@@ -431,6 +431,7 @@ export default {
     // ],
     sliderOneBanner: {
       autoplay:true,
+      speed: 1000,
     },
     sliderOneSetting: {
       arrows: true,
@@ -626,16 +627,17 @@ export default {
 
 <style lang="scss">
 .ms__banner--part {
+  margin-bottom: 30px;
   .container {
     position: relative;
   }
   .ms__banner--items {
-    max-height: 480px;
-    height: 100%;
+    height: 320px;
     @include bd-radius(10px);
     img {
       // max-height: 380px;
       height: 100%;
+      width: 100%;
       @include bd-radius(10px);
       // width: 100%;
     }
@@ -762,6 +764,10 @@ export default {
   border-radius: 0.5rem;
   border: 1px solid #e9eaed;
   box-shadow: $box-shadow;
+  height: 100%;
+  display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   // margin: 10px;
   .ms__bestDeal--img {
     position: relative;
@@ -853,8 +859,8 @@ export default {
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
-      -webkit-line-clamp: 1; /* number of lines to show */
-              line-clamp: 1;
+      -webkit-line-clamp: 2; /* number of lines to show */
+              line-clamp: 2;
       -webkit-box-orient: vertical;
     }
     .discription {
@@ -864,8 +870,8 @@ export default {
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
-      -webkit-line-clamp: 1; /* number of lines to show */
-              line-clamp: 1;
+      -webkit-line-clamp: 2; /* number of lines to show */
+              line-clamp: 2;
       -webkit-box-orient: vertical;
     }
     .price {
@@ -950,6 +956,19 @@ export default {
 // beauty
 .ms__beatuy--slider {
   padding-top: 20px;
+  .slick-track {
+    display: flex !important;
+  }
+  
+  .slick-slide {
+    height: inherit;
+    > div {
+      height: 100%;
+      > div {
+        height: 100%;
+      }
+    }
+  }
 }
 // official
 .ms__official--items {
