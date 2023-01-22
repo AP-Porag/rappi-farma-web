@@ -111,18 +111,18 @@
                       />
                     </div>
                   </div>
-                  <div class="col-lg-6">
-                    <div class="from-group mt-3">
-                      <label for="whatsApp">WhatsApp </label>
-                      <input
-                        type="text"
-                        id="whatsApp"
-                        placeholder="your whatsApp number"
-                        class="form-control"
-                        v-model="form_data.whatsapp"
-                      />
-                    </div>
-                  </div>
+<!--                  <div class="col-lg-6">-->
+<!--                    <div class="from-group mt-3">-->
+<!--                      <label for="whatsApp">WhatsApp </label>-->
+<!--                      <input-->
+<!--                        type="text"-->
+<!--                        id="whatsApp"-->
+<!--                        placeholder="your whatsApp number"-->
+<!--                        class="form-control"-->
+<!--                        v-model="form_data.whatsapp"-->
+<!--                      />-->
+<!--                    </div>-->
+<!--                  </div>-->
                   <!--                  <div class="col-lg-6">-->
                   <!--                    <div class="mt-3 d-flex justify-content-between">-->
                   <!--                      <input-->
@@ -226,7 +226,7 @@ export default {
         last_name:'',
         email:'',
         phone:'',
-        whatsapp:'',
+        //whatsapp:'',
         address:'',
         city:'',
         country:'',
@@ -331,14 +331,14 @@ export default {
     },
     async submit(){
       //console.log('submitted')
-      await this.$axios.post('/order',this.form_data)
+      await this.$axios.post('/order/front/save-order',this.form_data)
         .then(response => {
           if (response.data.status == 200){
             this.form_data.first_name = '';
             this.form_data.last_name='';
             this.form_data.email='';
               this.form_data.phone='';
-              this.form_data.whatsapp='';
+              //this.form_data.whatsapp='';
               this.form_data.address='';
               this.form_data.city='';
               this.form_data.country='';

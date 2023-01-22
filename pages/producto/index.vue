@@ -29,78 +29,14 @@
                 </a>
                 <h5>Catagories Name</h5>
                 <ul class="ms__catagoriesnav">
-                  <li class="ms__catagorisItems">
-                      <NuxtLink to="#">
+                  <li class="ms__catagorisItems" v-for="(category,index) in categories" :key="category.id">
+                      <NuxtLink :to="`/producto?category=`+category.slug">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"/></svg>
-                         health and medicine</NuxtLink>
-                      <ul class="ms__catagoriesSub-nav">
-                        <li>
-                          <nuxtLink to="#">
-                            Drugstore
-                          </nuxtLink>
-                        </li>
-                        <li>
-                          <nuxtLink to="#">
-                            Drugstore
-                          </nuxtLink>
-                        </li>
-                      </ul>
-                  </li>
-                  <li class="ms__catagorisItems">
-                      <NuxtLink to="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"/></svg>
-                         flu treatment</NuxtLink>
-                      <ul class="ms__catagoriesSub-nav">
-                        <li>
-                          <nuxtLink to="#">
-                            cold and flu
-                          </nuxtLink>
-                        </li>
-                        <li>
-                          <nuxtLink to="#">
-                            Throat pain
-                          </nuxtLink>
-                        </li>
-                        <li>
-                          <nuxtLink to="#">
-                            cough treatment
-                          </nuxtLink>
-                        </li>
-                        <li>
-                          <nuxtLink to="#">
-                            decongestant
-                          </nuxtLink>
-                        </li>
-                      </ul>
-                  </li>
-                  <li class="ms__catagorisItems">
-                      <NuxtLink to="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"/></svg>
-                         Pain relief</NuxtLink>
-                      <ul class="ms__catagoriesSub-nav">
-                        <li>
-                          <nuxtLink to="#">
-                            overall pain
-                          </nuxtLink>
-                        </li>
-                        <li>
-                          <nuxtLink to="#">
-                            Strong pain
-                          </nuxtLink>
-                        </li>
-                        <li>
-                          <nuxtLink to="#">
-                            Abdominal pain and colic
-                          </nuxtLink>
-                        </li>
-                        <li>
-                          <nuxtLink to="#">
-                            muscle and joint
-                          </nuxtLink>
-                        </li>
-                        <li>
-                          <nuxtLink to="#">
-                            Kids
+                         {{category.name}}</NuxtLink>
+                      <ul class="ms__catagoriesSub-nav" v-if="category.brands.length > 0">
+                        <li v-if="category.brands.length > 0" v-for="(brand,index) in category.brands" :key="brand.id">
+                          <nuxtLink :to="`/producto?brand=`+brand.slug">
+                            {{brand.name}}
                           </nuxtLink>
                         </li>
                       </ul>
@@ -110,29 +46,29 @@
             </div>
             <div class="col-lg-9">
               <div class="ms__catagoriesFilter--right">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <h5 class="subCatagories__title">Drugstore</h5>
-                    <ul class="page--navigation">
-                      <li>
-                        <a href="#">Health and medicines / </a>
-                      </li>
-                      <li>
-                        <a href="#">Health and medicines / </a>
-                      </li>
-                      <li>
-                        <a href="#">Drugstore</a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="ms__filter--search">
-                      <button class="ic-btn" @click="filterBox = !filterBox">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M14 14v6l-4 2v-8L4 5V3h16v2l-6 9zM6.404 5L12 13.394 17.596 5H6.404z"/></svg>
-                         Filter search</button>
-                    </div>
-                  </div>
-                </div>
+<!--                <div class="row">-->
+<!--                  <div class="col-lg-6">-->
+<!--                    <h5 class="subCatagories__title">Drugstore</h5>-->
+<!--                    <ul class="page&#45;&#45;navigation">-->
+<!--                      <li>-->
+<!--                        <a href="#">Health and medicines / </a>-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <a href="#">Health and medicines / </a>-->
+<!--                      </li>-->
+<!--                      <li>-->
+<!--                        <a href="#">Drugstore</a>-->
+<!--                      </li>-->
+<!--                    </ul>-->
+<!--                  </div>-->
+<!--                  <div class="col-lg-6">-->
+<!--                    <div class="ms__filter&#45;&#45;search">-->
+<!--                      <button class="ic-btn" @click="filterBox = !filterBox">-->
+<!--                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M14 14v6l-4 2v-8L4 5V3h16v2l-6 9zM6.404 5L12 13.394 17.596 5H6.404z"/></svg>-->
+<!--                         Filter search</button>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
 
                 <div class="row g-4">
                   <ProductoProduct class="col-lg-4 col-md-6" v-for="product in products" :key="product.id" :product="product" />
@@ -231,16 +167,28 @@ export default {
     keywords:null,
     category_slug : null,
     brand_slug:null,
+    categories:[],
   }),
   created() {
 
   },
   watch: {
     '$route.query'(newValue){
-      console.log('change hoise')
-      console.log(newValue.category)
-      this.category_slug = newValue.category;
-      this.brand_slug = newValue.brand;
+      // console.log(newValue)
+      // console.log('change hoise')
+      // console.log(newValue.category)
+      // console.log(newValue.brand)
+      if (typeof newValue.category !== 'undefined'){
+        this.category_slug = newValue.category;
+        this.brand_slug = null;
+      }
+      if (typeof newValue.brand !== 'undefined'){
+        this.category_slug = null;
+        this.brand_slug = newValue.brand;
+      }
+      // console.log('category : '+this.category_slug)
+      // console.log('brand : '+this.brand_slug)
+
       this.getAllProducts();
     }
   },
@@ -250,6 +198,7 @@ export default {
     this.getKeyWordsFromLocalstorage()
     this.getAllProducts();
     localStorage.removeItem('rappiKywords');
+    this.loadCategoryDataWithBrand();
   },
   methods:{
     async getAllProducts() {
@@ -290,6 +239,14 @@ export default {
         this.keywords = keywords;
       }else {
         localStorage.removeItem('rappiKywords');
+      }
+    },
+    async loadCategoryDataWithBrand(){
+      try {
+        const response = await this.$axios.get('/category/front/category-brand');
+        this.categories = response.data.data.items
+      }catch (e) {
+        console.log(e.message)
       }
     },
   }
