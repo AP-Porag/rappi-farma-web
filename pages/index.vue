@@ -1,137 +1,137 @@
 <template>
   <div>
-    <!-- banner part start -->
+    <!-- category banner part start -->
     <section class="ms__banner--part">
       <div class="container slick-slider-relative">
         <VueSlickCarousel :arrows="true" v-bind="sliderOneBanner" :dots="false" v-if="banners.length">
-          <div class="ms__banner--items" v-for="banner in banners" :key="banner.id">
-            <NuxtLink :to="banner.path">
-              <img :data-src="banner.image"  class="img-fluid" alt="" v-lazy-load>
+          <div class="ms__banner--items" v-for="(banner,index) in banners" :key="banner.id">
+            <NuxtLink :to="`/producto?category=`+banner.slug">
+              <img :data-src="banner.banner"  class="img-fluid" alt="" v-lazy-load>
             </NuxtLink>
           </div>
         </VueSlickCarousel>
       </div>
     </section>
-    <!-- banner part end -->
+    <!-- category banner part end -->
 
     <!-- advertisment -->
-    <section class="ms__advertisment--part">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-lg-6 col-md-6">
-            <NuxtLink to="/">
-              <div class="ms__advertisment--img">
-                <img data-src="/images/a-1.webp"  class="img-fluid w-100" alt="" v-lazy-load>
-              </div>
-            </NuxtLink>
-          </div>
-          <div class="col-lg-6  col-md-6">
-            <NuxtLink to="/">
-              <div class="ms__advertisment--img">
-                <img data-src="/images/a-2.webp"  class="img-fluid w-100" alt="" v-lazy-load>
-              </div>
-            </NuxtLink>
-          </div>
-        </div>
-      </div>
-    </section>
+<!--    <section class="ms__advertisment&#45;&#45;part">-->
+<!--      <div class="container">-->
+<!--        <div class="row g-4">-->
+<!--          <div class="col-lg-6 col-md-6">-->
+<!--            <NuxtLink to="/">-->
+<!--              <div class="ms__advertisment&#45;&#45;img">-->
+<!--                <img data-src="/images/a-1.webp"  class="img-fluid w-100" alt="" v-lazy-load>-->
+<!--              </div>-->
+<!--            </NuxtLink>-->
+<!--          </div>-->
+<!--          <div class="col-lg-6  col-md-6">-->
+<!--            <NuxtLink to="/">-->
+<!--              <div class="ms__advertisment&#45;&#45;img">-->
+<!--                <img data-src="/images/a-2.webp"  class="img-fluid w-100" alt="" v-lazy-load>-->
+<!--              </div>-->
+<!--            </NuxtLink>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </section>-->
     <!-- advertisment -->
 
     <!-- catagories -->
-    <section class="ms__catagories--part ic-section-space">
-      <div class="container slick-slider-relative">
-        <div class="ms__catagories--sliders">
-          <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderOneSetting" v-if="categories.length">
-            <div class="" v-for="category in categories" :key="category.id">
-              <NuxtLink :to="category.path">
-                <div class="figure">
-                  <div class="ms__catagories--img">
-                    <img :data-src="category.image" alt="" v-lazy-load>
-                  </div>
-                  <div class="caption">
-                    <p class="font-14">Send it Now Venezuela</p>
-                  </div>
-                </div>
-              </NuxtLink>
-            </div>
-          </VueSlickCarousel>
-        </div>
-      </div>
-    </section>
+<!--    <section class="ms__catagories&#45;&#45;part ic-section-space">-->
+<!--      <div class="container slick-slider-relative">-->
+<!--        <div class="ms__catagories&#45;&#45;sliders">-->
+<!--          <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderOneSetting" v-if="categories.length">-->
+<!--            <div class="" v-for="(category,index) in categories" :key="category.id">-->
+<!--              <NuxtLink :to="`/producto?category=`+category.slug">-->
+<!--                <div class="figure">-->
+<!--                  <div class="ms__catagories&#45;&#45;img">-->
+<!--                    <img :data-src="category.thumb" alt="" v-lazy-load>-->
+<!--                  </div>-->
+<!--                  <div class="caption">-->
+<!--                    <p class="font-14">{{category.name}}</p>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </NuxtLink>-->
+<!--            </div>-->
+<!--          </VueSlickCarousel>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </section>-->
     <!-- catagories -->
 
     <!-- best deal start -->
-    <section class="ms__bestDeal--part ic-section-space-bottom">
-      <div class="container">
-        <div class="ms__card">
-          <div class="ms__title border-0">
-            <h4><span class="primary">Hello ! </span> These are the best deals</h4>
-          </div>
-          <div class="ms__bestDeal--slider slick-slider-relative">
-            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSetting" v-if="deals.length">
-              <div v-for="deal in deals" :key="deal.id">
-                <div class="ms__bestDeal--items">
-                    <div class="figure position-relative mb-0 p-3">
-                        <div class="ms__bestDeal--img">
-                        <nuxt-link :to="deal.path">
-                            <img :data-src="deal.image" class="img-fluid" alt="" v-lazy-load>
-                        </nuxt-link>
-                        <div class="tag">
-                            <img data-src="images/icon-discount-yellow.svg" alt="" v-lazy-load>
-                            <p>{{deal.discount}}</p>
-                        </div>
-                        </div>
-                        <div class="offer-description">
-                        <p>Hasta el 35% en {{deal.title}} </p>
-                        <div class="offer-description-ribbon"></div>
-                        </div>
-                    </div>
-                    <div class="ms__card--btn">
-                        <nuxt-link :to="deal.path" class="btn btn-primary btn-md w-100">See More</nuxt-link>
-                    </div>
-                </div>
-              </div>
+<!--    <section class="ms__bestDeal&#45;&#45;part ic-section-space-bottom">-->
+<!--      <div class="container">-->
+<!--        <div class="ms__card">-->
+<!--          <div class="ms__title border-0">-->
+<!--            <h4><span class="primary">Hello ! </span> These are the best deals</h4>-->
+<!--          </div>-->
+<!--          <div class="ms__bestDeal&#45;&#45;slider slick-slider-relative">-->
+<!--            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSetting" v-if="deals.length">-->
+<!--              <div v-for="deal in deals" :key="deal.id">-->
+<!--                <div class="ms__bestDeal&#45;&#45;items">-->
+<!--                    <div class="figure position-relative mb-0 p-3">-->
+<!--                        <div class="ms__bestDeal&#45;&#45;img">-->
+<!--                        <nuxt-link :to="deal.path">-->
+<!--                            <img :data-src="deal.image" class="img-fluid" alt="" v-lazy-load>-->
+<!--                        </nuxt-link>-->
+<!--                        <div class="tag">-->
+<!--                            <img data-src="images/icon-discount-yellow.svg" alt="" v-lazy-load>-->
+<!--                            <p>{{deal.discount}}</p>-->
+<!--                        </div>-->
+<!--                        </div>-->
+<!--                        <div class="offer-description">-->
+<!--                        <p>Hasta el 35% en {{deal.title}} </p>-->
+<!--                        <div class="offer-description-ribbon"></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="ms__card&#45;&#45;btn">-->
+<!--                        <nuxt-link :to="deal.path" class="btn btn-primary btn-md w-100">See More</nuxt-link>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--              </div>-->
 
-              <!-- <ProductoProduct  :product="deal" /> -->
-            </VueSlickCarousel>
-          </div>
-        </div>
-      </div>
-    </section>
+<!--              &lt;!&ndash; <ProductoProduct  :product="deal" /> &ndash;&gt;-->
+<!--            </VueSlickCarousel>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </section>-->
     <!-- best deal end -->
 
     <!-- feature -->
-    <section class="ms__feature--part ic-section-space-bottom">
-      <div class="container">
-        <div class="ms__card">
-          <div class="ms__title">
-            <h4 class="title primary mb-0">Featured</h4>
-          </div>
-          <div class="ms__bestDeal--slider slick-slider-relative">
-            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSetting" v-if="features.length">
-              <div v-for="feature in features" :key="feature.id">
-                  <div class="ms__bestDeal--items">
-                    <div class="figure position-relative mb-0 p-3">
-                      <div class="ms__bestDeal--img">
-                        <nuxt-link :to="feature.path">
-                          <img class="img-fluid" :data-src="feature.image" alt="" v-lazy-load>
-                        </nuxt-link>
-                      </div>
-                      <div class="offer-description">
-                        <p>{{feature.title}}</p>
-                        <div class="offer-description-ribbon"></div>
-                      </div>
-                    </div>
-                    <div class="ms__card--btn">
-                      <nuxt-link to="" class="btn btn-primary btn-md w-100">See More</nuxt-link>
-                    </div>
-                  </div>
-              </div>
-            </VueSlickCarousel>
-          </div>
-        </div>
-      </div>
-    </section>
+<!--    <section class="ms__feature&#45;&#45;part ic-section-space-bottom">-->
+<!--      <div class="container">-->
+<!--        <div class="ms__card">-->
+<!--          <div class="ms__title">-->
+<!--            <h4 class="title primary mb-0">Featured</h4>-->
+<!--          </div>-->
+<!--          <div class="ms__bestDeal&#45;&#45;slider slick-slider-relative">-->
+<!--            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSetting" v-if="features.length">-->
+<!--              <div v-for="feature in features" :key="feature.id">-->
+<!--                  <div class="ms__bestDeal&#45;&#45;items">-->
+<!--                    <div class="figure position-relative mb-0 p-3">-->
+<!--                      <div class="ms__bestDeal&#45;&#45;img">-->
+<!--                        <nuxt-link :to="feature.path">-->
+<!--                          <img class="img-fluid" :data-src="feature.image" alt="" v-lazy-load>-->
+<!--                        </nuxt-link>-->
+<!--                      </div>-->
+<!--                      <div class="offer-description">-->
+<!--                        <p>{{feature.title}}</p>-->
+<!--                        <div class="offer-description-ribbon"></div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="ms__card&#45;&#45;btn">-->
+<!--                      <nuxt-link to="" class="btn btn-primary btn-md w-100">See More</nuxt-link>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--              </div>-->
+<!--            </VueSlickCarousel>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </section>-->
     <!-- feature -->
 
     <!-- beauty -->
@@ -139,17 +139,17 @@
       <div class="container">
         <div class="ms__card">
           <div class="ms__title">
-            <h4 class="title primary mb-0">Beauty</h4>
+            <h4 class="title primary mb-0 text-capitalize">Belleza</h4>
           </div>
-          <div class="row row-cols-lg-5 row-cols-1">
-            <div class="col" v-for="menu in menus" :key="menu.id" v-if="menus.length">
-              <div class="ms__beatuy__advertisment--items">
-                <nuxt-link :to="menu.path">
-                  <img :data-src="menu.image" alt="" class="img-fluid w-100" v-lazy-load>
-                </nuxt-link>
-              </div>
-            </div>
-          </div>
+<!--          <div class="row row-cols-lg-5 row-cols-1">-->
+<!--            <div class="col" v-for="menu in menus" :key="menu.id" v-if="menus.length">-->
+<!--              <div class="ms__beatuy__advertisment&#45;&#45;items">-->
+<!--                <nuxt-link :to="menu.path">-->
+<!--                  <img :data-src="menu.image" alt="" class="img-fluid w-100" v-lazy-load>-->
+<!--                </nuxt-link>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
           <div class="ms__beatuy--slider mb-4 ms__bestDeal--slider slick-slider-relative">
             <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSetting" v-if="beauties.length">
               <ProductoProduct v-for="beauty in beauties" :key="beauty.id" :product="beauty" />
@@ -186,17 +186,17 @@
               </div> -->
             </VueSlickCarousel>
           </div>
-          <div class="ms__beatuy--logos">
-            <div class="row g-4">
-              <div class="col-lg-2" v-for="brand in beautyBrands" :key="brand.id">
-                <div class="ms__beatuy__advertisment--items">
-                  <NuxtLink :to="brand.path">
-                    <img :data-src="brand.image" alt="" class="img-fluid" v-lazy-load>
-                  </NuxtLink>
-                </div>
-              </div>
-            </div>
-          </div>
+<!--          <div class="ms__beatuy&#45;&#45;logos">-->
+<!--            <div class="row g-4">-->
+<!--              <div class="col-lg-2" v-for="brand in beautyBrands" :key="brand.id">-->
+<!--                <div class="ms__beatuy__advertisment&#45;&#45;items">-->
+<!--                  <NuxtLink :to="brand.path">-->
+<!--                    <img :data-src="brand.image" alt="" class="img-fluid" v-lazy-load>-->
+<!--                  </NuxtLink>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
         </div>
       </div>
     </section>
@@ -217,7 +217,7 @@
       <div class="container">
         <div class="ms__card">
           <div class="ms__title">
-            <h4 class="title primary mb-0">Health and medicine</h4>
+            <h4 class="title primary mb-0 text-capitalize">Salud-Y-Medicina</h4>
           </div>
           <div class="ms__beatuy--slider mb-4 ms__bestDeal--slider slick-slider-relative">
             <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSetting" v-if="medicines.length">
@@ -269,11 +269,11 @@
           </div>
           <div class="ms__beatuy--slider mb-4 ms__bestDeal--slider slick-slider-relative">
             <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderFourSetting" v-if="brands.length">
-              <div v-for="brand in brands" :key="brand.id">
+              <div v-for="(brand,index) in brands" :key="brand.id">
                 <div class="ms__official--items">
-                  <NuxtLink :to="brand.path">
+                  <NuxtLink :to="`/producto?brand=`+brand.slug">
                     <div class="ms__official--img">
-                      <img :data-src="brand.image" alt="" class="img-fluid" v-lazy-load>
+                      <img :data-src="brand.thumb" alt="" class="img-fluid" v-lazy-load>
                     </div>
                     <p>{{brand.name}}</p>
                   </NuxtLink>
@@ -287,49 +287,49 @@
     <!-- official history -->
 
     <!-- articale -->
-    <section>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3">
-            <div class="ms__article--items">
-              <h6>Online Drugstore: Address 24 Hours</h6>
-              <div class="ms__article--text">
-                <p>Hello, Welcome to Farmatodo! If you still do not know our portfolio, we tell you that we have everything you need in one place:</p>
-                <p>You will find from <NuxtLink to="/"><u>drugstore and pharmacy</u></NuxtLink> products , since we are specialists in medicines and all products related to health care , to all pantry products such as tortillas, soft drinks and much more. In other words, you can buy everything in one place and one click away.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="ms__article--items">
-              <h6>How to explore our page and categories?</h6>
-              <div class="ms__article--text">
-                <p>The first thing you should do is familiarize yourself with it. At the top you will find several tabs, which are made up of Health and Medicines , Beauty , Baby Care , Personal Care , Food and Drinks , and everything related to the home, pets, fun, among others.</p>
-                <p>From there, a universe of options will be displayed to guide you and take you to the products you are looking for. In addition, you can find many more outstanding services such as our address 24 hours a day, 7 days a week , the world of product offers in all categories , EnvíaloYa Venezuela and Medical Services.</p>
-                <p><b>Let yourself go and live a unique experience with Farmatodo!</b></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="ms__article--items">
-              <h6>Say goodbye to pain!</h6>
-              <div class="ms__article--text">
-                <p>Do not stop your daily activities and relieve these symptoms with medications for general discomfort. We know that sometimes our body presents different general pains due to the constant physical activities that we carry out and these signs of discomfort can also occur internally in the body due to a poor diet.</p>
-                <p>At Farmatodo you can find pills for colic and relieve those natural pains. In addition, you can browse and find creams for muscle and joint pain. This way you will be able to continue with your daily tasks. Browse, discover, choose your product and receive it at home in less than 35 minutes!</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="ms__article--items">
-              <h6>Prevent flu symptoms!</h6>
-              <div class="ms__article--text">
-                <p>We know that sometimes our body receives small bacteria that are acquired from objects that we touch in the streets or simply when we speak very close to a person who may have the flu. We can control these types of symptoms with good pills for the flu or anti- flu medications , so the next day you will feel better and your energy will be at 100%.</p>
-                <p>Avoid flu symptoms with a good hand cleaning every time you get home or visit a family member, remember that washing and the duration of it is essential to avoid infections. In addition, a good antibacterial gel can prevent you from contracting unwanted bacteria.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<!--    <section>-->
+<!--      <div class="container">-->
+<!--        <div class="row">-->
+<!--          <div class="col-lg-3">-->
+<!--            <div class="ms__article&#45;&#45;items">-->
+<!--              <h6>Online Drugstore: Address 24 Hours</h6>-->
+<!--              <div class="ms__article&#45;&#45;text">-->
+<!--                <p>Hello, Welcome to Farmatodo! If you still do not know our portfolio, we tell you that we have everything you need in one place:</p>-->
+<!--                <p>You will find from <NuxtLink to="/"><u>drugstore and pharmacy</u></NuxtLink> products , since we are specialists in medicines and all products related to health care , to all pantry products such as tortillas, soft drinks and much more. In other words, you can buy everything in one place and one click away.</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-lg-3">-->
+<!--            <div class="ms__article&#45;&#45;items">-->
+<!--              <h6>How to explore our page and categories?</h6>-->
+<!--              <div class="ms__article&#45;&#45;text">-->
+<!--                <p>The first thing you should do is familiarize yourself with it. At the top you will find several tabs, which are made up of Health and Medicines , Beauty , Baby Care , Personal Care , Food and Drinks , and everything related to the home, pets, fun, among others.</p>-->
+<!--                <p>From there, a universe of options will be displayed to guide you and take you to the products you are looking for. In addition, you can find many more outstanding services such as our address 24 hours a day, 7 days a week , the world of product offers in all categories , EnvíaloYa Venezuela and Medical Services.</p>-->
+<!--                <p><b>Let yourself go and live a unique experience with Farmatodo!</b></p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-lg-3">-->
+<!--            <div class="ms__article&#45;&#45;items">-->
+<!--              <h6>Say goodbye to pain!</h6>-->
+<!--              <div class="ms__article&#45;&#45;text">-->
+<!--                <p>Do not stop your daily activities and relieve these symptoms with medications for general discomfort. We know that sometimes our body presents different general pains due to the constant physical activities that we carry out and these signs of discomfort can also occur internally in the body due to a poor diet.</p>-->
+<!--                <p>At Farmatodo you can find pills for colic and relieve those natural pains. In addition, you can browse and find creams for muscle and joint pain. This way you will be able to continue with your daily tasks. Browse, discover, choose your product and receive it at home in less than 35 minutes!</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-lg-3">-->
+<!--            <div class="ms__article&#45;&#45;items">-->
+<!--              <h6>Prevent flu symptoms!</h6>-->
+<!--              <div class="ms__article&#45;&#45;text">-->
+<!--                <p>We know that sometimes our body receives small bacteria that are acquired from objects that we touch in the streets or simply when we speak very close to a person who may have the flu. We can control these types of symptoms with good pills for the flu or anti- flu medications , so the next day you will feel better and your energy will be at 100%.</p>-->
+<!--                <p>Avoid flu symptoms with a good hand cleaning every time you get home or visit a family member, remember that washing and the duration of it is essential to avoid infections. In addition, a good antibacterial gel can prevent you from contracting unwanted bacteria.</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </section>-->
   </div>
 
 </template>
@@ -338,16 +338,17 @@
 export default {
   name: 'IndexPage',
   data: () => ({
-    banners:[
-      {id:'1.1',path:'/',image:'images/banner/banner-1.jpeg'},
-      {id:'1.2',path:'/',image:'images/banner/banner-2.jpeg'},
-      {id:'1.3',path:'/',image:'images/banner/banner-3.jpeg'},
-      {id:'1.4',path:'/',image:'images/banner/banner-4.jpeg'},
-      {id:'1.5',path:'/',image:'images/banner/banner-5.jpeg'},
-      {id:'1.6',path:'/',image:'images/banner/banner-6.jpeg'},
-      {id:'1.7',path:'/',image:'images/banner/banner-7.jpeg'},
-      {id:'1.8',path:'/',image:'images/banner/banner-8.jpeg'},
-    ],
+    banners:[],
+    // banners:[
+    //   {id:'1.1',path:'/',image:'images/banner/banner-1.jpeg'},
+    //   {id:'1.2',path:'/',image:'images/banner/banner-2.jpeg'},
+    //   {id:'1.3',path:'/',image:'images/banner/banner-3.jpeg'},
+    //   {id:'1.4',path:'/',image:'images/banner/banner-4.jpeg'},
+    //   {id:'1.5',path:'/',image:'images/banner/banner-5.jpeg'},
+    //   {id:'1.6',path:'/',image:'images/banner/banner-6.jpeg'},
+    //   {id:'1.7',path:'/',image:'images/banner/banner-7.jpeg'},
+    //   {id:'1.8',path:'/',image:'images/banner/banner-8.jpeg'},
+    // ],
     categories:[
       {id:'2.1',path:'/',title:'pink week',image:'https://lh3.googleusercontent.com/38RrzGADe69egYF6GeQa1Zu4dedME8_aA_b_YYP7pz7jcbPOqzo1cuOUYG8aGzU07-LbQxf_akIvu00OoSaZdOQrBsRJujs4k9X6sFUXpmpJBpWSbg=s250-rw'},
       {id:'2.2',path:'/',title:'pink week',image:'https://lh3.googleusercontent.com/LbPFpDtWDwOfkO0VCyoosYFZZF9CKQ669RynUy5fLi7RJR7-v5icmm7Cvzazli1tEd4PWwnKEo7NiVqJKqW47tSFVRXLC4UHS9YM93dJwBD9fbQ=s250-rw'},
@@ -388,14 +389,15 @@ export default {
       {id:'5.4',path:'/',image:'/images/advertisment-smal-4.png'},
       {id:'5.5',path:'/',image:'/images/advertisment-smal-5.png'},
     ],
-    beauties:[
-      {id:'6.1',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'/images/beauty-1.png'},
-      {id:'6.2',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'/images/beauty-2.jpg'},
-      {id:'6.3',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'/images/beauty-3.jpg'},
-      {id:'6.4',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'/images/beauty-4.jpg'},
-      {id:'6.5',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'/images/beauty-5.jpg'},
-      {id:'6.6',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'/images/beauty-6.jpg'},
-    ],
+    beauties:[],
+    // beauties:[
+    //   {id:'6.1',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'/images/beauty-1.png'},
+    //   {id:'6.2',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'/images/beauty-2.jpg'},
+    //   {id:'6.3',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'/images/beauty-3.jpg'},
+    //   {id:'6.4',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'/images/beauty-4.jpg'},
+    //   {id:'6.5',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'/images/beauty-5.jpg'},
+    //   {id:'6.6',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'/images/beauty-6.jpg'},
+    // ],
     beautyBrands:[
       {id:'7.1',path:'/',image:'/images/logo.png'},
       {id:'7.2',path:'/',image:'/images/logo-2.png'},
@@ -404,27 +406,29 @@ export default {
       {id:'7.5',path:'/',image:'/images/logo-5.png'},
       {id:'7.6',path:'/',image:'/images/logo-6.png'},
     ],
-    medicines:[
-      {id:'8.1',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'https://lh3.googleusercontent.com/DNPy_zVQ21cAwFQNaLc8kw9oO4dKbZ-xSa3Q5PtiAbDjvGpA6-7JdjKbFBOyvgWPy8Oqq7OiO9kZUASdsNaJyZW8INa3g3LLkzm-Rj1EM_xOahI=s650-rw'},
-      {id:'8.2',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'https://lh3.googleusercontent.com/6w-kX2l5nSk80yv__3moaZODFJFoPnpxQjr1xqyY_80eAIllJZqCHC8UoXc1xMJ5ES5jsetcQBZRWLS_aUkYM5tltqBImo0eThCOyfa0TRaWFkvehQ=s650-rw'},
-      {id:'8.3',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'https://lh3.googleusercontent.com/bDFN9ybT3_FxZW5Vgah7umPn741e7KXvoDU_ZIfHwNyLlflMB062AVk_YRWdPq-u-OeDcKenVrfnsNVAF9-kKZ9_8R89Z2BNCVe5k1NJE69PN9g1=s650-rw'},
-      {id:'8.4',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'https://lh3.googleusercontent.com/4b9QWbu7GT859c-NQFAx3tYH3ZfKVfgvoouSPiwJtEXGbLEkZ2nlNYELUMZTKIvNtoFE3B7mbJNTiLyv6Qwm-CWvmmG2F6wOmhAMe319KIwXsgM=s650-rw'},
-      {id:'8.5',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'https://lh3.googleusercontent.com/fiAZkOMJKssv5NS5oWoYZRZ8Bo1tHbzr-9wFx1LaAQoHIjrYXs3WC-soVV2_h0NNlRbAi5iU8AHGDBcUX7bwtvvU4z8hZJS1Iaa_KaZLxyC0SsA=s650-rw'},
-      {id:'8.6',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'https://lh3.googleusercontent.com/-A6LSY7-C6hil_yiMK4nmcSp7qYoinj534ax7kcz1KwFgnxRJXa6oCzRQ15uKt73ehtrvZoMeWJwHm34OPGCBqWAbNYOloZNIn4=s650-rw'},
-    ],
-    brands:[
-      {id:'9.1',title:'Pink Week',path:'/',image:'/images/story-7.png'},
-      {id:'9.2',title:'Pink Week',path:'/',image:'/images/story-2.png'},
-      {id:'9.3',title:'Pink Week',path:'/',image:'/images/story-3.png'},
-      {id:'9.4',title:'Pink Week',path:'/',image:'/images/story-4.png'},
-      {id:'9.5',title:'Pink Week',path:'/',image:'/images/story-5.png'},
-      {id:'9.6',title:'Pink Week',path:'/',image:'/images/story-6.png'},
-      {id:'9.7',title:'Pink Week',path:'/',image:'/images/story-7.png'},
-      {id:'9.8',title:'Pink Week',path:'/',image:'/images/story-3.png'},
-      {id:'9.9',title:'Pink Week',path:'/',image:'/images/story-6.png'},
-      {id:'9.10',title:'Pink Week',path:'/',image:'/images/story-5.png'},
-      {id:'9.11',title:'Pink Week',path:'/',image:'/images/story-1.png'},
-    ],
+    medicines:[],
+    // medicines:[
+    //   {id:'8.1',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'https://lh3.googleusercontent.com/DNPy_zVQ21cAwFQNaLc8kw9oO4dKbZ-xSa3Q5PtiAbDjvGpA6-7JdjKbFBOyvgWPy8Oqq7OiO9kZUASdsNaJyZW8INa3g3LLkzm-Rj1EM_xOahI=s650-rw'},
+    //   {id:'8.2',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'https://lh3.googleusercontent.com/6w-kX2l5nSk80yv__3moaZODFJFoPnpxQjr1xqyY_80eAIllJZqCHC8UoXc1xMJ5ES5jsetcQBZRWLS_aUkYM5tltqBImo0eThCOyfa0TRaWFkvehQ=s650-rw'},
+    //   {id:'8.3',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'https://lh3.googleusercontent.com/bDFN9ybT3_FxZW5Vgah7umPn741e7KXvoDU_ZIfHwNyLlflMB062AVk_YRWdPq-u-OeDcKenVrfnsNVAF9-kKZ9_8R89Z2BNCVe5k1NJE69PN9g1=s650-rw'},
+    //   {id:'8.4',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'https://lh3.googleusercontent.com/4b9QWbu7GT859c-NQFAx3tYH3ZfKVfgvoouSPiwJtEXGbLEkZ2nlNYELUMZTKIvNtoFE3B7mbJNTiLyv6Qwm-CWvmmG2F6wOmhAMe319KIwXsgM=s650-rw'},
+    //   {id:'8.5',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'https://lh3.googleusercontent.com/fiAZkOMJKssv5NS5oWoYZRZ8Bo1tHbzr-9wFx1LaAQoHIjrYXs3WC-soVV2_h0NNlRbAi5iU8AHGDBcUX7bwtvvU4z8hZJS1Iaa_KaZLxyC0SsA=s650-rw'},
+    //   {id:'8.6',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'https://lh3.googleusercontent.com/-A6LSY7-C6hil_yiMK4nmcSp7qYoinj534ax7kcz1KwFgnxRJXa6oCzRQ15uKt73ehtrvZoMeWJwHm34OPGCBqWAbNYOloZNIn4=s650-rw'},
+    // ],
+    brands:[],
+    // brands:[
+    //   {id:'9.1',title:'Pink Week',path:'/',image:'/images/story-7.png'},
+    //   {id:'9.2',title:'Pink Week',path:'/',image:'/images/story-2.png'},
+    //   {id:'9.3',title:'Pink Week',path:'/',image:'/images/story-3.png'},
+    //   {id:'9.4',title:'Pink Week',path:'/',image:'/images/story-4.png'},
+    //   {id:'9.5',title:'Pink Week',path:'/',image:'/images/story-5.png'},
+    //   {id:'9.6',title:'Pink Week',path:'/',image:'/images/story-6.png'},
+    //   {id:'9.7',title:'Pink Week',path:'/',image:'/images/story-7.png'},
+    //   {id:'9.8',title:'Pink Week',path:'/',image:'/images/story-3.png'},
+    //   {id:'9.9',title:'Pink Week',path:'/',image:'/images/story-6.png'},
+    //   {id:'9.10',title:'Pink Week',path:'/',image:'/images/story-5.png'},
+    //   {id:'9.11',title:'Pink Week',path:'/',image:'/images/story-1.png'},
+    // ],
     sliderOneBanner: {
       autoplay:true,
     },
@@ -572,10 +576,50 @@ export default {
     url:
       "https://i.pinimg.com/originals/90/a4/78/90a47821d9451451813f9f3867351b53.jpg",
   }),
+  created() {
+    this.loadCategoryDataWithBrand();
+    this.loadBeautyCategoryProduct();
+    this.loadHealthAndMedicineCategoryProduct();
+    this.loadAllBrand()
+  },
   methods: {
     c() {
       this.$zoom(this.url);
-    }
+    },
+    async loadCategoryDataWithBrand(){
+      try {
+        const response = await this.$axios.get('/category/front/category-brand');
+        this.banners = response.data.data.items
+        this.categories = response.data.data.items
+      }catch (e) {
+        console.log(e.message)
+      }
+    },
+    async loadBeautyCategoryProduct(){
+      try {
+        const response = await this.$axios.get(`/category/front/product/3`);
+        this.beauties = response.data.data.items
+      }catch (e) {
+        console.log(e.message)
+      }
+    },
+    async loadHealthAndMedicineCategoryProduct(){
+      try {
+        const response = await this.$axios.get(`/category/front/product/1`);
+        this.medicines = response.data.data.items
+      }catch (e) {
+        console.log(e.message)
+      }
+    },
+    async loadAllBrand(){
+      try {
+        const response = await this.$axios.get(`/brand`);
+        this.brands = response.data.data.items
+        //console.log(this.brands)
+      }catch (e) {
+        console.log(e.message)
+      }
+    },
   }
 }
 </script>
@@ -810,7 +854,7 @@ export default {
       text-overflow: ellipsis;
       display: -webkit-box;
       -webkit-line-clamp: 1; /* number of lines to show */
-              line-clamp: 1; 
+              line-clamp: 1;
       -webkit-box-orient: vertical;
     }
     .discription {
@@ -821,7 +865,7 @@ export default {
       text-overflow: ellipsis;
       display: -webkit-box;
       -webkit-line-clamp: 1; /* number of lines to show */
-              line-clamp: 1; 
+              line-clamp: 1;
       -webkit-box-orient: vertical;
     }
     .price {

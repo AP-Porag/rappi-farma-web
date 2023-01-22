@@ -229,16 +229,24 @@ export default {
     products:[],
     page: 1,
     keywords:null,
-    category_slug : this.$route.query.category ? this.$route.query.category : null,
-    brand_id:null,
+    category_slug : null,
+    brand_slug:null,
   }),
   created() {
 
   },
   watch: {
-    'this.$route.query': 'this.getAllProducts'
+    '$route.query'(newValue){
+      console.log('change hoise')
+      console.log(newValue.category)
+      this.category_slug = newValue.category;
+      this.brand_slug = newValue.brand;
+      this.getAllProducts();
+    }
   },
   mounted() {
+    this.category_slug = this.$route.query.category != null ? this.$route.query.category : null;
+    this.brand_slug = this.$route.query.brand != null ? this.$route.query.brand : null;
     this.getKeyWordsFromLocalstorage()
     this.getAllProducts();
     localStorage.removeItem('rappiKywords');
@@ -246,7 +254,7 @@ export default {
   methods:{
     async getAllProducts() {
       try {
-        const response = await this.$axios.get(`/product?page=${this.page}&keywords=${this.keywords}&category=${this.category_slug}&brand=${this.brand_id}`);
+        const response = await this.$axios.get(`/product?page=${this.page}&keywords=${this.keywords}&category=${this.category_slug}&brand=${this.brand_slug}`);
         this.products = response.data.data.items;
       }catch (e) {
         console.log(e.message)
@@ -257,7 +265,7 @@ export default {
         this.page++; // next page
 
         try {
-          this.$axios.get(`/product?page=${this.page}&keywords=${this.keywords}&category=${this.category_slug}&brand=${this.brand_id}`)
+          this.$axios.get(`/product?page=${this.page}&keywords=${this.keywords}&category=${this.category_slug}&brand=${this.brand_slug}`)
             .then(response => {
               if (response.data.data.items.length > 1) { // check if any left
                 response.data.data.items.forEach(product => this.products.push(product));

@@ -137,10 +137,12 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 3v2H3V3h9zm4 16v2H3v-2h13zm6-8v2H3v-2h19z"/></svg>
               </button>
               <ul class="dropdown-menu" :class="{ show: menuBox }">
-                <li><NuxtLink class="dropdown-item" to="/categorias/belleza">Salud y medicamentos</NuxtLink></li>
-                <li><NuxtLink class="dropdown-item" to="/categorias/belleza">Belleza</NuxtLink></li>
-                <li><NuxtLink class="dropdown-item" to="/categorias/belleza">Baby care</NuxtLink></li>
-                <li><NuxtLink class="dropdown-item" to="/categorias/belleza">Producto</NuxtLink></li>
+                <li v-if="categories.length"
+                    v-for="(category,index) in categories"
+                    :key="category.id">
+                  <NuxtLink class="dropdown-item" :to="`/producto?category=`+category.slug"> {{category.name}}</NuxtLink></li>
+                <li><NuxtLink class="dropdown-item" to="/producto"
+                >Producto</NuxtLink></li>
               </ul>
             </div>
             <ul class="ms__navbar--nav">
