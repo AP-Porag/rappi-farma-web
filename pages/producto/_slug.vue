@@ -8,7 +8,7 @@
               <div class="ms__large--image">
                 <div>
                   <img
-                    data-src="https://lh3.googleusercontent.com/q64qBvzPC2pmyckLfiDCkwdNqT76T5mTq7PqeFwYcC4W1p2ukqYdFUCz-jWUlcLt9SXa_jwrVSGzWEGYRRMzsE5gPfei5wpbnCk=s360"
+                    :data-src="product.thumb"
                     class="img-fluid"
                     alt=""
                     v-lazy-load
@@ -20,39 +20,30 @@
           <div class="col-lg-6 col-md-7">
             <div class="ms__product--names">
               <h3>
-                Pestañina Maybelline The Colossal Volum Express a prueba de agua
-                x9.2Ml
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                  <path
-                    d="M352 224c53 0 96-43 96-96s-43-96-96-96s-96 43-96 96c0 4 .2 8 .7 11.9l-94.1 47C145.4 170.2 121.9 160 96 160c-53 0-96 43-96 96s43 96 96 96c25.9 0 49.4-10.2 66.6-26.9l94.1 47c-.5 3.9-.7 7.8-.7 11.9c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-25.9 0-49.4 10.2-66.6 26.9l-94.1-47c.5-3.9 .7-7.8 .7-11.9s-.2-8-.7-11.9l94.1-47C302.6 213.8 326.1 224 352 224z"
-                  />
-                </svg>
+                {{product.name}}
               </h3>
-              <p class="ms__pass">Volumen colossal en una sola pasada.</p>
-              <p class="ms__precio">Precio normal</p>
-              <h6 class="ms__price">$36.850</h6>
-              <p class="ms__mini--price">Mililitro a $ 4005.43</p>
-              <p class="ms__delivery">Envío:Express 45 min. promedio</p>
-              <div class="ms__product-count">
-                <button class="minize">-</button> <input type="text" />
-                <button class="minize">+</button>
-              </div>
-              <a href="#" class="ic-btn">Add Products</a>
+              <p class="ms__pass">{{product.short_description}}</p>
+              <h6 class="ms__price">${{product.price}}</h6>
+<!--              <div class="ms__product-count">-->
+<!--                <button class="minize">-</button> <input type="text" />-->
+<!--                <button class="minize">+</button>-->
+<!--              </div>-->
+              <a href="#" class="ic-btn" @click.prevent="$nuxt.$emit('eventAddToCart', item)">Add to cart</a>
 
-              <div class="ms__social--details">
-                <ul>
-                  <li>
-                    <a href="#">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/></svg>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/></svg>
-                    </a>
-                  </li>
-                </ul>
-              </div>
+<!--              <div class="ms__social&#45;&#45;details">-->
+<!--                <ul>-->
+<!--                  <li>-->
+<!--                    <a href="#">-->
+<!--                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/></svg>-->
+<!--                    </a>-->
+<!--                  </li>-->
+<!--                  <li>-->
+<!--                    <a href="#">-->
+<!--                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/></svg>-->
+<!--                    </a>-->
+<!--                  </li>-->
+<!--                </ul>-->
+<!--              </div>-->
             </div>
           </div>
         </div>
@@ -67,12 +58,10 @@
             <div class="col-lg-7">
               <div class="ms__description--text">
                 <h3>
-                  Characteristics of the Colossal Volum Express Waterproof
-                  Mascara
+                  {{product.name}}
                 </h3>
                 <p class="text-paragraph">
-                  Colossal volume in a single pass. Get colossal lashes with
-                  just one coat and no clumps.
+                  {{product.description}}
                 </p>
 
 
@@ -83,61 +72,32 @@
                       <p>Brand : </p>
                     </td>
                     <td>
-                      <p>Maybelline</p>
+                      <p>{{brand_name}}</p>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <p>Brand : </p>
+                      <p>Category : </p>
                     </td>
                     <td>
-                      <p>Maybelline</p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p>Kind of product:</p>
-                    </td>
-                    <td>
-                      <p>eyelash</p>
+                      <p>{{category_name}}</p>
                     </td>
                   </tr>
                   <tr>
-                    <td>Quantity:</td>
-                    <td>9.2 mlt</td>
-                  </tr>
-                  <tr>
-                    <td>Units per package:</td>
                     <td>
-1</td>
+                      <p>Unit : </p>
+                    </td>
+                    <td>
+                      <p>{{product.unit}}</p>
+                    </td>
                   </tr>
                   <tr>
-                    <td>Type of skin:</td>
-                    <td>All</td>
-                  </tr>
-                  <tr>
-                    <td>Country of Production:</td>
-                    <td>Colombia</td>
-                  </tr>
-                  <tr>
-                    <td>Invima registration:</td>
-                    <td>NSOC33480-09C</td>
-                  </tr>
-                  <tr>
-                    <td>Presentation of the product:</td>
-                    <td>tube, liquid</td>
-                  </tr>
-                  <tr>
-                    <td>Item depth:</td>
-                    <td>2cm</td>
-                  </tr>
-                  <tr>
-                    <td>ITEM Width:</td>
-                    <td>2cm</td>
-                  </tr>
-                  <tr>
-                    <td>Item Height</td>
-                    <td>2cm</td>
+                    <td>
+                      <p>SKU : </p>
+                    </td>
+                    <td>
+                      <p>{{product.SKU}}</p>
+                    </td>
                   </tr>
                 </table>
               </div>
@@ -149,15 +109,15 @@
     <!-- description end -->
 
     <!-- related products -->
-    <section class="ms__related--produtcs ic-section-space">
+    <section class="ms__related--produtcs ic-section-space" v-if="categoryProducts.length">
       <div class="container">
         <div class="ms__related--content ms__card">
           <div class="ms__title">
             <h3 class="primary title">Related products</h3>
           </div>
           <div class="ms__related--slider slick-slider-relative">
-            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSetting" v-if="beauties.length">
-              <ProductoProduct v-for="beauty in beauties" :key="beauty.id" :product="beauty" />
+            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSetting" v-if="categoryProducts.length">
+              <ProductoProduct v-for="(product,index) in categoryProducts" :key="product.id" :product="product" />
             </VueSlickCarousel>
           </div>
         </div>
@@ -295,15 +255,16 @@
     <!-- feedback -->
 
     <!-- related products -->
-    <section class="ms__related--produtcs ic-section-space">
+    <section class="ms__related--produtcs ic-section-space" v-if="brandProducts.length">
       <div class="container">
         <div class="ms__related--content ms__card">
           <div class="ms__title">
             <h3 class="primary title">Products of the same brand</h3>
           </div>
           <div class="ms__related--slider slick-slider-relative">
-            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSetting" v-if="beauties.length">
-              <ProductoProduct v-for="beauty in beauties" :key="beauty.id" :product="beauty" />
+            <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSetting" v-if="brandProducts.length">
+              <ProductoProduct v-for="(product,index) in brandProducts" :key="product.id" :product="product" />
+            </VueSlickCarousel>
 
             </VueSlickCarousel>
           </div>
@@ -373,8 +334,12 @@ export default {
     }
   ]
     },
-    item: '',
+    product: '',
     slug:'',
+    category_id:'',
+    category_name:'',
+    brand_id:'',
+    brand_name:'',
     brandProducts:[],
     categoryProducts:[],
     beauties:[
@@ -385,13 +350,92 @@ export default {
       {id:'6.5',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'/images/beauty-5.jpg'},
       {id:'6.6',title:'Sunface Sunscreen',subtitle:'Micellar Bioderma Sensibio H2o X 125 Ml + Portapomys',price:'68,800',quantity:'550.40',review:'30',stars:'4.8',path:'/',image:'/images/beauty-6.jpg'},
     ],
+    item :{
+      productName: '',
+      productImage: '',
+      productOriginalPrice: '',
+      productDiscountPrice: '',
+      productId: '',
+      productStockQuantity: '',
+      productQuantity: '',
+      discount_type: '',
+      discount_value: '',
+    },
   }),
   mounted() {
     this.slug = this.$route.params.slug
-    console.log('slug of this page : '+this.slug)
+    this.getItemData();
+    this.calculatePrice();
   },
   methods:{
+    async getItemData(){
+      try {
+        const response = await this.$axios.get(`product/${this.slug}`);
+        this.product = response.data.item;
+        this.category_id = this.product.category.category_id;
+        this.category_name = this.product.category.category_name;
+        this.brand_id = this.product.brand.brand_id;
+        this.brand_name = this.product.brand.brand_name;
 
+        //console.log(this.brand_id)
+
+        if (this.category_id != '' || this.category_id != null){
+          try {
+            const response = await this.$axios.get(`/category/front/product/${this.category_id}`);
+            this.categoryProducts = response.data.data.items
+            //console.log(this.categoryProducts)
+          }catch (e) {
+            console.log(e.message)
+          }
+        }
+
+        if (this.brand_id != '' && this.brand_id != null && this.brand_id != 'not set'){
+          //console.log('dhukse')
+          try {
+            const response = await this.$axios.get(`/brand/front/product/${this.brand_id}`);
+            this.brandProducts = response.data.data.items
+            //console.log(this.brandProducts)
+          }catch (e) {
+            console.log(e.message)
+          }
+        }
+          this.item.productName = this.product.name;
+          this.item.productImage = this.product.thumb;
+          this.item.productOriginalPrice = this.product.price;
+          this.item.productDiscountPrice = '';
+          this.item.productId = this.product.id;
+          this.item.productStockQuantity = this.product.current_stock;
+          this.item.productQuantity = 1;
+          this.item.discount_type = this.product.discount_type;
+          this.item.discount_value = this.product.discount;
+      }catch (e) {
+        console.log(e.message)
+      }
+    },
+    async calculatePrice(){
+      //console.log(this.product)
+      let self = this;
+      if (this.product.discount !=null){
+
+        self.discount_value = this.product.discount;
+        self.discount_type = this.product.discount_type;
+        if(self.discount_type === 'fixed'){
+          let price = this.product.price - self.discount_value;
+          this.discountPrice = price.toFixed(2);
+        }else {
+          let price = this.product.price - (this.product.price *(self.discount_value)/100);
+          this.discountPrice = price.toFixed(2);
+        }
+
+      }else {
+        let price = this.product.price * 1
+        this.price = price.toFixed(2)
+        this.discountPrice = price.toFixed(2)
+        this.item.productDiscountPrice = price.toFixed(2)
+        //console.log('discount price = '+this.discountPrice)
+        //console.log('original price = '+this.price)
+      }
+    },
   }
 }
 </script>
