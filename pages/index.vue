@@ -135,7 +135,7 @@
     <!-- feature -->
 
     <!-- beauty -->
-    <section class="ms__beatuy--part">
+    <section class="ms__beatuy--part ic-section-space-bottom">
       <div class="container">
         <div class="ms__card">
           <div class="ms__title">
@@ -202,7 +202,7 @@
     </section>
     <!-- beauty -->
 
-    <section class="ic-section-space">
+    <!-- <section class="ic-section-space">
       <div class="container">
         <div class="col-lg-12">
           <div class="ms__add--img">
@@ -210,7 +210,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- health medicine -->
     <section class="ms__health--part">
@@ -634,6 +634,9 @@ export default {
   .ms__banner--items {
     height: 320px;
     @include bd-radius(10px);
+    @media (max-width: 767px) {
+      height: 170px;
+    }
     img {
       // max-height: 380px;
       height: 100%;

@@ -3,12 +3,12 @@
       <section class="ms__subCatagories--part ic-section-space">
         <div class="container slick-slider-relative">
           <VueSlickCarousel :arrows="true" :dots="false" setting="subCatagoriesSlider">
-            <div>
+            <div class="ms__subCatagories-items">
               <NuxtLink to="#">
                 <img data-src="https://lh3.googleusercontent.com/Q2MjL643kWHqHISyvOUdYmgG84o0Y6ajsrpzai3kpO2ka14NpNLtAiUBTxboO0EXNeZBdIVVeUUyRfppTz1SYeI2k_fyYmJ_XWhaoeXJJ_TIy51-=s1366-rw"  class="img-fluid" alt="" v-lazy-load>
               </NuxtLink>
             </div>
-            <div>
+            <div class="ms__subCatagories-items">
                 <NuxtLink to="#">
                   <img data-src="https://lh3.googleusercontent.com/Q2MjL643kWHqHISyvOUdYmgG84o0Y6ajsrpzai3kpO2ka14NpNLtAiUBTxboO0EXNeZBdIVVeUUyRfppTz1SYeI2k_fyYmJ_XWhaoeXJJ_TIy51-=s1366-rw"  class="img-fluid" alt="" v-lazy-load>
                 </NuxtLink>
@@ -17,11 +17,11 @@
         </div>
       </section>
       <!-- sub catagoris -->
-      <section class="ms__catagoriesFilter--part ic-section-space">
+      <section class="ms__catagoriesFilter--part ic-section-space-bottom">
         <div class="container">
           <div class="row g-4">
             <div class="col-lg-3">
-              <a href="#" class="d-lg-none">Catagories Name Filter</a>
+              <!-- <a href="#" class="d-lg-none">Catagories Name Filter</a> -->
               <div class="ic__catagoriesFilter--overlay"></div>
               <div class="ms__catagoriesFilter--left">
                 <a href="#" class="catagoriesFilter--closed">
@@ -383,8 +383,14 @@ export default {
         padding: 0;
       }
     }
-    .slick-track {
+    .ms__subCatagories-items {
       height: 334px;
+      @media #{$max767} {
+        height: 170px;
+      }
+      img {
+        height: 100%;
+      }
     }
   }
   .ms__catagoriesFilter--left {
