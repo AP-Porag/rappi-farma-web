@@ -679,3 +679,18 @@ input {
     font-size: 14px;
   }
 }
+
+.ms__related--slider {
+  .slick-slide {
+    height: inherit;
+    > div {
+      height: 100%;
+      > div {
+        height: 100%;
+      }
+    }
+  }
+  .slick-track {
+    display: flex !important;
+  }
+}
