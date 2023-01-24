@@ -124,7 +124,7 @@ export default {
   },
   methods:{
     async submit(){
-      await this.$axios.post('http://localhost:8000/api/v1/registration',this.form_data)
+      await this.$axios.post('/registration',this.form_data)
         .then(response => {
           if (response.data.status == 200){
             //window.location.reload();
