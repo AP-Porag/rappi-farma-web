@@ -262,9 +262,7 @@ export default {
     this.setCartProduct();
   },
   computed: {
-    // url() {
-    //   return "http://localhost:8000/api/v1/order";
-    // }
+
   },
   methods: {
     setCartProduct(){

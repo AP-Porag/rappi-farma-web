@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="ms__customer--profile ic-section-space">
+    <section class="ms__customer--profile ic-section-space" v-if="auth_user.token">
       <div class="container">
         <div>
           <div class="ms__customer--avatar">
@@ -285,6 +285,11 @@
         </div>
       </div>
     </section>
+    <section class="ms__customer--profile ic-section-space" v-else>
+      <div class="container text-center">
+        <img src="/images/404-error-message-.png" alt="" class="img-fluid">
+      </div>
+    </section>
   </div>
 </template>
 
@@ -314,17 +319,17 @@ export default {
   },
   mounted() {
     this.auth_user = JSON.parse(localStorage.getItem('rappiCustomer') || "[]");
-    console.log(this.auth_user)
-    if (!this.auth_user.token){
-      this.$router.push('/')
-    }else {
-      if (this.auth_user){
-        this.$router.push(`/cliente/${this.auth_user.id}`)
-      }else {
-        this.$router.push('/')
-      }
-
-    }
+    // console.log(this.auth_user)
+    // if (!this.auth_user.token){
+    //   this.$router.push('/')
+    // }else {
+    //   if (this.auth_user){
+    //     this.$router.push(`/cliente/${this.auth_user.id}`)
+    //   }else {
+    //     this.$router.push('/')
+    //   }
+    //
+    // }
   },
   methods:{
     handleAvatarImageFileObject() {
