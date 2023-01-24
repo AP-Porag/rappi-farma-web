@@ -139,10 +139,14 @@
               <ul class="dropdown-menu" :class="{ show: menuBox }">
                 <li v-if="categories.length"
                     v-for="(category,index) in categories"
-                    :key="category.id">
-                  <NuxtLink class="dropdown-item" :to="`/producto?category=`+category.slug"> {{category.name}}</NuxtLink></li>
-                <li><NuxtLink class="dropdown-item" to="/producto"
-                >Producto</NuxtLink></li>
+                    :key="category.id"
+                    @click="menuBox = false"
+                >
+                  <NuxtLink class="dropdown-item" :to="`/producto?category=`+category.slug"> {{category.name}}</NuxtLink>
+                </li>
+                <li @click="menuBox = false">
+                  <NuxtLink class="dropdown-item" to="/producto">Producto</NuxtLink>
+                </li>
               </ul>
             </div>
             <ul class="ms__navbar--nav">
