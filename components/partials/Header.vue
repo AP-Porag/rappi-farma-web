@@ -596,7 +596,7 @@ export default {
 
     this.countFinalTotal();
     this.countSubTotal();
-    console.log(this.categories)
+    //console.log(this.categories)
   },
   beforeMount() {
     window.addEventListener('scroll', this.handleScroll)
@@ -664,6 +664,7 @@ export default {
         .then(response => {
           if (response.data.status == 200){
             window.localStorage.setItem('rappiCustomer','[]');
+            this.$router.push('/')
             window.location.reload()
           }else {
             console.log('Something went wrong !')
