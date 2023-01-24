@@ -481,12 +481,12 @@
       <div class="ic__shopping--bottom">
         <NuxtLink
           to="/verificar"
-          class="ic-btn"
+          class="ic-btn text-capitalize"
           @click.native="cartBox = !cartBox"
-          >Go To Checkout</NuxtLink
+          >Ir a la caja</NuxtLink
         >
-        <button class="ic-btn-outline" @click="cartBox = !cartBox">
-          Continue shopping
+        <button class="ic-btn-outline text-capitalize" @click="cartBox = !cartBox">
+          Seguir comprando
         </button>
       </div>
     </div>
@@ -591,7 +591,7 @@ export default {
     this.user = JSON.parse(localStorage.getItem('rappiCustomer') || "[]");
     this.shoppingCart = JSON.parse(localStorage.getItem('rappiCart') || "[]");
     //this.shippingCharge = JSON.parse(localStorage.getItem('rappiShippingCost') || "");
-    //this.shippingCharge = this.$store.state.settings.admin_shipping_charge;
+    // this.shippingCharge = this.$store.state.settings.admin_shipping_charge;
     this.shippingCharge = 0;
 
     this.countFinalTotal();

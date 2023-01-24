@@ -62,11 +62,11 @@
                     </div>
                     <div class="col-lg-6">
                       <div class="from-group mt-3">
-                        <label for="whats_app">WhatsApp Number</label>
+                        <label for="whats_app">WhatsApp Number (with country code)</label>
                         <input
                           type="text"
                           id="whats_app"
-                          placeholder="WhatsApp"
+                          placeholder="formate : +8801828963235"
                           class="form-control"
                           v-model="form_data.whatsapp"
                         />

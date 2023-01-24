@@ -56,7 +56,7 @@
                         <li v-if="categories.length"
                             v-for="(category,index) in categories"
                             :key="category.id">
-                          <NuxtLink :to="`/producto?category=`+category.slug">
+                          <NuxtLink :to="`/producto?category=`+category.slug" class="text-capitalize">
                             {{category.name}}
                           </NuxtLink>
                         </li>
@@ -65,12 +65,12 @@
                 </div>
                 <div class="col-lg-3 d-none d-lg-block">
                     <div class="ms__footer--links">
-                        <h6>Brands</h6>
+                        <h6 class="text-capitalize">Brands</h6>
                         <ul>
                             <li v-if="brands.length"
-                                v-for="(brand,index) in brands"
+                                v-for="(brand,index) in brands.slice(0, 5)"
                                 :key="brand.id">
-                                <NuxtLink :to="`/producto?brand=`+brand.slug">
+                                <NuxtLink :to="`/producto?brand=`+brand.slug" class="text-capitalize">
                                     {{brand.name}}
                                 </NuxtLink>
                             </li>

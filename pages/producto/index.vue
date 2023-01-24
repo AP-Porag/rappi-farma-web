@@ -1,21 +1,16 @@
 <template>
   <div>
-      <section class="ms__subCatagories--part ic-section-space">
-        <div class="container slick-slider-relative">
-          <VueSlickCarousel :arrows="true" :dots="false" setting="subCatagoriesSlider">
-            <div class="ms__subCatagories-items">
-              <NuxtLink to="#">
-                <img data-src="https://lh3.googleusercontent.com/Q2MjL643kWHqHISyvOUdYmgG84o0Y6ajsrpzai3kpO2ka14NpNLtAiUBTxboO0EXNeZBdIVVeUUyRfppTz1SYeI2k_fyYmJ_XWhaoeXJJ_TIy51-=s1366-rw"  class="img-fluid" alt="" v-lazy-load>
-              </NuxtLink>
-            </div>
-            <div class="ms__subCatagories-items">
-                <NuxtLink to="#">
-                  <img data-src="https://lh3.googleusercontent.com/Q2MjL643kWHqHISyvOUdYmgG84o0Y6ajsrpzai3kpO2ka14NpNLtAiUBTxboO0EXNeZBdIVVeUUyRfppTz1SYeI2k_fyYmJ_XWhaoeXJJ_TIy51-=s1366-rw"  class="img-fluid" alt="" v-lazy-load>
-                </NuxtLink>
-            </div>
-            </VueSlickCarousel>
-        </div>
-      </section>
+    <section class="ms__banner--part">
+      <div class="container slick-slider-relative">
+        <VueSlickCarousel :arrows="true" v-bind="sliderOneBanner" :dots="false" v-if="categories.length">
+          <div class="ms__banner--items" v-for="(banner,index) in categories" :key="banner.id">
+            <NuxtLink :to="`/producto?category=`+banner.slug">
+              <img :data-src="banner.banner"  class="img-fluid" alt="" v-lazy-load>
+            </NuxtLink>
+          </div>
+        </VueSlickCarousel>
+      </div>
+    </section>
       <!-- sub catagoris -->
       <section class="ms__catagoriesFilter--part ic-section-space-bottom">
         <div class="container">
@@ -155,12 +150,53 @@
 export default {
   name: "_slug",
   data: ()=>({
-    subCatagoriesSlider: {
+    sliderOneBanner: {
+      autoplay:true,
+      speed: 1000,
+    },
+    sliderOneSetting: {
       arrows: true,
       dots: true,
-      slidesToShow: 1,
-      slidesToScroll: 1
+      autoplay:true,
+      slidesToShow: 8,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            "slidesToShow": 6,
+            "slidesToScroll": 1,
+          }
+        },
+        {
+          breakpoint: 1024,
+          settings: {
+            "slidesToShow": 4,
+            "slidesToScroll": 1,
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            "slidesToShow": 3,
+            "slidesToScroll": 1,
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            "slidesToShow": 2,
+            "slidesToScroll": 1
+          }
+        }
+      ]
     },
+    // subCatagoriesSlider: {
+    //   arrows: true,
+    //   dots: true,
+    //   slidesToShow: 1,
+    //   slidesToScroll: 1
+    // },
     filterBox:false,
     products:[],
     page: 1,
