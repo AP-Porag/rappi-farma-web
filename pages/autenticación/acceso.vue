@@ -21,6 +21,7 @@
                           placeholder="Email"
                           class="form-control"
                           v-model="form_data.email"
+                          required="required"
                         />
                       </div>
                     </div>
@@ -33,6 +34,7 @@
                           placeholder="Password"
                           class="form-control"
                           v-model="form_data.password"
+                          required="required"
                         />
                       </div>
                     </div>

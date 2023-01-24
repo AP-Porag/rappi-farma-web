@@ -21,6 +21,7 @@
                           placeholder="First name"
                           class="form-control"
                           v-model="form_data.first_name"
+                          required="required"
                         />
                       </div>
                     </div>
@@ -33,6 +34,7 @@
                           placeholder="Last name"
                           class="form-control"
                           v-model="form_data.last_name"
+                          required="required"
                         />
                       </div>
                     </div>
@@ -45,6 +47,7 @@
                           placeholder="Email"
                           class="form-control"
                           v-model="form_data.email"
+                          required="required"
                         />
                       </div>
                     </div>
@@ -57,6 +60,7 @@
                           placeholder="Password"
                           class="form-control"
                           v-model="form_data.password"
+                          required="required"
                         />
                       </div>
                     </div>
@@ -69,6 +73,7 @@
                           placeholder="formate : +8801828963235"
                           class="form-control"
                           v-model="form_data.whatsapp"
+                          required="required"
                         />
                       </div>
                     </div>
@@ -81,6 +86,7 @@
                           placeholder="dob"
                           class="form-control"
                           v-model="form_data.dob"
+                          required="required"
                         />
                       </div>
                     </div>

@@ -45,9 +45,9 @@
                           type="text"
                           placeholder="First name"
                           class="form-control"
-                          required
+                          required="required"
                         />
-                      </div>
+                    </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
@@ -58,7 +58,7 @@
                           type="text"
                           placeholder="Last name"
                           class="form-control"
-                          required
+                          required="required"
                         />
                       </div>
                     </div>
@@ -71,7 +71,7 @@
                           type="date"
                           placeholder="Role"
                           class="form-control"
-                          required
+                          required="required"
                         />
                       </div>
                     </div>
@@ -84,7 +84,7 @@
                           type="email"
                           placeholder="Email"
                           class="form-control"
-                          required
+                          required="required"
                         />
                       </div>
                     </div>
@@ -102,7 +102,7 @@
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label for="phone">Phone Number</label>
+                        <label for="phone">WhatsApp Number</label>
 <!--                        <input-->
 <!--                          id="phone"-->
 <!--                          v-model="form_data.phone"-->
@@ -111,7 +111,7 @@
 <!--                          class="form-control"-->
 <!--                          required-->
 <!--                        />-->
-                        <vue-phone-number-input id="phone" required="true" v-model="form_data.phone" default-country-code="US" />
+                        <vue-phone-number-input id="phone" required="required" v-model="form_data.phone" default-country-code="US" />
                       </div>
                     </div>
                   </div>
@@ -314,10 +314,16 @@ export default {
   },
   mounted() {
     this.auth_user = JSON.parse(localStorage.getItem('rappiCustomer') || "[]");
+    console.log(this.auth_user)
     if (!this.auth_user.token){
       this.$router.push('/')
     }else {
-      this.$router.push(`/cliente/${this.auth_user.id}`)
+      if (this.auth_user){
+        this.$router.push(`/cliente/${this.auth_user.id}`)
+      }else {
+        this.$router.push('/')
+      }
+
     }
   },
   methods:{
