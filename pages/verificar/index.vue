@@ -64,10 +64,22 @@
                   </div>
                 </div>
                 <div class="ms__title">
-                  <h4 class="title">Shipping Details</h4>
+                  <h4 class="title">Map Location</h4>
                 </div>
                 <div class="row">
-                  <div class="col-lg-6">
+                  <div class="col-lg-12">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d58445.441940023535!2d90.41743938885499!3d23.717402769333372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1674932488097!5m2!1sen!2sbd" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="from-group mt-3">
+                      <label for="phone">Location</label>
+                      <input
+                        type="text"
+                        id="phone"
+                        class="form-control"
+                        placeholder=" "
+                      />
+                    </div>
+                  </div>
+                  <!-- <div class="col-lg-6">
                     <div class="from-group mt-3">
                       <label for="address">Address</label>
                       <input
@@ -78,8 +90,8 @@
                         v-model="form_data.address"
                       />
                     </div>
-                  </div>
-                  <div class="col-lg-6">
+                  </div> -->
+                  <!-- <div class="col-lg-6">
                     <div class="from-group mt-3">
                       <label for="zip_code">Zip Code</label>
                       <input
@@ -90,8 +102,8 @@
                         v-model="form_data.zip_code"
                       />
                     </div>
-                  </div>
-                  <div class="col-lg-6">
+                  </div> -->
+                  <!-- <div class="col-lg-6">
                     <div class="from-group mt-3">
                       <label for="city">City</label>
                       <input
@@ -102,8 +114,8 @@
                         v-model="form_data.city"
                       />
                     </div>
-                  </div>
-                  <div class="col-lg-6">
+                  </div> -->
+                  <!-- <div class="col-lg-6">
                     <div class="from-group mt-3">
                       <label for="country">Country </label>
                       <input
@@ -114,7 +126,7 @@
                         v-model="form_data.country"
                       />
                     </div>
-                  </div>
+                  </div> -->
 <!--                  <div class="col-lg-6">-->
 <!--                    <div class="from-group mt-3">-->
 <!--                      <label for="whatsApp">WhatsApp </label>-->
@@ -193,7 +205,7 @@
                         </div>
                         <div class="ic__shopping--price">
                           <p>${{(product.productDiscountPrice * product.productQuantity).toFixed(2)}}</p>
-                          <a href="#" @click.prevent="removeFromCart(product)"><i class="ri-delete-bin-line text-danger"></i>Remove</a>
+                          <a href="#" class="red" @click.prevent="removeFromCart(product)">Remove</a>
                         </div>
                       </div>
                     </div>

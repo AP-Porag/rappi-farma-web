@@ -491,7 +491,7 @@
             </div>
             <div class="ic__shopping--price">
               <p>${{(product.productDiscountPrice * product.productQuantity).toFixed(2)}}</p>
-              <a href="#" @click.prevent="removeFromCart(product)"><i class="ri-delete-bin-line text-danger"></i>Remove</a>
+              <a href="#" class="red" @click.prevent="removeFromCart(product)">Remove</a>
             </div>
           </div>
         </div>
