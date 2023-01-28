@@ -66,7 +66,52 @@
 <!--                </div>-->
 
                 <div class="row g-2">
-                  <ProductoProduct class="col-lg-12" v-for="product in products" :key="product.id" :product="product" />
+                  <!-- <ProductoProduct class="col-lg-12" v-for="product in products" :key="product.id" :product="product" /> -->
+
+
+                    <div class="ms__bestDeal--items big-card">
+                        <div class="figure position-relative mb-0 p-3">
+                          <div class="ms__bestDeal--img ms__beatuy--img">
+                              <!-- <nuxt-link :to="`/producto/${product.slug}`">
+                                <img class="img" :data-src="`${product.thumb}`" alt="" v-lazy-load>
+                              </nuxt-link> -->
+
+                              <nuxt-link to="#">
+                                <img class="img" data-src="https://rappi-farma-admin.asrafporag.me/storage/products/068724.png" alt="" v-lazy-load>
+                              </nuxt-link>
+                          </div>
+                          <div class="ms__bestDeal--information">
+                              <NuxtLink to="#"><h6 class="title">asdfsdfsdf</h6></NuxtLink>
+                              <NuxtLink to="#"><p class="discription">fsadfsdfsdaf</p></NuxtLink>
+
+                              <p class="price">$250</p>
+
+                          </div>
+                        </div>
+                        <!-- <div class="ms__card--btn">
+                              <a href="#" class="btn btn-primary btn-md w-100" @click.prevent="$nuxt.$emit('eventAddToCart', item)">Add to cart</a>
+                          </div> -->
+                          <div class="ms__card--btn">
+                            <div class="ms-increment-decrement"> 
+                                <a href="#">
+                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-5-9h10v2H7v-2z"/></svg>
+                                </a>
+                                <input type="text">
+                                <a href="#">
+                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M11 11V7h2v4h4v2h-4v4h-2v-4H7v-2h4zm1 11C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"/></svg>
+                                </a>
+                            </div>
+                            <div class="addTo-cart">
+                              <a href="#" class="addToCart">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-9 3h2v6H9v-6zm4 0h2v6h-2v-6zM9 4v2h6V4H9z"/></svg>
+                              </a>
+                              <a href="#" class="addToCart" @click.prevent="$nuxt.$emit('eventAddToCart', item)">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"/></svg>
+                              </a>
+                            </div>
+                          </div>
+                      </div>
+                    
                   <infinite-loading v-if="products.length" spinner="bubbles" @infinite="infiniteScroll"></infinite-loading>
                 </div>
               </div>
@@ -520,4 +565,98 @@ export default {
       }
     }
   }
+
+
+
+
+  // new product card
+  .ms__bestDeal--items {
+  &.big-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    @media (max-width: 480px) {
+      flex-direction: column;
+    }
+    .figure{
+      display: flex;
+      gap: 20px;
+      .ms__bestDeal--img {
+        height: 70px;
+        width: 70px;
+        flex: 0 0 auto;
+        @media (max-width: 480px) {
+          height: 50px;
+          width: 50px;
+        }
+      }
+    }
+    .ms__card--btn {
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      @media (max-width: 991px) {
+        display: flex;
+        flex-direction: column;
+      }
+      @media (max-width: 480px) {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+      }
+      .ms-increment-decrement {
+        display: flex;
+        align-items: center;
+        margin-right: 70px;
+        gap: 10px;
+        @media (max-width: 991px) {
+          margin-right: 0px;
+          order: 2;
+        }
+        @media (max-width: 480px) {
+          margin-right: 0px;
+          order: 1;
+        }
+        input {
+          text-align: center;
+          width: 63px!important;
+        }
+      }
+      .addTo-cart {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        @media (max-width: 991px) {
+          order: 1;
+        }
+        @media (max-width: 480px) {
+          order: 2;
+        }
+      }
+      .addToCart {
+        flex: 0 0 auto;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid $primary;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        transition: .3s;
+        svg {
+          width: 16px;
+          fill: $primary;
+        }
+        font-size: 14px;
+        &:hover {
+          background-color: $primary;
+          color: #000;
+        }
+      }
+    }
+  }
+}
 </style>
