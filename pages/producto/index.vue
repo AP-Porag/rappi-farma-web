@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="ms__banner--part">
+    <!-- <section class="ms__banner--part">
       <div class="container slick-slider-relative">
         <VueSlickCarousel :arrows="true" v-bind="sliderOneBanner" :dots="false" v-if="categories.length">
           <div class="ms__banner--items" v-for="(banner,index) in categories" :key="banner.id">
@@ -10,13 +10,13 @@
           </div>
         </VueSlickCarousel>
       </div>
-    </section>
+    </section> -->
       <!-- sub catagoris -->
-      <section class="ms__catagoriesFilter--part ic-section-space-bottom">
+      <section class="ms__catagoriesFilter--part ic-section-space">
         <div class="container">
           <div class="row g-4">
-            <div class="col-lg-3">
-              <!-- <a href="#" class="d-lg-none">Catagories Name Filter</a> -->
+            <!-- <div class="col-lg-3">
+              <a href="#" class="d-lg-none">Catagories Name Filter</a>
               <div class="ic__catagoriesFilter--overlay"></div>
               <div class="ms__catagoriesFilter--left">
                 <a href="#" class="catagoriesFilter--closed">
@@ -38,8 +38,8 @@
                   </li>
                 </ul>
               </div>
-            </div>
-            <div class="col-lg-9">
+            </div> -->
+            <div class="col-lg-12">
               <div class="ms__catagoriesFilter--right">
 <!--                <div class="row">-->
 <!--                  <div class="col-lg-6">-->
@@ -65,8 +65,8 @@
 <!--                  </div>-->
 <!--                </div>-->
 
-                <div class="row g-4">
-                  <ProductoProduct class="col-lg-4 col-md-6" v-for="product in products" :key="product.id" :product="product" />
+                <div class="row g-2">
+                  <ProductoProduct class="col-lg-12" v-for="product in products" :key="product.id" :product="product" />
                   <infinite-loading v-if="products.length" spinner="bubbles" @infinite="infiniteScroll"></infinite-loading>
                 </div>
               </div>

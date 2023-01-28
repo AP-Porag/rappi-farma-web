@@ -125,13 +125,35 @@
                   </div>
                   <span>Mi cuenta</span>
                 </NuxtLink>
+                <li class="ms__navbar--items" v-if="!user.token">
+                <nuxt-link class="ic-btn-outline" to="/autenticación/acceso">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                  >
+                    <path fill="none" d="M0 0h24v24H0z" />
+                    <path
+                      d="M4 22a8 8 0 1 1 16 0h-2a6 6 0 1 0-12 0H4zm8-9c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6zm0-2c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"
+                    />
+                  </svg>
+                  <span>Acceso/Registro</span>
+                </nuxt-link>
+              </li>
+              <li class="ms__navbar--items" v-else>
+                <button class="ic-btn-outline" @click="logout">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M6 8V7a6 6 0 1 1 12 0v1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h2zm13 2H5v10h14V10zm-8 5.732a2 2 0 1 1 2 0V18h-2v-2.268zM8 8h8V7a4 4 0 1 0-8 0v1z"/></svg>
+                  <span>cerrar sesión</span>
+                </button>
+              </li>
           </div>
         </div>
       </div>
       <!-- navbar bar -->
       <div class="ms__navbar--part">
         <div class="container">
-          <nav class="ms__navbar--container">
+          <!-- <nav class="ms__navbar--container">
             <div class="d-sm-block d-md-none">
               <button class="btn btn-outline-dark" @click="menuBox = !menuBox">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 3v2H3V3h9zm4 16v2H3v-2h13zm6-8v2H3v-2h19z"/></svg>
@@ -148,15 +170,15 @@
                   <NuxtLink class="dropdown-item" to="/producto">Producto</NuxtLink>
                 </li>
               </ul>
-            </div>
-            <ul class="ms__navbar--nav">
+            </div> -->
+            <!-- <ul class="ms__navbar--nav">
               <li class="ms__navbar--items" v-if="categories.length"
               v-for="(category,index) in categories"
                   :key="category.id"
               >
                 <NuxtLink class="ms__navbar--links text-capitalize" :to="`/producto?category=`+category.slug"
                   >{{category.name}}</NuxtLink
-                >
+                > -->
 <!--                <div class="ms__navbar&#45;&#45;MegadropDwon">-->
 <!--                  <div class="ms__dropDwon&#45;&#45;items">-->
 <!--                    <h6>Heading 1</h6>-->
@@ -259,7 +281,7 @@
 <!--                    </ul>-->
 <!--                  </div>-->
 <!--                </div>-->
-              </li>
+              <!-- </li> -->
 <!--              <li class="ms__navbar&#45;&#45;items">-->
 <!--                <NuxtLink class="ms__navbar&#45;&#45;links" to="/categorias/belleza"-->
 <!--                  >Belleza</NuxtLink-->
@@ -372,13 +394,13 @@
 <!--                  >Baby care</NuxtLink-->
 <!--                >-->
 <!--              </li>-->
-              <li class="ms__navbar--items">
+              <!-- <li class="ms__navbar--items">
                 <NuxtLink class="ms__navbar--links" to="/producto"
                   >Producto</NuxtLink
                 >
-              </li>
-            </ul>
-            <ul class="ms-auto ic__login--signUp">
+              </li> -->
+            <!-- </ul> -->
+            <!-- <ul class="ms-auto ic__login--signUp">
               <li class="ms__navbar--items" v-if="!user.token">
                 <nuxt-link class="btn btn-sm btn-outline-light border" to="/autenticación/acceso">
                   <svg
@@ -401,8 +423,8 @@
                   <span>cerrar sesión</span>
                 </button>
               </li>
-            </ul>
-          </nav>
+            </ul> -->
+          <!-- </nav> -->
         </div>
       </div>
     </header>
