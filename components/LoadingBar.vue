@@ -25,15 +25,18 @@ export default {
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 999;
   padding: 1rem;
   text-align: center;
   font-size: 3rem;
   font-family: sans-serif;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: black;
 }
 .loading {
   display: inline-block;

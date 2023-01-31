@@ -894,9 +894,7 @@ export default {
 .ms__navbar--part {
   background-color: $primary;
   box-shadow: $box-shadow;
-  @media #{$max991}{
-    padding: 10px 0;
-  }
+
   .ms__navbar--container {
     position: relative;
     margin-top: 10px;

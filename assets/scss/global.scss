@@ -700,24 +700,17 @@ input {
     display: flex;
     flex-direction: row;
     align-items: center;
-    @media (max-width: 480px) {
-      flex-direction: column;
-    }
     .figure{
       display: flex;
       gap: 20px;
       .ms__bestDeal--img {
-        height: 70px;
-        width: 70px;
+        height: 40px;
+        width: 40px;
         flex: 0 0 auto;
-        @media (max-width: 480px) {
-          height: 50px;
-          width: 50px;
-        }
       }
     }
     .ms__card--btn {
-      padding: 16px;
+      padding: 5px;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -729,7 +722,7 @@ input {
         display: flex;
         flex-direction: row;
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-end;
       }
       .ms-increment-decrement {
         display: flex;
@@ -739,6 +732,7 @@ input {
         @media (max-width: 991px) {
           margin-right: 0px;
           order: 2;
+          display: none;
         }
         @media (max-width: 480px) {
           margin-right: 0px;
@@ -759,6 +753,20 @@ input {
         @media (max-width: 480px) {
           order: 2;
         }
+        a {
+          &:nth-child(1){
+            border: 1px solid $error-500;
+            svg {
+              fill: $error-500;
+            }
+            &:hover {
+              background-color: $error-500;
+              svg {
+                fill: #fff;
+              }
+            }
+          }
+        }
       }
       .addToCart {
         flex: 0 0 auto;
@@ -778,7 +786,9 @@ input {
         font-size: 14px;
         &:hover {
           background-color: $primary;
-          color: #000;
+          svg {
+            fill: #202020;
+          }
         }
       }
     }

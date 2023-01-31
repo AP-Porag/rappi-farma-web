@@ -70,19 +70,19 @@
 
 
                     <div class="ms__bestDeal--items big-card">
-                        <div class="figure position-relative mb-0 p-3">
+                        <div class="figure position-relative mb-0 p-1">
                           <div class="ms__bestDeal--img ms__beatuy--img">
                               <!-- <nuxt-link :to="`/producto/${product.slug}`">
                                 <img class="img" :data-src="`${product.thumb}`" alt="" v-lazy-load>
                               </nuxt-link> -->
 
                               <nuxt-link to="#">
-                                <img class="img" data-src="https://rappi-farma-admin.asrafporag.me/storage/products/068724.png" alt="" v-lazy-load>
+                                <img class="img img-fluid" data-src="https://rappi-farma-admin.asrafporag.me/storage/products/068724.png" alt="" v-lazy-load>
                               </nuxt-link>
                           </div>
                           <div class="ms__bestDeal--information">
                               <NuxtLink to="#"><h6 class="title">asdfsdfsdf</h6></NuxtLink>
-                              <NuxtLink to="#"><p class="discription">fsadfsdfsdaf</p></NuxtLink>
+                              <!-- <NuxtLink to="#"><p class="discription">fsadfsdfsdaf</p></NuxtLink> -->
 
                               <p class="price">$250</p>
 
@@ -614,6 +614,7 @@ export default {
         @media (max-width: 991px) {
           margin-right: 0px;
           order: 2;
+          display: none;
         }
         @media (max-width: 480px) {
           margin-right: 0px;
