@@ -84,7 +84,7 @@
                               <NuxtLink to="#"><h6 class="title">asdfsdfsdf</h6></NuxtLink>
                               <!-- <NuxtLink to="#"><p class="discription">fsadfsdfsdaf</p></NuxtLink> -->
 
-                              <p class="price">$250</p>
+                              <p class="small-price">$250</p>
 
                           </div>
                         </div>

@@ -703,10 +703,19 @@ input {
     .figure{
       display: flex;
       gap: 20px;
+      align-items: center;
       .ms__bestDeal--img {
-        height: 40px;
-        width: 40px;
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
         flex: 0 0 auto;
+        overflow: hidden;
+      }
+      .small-price {
+        font-size: 14px;
+        line-height: 14px;
+        font-weight: 700;
+        color: #1b88f5;
       }
     }
     .ms__card--btn {
@@ -770,14 +779,14 @@ input {
       }
       .addToCart {
         flex: 0 0 auto;
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
         border-radius: 50%;
         border: 1px solid $primary;
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        font-size: 20px;
+        font-size: 16px;
         transition: .3s;
         svg {
           width: 16px;
