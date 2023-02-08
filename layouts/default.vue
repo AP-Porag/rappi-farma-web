@@ -1,9 +1,9 @@
 <template>
   <div>
     <LoadingBar v-if="showHideSpinner"/>
-    <partialsHeader v-if="!showHideSpinner"/>
-    <nuxt v-if="!showHideSpinner"/>
-    <partialsFooter v-if="!showHideSpinner"/>
+    <partialsHeader/>
+    <nuxt/>
+    <partialsFooter/>
   </div>
 </template>
 <script>
