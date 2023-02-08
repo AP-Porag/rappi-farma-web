@@ -1,6 +1,5 @@
 <template>
-    <div class="ms__bestDeal--items">
-      <div class="ms__bestDeal--items big-card">
+    <div class="ms__bestDeal--items big-card">
         <div class="figure position-relative mb-0 p-1">
           <div class="ms__bestDeal--img ms__beatuy--img">
             <nuxt-link to="#">
@@ -35,7 +34,6 @@
           </div>
         </div>
       </div>
-    </div>
   </template>
 
   <script>

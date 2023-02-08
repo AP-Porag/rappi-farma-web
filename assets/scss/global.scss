@@ -694,7 +694,30 @@ input {
     display: flex !important;
   }
 }
-
+.ms__card {
+  box-shadow: $box-shadow;
+  background-color: #fff;
+  @include bd-radius(10px);
+  padding: 20px;
+  .ms__title {
+    margin-bottom: 20px;
+    border-bottom: 1px solid $gray-light;
+    .title {
+      position: relative;
+      padding-bottom: 10px;
+      display: inline-block;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        width: 100%;
+        background-color: $primary;
+      }
+    }
+  }
+}
 .ms__bestDeal--items {
   &.big-card {
     display: flex;
