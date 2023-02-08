@@ -537,15 +537,15 @@ export default {
     .figure{
       display: flex;
       gap: 20px;
-      .ms__bestDeal--img {
-        height: 70px;
-        width: 70px;
-        flex: 0 0 auto;
-        @media (max-width: 480px) {
-          height: 50px;
-          width: 50px;
-        }
-      }
+      // .ms__bestDeal--img {
+      //   height: 70px;
+      //   width: 70px;
+      //   flex: 0 0 auto;
+      //   @media (max-width: 480px) {
+      //     height: 50px;
+      //     width: 50px;
+      //   }
+      // }
     }
     .ms__card--btn {
       padding: 16px;
@@ -594,23 +594,31 @@ export default {
       }
       .addToCart {
         flex: 0 0 auto;
-        width: 40px;
-        height: 40px;
+        width: 30px!important;
+        height: 30px!important;
         border-radius: 50%;
         border: 1px solid $primary;
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        font-size: 20px;
+        font-size: 16px;
         transition: .3s;
-        svg {
-          width: 16px;
-          fill: $primary;
+        @media (max-width: 991px) {
+          order: 1;
         }
-        font-size: 14px;
+        @media (max-width: 480px) {
+          order: 2;
+        }
+        svg {
+          width: 16px!important;
+          fill: $primary!important;
+        }
+        font-size: 14px!important;
         &:hover {
-          background-color: $primary;
-          color: #000;
+          background-color: $primary!important;
+          svg {
+            fill: #202020;
+          }
         }
       }
     }

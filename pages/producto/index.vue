@@ -589,15 +589,15 @@ export default {
     .figure{
       display: flex;
       gap: 20px;
-      .ms__bestDeal--img {
-        height: 70px;
-        width: 70px;
-        flex: 0 0 auto;
-        @media (max-width: 480px) {
-          height: 50px;
-          width: 50px;
-        }
-      }
+      // .ms__bestDeal--img {
+      //   height: 70px;
+      //   width: 70px;
+      //   flex: 0 0 auto;
+      //   @media (max-width: 480px) {
+      //     height: 50px;
+      //     width: 50px;
+      //   }
+      // }
     }
     .ms__card--btn {
       padding: 16px;

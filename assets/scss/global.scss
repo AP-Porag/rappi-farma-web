@@ -787,14 +787,14 @@ input {
         }
         a {
           &:nth-child(1){
-            border: 1px solid $error-500;
+            border: 1px solid $error-500!important;
             svg {
-              fill: $error-500;
+              fill: $error-500!important;
             }
             &:hover {
-              background-color: $error-500;
+              background-color: $error-500!important;
               svg {
-                fill: #fff;
+                fill: #fff!important;
               }
             }
           }
@@ -819,10 +819,57 @@ input {
         &:hover {
           background-color: $primary;
           svg {
-            fill: #202020;
+            fill: #202020!important;
           }
         }
       }
     }
+    .ms__bestDeal--information {
+    h6 {
+      font-size: 15px;
+      line-height: 24px;
+      color: #202020;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1; /* number of lines to show */
+              line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+    .discription {
+      font-size: 13px;
+      line-height: 20px;
+      color: $gray-deep;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2; /* number of lines to show */
+              line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    .price {
+      font-size: 18px;
+      font-weight: 600;
+      color: $primary;
+    }
+    .price-unit {
+      font-size: 10px;
+      line-height: 16px;
+      color: $gray-deep;
+    }
+    .star {
+      padding-top: 15px;
+      @include d-flex();
+      @include align-items(center);
+      gap:10px;
+      span {
+        font-size: 14px;
+      }
+      svg {
+        width: 16px;
+        fill: #fdd756;
+      }
+    }
+  }
   }
 }
