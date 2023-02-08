@@ -1,5 +1,6 @@
 <template>
   <div>
+    <LoadingBar v-if="showHideSpinner"/>
     <partialsHeader/>
     <nuxt/>
     <partialsFooter/>
@@ -18,6 +19,17 @@ export default {
         href: this.$store.state.settings.site_favicon
       }]
     }
+  },
+  beforeCreate() {
+    this.showHideSpinner = true;
+  },
+  mounted() {
+    this.showHideSpinner = false;
+  },
+  data() {
+    return {
+      showHideSpinner: true
+    };
   }
 }
 

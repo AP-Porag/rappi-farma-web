@@ -116,6 +116,6 @@ export default {
       },
     },
   },
-  loading: '~/components/LoadingBar.vue',
+  //loading: '~/components/loading.vue',
 
 }
