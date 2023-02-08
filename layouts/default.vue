@@ -1,12 +1,13 @@
 <template>
   <div>
     <LoadingBar v-if="showHideSpinner"/>
-    <partialsHeader/>
-    <nuxt/>
-    <partialsFooter/>
+    <partialsHeader v-if="!showHideSpinner"/>
+    <nuxt v-if="!showHideSpinner"/>
+    <partialsFooter v-if="!showHideSpinner"/>
   </div>
 </template>
 <script>
+//c2cbd2
 export default {
   name: "default",
   head(){

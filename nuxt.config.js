@@ -87,7 +87,7 @@ export default {
     'vue-social-sharing/nuxt',
     ['nuxt-lazy-load', {
       // Default image must be in the static folder
-      defaultImage: '/images/loader.gif',
+      defaultImage: '/images/placeholder-images.png',
     }],
   ],
   styleResources: {
