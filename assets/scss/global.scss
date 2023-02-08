@@ -747,9 +747,6 @@ input {
       display: flex;
       align-items: center;
       gap: 10px;
-      @media #{$max575} {
-        width: 26%;
-      }
       @media (max-width: 991px) {
         display: flex;
         flex-direction: column;
