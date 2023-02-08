@@ -583,9 +583,7 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: center;
-    @media (max-width: 480px) {
-      flex-direction: column;
-    }
+
     .figure{
       display: flex;
       gap: 20px;

@@ -727,9 +727,10 @@ input {
       display: flex;
       gap: 20px;
       align-items: center;
+      
       .ms__bestDeal--img {
-        height: 35px;
-        width: 35px;
+        height: 45px;
+        width: 45px;
         border-radius: 50%;
         flex: 0 0 auto;
         overflow: hidden;
@@ -742,10 +743,13 @@ input {
       }
     }
     .ms__card--btn {
-      padding: 5px;
+      padding: 5px!important;
       display: flex;
       align-items: center;
       gap: 10px;
+      @media #{$max575} {
+        width: 26%;
+      }
       @media (max-width: 991px) {
         display: flex;
         flex-direction: column;
@@ -832,8 +836,8 @@ input {
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
-      -webkit-line-clamp: 1; /* number of lines to show */
-              line-clamp: 1;
+      -webkit-line-clamp: 2; /* number of lines to show */
+              line-clamp: 2;
       -webkit-box-orient: vertical;
     }
     .discription {
