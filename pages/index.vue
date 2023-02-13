@@ -531,9 +531,9 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: center;
-    @media (max-width: 480px) {
-      flex-direction: column;
-    }
+    // @media (max-width: 480px) {
+    //   flex-direction: column;
+    // }
     .figure{
       display: flex;
       gap: 20px;
@@ -556,11 +556,10 @@ export default {
         display: flex;
         flex-direction: column;
       }
-      @media (max-width: 480px) {
+      @media (max-width: 575px) {
         display: flex;
         flex-direction: row;
-        width: 100%;
-        justify-content: space-between;
+        width: 100px;
       }
       .ms-increment-decrement {
         display: flex;
