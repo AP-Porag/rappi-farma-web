@@ -6,150 +6,179 @@
           <div class="ms__card">
             <div class="row py-5">
               <div class="col-lg-6">
-                <div class="ms__title">
-                  <h4 class="title">Personal Details</h4>
+
+                <div class="mb-4">
+                  <div class="ms__title">
+                    <h4 class="title">Your Location</h4>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="map-box rounded" id="map-box">
+                      </div>
+                      <div class="address-search-box mt-3">
+                        <div class="alert-box">
+                          <div class="alert alert-danger" role="alert" v-if="error">
+                            <span>{{message}}</span>
+                          </div>
+                        </div>
+                        <label for="address">Shipping Address</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control input-for-address" id="address" placeholder="search your location if not match" v-model="form_data.address">
+                          <span class="input-group-text locator-button" @click="locatorButtonPressed">
+                            <img src="images/icon-user-location.png" alt="" style="max-height: 24px;">
+                          </span>
+                        </div>
+<!--                        <div class="form-group mb-3">-->
+<!--                          <input type="text" class="form-control" id="address" placeholder="search your location if not match" v-model="form_data.address">-->
+<!--                          <button class="btn btn-outline-secondary location-btn" type="button" @click="locatorButtonPressed">-->
+<!--                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">-->
+<!--                              <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"></path>-->
+<!--                            </svg>-->
+<!--                            cl-->
+<!--                          </button>-->
+<!--                        </div>-->
+                      </div>
+                    </div>
+                    <!-- <div class="col-lg-6">
+                      <div class="from-group mt-3">
+                        <label for="address">Address</label>
+                        <input
+                          type="text"
+                          id="address"
+                          placeholder="Full shipping address"
+                          class="form-control"
+                          v-model="form_data.address"
+                        />
+                      </div>
+                    </div> -->
+                    <!-- <div class="col-lg-6">
+                      <div class="from-group mt-3">
+                        <label for="zip_code">Zip Code</label>
+                        <input
+                          type="text"
+                          id="zip_code"
+                          placeholder="Your zip code"
+                          class="form-control"
+                          v-model="form_data.zip_code"
+                        />
+                      </div>
+                    </div> -->
+                    <!-- <div class="col-lg-6">
+                      <div class="from-group mt-3">
+                        <label for="city">City</label>
+                        <input
+                          type="text"
+                          id="city"
+                          placeholder="Your city"
+                          class="form-control"
+                          v-model="form_data.city"
+                        />
+                      </div>
+                    </div> -->
+                    <!-- <div class="col-lg-6">
+                      <div class="from-group mt-3">
+                        <label for="country">Country </label>
+                        <input
+                          type="text"
+                          id="country"
+                          placeholder="Your country"
+                          class="form-control"
+                          v-model="form_data.country"
+                        />
+                      </div>
+                    </div> -->
+                    <!--                  <div class="col-lg-6">-->
+                    <!--                    <div class="from-group mt-3">-->
+                    <!--                      <label for="whatsApp">WhatsApp </label>-->
+                    <!--                      <input-->
+                    <!--                        type="text"-->
+                    <!--                        id="whatsApp"-->
+                    <!--                        placeholder="your whatsApp number"-->
+                    <!--                        class="form-control"-->
+                    <!--                        v-model="form_data.whatsapp"-->
+                    <!--                      />-->
+                    <!--                    </div>-->
+                    <!--                  </div>-->
+                    <!--                  <div class="col-lg-6">-->
+                    <!--                    <div class="mt-3 d-flex justify-content-between">-->
+                    <!--                      <input-->
+                    <!--                        type="checkbox"-->
+                    <!--                        id="terms_conditions"-->
+                    <!--                        v-model="form_data.agree_terms"-->
+                    <!--                      />-->
+                    <!--                      <label class="small">I agree with all <nuxt-link to="#">terms & conditions</nuxt-link> </label>-->
+                    <!--                    </div>-->
+                    <!--                  </div>-->
+                  </div>
                 </div>
-                <div class="row mb-4">
-                  <div class="col-lg-6">
-                    <div class="from-group mt-3">
-                      <label for="first_name">First Name</label>
-                      <input
-                        type="text"
-                        id="first_name"
-                        placeholder="Your first name"
-                        class="form-control"
-                        v-model="form_data.first_name"
-                        required="required"
-                      />
-                    </div>
+
+                <div class="mb-4">
+                  <div class="ms__title">
+                    <h4 class="title">Personal Details</h4>
                   </div>
-                  <div class="col-lg-6">
-                    <div class="from-group mt-3">
-                      <label for="last_name">Last Name</label>
-                      <input
-                        type="text"
-                        id="last_name"
-                        placeholder="Your last name"
-                        class="form-control"
-                        v-model="form_data.last_name"
-                        required="required"
-                      />
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="from-group mt-3">
+                        <label for="first_name">First Name</label>
+                        <input
+                          type="text"
+                          id="first_name"
+                          placeholder="Your first name"
+                          class="form-control"
+                          v-model="form_data.first_name"
+                          required="required"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="from-group mt-3">
-                      <label for="email">Your email</label>
-                      <input
-                        type="email"
-                        id="email"
-                        placeholder="Your email"
-                        class="form-control"
-                        v-model="form_data.email"
-                        required="required"
-                      />
+                    <div class="col-lg-6">
+                      <div class="from-group mt-3">
+                        <label for="last_name">Last Name</label>
+                        <input
+                          type="text"
+                          id="last_name"
+                          placeholder="Your last name"
+                          class="form-control"
+                          v-model="form_data.last_name"
+                          required="required"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="from-group mt-3">
-                      <label for="phone">WhatsApp Number (with country code) </label>
-                      <input
-                        type="text"
-                        id="phone"
-                        placeholder="formate : +8801828963235"
-                        class="form-control"
-                        v-model="form_data.phone"
-                        required="required"
-                      />
+                    <div class="col-lg-6">
+                      <div class="from-group mt-3">
+                        <label for="email">Your email</label>
+                        <input
+                          type="email"
+                          id="email"
+                          placeholder="Your email"
+                          class="form-control"
+                          v-model="form_data.email"
+                          required="required"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="from-group mt-3">
+                        <label for="phone">WhatsApp Number</label>
+<!--                        <input-->
+<!--                          type="text"-->
+<!--                          id="phone"-->
+<!--                          placeholder="formate : +8801828963235"-->
+<!--                          class="form-control"-->
+<!--                          v-model="form_data.phone"-->
+<!--                          required="required"-->
+<!--                        />-->
+                        <vue-phone-number-input
+                          v-model="phone"
+                          @update="getFormattedPhoneCountryCode"
+                          default-country-code="US"
+                          id="phone"
+
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="ms__title">
-                  <h4 class="title">Map Location</h4>
-                </div>
-                <div class="row">
-                  <div class="col-lg-12">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d58445.441940023535!2d90.41743938885499!3d23.717402769333372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1674932488097!5m2!1sen!2sbd" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    <div class="from-group mt-3">
-                      <label for="phone">Location</label>
-                      <input
-                        type="text"
-                        id="phone"
-                        class="form-control"
-                        placeholder=" "
-                      />
-                    </div>
-                  </div>
-                  <!-- <div class="col-lg-6">
-                    <div class="from-group mt-3">
-                      <label for="address">Address</label>
-                      <input
-                        type="text"
-                        id="address"
-                        placeholder="Full shipping address"
-                        class="form-control"
-                        v-model="form_data.address"
-                      />
-                    </div>
-                  </div> -->
-                  <!-- <div class="col-lg-6">
-                    <div class="from-group mt-3">
-                      <label for="zip_code">Zip Code</label>
-                      <input
-                        type="text"
-                        id="zip_code"
-                        placeholder="Your zip code"
-                        class="form-control"
-                        v-model="form_data.zip_code"
-                      />
-                    </div>
-                  </div> -->
-                  <!-- <div class="col-lg-6">
-                    <div class="from-group mt-3">
-                      <label for="city">City</label>
-                      <input
-                        type="text"
-                        id="city"
-                        placeholder="Your city"
-                        class="form-control"
-                        v-model="form_data.city"
-                      />
-                    </div>
-                  </div> -->
-                  <!-- <div class="col-lg-6">
-                    <div class="from-group mt-3">
-                      <label for="country">Country </label>
-                      <input
-                        type="text"
-                        id="country"
-                        placeholder="Your country"
-                        class="form-control"
-                        v-model="form_data.country"
-                      />
-                    </div>
-                  </div> -->
-<!--                  <div class="col-lg-6">-->
-<!--                    <div class="from-group mt-3">-->
-<!--                      <label for="whatsApp">WhatsApp </label>-->
-<!--                      <input-->
-<!--                        type="text"-->
-<!--                        id="whatsApp"-->
-<!--                        placeholder="your whatsApp number"-->
-<!--                        class="form-control"-->
-<!--                        v-model="form_data.whatsapp"-->
-<!--                      />-->
-<!--                    </div>-->
-<!--                  </div>-->
-                  <!--                  <div class="col-lg-6">-->
-                  <!--                    <div class="mt-3 d-flex justify-content-between">-->
-                  <!--                      <input-->
-                  <!--                        type="checkbox"-->
-                  <!--                        id="terms_conditions"-->
-                  <!--                        v-model="form_data.agree_terms"-->
-                  <!--                      />-->
-                  <!--                      <label class="small">I agree with all <nuxt-link to="#">terms & conditions</nuxt-link> </label>-->
-                  <!--                    </div>-->
-                  <!--                  </div>-->
-                </div>
+
               </div>
               <div class="col-lg-6">
                 <div class="checkout-cart">
@@ -237,6 +266,10 @@ export default {
   data(){
     return{
       shoppingCart : [],
+      error:false,
+      message:'',
+      phone:'',
+      //api_Key:'AIzaSyDpAz0wssQspDgZDeCUYm5hGayKJKpWtFI'
       form_data:{
         first_name:'',
         last_name:'',
@@ -244,9 +277,9 @@ export default {
         phone:'',
         //whatsapp:'',
         address:'',
-        city:'',
-        country:'',
-        zip_code:'',
+        //city:'',
+        //country:'',
+        //zip_code:'',
         total_quantity:0,
         subtotal:0,
         shipping_type:'shipping',
@@ -272,6 +305,41 @@ export default {
     this.countFinalTotal();
     this.countSubTotal();
     this.setCartProduct();
+    this.locatorButtonPressed();
+
+
+    //map location
+    if (typeof google === 'undefined') {
+      // const script = document.createElement('script')
+      // //script.onload = this.locatorButtonPressed()
+      // script.type = 'text/javascript'
+      // script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDpAz0wssQspDgZDeCUYm5hGayKJKpWtFI&libraries=places&callback=null`
+      // document.head.appendChild(script)
+      console.log('google pay nai')
+    }else {
+      var defaultBounds = new google.maps.LatLngBounds(
+        //for florida
+        new google.maps.LatLng(27.994402, -81.760254),
+      );
+      //console.log('google paise')
+      let autocomplete = new google.maps.places.Autocomplete(
+        document.getElementById('address'),
+        {
+          bounds:defaultBounds,
+        }
+      )
+      autocomplete.addListener("place_changed",()=>{
+        let place = autocomplete.getPlace();
+        this.showUserLocationOnMap(place.geometry.location.lat(),place.geometry.location.lng());
+        this.form_data.address = place.formatted_address;
+        if (this.form_data.address.length > 0 && this.error){
+          this.error = false;
+        }
+      })
+
+    }
+
+    // }
   },
   computed: {
 
@@ -336,15 +404,18 @@ export default {
     countFinalTotal(){
       let finalTotal = 0;
       let total = 0;
+      let total_qty = 0;
       this.shoppingCart.filter((item) => {
         total += (item.productDiscountPrice * item.productQuantity);
+        total_qty += item.productQuantity;
       });
 
       finalTotal = total + this.form_data.shippingCharge;
       this.form_data.total_price = finalTotal;
+      this.form_data.total_quantity = total_qty;
     },
     async submit(){
-      //console.log('submitted')
+      //console.log(this.form_data)
       await this.$axios.post('/order/front/save-order',this.form_data)
         .then(response => {
           if (response.data.status == 200){
@@ -375,6 +446,67 @@ export default {
         .catch(err => {
           console.log(err)
         })
+    },
+
+    //map location
+    locatorButtonPressed(){
+      if (navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(position => {
+
+          let latitude = position.coords.latitude;
+          let longitude = position.coords.longitude;
+          this.getAddressFromGoogle(latitude,longitude);
+          this.showUserLocationOnMap(latitude,longitude);
+
+          // console.log(position.coords.latitude);
+          // console.log(position.coords.longitude);
+
+        },error=>{
+          //this.message = error.message;
+          this.message = 'You denied Geolocation,Please select your location manually';
+          this.error = true;
+        });
+      }else {
+        this.message = 'Your browser dose not support geolocation Api,Please select your location manually';
+        this.error = true;
+      }
+    },
+    getAddressFromGoogle(lat,lng){
+      this.$axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyDpAz0wssQspDgZDeCUYm5hGayKJKpWtFI`)
+        .then(response => {
+          if (response.data.error_message){
+            this.message = response.data.error_message
+            this.error = true
+          }else {
+            //console.log(response.data.results)
+            this.form_data.address = response.data.results[0].formatted_address
+          }
+        })
+        .catch(error => {
+          this.message = error.message
+          this.error = true
+        });
+    },
+    showUserLocationOnMap(lat,long){
+      //create a map object
+      let map = new google.maps.Map(document.getElementById('map-box'),{
+        zoom:15,
+        center:new google.maps.LatLng(lat,long),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+
+      //Add marker to map according location
+      new google.maps.Marker({
+        position: new google.maps.LatLng(lat,long),
+        map: map,
+      });
+    },
+
+    //formatted phone number
+    getFormattedPhoneCountryCode(payload){
+      if (payload.isValid){
+        this.form_data.phone = payload.formattedNumber
+      }
     }
   }
 
@@ -382,6 +514,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.input-for-address{
+  width: 80% !important;
+}
+.locator-button{
+  cursor: pointer;
+}
+.map-box{
+  margin: 0 auto;
+  width: 100%;
+  height: 200px;
+  background: #e5e3e3;
+}
+.pac-item{
+  padding: 15px;
+  font-size: 16px;
+  cursor: pointer !important;
+}
 .checkout-cart {
   padding: 20px 100px;
   @media #{$max1199} {

@@ -227,7 +227,7 @@ export default {
       // console.log('brand : '+this.brand_slug)
 
       this.getAllProducts();
-    }
+    },
   },
   mounted() {
     this.category_slug = this.$route.query.category != null ? this.$route.query.category : null;
