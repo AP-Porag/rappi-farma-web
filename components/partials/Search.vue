@@ -2,14 +2,20 @@
   <input
     type="text"
     placeholder="búsqueda"
-    @change="$nuxt.$emit('eventName', 'nice payload')"
+    v-model="words"
+    @input="$nuxt.$emit('eventProductFilter', words)"
 
   />
 </template>
 
 <script>
 export default {
-  name: "Search"
+  name: "Search",
+  data(){
+    return{
+      words:''
+    }
+  }
 }
 </script>
 

@@ -10,98 +10,7 @@
           </div>
           <div class="ms__header--searchBar position-relative">
             <partials-search v-if="this.$nuxt.$route.name == 'index'"/>
-<!--            <input type="text" placeholder="búsqueda"-->
-<!--                   @focus="show = true"-->
-<!--                   @blur="show = false"-->
-<!--                   v-model="keywords" />-->
-            <!-- <button>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg>
-            </button> -->
-            <div
-              class="ms__header--searchBar--dropdwon"
-              v-if="keywords.length >= 3"
-            >
-              <ul v-if="items.length > 0">
-                <li v-for="item in items" :key="item.id">
-                  <NuxtLink to="/producto" @click.native="itemSelected"> {{item.name}}</NuxtLink>
-                </li>
-              </ul>
-              <ul v-else>
-                <li>
-                  <p>no hay productos coincidentes</p>
-                </li>
-              </ul>
-              <!--              <div class="ms__recent-product">-->
-              <!--                <ul>-->
-              <!--                  <li>-->
-              <!--                    <NuxtLink to="#">-->
-              <!--                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>-->
-              <!--                      <p> Hasta 35% en Dermo con Prime </p>-->
-              <!--                    </NuxtLink>-->
-              <!--                  </li>-->
-              <!--                  <li>-->
-              <!--                    <NuxtLink to="#">-->
-              <!--                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>-->
-              <!--                      <p> Hasta 35% en Dermo con Prime </p>-->
-              <!--                    </NuxtLink>-->
-              <!--                  </li>-->
-              <!--                  <li>-->
-              <!--                    <NuxtLink to="#">-->
-              <!--                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>-->
-              <!--                      <p> Hasta 35% en Dermo con Prime </p>-->
-              <!--                    </NuxtLink>-->
-              <!--                  </li>-->
-              <!--                  <li>-->
-              <!--                    <NuxtLink to="#">-->
-              <!--                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>-->
-              <!--                      <p> Hasta 35% en Dermo con Prime </p>-->
-              <!--                    </NuxtLink>-->
-              <!--                  </li>-->
-              <!--                  <li>-->
-              <!--                    <NuxtLink to="#">-->
-              <!--                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>-->
-              <!--                      <p> Hasta 35% en Dermo con Prime </p>-->
-              <!--                    </NuxtLink>-->
-              <!--                  </li>-->
-              <!--                  <li>-->
-              <!--                    <NuxtLink to="#">-->
-              <!--                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>-->
-              <!--                      <p> Hasta 35% en Dermo con Prime </p>-->
-              <!--                    </NuxtLink>-->
-              <!--                  </li>-->
-              <!--                  <li>-->
-              <!--                    <NuxtLink to="#">-->
-              <!--                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>-->
-              <!--                      <p> Hasta 35% en Dermo con Prime </p>-->
-              <!--                    </NuxtLink>-->
-              <!--                  </li>-->
-              <!--                  <li>-->
-              <!--                    <NuxtLink to="#">-->
-              <!--                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>-->
-              <!--                      <p> Hasta 35% en Dermo con Prime </p>-->
-              <!--                    </NuxtLink>-->
-              <!--                  </li>-->
-              <!--                  <li>-->
-              <!--                    <NuxtLink to="#">-->
-              <!--                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>-->
-              <!--                      <p> Hasta 35% en Dermo con Prime </p>-->
-              <!--                    </NuxtLink>-->
-              <!--                  </li>-->
-              <!--                  <li>-->
-              <!--                    <NuxtLink to="#">-->
-              <!--                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>-->
-              <!--                      <p> Hasta 35% en Dermo con Prime </p>-->
-              <!--                    </NuxtLink>-->
-              <!--                  </li>-->
-              <!--                  <li>-->
-              <!--                    <NuxtLink to="#">-->
-              <!--                      <img src="https://lh3.googleusercontent.com/szQPXjkxkjIFo0BGWae2q1b_6riNQwgn5CnrKd-oQek3EGLYAh0Syz5Ha5wUKBX6Vn3KSvpiqMnWTjhVLEfdypFjXcx7bOz2YU-8Ad7mWkpKaFAAHw" class="img-fluid" alt="" v-lazy-load>-->
-              <!--                      <p> Hasta 35% en Dermo con Prime </p>-->
-              <!--                    </NuxtLink>-->
-              <!--                  </li>-->
-              <!--                </ul>-->
-              <!--              </div>-->
-            </div>
+<!--            <partials-search-box v-else/>-->
           </div>
           <div class="ms__header--loginWith--cart">
             <button class="ic-btn-outline" @click="cartBox = !cartBox">
@@ -589,7 +498,10 @@ export default {
   },
   created() {
     this.loadCategoryDataWithBrand()
-    this.$nuxt.$on('eventAddToCart', ($event) => this.handleEventAddToCart($event))
+    this.$nuxt.$on('eventAddToCart', ($event) => this.handleEventAddToCart($event));
+    this.$nuxt.$on('eventRemoveFromCart', ($event) => this.handleRemoveFromCart($event))
+    this.$nuxt.$on('eventIncreaseCartQuantity', ($event) => this.handleIncreaseCartQuantity($event))
+    this.$nuxt.$on('eventDecreaseCartQuantity', ($event) => this.handleDecreaseCartQuantity($event))
   },
   watch:{
     shoppingCart:{
@@ -604,15 +516,15 @@ export default {
         }
       },deep:true
     },
-    keywords(after, before) {
-      if (this.keywords != ''){
-        this.items=[];
-        this.getSearchedItem();
-        this.setKeywordToLocalStorage();
-      }else {
-        window.localStorage.removeItem('rappiKywords');
-      }
-    }
+    // keywords(after, before) {
+    //   if (this.keywords != ''){
+    //     this.items=[];
+    //     this.getSearchedItem();
+    //     this.setKeywordToLocalStorage();
+    //   }else {
+    //     window.localStorage.removeItem('rappiKywords');
+    //   }
+    // }
   },
   mounted() {
     this.user = JSON.parse(localStorage.getItem('rappiCustomer') || "[]");
@@ -719,26 +631,32 @@ export default {
         this.shoppingCart.push(item)
       }
     },
-    async getSearchedItem() {
-      if (this.keywords !='' && this.keywords.length >= 3){
-        await this.$axios.get('/product/get/search-products', { params: { keywords: this.keywords } })
-          .then(response => {
-            this.items = response.data.data.items
-
-          })
-          .catch(error => {
-            console.log(error)
-          });
-      }
-
+    handleRemoveFromCart(e){
+      this.removeFromCart(e)
     },
-    setKeywordToLocalStorage(){
-      window.localStorage.removeItem('rappiKywords');
-      window.localStorage.setItem('rappiKywords', this.keywords);
+    handleIncreaseCartQuantity(e){
+      this.increaseCartQuantity(e)
     },
-    itemSelected(){
-      window.location.reload()
+    handleDecreaseCartQuantity(e){
+      this.decreaseCartQuantity(e)
     },
+    // async getSearchedItem() {
+    //   if (this.keywords !='' && this.keywords.length >= 3){
+    //     await this.$axios.get('/product/get/search-products', { params: { keywords: this.keywords } })
+    //       .then(response => {
+    //         this.items = response.data.data.items
+    //
+    //       })
+    //       .catch(error => {
+    //         console.log(error)
+    //       });
+    //   }
+    //
+    // },
+    // setKeywordToLocalStorage(){
+    //   window.localStorage.removeItem('rappiKywords');
+    //   window.localStorage.setItem('rappiKywords', this.keywords);
+    // },
     async loadCategoryDataWithBrand(){
       try {
         const response = await this.$axios.get('/category/front/category-brand');

@@ -67,6 +67,7 @@
 
                 <div class="row g-2">
                    <ProductoProduct class="col-lg-12" v-for="product in products" :key="product.id" :product="product" />
+                  <p class="text-center text-muted" v-if="products.length < 1">Ningún producto encontrado</p>
 
                   <infinite-loading v-if="products.length" spinner="bubbles" @infinite="infiniteScroll"></infinite-loading>
                 </div>
@@ -207,7 +208,7 @@ export default {
     categories:[],
   }),
   created() {
-
+    this.$nuxt.$on('eventProductFilter', ($event) => this.handleEventProductFilter($event));
   },
   watch: {
     '$route.query'(newValue){
@@ -269,6 +270,15 @@ export default {
         }
 
       }, 1000);
+    },
+    async handleEventProductFilter(e) {
+      if (e.length > 3){
+        this.keywords = e;
+        await this.getAllProducts()
+      }else {
+        this.keywords = null;
+        await this.getAllProducts()
+      }
     },
     getKeyWordsFromLocalstorage(){
       let keywords = localStorage.getItem('rappiKywords');
