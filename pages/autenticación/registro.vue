@@ -64,20 +64,18 @@
                         />
                       </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                       <div class="from-group mt-3">
-                        <label for="whats_app">WhatsApp Number (with country code)</label>
-                        <input
-                          type="text"
-                          id="whats_app"
-                          placeholder="formate : +8801828963235"
-                          class="form-control"
-                          v-model="form_data.whatsapp"
-                          required="required"
+                        <label for="phone">WhatsApp Number</label>
+                        <vue-phone-number-input
+                          v-model="phone"
+                          @update="getFormattedPhoneCountryCode"
+                          default-country-code="US"
+                          id="phone"
                         />
                       </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                       <div class="from-group mt-3">
                         <label for="dob">Birthday</label>
                         <input
@@ -104,6 +102,19 @@
         </form>
       </div>
     </section>
+    <div
+      class="overlay"
+      v-if="registration_response_message_box"
+    >
+      <div class="message_box text-center py-5">
+        <img src="images/envelope-64.png" alt="" class="pb-2">
+        <h4 class="pb-2 text-success">Registration Successful</h4>
+        <h5 class="pb-2 text-muted text-info">Please login to continue</h5>
+<!--        <h6 class="pb-2 text-muted">If any query please message via WhatsApp.</h6>-->
+        <!--        <h5>If didn't get WhatsApp message within five minut</h5>-->
+        <button class="btn btn-primary mt-3" @click="messageChecked">OK</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -112,10 +123,14 @@ export default {
   name: "registro",
   data(){
     return{
+      registration_response_message_box:false,
+      phone:'',
       form_data:{
         first_name:'',
         last_name:'',
         whatsapp:'',
+        country_code:'',
+        country_calling_code:'',
         dob:'',
         email:'',
         password:'',
@@ -126,12 +141,16 @@ export default {
     async submit(){
       await this.$axios.post('/registration',this.form_data)
         .then(response => {
-          if (response.data.status == 200){
+          let response_status = response.data.status;
+          if (response_status == 200){
             //window.location.reload();
+            //this.messageChecked(response.data.status);
             this.form_data.first_name = '';
             this.form_data.last_name = '';
             this.form_data.email = '';
             this.form_data.whatsapp = '';
+            this.country_code='';
+            this.country_calling_code='';
             this.form_data.password = '';
             this.form_data.dob = '';
             this.$toast.success('Registrado exitosamente. Por favor Iniciar sesión.', {
@@ -148,11 +167,53 @@ export default {
         .catch(err => {
           console.log(err)
         })
+    },
+    messageChecked(response_status){
+      //console.log(response_status)
+      if (response_status == 200){
+        this.form_data.first_name = '';
+        this.form_data.last_name = '';
+        this.form_data.email = '';
+        this.form_data.whatsapp = '';
+        this.country_code='';
+        this.country_calling_code='';
+        this.form_data.password = '';
+        this.form_data.dob = '';
+        this.$router.push('/autenticación/acceso')
+      }
+    },
+    //formatted phone number
+    getFormattedPhoneCountryCode(payload){
+      if (payload.isValid){
+        this.form_data.whatsapp = payload.nationalNumber;
+        this.form_data.country_code = payload.countryCode;
+        this.form_data.country_calling_code = payload.countryCallingCode;
+      }
     }
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($color: #000000, $alpha: 0.4);
+  z-index: 9999;
 
+.message_box{
+  background: #ffffff;
+  width: 60%;
+  border-radius: 10px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+}
 </style>

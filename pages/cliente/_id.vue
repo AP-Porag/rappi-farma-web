@@ -111,7 +111,14 @@
 <!--                          class="form-control"-->
 <!--                          required-->
 <!--                        />-->
-                        <vue-phone-number-input id="phone" required="required" v-model="form_data.phone" default-country-code="US" />
+<!--                        <vue-phone-number-input id="phone" required="required" v-model="form_data.phone" :default-country-code="form_data.country_code" />-->
+
+                        <vue-phone-number-input
+                          v-model="form_data.phone"
+                          @update="getFormattedPhoneCountryCode"
+                          default-country-code="US"
+                          id="phone"
+                        />
                       </div>
                     </div>
                   </div>
@@ -307,6 +314,8 @@ export default {
         last_name :'',
         email :'',
         phone :'',
+        country_code :'',
+        country_calling_code :'',
         date_of_birth :'',
       },
       avatarImageFile:'',
@@ -391,9 +400,17 @@ export default {
         this.form_data.last_name = this.user.last_name
         this.form_data.email = this.user.email
         this.form_data.phone = this.user.phone
+        this.form_data.country_code = this.user.country_code
         this.form_data.date_of_birth = this.user.date_of_birth
       }catch (e) {
         console.log(e.message)
+      }
+    },
+    getFormattedPhoneCountryCode(payload){
+      if (payload.isValid){
+        this.form_data.phone = payload.nationalNumber;
+        this.form_data.country_code = payload.countryCode;
+        this.form_data.country_calling_code = payload.countryCallingCode;
       }
     }
   }

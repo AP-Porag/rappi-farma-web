@@ -117,7 +117,7 @@
                     <h4 class="title">Personal Details</h4>
                   </div>
                   <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                       <div class="from-group mt-3">
                         <label for="first_name">First Name</label>
                         <input
@@ -130,7 +130,7 @@
                         />
                       </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                       <div class="from-group mt-3">
                         <label for="last_name">Last Name</label>
                         <input
@@ -143,7 +143,7 @@
                         />
                       </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                       <div class="from-group mt-3">
                         <label for="email">Your email</label>
                         <input
@@ -156,7 +156,7 @@
                         />
                       </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                       <div class="from-group mt-3">
                         <label for="phone">WhatsApp Number</label>
 <!--                        <input-->
@@ -172,8 +172,8 @@
                           @update="getFormattedPhoneCountryCode"
                           default-country-code="US"
                           id="phone"
-
                         />
+                        <span class="text-danger" v-if="phone_number_error" style="font-size: 10px;">{{phone_number_error_message}}</span>
                       </div>
                     </div>
                   </div>
@@ -257,6 +257,19 @@
         </form>
       </div>
     </section>
+    <div
+      class="overlay"
+      v-if="order_response_message_box"
+    >
+      <div class="message_box text-center py-5">
+        <img src="images/envelope-64.png" alt="" class="pb-2">
+        <h4 class="pb-2 text-success">Thank you for order</h4>
+        <h5 class="pb-2 text-muted text-info">Check your WhatsApp to get confirmation message and order number</h5>
+        <h6 class="pb-2 text-muted">If any query please message via WhatsApp.</h6>
+<!--        <h5>If didn't get WhatsApp message within five minut</h5>-->
+        <button class="btn btn-primary mt-3" @click="messageChecked">OK</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -269,12 +282,16 @@ export default {
       error:false,
       message:'',
       phone:'',
+      phone_number_error : false,
+      phone_number_error_message : '',
+      order_response_message_box:false,
       //api_Key:'AIzaSyDpAz0wssQspDgZDeCUYm5hGayKJKpWtFI'
       form_data:{
         first_name:'',
         last_name:'',
         email:'',
         phone:'',
+        country_code:'',
         //whatsapp:'',
         address:'',
         //city:'',
@@ -357,7 +374,6 @@ export default {
         this.form_data.products.push(obj)
       })
     },
-
     removeFromCart(product){
       const shoppingCart = this.shoppingCart;
       const productIndex = shoppingCart.findIndex(item => item.productId == product.productId)
@@ -418,29 +434,10 @@ export default {
       //console.log(this.form_data)
       await this.$axios.post('/order/front/save-order',this.form_data)
         .then(response => {
-          if (response.data.status == 200){
-            this.form_data.first_name = '';
-            this.form_data.last_name='';
-            this.form_data.email='';
-              this.form_data.phone='';
-              //this.form_data.whatsapp='';
-              this.form_data.address='';
-              this.form_data.city='';
-              this.form_data.country='';
-              this.form_data.zip_code='';
-              this.form_data.total_quantity=0;
-              this.form_data.subtotal=0;
-              this.form_data.shipping_type='shipping';
-              this.form_data.order_status='pending';
-              this.form_data.discount_type ='';
-              this.form_data.discount_amount=0;
-              this.form_data.total_price=0;
-              this.form_data.shippingCharge = 0;
-              this.form_data.products=[]
-
-            window.localStorage.setItem('rappiCart', []);
-            window.location.reload()
-
+          let response_status = response.data.status;
+          if (response_status == 200){
+            this.order_response_message_box = true;
+            this.messageChecked(response_status)
           }
         })
         .catch(err => {
@@ -501,13 +498,43 @@ export default {
         map: map,
       });
     },
+    messageChecked(response_status){
+      //console.log(response_status)
+      if (response_status == 200){
+        this.order_response_message_box = false;
 
+        this.form_data.first_name = '';
+        this.form_data.last_name='';
+        this.form_data.email='';
+        this.form_data.phone='';
+        this.form_data.country_code='';
+        //this.form_data.whatsapp='';
+        this.form_data.address='';
+        this.form_data.city='';
+        this.form_data.country='';
+        this.form_data.zip_code='';
+        this.form_data.total_quantity=0;
+        this.form_data.subtotal=0;
+        this.form_data.shipping_type='shipping';
+        this.form_data.order_status='pending';
+        this.form_data.discount_type ='';
+        this.form_data.discount_amount=0;
+        this.form_data.total_price=0;
+        this.form_data.shippingCharge = 0;
+        this.form_data.products=[]
+
+        window.localStorage.setItem('rappiCart', []);
+        window.location.reload()
+      }
+    },
     //formatted phone number
     getFormattedPhoneCountryCode(payload){
       if (payload.isValid){
-        this.form_data.phone = payload.formattedNumber
+        this.form_data.phone = payload.nationalNumber;
+        this.form_data.country_code = payload.countryCode;
+        this.form_data.country_calling_code = payload.countryCallingCode;
       }
-    }
+    },
   }
 
 }
@@ -734,6 +761,27 @@ export default {
     &.ic-btn-outline {
       border: 1px solid $primary;
     }
+  }
+}
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($color: #000000, $alpha: 0.4);
+  z-index: 9999;
+
+  .message_box{
+    background: #ffffff;
+    width: 60%;
+    border-radius: 10px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
 }
 </style>
