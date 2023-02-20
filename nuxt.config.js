@@ -53,7 +53,8 @@ export default {
     { src: './plugins/vue-phone-number-input.js' },
     { src: '~/plugins/infiniteloading', ssr: false },
     { src: '~/plugins/vue-toast-notification.js', mode: 'client' },
-    { src: '~/plugins/lodash.js'}
+    { src: '~/plugins/lodash.js'},
+    { src: '~/plugins/vuelidate.js'},
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

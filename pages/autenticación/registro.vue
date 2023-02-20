@@ -23,6 +23,13 @@
                           v-model="form_data.first_name"
                           required="required"
                         />
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data.first_name.required && showError"
+                          style="font-size: 13px;"
+                        >
+                          Campo obligatorio.
+                        </p>
                       </div>
                     </div>
                     <div class="col-lg-12">
@@ -36,6 +43,13 @@
                           v-model="form_data.last_name"
                           required="required"
                         />
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data.last_name.required && showError"
+                          style="font-size: 13px;"
+                        >
+                          Campo obligatorio.
+                        </p>
                       </div>
                     </div>
                     <div class="col-lg-12">
@@ -49,6 +63,20 @@
                           v-model="form_data.email"
                           required="required"
                         />
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data.email.required && showError"
+                          style="font-size: 13px;"
+                        >
+                          Campo obligatorio.
+                        </p>
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data.email.email && showError"
+                          style="font-size: 13px;"
+                        >
+                          Este debe ser un correo electrónico válido.
+                        </p>
                       </div>
                     </div>
                     <div class="col-lg-12">
@@ -62,6 +90,20 @@
                           v-model="form_data.password"
                           required="required"
                         />
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data.password.required && showError"
+                          style="font-size: 13px;"
+                        >
+                          Campo obligatorio.
+                        </p>
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data.password.minLength && showError"
+                          style="font-size: 13px;"
+                        >
+                          Longitud mínima 8 caracteres.
+                        </p>
                       </div>
                     </div>
                     <div class="col-lg-12">
@@ -73,6 +115,20 @@
                           default-country-code="US"
                           id="phone"
                         />
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data.whatsapp.required && showError"
+                          style="font-size: 13px;"
+                        >
+                          Campo obligatorio.
+                        </p>
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data.whatsapp.numeric && showError"
+                          style="font-size: 13px;"
+                        >
+                          Sólo valor numérico.
+                        </p>
                       </div>
                     </div>
                     <div class="col-lg-12">
@@ -86,6 +142,13 @@
                           v-model="form_data.dob"
                           required="required"
                         />
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data.dob.required && showError"
+                          style="font-size: 13px;"
+                        >
+                          Campo obligatorio.
+                        </p>
                       </div>
                     </div>
                     <div class="col-md-12 ic__shopping--bottom mt-4">
@@ -107,23 +170,23 @@
       v-if="registration_response_message_box"
     >
       <div class="message_box text-center py-5">
-        <img src="images/envelope-64.png" alt="" class="pb-2">
-        <h4 class="pb-2 text-success">Registration Successful</h4>
-        <h5 class="pb-2 text-muted text-info">Please login to continue</h5>
-<!--        <h6 class="pb-2 text-muted">If any query please message via WhatsApp.</h6>-->
-        <!--        <h5>If didn't get WhatsApp message within five minut</h5>-->
-        <button class="btn btn-primary mt-3" @click="messageChecked">OK</button>
+        <img src="/images/envelope-64.png" alt="" class="pb-2">
+        <h4 class="pb-2 text-success">Registro exitoso</h4>
+        <h5 class="pb-2 text-muted text-info">Por favor inicie sesión para continuar</h5>
+        <nuxt-link class="btn btn-primary mt-3" @click="messageChecked" to="/autenticación/acceso">OK</nuxt-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { required,numeric,email,minLength } from 'vuelidate/lib/validators'
 export default {
   name: "registro",
   data(){
     return{
       registration_response_message_box:false,
+      showError: false,
       phone:'',
       form_data:{
         first_name:'',
@@ -139,26 +202,31 @@ export default {
   },
   methods:{
     async submit(){
+      if (this.$v.form_data.$invalid) {
+        this.$v.form_data.$touch()
+        this.showError = true;
+        return
+      }
       await this.$axios.post('/registration',this.form_data)
         .then(response => {
           let response_status = response.data.status;
           if (response_status == 200){
-            //window.location.reload();
-            //this.messageChecked(response.data.status);
+            this.registration_response_message_box = true;
             this.form_data.first_name = '';
             this.form_data.last_name = '';
             this.form_data.email = '';
             this.form_data.whatsapp = '';
+            this.phone = '';
             this.country_code='';
             this.country_calling_code='';
             this.form_data.password = '';
             this.form_data.dob = '';
-            this.$toast.success('Registrado exitosamente. Por favor Iniciar sesión.', {
-              position: 'top-right',
-              duration:8000,
-            });
+            // this.$toast.success('Registrado exitosamente. Por favor Iniciar sesión.', {
+            //   position: 'top-right',
+            //   duration:8000,
+            // });
           }else {
-            this.$toast.error('Huy! Algo salió mal !', {
+            this.$toast.error(response.data.message, {
               position: 'top-right',
               duration:8000,
             });
@@ -168,19 +236,8 @@ export default {
           console.log(err)
         })
     },
-    messageChecked(response_status){
-      //console.log(response_status)
-      if (response_status == 200){
-        this.form_data.first_name = '';
-        this.form_data.last_name = '';
-        this.form_data.email = '';
-        this.form_data.whatsapp = '';
-        this.country_code='';
-        this.country_calling_code='';
-        this.form_data.password = '';
-        this.form_data.dob = '';
-        this.$router.push('/autenticación/acceso')
-      }
+    messageChecked(){
+      this.registration_response_message_box = false;
     },
     //formatted phone number
     getFormattedPhoneCountryCode(payload){
@@ -190,7 +247,19 @@ export default {
         this.form_data.country_calling_code = payload.countryCallingCode;
       }
     }
-  }
+  },
+  validations() {
+    return {
+      form_data:{
+        first_name:{required},
+        last_name:{required},
+        whatsapp:{required,numeric},
+        dob:{required},
+        email:{required,email},
+        password:{required,minLength: minLength(8)},
+      }
+    }
+  },
 }
 </script>
 

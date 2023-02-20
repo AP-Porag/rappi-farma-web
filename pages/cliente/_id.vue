@@ -47,6 +47,13 @@
                           class="form-control"
                           required="required"
                         />
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data.first_name.required && showError"
+                          style="font-size: 13px;"
+                        >
+                          Campo obligatorio.
+                        </p>
                     </div>
                     </div>
                     <div class="col-lg-6">
@@ -60,6 +67,13 @@
                           class="form-control"
                           required="required"
                         />
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data.last_name.required && showError"
+                          style="font-size: 13px;"
+                        >
+                          Campo obligatorio.
+                        </p>
                       </div>
                     </div>
                     <div class="col-lg-6">
@@ -73,6 +87,13 @@
                           class="form-control"
                           required="required"
                         />
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data.date_of_birth.required && showError"
+                          style="font-size: 13px;"
+                        >
+                          Campo obligatorio.
+                        </p>
                       </div>
                     </div>
                     <div class="col-lg-6">
@@ -86,6 +107,20 @@
                           class="form-control"
                           required="required"
                         />
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data.email.required && showError"
+                          style="font-size: 13px;"
+                        >
+                          Campo obligatorio.
+                        </p>
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data.email.email && showError"
+                          style="font-size: 13px;"
+                        >
+                          Este debe ser un correo electrónico válido.
+                        </p>
                       </div>
                     </div>
                     <div class="col-lg-6">
@@ -103,24 +138,95 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label for="phone">WhatsApp Number</label>
-<!--                        <input-->
-<!--                          id="phone"-->
-<!--                          v-model="form_data.phone"-->
-<!--                          type="number"-->
-<!--                          placeholder="Email"-->
-<!--                          class="form-control"-->
-<!--                          required-->
-<!--                        />-->
-<!--                        <vue-phone-number-input id="phone" required="required" v-model="form_data.phone" :default-country-code="form_data.country_code" />-->
-
                         <vue-phone-number-input
                           v-model="form_data.phone"
                           @update="getFormattedPhoneCountryCode"
                           default-country-code="US"
                           id="phone"
                         />
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data.phone.required && showError"
+                          style="font-size: 13px;"
+                        >
+                          Campo obligatorio.
+                        </p>
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data.phone.numeric && showError"
+                          style="font-size: 13px;"
+                        >
+                          Sólo valor numérico.
+                        </p>
                       </div>
                     </div>
+<!--                    <div class="col-lg-6">-->
+<!--                      <div class="form-group">-->
+<!--                        <label for="old_password">Old Password</label>-->
+<!--                        <input-->
+<!--                          id="old_password"-->
+<!--                          v-model="form_data.old_password"-->
+<!--                          type="password"-->
+<!--                          placeholder="Old Password"-->
+<!--                          class="form-control"-->
+<!--                          required="required"-->
+<!--                        />-->
+<!--                        <p-->
+<!--                          class="text-danger text-left mt-1"-->
+<!--                          v-if="!$v.form_data.old_password.required && showError"-->
+<!--                          style="font-size: 13px;"-->
+<!--                        >-->
+<!--                          Campo obligatorio.-->
+<!--                        </p>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-6">-->
+<!--                      <div class="form-group">-->
+<!--                        <label for="new_password">New Password</label>-->
+<!--                        <input-->
+<!--                          id="new_password"-->
+<!--                          v-model="form_data.new_password"-->
+<!--                          type="text"-->
+<!--                          placeholder="New Password"-->
+<!--                          class="form-control"-->
+<!--                          required="required"-->
+<!--                        />-->
+<!--                        <p-->
+<!--                          class="text-danger text-left mt-1"-->
+<!--                          v-if="!$v.form_data.new_password.required && showError"-->
+<!--                          style="font-size: 13px;"-->
+<!--                        >-->
+<!--                          Campo obligatorio.-->
+<!--                        </p>-->
+<!--                        <p-->
+<!--                          class="text-danger text-left mt-1"-->
+<!--                          v-if="!$v.form_data.new_password.minLength && showError"-->
+<!--                          style="font-size: 13px;"-->
+<!--                        >-->
+<!--                          Longitud mínima 8 caracteres.-->
+<!--                        </p>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-6">-->
+<!--                      <div class="form-group">-->
+<!--                        <label for="confirm_password">Confirm Password</label>-->
+<!--                        <input-->
+<!--                          id="confirm_password"-->
+<!--                          v-model="form_data.confirm_password"-->
+<!--                          type="password"-->
+<!--                          placeholder="Confirm Password"-->
+<!--                          class="form-control"-->
+<!--                          required="required"-->
+<!--                        />-->
+<!--                        <p-->
+<!--                          class="text-danger text-left mt-1"-->
+<!--                          v-if="!$v.form_data.confirm_password.sameAsPassword && showError"-->
+<!--                          style="font-size: 13px;"-->
+<!--                        >-->
+<!--                          Passwords do not match.-->
+<!--                        </p>-->
+<!--                      </div>-->
+<!--                    </div>-->
                   </div>
                   <button class="ic-btn" @click.prevent="submit">Save</button>
                 </form>
@@ -301,6 +407,7 @@
 </template>
 
 <script>
+import { required,numeric,email,minLength,sameAs  } from 'vuelidate/lib/validators'
 export default {
   name: "_id",
   data(){
@@ -309,6 +416,7 @@ export default {
       user:[],
       last_five_orders:[],
       all_orders:[],
+      showError: false,
       form_data :{
         first_name :'',
         last_name :'',
@@ -317,6 +425,8 @@ export default {
         country_code :'',
         country_calling_code :'',
         date_of_birth :'',
+        // new_password :'',
+        // old_password :'',
       },
       avatarImageFile:'',
     }
@@ -347,7 +457,11 @@ export default {
     },
     async submit(){
       // let token = JSON.parse(window.localStorage.getItem('token'))
-
+      if (this.$v.form_data.$invalid) {
+        this.$v.form_data.$touch()
+        this.showError = true;
+        return
+      }
       let formData = new FormData()
       // WE APPEND THE AVATAR TO THE FORMDATA WE'RE GONNA POST
       formData.append('avatarImageFile', this.avatarImageFile)
@@ -413,7 +527,21 @@ export default {
         this.form_data.country_calling_code = payload.countryCallingCode;
       }
     }
-  }
+  },
+  validations() {
+    return {
+      form_data:{
+        first_name:{required},
+        last_name:{required},
+        phone:{required,numeric},
+        date_of_birth:{required},
+        email:{required,email},
+        // new_password: { required, minLength: minLength(8) },
+        // old_password:{required},
+        // confirm_password: { required, sameAsPassword: sameAs('new_password') }
+      }
+    }
+  },
 }
 </script>
 

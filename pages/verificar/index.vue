@@ -128,6 +128,13 @@
                           v-model="form_data.first_name"
                           required="required"
                         />
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data.first_name.required && showError"
+                          style="font-size: 13px;"
+                        >
+                          Campo obligatorio.
+                        </p>
                       </div>
                     </div>
                     <div class="col-lg-12">
@@ -141,6 +148,13 @@
                           v-model="form_data.last_name"
                           required="required"
                         />
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data.last_name.required && showError"
+                          style="font-size: 13px;"
+                        >
+                          Campo obligatorio.
+                        </p>
                       </div>
                     </div>
                     <div class="col-lg-12">
@@ -154,26 +168,45 @@
                           v-model="form_data.email"
                           required="required"
                         />
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data.email.required && showError"
+                          style="font-size: 13px;"
+                        >
+                          Campo obligatorio.
+                        </p>
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data.email.email && showError"
+                          style="font-size: 13px;"
+                        >
+                          Este debe ser un correo electrónico válido.
+                        </p>
                       </div>
                     </div>
                     <div class="col-lg-12">
                       <div class="from-group mt-3">
                         <label for="phone">WhatsApp Number</label>
-<!--                        <input-->
-<!--                          type="text"-->
-<!--                          id="phone"-->
-<!--                          placeholder="formate : +8801828963235"-->
-<!--                          class="form-control"-->
-<!--                          v-model="form_data.phone"-->
-<!--                          required="required"-->
-<!--                        />-->
                         <vue-phone-number-input
                           v-model="phone"
                           @update="getFormattedPhoneCountryCode"
                           default-country-code="US"
                           id="phone"
                         />
-                        <span class="text-danger" v-if="phone_number_error" style="font-size: 10px;">{{phone_number_error_message}}</span>
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data.phone.required && showError"
+                          style="font-size: 13px;"
+                        >
+                          Campo obligatorio.
+                        </p>
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data.phone.numeric && showError"
+                          style="font-size: 13px;"
+                        >
+                          Sólo valor numérico.
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -265,6 +298,7 @@
         <img src="images/envelope-64.png" alt="" class="pb-2">
         <h4 class="pb-2 text-success">Thank you for order</h4>
         <h5 class="pb-2 text-muted text-info">Check your WhatsApp to get confirmation message and order number</h5>
+        <h5 class="pb-2 text-danger text-info">Your phone number is your temporary password, Please login to your account and change this within 24 hours</h5>
         <h6 class="pb-2 text-muted">If any query please message via WhatsApp.</h6>
 <!--        <h5>If didn't get WhatsApp message within five minut</h5>-->
         <button class="btn btn-primary mt-3" @click="messageChecked">OK</button>
@@ -274,16 +308,16 @@
 </template>
 
 <script>
+import { required,numeric,email } from 'vuelidate/lib/validators'
 export default {
   name: "index",
   data(){
     return{
       shoppingCart : [],
       error:false,
+      showError: false,
       message:'',
       phone:'',
-      phone_number_error : false,
-      phone_number_error_message : '',
       order_response_message_box:false,
       //api_Key:'AIzaSyDpAz0wssQspDgZDeCUYm5hGayKJKpWtFI'
       form_data:{
@@ -292,6 +326,7 @@ export default {
         email:'',
         phone:'',
         country_code:'',
+        country_calling_code:'',
         //whatsapp:'',
         address:'',
         //city:'',
@@ -431,7 +466,11 @@ export default {
       this.form_data.total_quantity = total_qty;
     },
     async submit(){
-      //console.log(this.form_data)
+      if (this.$v.form_data.$invalid) {
+        this.$v.form_data.$touch()
+        this.showError = true;
+        return
+      }
       await this.$axios.post('/order/front/save-order',this.form_data)
         .then(response => {
           let response_status = response.data.status;
@@ -508,6 +547,7 @@ export default {
         this.form_data.email='';
         this.form_data.phone='';
         this.form_data.country_code='';
+        this.form_data.country_calling_code='';
         //this.form_data.whatsapp='';
         this.form_data.address='';
         this.form_data.city='';
@@ -535,7 +575,18 @@ export default {
         this.form_data.country_calling_code = payload.countryCallingCode;
       }
     },
-  }
+  },
+  validations() {
+    return {
+      form_data:{
+        first_name:{required},
+        last_name:{required},
+        phone:{required,numeric},
+        address:{required},
+        email:{required,email},
+      }
+    }
+  },
 
 }
 </script>

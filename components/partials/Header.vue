@@ -623,12 +623,20 @@ export default {
       for (const cartItem of this.shoppingCart) {
         if (cartItem.productId === item.productId) {
           cartItem.productQuantity = cartItem.productQuantity + 1
+          this.$toast.success('Ir a la caja', {
+            position: 'top',
+            duration:2000,
+          });
           exists = true
           break
         }
       }
       if (!exists) {
-        this.shoppingCart.push(item)
+        this.shoppingCart.push(item);
+        this.$toast.success('Ir a la caja', {
+          position: 'top',
+          duration:2000,
+        });
       }
     },
     handleRemoveFromCart(e){
