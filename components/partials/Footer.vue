@@ -4,6 +4,7 @@
           <SocialChat
             icon
             :attendants="attendants"
+            id="popup-chat"
           >
             <p slot="header">Haga clic en uno de nuestros asistentes a continuación para chatear en WhatsApp</p>
             <template>
