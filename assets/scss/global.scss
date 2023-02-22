@@ -268,22 +268,21 @@ input {
   width: 100%;
 }
 
-.vsc-popup-header {
-  background-color: $primary;
-}
-
 #popup-chat {
   .vsc-popup-button--default {
     @media #{$max991} {
       position: absolute;
       bottom: 60px;
     }
-  
+
     background-color: $primary;
-  
+
     &:hover {
       box-shadow: 0 0 0 3px #fff, 0 0 0 6px $primary;
     }
+  }
+  .vsc-popup-header {
+    background-color: $primary;
   }
 }
 
