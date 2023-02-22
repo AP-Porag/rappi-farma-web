@@ -115,17 +115,17 @@
   }
   </script>
 
-  <style scoped lang="scss">
+  <style lang="scss">
   // new product card
   .ms__bestDeal--items {
-    background: #fff;
-    border-radius: 0.5rem;
-    border: 1px solid #e9eaed;
-    box-shadow: $box-shadow;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    //background: #fff;
+    //border-radius: 0.5rem;
+    //border: 1px solid #e9eaed;
+    //box-shadow: $box-shadow;
+    //height: 100%;
+    //display: flex;
+    //flex-direction: column;
+    //justify-content: space-between;
     &.big-card {
       display: flex;
       flex-direction: row;

@@ -543,7 +543,7 @@ input {
 		position: absolute;
 		width: 25px;
 		height: 25px;
-		
+
     left: -47px;
 
 		background-color: white;
@@ -587,15 +587,15 @@ input {
     @media #{$max991} {
       top: 28px;
     }
-    
+
 	}
 	&::after {
-		
+
     left: -47px;
     @media #{$max767} {
-      
+
       left: -57px;
-  
+
       }
 	}
 }
@@ -719,6 +719,14 @@ input {
   }
 }
 .ms__bestDeal--items {
+  background: #fff;
+  border-radius: 0.5rem;
+  border: 1px solid #e9eaed;
+  box-shadow: $box-shadow;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   &.big-card {
     display: flex;
     flex-direction: row;
@@ -727,7 +735,7 @@ input {
       display: flex;
       gap: 20px;
       align-items: center;
-      
+
       .ms__bestDeal--img {
         height: 45px;
         width: 45px;
