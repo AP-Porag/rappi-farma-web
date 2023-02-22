@@ -115,6 +115,101 @@
   }
   </script>
 
-  <style scoped>
+  <style scoped lang="scss">
+  // new product card
+  .ms__bestDeal--items {
+    background: #fff;
+    border-radius: 0.5rem;
+    border: 1px solid #e9eaed;
+    box-shadow: $box-shadow;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &.big-card {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
 
+      .figure{
+        display: flex;
+        gap: 20px;
+        // .ms__bestDeal--img {
+        //   height: 70px;
+        //   width: 70px;
+        //   flex: 0 0 auto;
+        //   @media (max-width: 480px) {
+        //     height: 50px;
+        //     width: 50px;
+        //   }
+        // }
+      }
+      .ms__card--btn {
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        @media (max-width: 991px) {
+          display: flex;
+          flex-direction: column;
+        }
+        @media (max-width: 575px) {
+          display: flex;
+          flex-direction: row;
+          width: 100px;
+        }
+        .ms-increment-decrement {
+          display: flex;
+          align-items: center;
+          margin-right: 70px;
+          gap: 10px;
+          @media (max-width: 991px) {
+            margin-right: 0px;
+            order: 2;
+            display: none;
+          }
+          @media (max-width: 480px) {
+            margin-right: 0px;
+            order: 1;
+          }
+          input {
+            text-align: center;
+            width: 63px!important;
+          }
+        }
+        .addTo-cart {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          @media (max-width: 991px) {
+            order: 1;
+          }
+          @media (max-width: 480px) {
+            order: 2;
+          }
+        }
+        .addToCart {
+          flex: 0 0 auto;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: 1px solid $primary;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 20px;
+          transition: .3s;
+          svg {
+            width: 16px;
+            fill: $primary;
+          }
+          font-size: 14px;
+          &:hover {
+            background-color: $primary;
+            color: #000;
+          }
+        }
+      }
+    }
+  }
   </style>
