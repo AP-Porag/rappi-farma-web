@@ -116,7 +116,7 @@
   </script>
 
   <style lang="scss">
-  // new product card
+  // new product card design
   .ms__bestDeal--items {
     //background: #fff;
     //border-radius: 0.5rem;
