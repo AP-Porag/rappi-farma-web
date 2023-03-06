@@ -302,7 +302,7 @@
 <!--        <h5 class="pb-2 text-danger text-info">Please login to your account and change this within 24 hours</h5>-->
 <!--        <h6 class="pb-2 text-muted">If any query please message via WhatsApp.</h6>-->
 <!--        <h5>If didn't get WhatsApp message within five minut  </h5>-->
-        <a class="btn btn-primary mt-3" :href="`https://wa.me/${this.$store.state.settings.twilio_whatsapp_from}?text=Rappi Pharma, Esta es mi order: ${order_number} - ${form_data.first_name + form_data.last_name}`" @click="messageChecked" target="_blank">Send</a>
+        <a class="btn btn-primary mt-3" :href="`https://wa.me/${this.$store.state.settings.twilio_whatsapp_from}?text=Rappi Pharma, Esta es mi order: ${order_number} - ${form_data.first_name +' '+ form_data.last_name}`" @click="messageChecked" target="_blank">Send</a>
       </div>
     </div>
   </div>
