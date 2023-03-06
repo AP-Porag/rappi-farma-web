@@ -573,10 +573,12 @@ export default {
         this.form_data.discount_amount=0;
         this.form_data.total_price=0;
         this.form_data.shippingCharge = 0;
-        this.form_data.products=[]
+        this.form_data.products=[],
+          this.shoppingCart=[],
+          this.phone='',
 
         window.localStorage.setItem('rappiCart', []);
-        window.location.reload()
+        // window.location.reload()
       }
     },
     //formatted phone number
