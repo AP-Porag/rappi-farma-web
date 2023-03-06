@@ -322,6 +322,7 @@ export default {
       order_response_message_box:false,
       customer_name:'',
       order_number:'',
+      response_status:'',
       //api_Key:'AIzaSyDpAz0wssQspDgZDeCUYm5hGayKJKpWtFI'
       form_data:{
         first_name:'',
@@ -477,12 +478,12 @@ export default {
       // await this.$axios.post('/order/front/save-order',this.form_data)
       await this.$axios.post('/order/front/save-order',this.form_data)
         .then(response => {
-          let response_status = response.data.status;
-          if (response_status == 200){
+          this.response_status = response.data.status;
+          if (this.response_status == 200){
             this.customer_name = response.data.customer_name;
             this.order_number = response.data.order_number;
             this.order_response_message_box = true;
-            this.messageChecked(response_status)
+            //this.messageChecked(response_status)
           }
         })
         .catch(err => {
@@ -543,14 +544,15 @@ export default {
         map: map,
       });
     },
-    messageChecked(response_status){
-      console.log('click')
-      console.log(response_status)
-      if (response_status == 200){
+    messageChecked(){
+
+      if (this.response_status == 200){
         this.order_response_message_box = false;
 
         this.customer_name = '';
         this.order_number = '';
+
+        this.response_status='';
 
         this.form_data.first_name = '';
         this.form_data.last_name='';
