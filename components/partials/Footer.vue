@@ -1,22 +1,22 @@
 <template>
     <footer class="ms__footer--part">
-        <div class='layout'>
-          <SocialChat
-            icon
-            :attendants="attendants"
-            id="popup-chat"
-          >
-            <p slot="header">Haga clic en uno de nuestros asistentes a continuación para chatear en WhatsApp</p>
-            <template>
-              <img
-                src="https://raw.githubusercontent.com/ktquez/vue-social-chat/master/src/icons/whatsapp.svg"
-                alt="icon whatsapp"
-                aria-hidden="true"
-              >
-            </template>
-            <small slot="footer">Horario: 8am a 6pm</small>
-          </SocialChat>
-        </div>
+<!--        <div class='layout'>-->
+<!--          <SocialChat-->
+<!--            icon-->
+<!--            :attendants="attendants"-->
+<!--            id="popup-chat"-->
+<!--          >-->
+<!--            <p slot="header">Haga clic en uno de nuestros asistentes a continuación para chatear en WhatsApp</p>-->
+<!--            <template>-->
+<!--              <img-->
+<!--                src="https://raw.githubusercontent.com/ktquez/vue-social-chat/master/src/icons/whatsapp.svg"-->
+<!--                alt="icon whatsapp"-->
+<!--                aria-hidden="true"-->
+<!--              >-->
+<!--            </template>-->
+<!--            <small slot="footer">Horario: 8am a 6pm</small>-->
+<!--          </SocialChat>-->
+<!--        </div>-->
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-3">

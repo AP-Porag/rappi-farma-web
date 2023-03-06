@@ -296,12 +296,13 @@
     >
       <div class="message_box text-center py-5">
         <img src="images/envelope-64.png" alt="" class="pb-2">
-        <h4 class="pb-2 text-success">Thank you for order</h4>
-        <h5 class="pb-2 text-muted text-info">Check your WhatsApp to get confirmation message and order number</h5>
-        <h5 class="pb-2 text-danger text-info">Your phone number is your temporary password, Please login to your account and change this within 24 hours</h5>
-        <h6 class="pb-2 text-muted">If any query please message via WhatsApp.</h6>
-<!--        <h5>If didn't get WhatsApp message within five minut</h5>-->
-        <button class="btn btn-primary mt-3" @click="messageChecked">OK</button>
+        <h4 class="pb-2 text-success">Gracias por ordenar</h4>
+        <h5 class="pb-2 text-muted text-info">Completa tu pedido con un mensaje de WhatsApp</h5>
+<!--        <h5 class="pb-2 text-danger text-info">Your phone number is your temporary password,</h5>-->
+<!--        <h5 class="pb-2 text-danger text-info">Please login to your account and change this within 24 hours</h5>-->
+<!--        <h6 class="pb-2 text-muted">If any query please message via WhatsApp.</h6>-->
+<!--        <h5>If didn't get WhatsApp message within five minut  </h5>-->
+        <a class="btn btn-primary mt-3" :href="`https://wa.me/${this.$store.state.settings.twilio_whatsapp_from}?text=Rappi Pharma, Esta es mi order: ${order_number} - ${form_data.first_name + form_data.last_name}`" @click="messageChecked" target="_blank">Send</a>
       </div>
     </div>
   </div>
@@ -319,6 +320,8 @@ export default {
       message:'',
       phone:'',
       order_response_message_box:false,
+      customer_name:'',
+      order_number:'',
       //api_Key:'AIzaSyDpAz0wssQspDgZDeCUYm5hGayKJKpWtFI'
       form_data:{
         first_name:'',
@@ -340,7 +343,7 @@ export default {
         discount_amount:0,
         total_price:0,
         shippingCharge : 0,
-        products:[]
+        products:[],
       }
     }
   },
@@ -426,7 +429,7 @@ export default {
         this.countFinalTotal();
         this.setCartProduct();
       }else{
-        console.log("product not found")
+        console.log("Producto no encontrado")
       }
     },
     decreaseCartQuantity(product){
@@ -439,10 +442,10 @@ export default {
           this.countFinalTotal();
           this.setCartProduct();
         }else {
-          console.log('Decrease quantity not allow !,Please remove.')
+          console.log('Disminuir la cantidad no permitida!, por favor elimine.')
         }
       }else{
-        console.log("product not found")
+        console.log("Producto no encontrado")
       }
     },
     countSubTotal(){
@@ -471,10 +474,13 @@ export default {
         this.showError = true;
         return
       }
+      // await this.$axios.post('/order/front/save-order',this.form_data)
       await this.$axios.post('/order/front/save-order',this.form_data)
         .then(response => {
           let response_status = response.data.status;
           if (response_status == 200){
+            this.customer_name = response.data.customer_name;
+            this.order_number = response.data.order_number;
             this.order_response_message_box = true;
             this.messageChecked(response_status)
           }
@@ -499,11 +505,11 @@ export default {
 
         },error=>{
           //this.message = error.message;
-          this.message = 'You denied Geolocation,Please select your location manually';
+          this.message = 'Has denegado la geolocalización, selecciona tu ubicación manualmente';
           this.error = true;
         });
       }else {
-        this.message = 'Your browser dose not support geolocation Api,Please select your location manually';
+        this.message = 'La dosis de su navegador no es compatible con la API de geolocalización. Seleccione su ubicación manualmente.';
         this.error = true;
       }
     },
@@ -538,9 +544,13 @@ export default {
       });
     },
     messageChecked(response_status){
-      //console.log(response_status)
+      console.log('click')
+      console.log(response_status)
       if (response_status == 200){
         this.order_response_message_box = false;
+
+        this.customer_name = '';
+        this.order_number = '';
 
         this.form_data.first_name = '';
         this.form_data.last_name='';
