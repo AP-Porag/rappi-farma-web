@@ -394,6 +394,81 @@
                 </div>
               </div>
             </v-tab>
+
+            <v-tab title="Change Password" icon="ti-lock">
+              <div class="ms__customer--content">
+                <h4>Personal Info</h4>
+                <form enctype="multipart/form-data">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="old_password">Old Password</label>
+                        <input
+                          id="old_password"
+                          v-model="form_data_pass.old_password"
+                          type="password"
+                          placeholder="Old Password"
+                          class="form-control"
+                        />
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data_pass.old_password.required && showError"
+                          style="font-size: 13px;"
+                        >
+                          Campo obligatorio.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="new_password">New Password</label>
+                        <input
+                          id="new_password"
+                          v-model="form_data_pass.new_password"
+                          type="text"
+                          placeholder="New Password"
+                          class="form-control"
+                        />
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data_pass.new_password.required && showError"
+                          style="font-size: 13px;"
+                        >
+                          Campo obligatorio.
+                        </p>
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data_pass.new_password.minLength && showError"
+                          style="font-size: 13px;"
+                        >
+                          Longitud mínima 8 caracteres.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="confirm_password">Confirm Password</label>
+                        <input
+                          id="confirm_password"
+                          v-model="form_data_pass.confirm_password"
+                          type="password"
+                          placeholder="Confirm Password"
+                          class="form-control"
+                        />
+                        <p
+                          class="text-danger text-left mt-1"
+                          v-if="!$v.form_data_pass.confirm_password.sameAsPassword && showError"
+                          style="font-size: 13px;"
+                        >
+                          Passwords do not match.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="ic-btn" @click.prevent="updatePassword">Save</button>
+                </form>
+              </div>
+            </v-tab>
           </vue-tabs>
         </div>
       </div>
@@ -425,8 +500,11 @@ export default {
         country_code :'',
         country_calling_code :'',
         date_of_birth :'',
-        // new_password :'',
-        // old_password :'',
+      },
+      form_data_pass :{
+        user_id:'',
+        new_password :'',
+        old_password :'',
       },
       avatarImageFile:'',
     }
@@ -438,6 +516,7 @@ export default {
   },
   mounted() {
     this.auth_user = JSON.parse(localStorage.getItem('rappiCustomer') || "[]");
+    this.form_data_pass.user_id = this.auth_user.id;
     // console.log(this.auth_user)
     // if (!this.auth_user.token){
     //   this.$router.push('/')
@@ -526,7 +605,42 @@ export default {
         this.form_data.country_code = payload.countryCode;
         this.form_data.country_calling_code = payload.countryCallingCode;
       }
-    }
+    },
+    async updatePassword(){
+      // let token = JSON.parse(window.localStorage.getItem('token'))
+      if (this.$v.form_data_pass.$invalid) {
+        this.$v.form_data_pass.$touch()
+        this.showError = true;
+        return
+      }
+      // let formData = new FormData()
+      // // WE APPEND THE AVATAR TO THE FORMDATA WE'RE GONNA POST
+      // formData.append('avatarImageFile', this.avatarImageFile)
+      //
+      // _.each(this.form_data, (value, key) => {
+      //   formData.append(key, value)
+      // })
+
+      try {
+        await this.$axios.post(`/customer/change/password`,this.form_data_pass, {headers: {'content-type':'multipart/form-data;charset=utf-8; boundary='+ Math.random().toString().substr(2)}})
+          .then((response)=>{
+            if (response.data.status != 200){
+              this.message = response.data.message;
+              this.error = true;
+            }else {
+              window.location.reload();
+              this.message = response.data.message;
+              this.success = true;
+            }
+          })
+          .catch((error)=>{
+            this.message = 'Something went wrong !';
+            this.error = true;
+          })
+      }catch (e) {
+        console.log(e.message)
+      }
+    },
   },
   validations() {
     return {
@@ -536,9 +650,11 @@ export default {
         phone:{required,numeric},
         date_of_birth:{required},
         email:{required,email},
-        // new_password: { required, minLength: minLength(8) },
-        // old_password:{required},
-        // confirm_password: { required, sameAsPassword: sameAs('new_password') }
+      },
+      form_data_pass:{
+        new_password: { required, minLength: minLength(8) },
+        old_password:{required},
+        confirm_password: { required, sameAsPassword: sameAs('new_password') }
       }
     }
   },
