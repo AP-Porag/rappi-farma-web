@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'rappi-farma-web',
+    title: 'Rappi Farma',
     htmlAttrs: {
       lang: 'en'
     },
@@ -20,12 +20,12 @@ export default {
         href: 'favicon.svg'
       },
       { rel:'preconnect', href: 'https://fonts.gstatic.com'},
-      { rel: 'stylesheet', href: "https:/fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" },
+      { rel: 'stylesheet', href: "https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" },
       {rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css'}
     ],
     script: [
       {
-        src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDpAz0wssQspDgZDeCUYm5hGayKJKpWtFI&libraries=places&callback=null",
+        src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyD0OLq9RfPcZ2WgkTM9NJtP2mQgNZgqn18&libraries=places&callback=null",
       },
     ],
   },
@@ -109,7 +109,7 @@ export default {
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     //proxy: true,
-    baseURL: 'https://rappi-farma-admin.asrafporag.me/api/v1',
+    baseURL: 'https://admin.rappifarmard.com/api/v1',
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

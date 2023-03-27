@@ -323,7 +323,7 @@ export default {
       customer_name:'',
       order_number:'',
       response_status:'',
-      //api_Key:'AIzaSyDpAz0wssQspDgZDeCUYm5hGayKJKpWtFI'
+      //api_Key:'AIzaSyD0OLq9RfPcZ2WgkTM9NJtP2mQgNZgqn18'
       form_data:{
         first_name:'',
         last_name:'',
@@ -369,7 +369,7 @@ export default {
       // const script = document.createElement('script')
       // //script.onload = this.locatorButtonPressed()
       // script.type = 'text/javascript'
-      // script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDpAz0wssQspDgZDeCUYm5hGayKJKpWtFI&libraries=places&callback=null`
+      // script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyD0OLq9RfPcZ2WgkTM9NJtP2mQgNZgqn18&libraries=places&callback=null`
       // document.head.appendChild(script)
       console.log('google pay nai')
     }else {
@@ -515,7 +515,7 @@ export default {
       }
     },
     getAddressFromGoogle(lat,lng){
-      this.$axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyDpAz0wssQspDgZDeCUYm5hGayKJKpWtFI`)
+      this.$axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyD0OLq9RfPcZ2WgkTM9NJtP2mQgNZgqn18`)
         .then(response => {
           if (response.data.error_message){
             this.message = response.data.error_message
