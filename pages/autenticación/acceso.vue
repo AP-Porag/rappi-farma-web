@@ -96,9 +96,11 @@ export default {
         .then(response => {
           if (response.data.status == 200){
             let user = response.data.data
+            //console.log(user)
             window.localStorage.setItem('rappiCustomer', JSON.stringify(user));
             this.customer = JSON.parse(localStorage.getItem('rappiCustomer') || "[]");
-            window.location.reload()
+            //window.location.reload()
+            this.$router.push(`/cliente/${user.id}`);
           }else {
             if (response.data.status == 401){
               this.$toast.error('Credenciales incorrectas', {
