@@ -9,9 +9,10 @@
                 <div>
                   <img
                     :data-src="product.thumb"
-                    class="img-fluid"
+                    class="img-fluid thumb-image"
                     alt=""
                     v-lazy-load
+                    style="max-height: 450px;max-width: 480px;"
                   />
                 </div>
               </div>
@@ -117,7 +118,7 @@
           </div>
           <div class="ms__related--slider slick-slider-relative">
             <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSetting" v-if="categoryProducts.length">
-              <ProductoProduct v-for="(product,index) in categoryProducts" :key="product.id" :product="product" />
+              <ProductoCardProduct v-for="(product,index) in categoryProducts" :key="product.id" :product="product" />
             </VueSlickCarousel>
           </div>
         </div>
@@ -264,8 +265,6 @@
           <div class="ms__related--slider slick-slider-relative">
             <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSetting" v-if="brandProducts.length">
               <ProductoProduct v-for="(product,index) in brandProducts" :key="product.id" :product="product" />
-            </VueSlickCarousel>
-
             </VueSlickCarousel>
           </div>
         </div>

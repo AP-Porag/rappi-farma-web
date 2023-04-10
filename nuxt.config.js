@@ -124,4 +124,6 @@ export default {
   },
   //loading: '~/components/loading.vue',
 
+  generate: { fallback: '404.html' }
+
 }

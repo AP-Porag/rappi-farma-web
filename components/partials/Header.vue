@@ -9,7 +9,8 @@
             </NuxtLink>
           </div>
           <div class="ms__header--searchBar position-relative">
-            <partials-search v-if="this.$nuxt.$route.name == 'index'"/>
+<!--            <partials-search v-if="this.$nuxt.$route.name == 'index'"/>-->
+            <partials-search v-if="isLoggedIn && this.$nuxt.$route.name == 'index'"/>
 <!--            <partials-search-box v-else/>-->
           </div>
           <div class="ms__header--loginWith--cart">
@@ -29,13 +30,19 @@
               <p class="cart--count">{{shoppingCart.length}}</p>
 <!--              <p class="cart&#45;&#45;count">{{countTotalItemInCart}}</p>-->
             </button>
-            <NuxtLink :to="`/cliente/${user.id}`" class="ic-btn-outline" v-if="user.token">
+            <NuxtLink :to="`/cliente/${user.id}`" class="ic-btn-outline" v-if="isLoggedIn">
                   <div class="avatar_box">
                     <img :src="user.avatar_url" alt="" class="avatar_img img-fluid">
                   </div>
                   <span>Mi cuenta</span>
-                </NuxtLink>
-                <li class="ms__navbar--items" v-if="!user.token">
+            </NuxtLink>
+            <li class="ms__navbar--items" v-if="isLoggedIn">
+              <button class="ic-btn-outline" @click="logout">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M6 8V7a6 6 0 1 1 12 0v1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h2zm13 2H5v10h14V10zm-8 5.732a2 2 0 1 1 2 0V18h-2v-2.268zM8 8h8V7a4 4 0 1 0-8 0v1z"/></svg>
+                <span>Cerrar sesión</span>
+              </button>
+            </li>
+            <li class="ms__navbar--items" v-else>
                 <nuxt-link class="ic-btn-outline" to="/autenticación/acceso">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -50,13 +57,8 @@
                   </svg>
                   <span>Acceso/Registro</span>
                 </nuxt-link>
-              </li>
-              <li class="ms__navbar--items" v-else>
-                <button class="ic-btn-outline" @click="logout">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M6 8V7a6 6 0 1 1 12 0v1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h2zm13 2H5v10h14V10zm-8 5.732a2 2 0 1 1 2 0V18h-2v-2.268zM8 8h8V7a4 4 0 1 0-8 0v1z"/></svg>
-                  <span>Cerrar sesión</span>
-                </button>
-              </li>
+            </li>
+
           </div>
         </div>
       </div>
@@ -494,6 +496,7 @@ export default {
       subTotal : 0,
       finalTotal:0,
       user:[],
+      isLoggedIn:false,
     }
   },
   created() {
@@ -502,6 +505,7 @@ export default {
     this.$nuxt.$on('eventRemoveFromCart', ($event) => this.handleRemoveFromCart($event))
     this.$nuxt.$on('eventIncreaseCartQuantity', ($event) => this.handleIncreaseCartQuantity($event))
     this.$nuxt.$on('eventDecreaseCartQuantity', ($event) => this.handleDecreaseCartQuantity($event))
+    this.$nuxt.$on('eventIsLoggedIn', ($event) => this.handleEventIsLoggedIn($event));
   },
   watch:{
     shoppingCart:{
@@ -537,6 +541,11 @@ export default {
     this.countSubTotal();
     //console.log(this.categories)
     //console.log(this.$nuxt.$route.name)
+
+    if (localStorage.isLoggedIn) {
+
+      this.isLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn') || false);
+    }
   },
   beforeMount() {
     window.addEventListener('scroll', this.handleScroll)
@@ -581,6 +590,7 @@ export default {
         total += (item.productDiscountPrice * item.productQuantity);
       });
       this.subTotal = total;
+      console.log('countSubTotal')
     },
     countFinalTotal(){
       let finalTotal = 0;
@@ -591,6 +601,7 @@ export default {
 
       finalTotal = total + this.shippingCharge;
       this.finalTotal = finalTotal;
+      console.log('countFinalTotal')
     },
     handleScroll(){
       if(window.pageYOffset>250){
@@ -604,6 +615,8 @@ export default {
         .then(response => {
           if (response.data.status == 200){
             window.localStorage.setItem('rappiCustomer','[]');
+            window.localStorage.setItem('isLoggedIn', false);
+            this.$nuxt.$emit('eventIsLoggedIn', false)
             this.user = [];
             this.$nuxt.$options.router.push('/')
             //window.location.reload()
@@ -638,6 +651,10 @@ export default {
           duration:2000,
         });
       }
+
+      this.countSubTotal();
+      this.countFinalTotal();
+
     },
     handleRemoveFromCart(e){
       this.removeFromCart(e)
@@ -672,6 +689,9 @@ export default {
       }catch (e) {
         console.log(e.message)
       }
+    },
+    handleEventIsLoggedIn(e){
+      this.isLoggedIn = e;
     }
 
   }

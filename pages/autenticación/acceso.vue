@@ -98,6 +98,8 @@ export default {
             let user = response.data.data
             //console.log(user)
             window.localStorage.setItem('rappiCustomer', JSON.stringify(user));
+            window.localStorage.setItem('isLoggedIn', true);
+            this.$nuxt.$emit('eventIsLoggedIn', true)
             this.customer = JSON.parse(localStorage.getItem('rappiCustomer') || "[]");
             //window.location.reload()
             this.$router.push(`/cliente/${user.id}`);

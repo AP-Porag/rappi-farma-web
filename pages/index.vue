@@ -1,5 +1,17 @@
 <template>
   <div>
+    <section class="ms__catagoriesFilter--part ic-section-space" v-if="isLoggedIn">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-12">
+            <div class="ms__catagoriesFilter--right">
+              <HomeAuthenticated/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <HomeUnauthenticated v-else/>
     <!-- <section class="ms__banner--part">
       <div class="container slick-slider-relative">
         <VueSlickCarousel :arrows="true" v-bind="sliderOneBanner" :dots="false" v-if="categories.length">
@@ -65,12 +77,14 @@
 <!--                  </div>-->
 <!--                </div>-->
 
-                <div class="row g-2">
-                   <ProductoProduct class="col-lg-12" v-for="product in products" :key="product.id" :product="product" />
-                  <p class="text-center text-muted" v-if="products.length < 1">Ningún producto encontrado</p>
 
-                  <infinite-loading v-if="products.length" spinner="bubbles" @infinite="infiniteScroll"></infinite-loading>
-                </div>
+<!--                from here-->
+<!--                <div class="row g-2">-->
+<!--                   <ProductoProduct class="col-lg-12" v-for="product in products" :key="product.id" :product="product" />-->
+<!--                  <p class="text-center text-muted" v-if="products.length < 1">Ningún producto encontrado</p>-->
+
+<!--                  <infinite-loading v-if="products.length" spinner="bubbles" @infinite="infiniteScroll"></infinite-loading>-->
+<!--                </div>-->
               </div>
             </div>
           </div>
@@ -206,9 +220,11 @@ export default {
     category_slug : null,
     brand_slug:null,
     categories:[],
+    isLoggedIn:false,
   }),
   created() {
     this.$nuxt.$on('eventProductFilter', ($event) => this.handleEventProductFilter($event));
+    this.$nuxt.$on('eventIsLoggedIn', ($event) => this.handleEventIsLoggedIn($event));
   },
   watch: {
     '$route.query'(newValue){
@@ -237,6 +253,11 @@ export default {
     this.getAllProducts();
     localStorage.removeItem('rappiKywords');
     this.loadCategoryDataWithBrand();
+
+    if (localStorage.isLoggedIn) {
+
+      this.isLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn') || false);
+    }
   },
   methods:{
     async getAllProducts() {
@@ -296,6 +317,9 @@ export default {
         console.log(e.message)
       }
     },
+    handleEventIsLoggedIn(e){
+      this.isLoggedIn = e;
+    }
   }
 }
 </script>
