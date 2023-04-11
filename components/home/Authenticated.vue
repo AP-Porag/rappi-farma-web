@@ -18,6 +18,9 @@ export default {
     category_slug : null,
     brand_slug:null,
   }),
+  created() {
+    this.$nuxt.$on('eventProductFilter', ($event) => this.handleEventProductFilter($event));
+  },
   mounted() {
     this.getAllProducts();
   },
@@ -53,6 +56,17 @@ export default {
         }
 
       }, 1000);
+    },
+    async handleEventProductFilter(e) {
+      if (e.length > 3){
+        this.keywords = e;
+        await this.getAllProducts()
+      }else {
+        if (e.length < 1){
+          this.keywords = null;
+          await this.getAllProducts()
+        }
+      }
     },
   }
 }

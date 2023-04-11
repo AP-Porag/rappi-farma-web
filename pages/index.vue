@@ -223,7 +223,7 @@ export default {
     isLoggedIn:false,
   }),
   created() {
-    this.$nuxt.$on('eventProductFilter', ($event) => this.handleEventProductFilter($event));
+    // this.$nuxt.$on('eventProductFilter', ($event) => this.handleEventProductFilter($event));
     this.$nuxt.$on('eventIsLoggedIn', ($event) => this.handleEventIsLoggedIn($event));
   },
   watch: {
@@ -292,15 +292,15 @@ export default {
 
       }, 1000);
     },
-    async handleEventProductFilter(e) {
-      if (e.length > 3){
-        this.keywords = e;
-        await this.getAllProducts()
-      }else {
-        this.keywords = null;
-        await this.getAllProducts()
-      }
-    },
+    // async handleEventProductFilter(e) {
+    //   if (e.length > 3){
+    //     this.keywords = e;
+    //     await this.getAllProducts()
+    //   }else {
+    //     this.keywords = null;
+    //     await this.getAllProducts()
+    //   }
+    // },
     getKeyWordsFromLocalstorage(){
       let keywords = localStorage.getItem('rappiKywords');
       if (keywords != ''){

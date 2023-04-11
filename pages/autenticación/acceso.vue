@@ -102,7 +102,8 @@ export default {
             this.$nuxt.$emit('eventIsLoggedIn', true)
             this.customer = JSON.parse(localStorage.getItem('rappiCustomer') || "[]");
             //window.location.reload()
-            this.$router.push(`/cliente/${user.id}`);
+            //this.$router.push(`/cliente/${user.id}`);
+            this.$router.push('/');
           }else {
             if (response.data.status == 401){
               this.$toast.error('Credenciales incorrectas', {

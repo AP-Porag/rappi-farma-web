@@ -692,6 +692,7 @@ export default {
     },
     handleEventIsLoggedIn(e){
       this.isLoggedIn = e;
+      this.user = JSON.parse(localStorage.getItem('rappiCustomer') || "[]");
     }
 
   }
