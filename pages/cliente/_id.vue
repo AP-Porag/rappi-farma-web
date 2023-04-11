@@ -19,7 +19,7 @@
                 alt=""
                 v-lazy-load
               />
-              <h5>{{user.fullName}}</h5>
+              <h5 class="text-capitalize">{{user.fullName}}</h5>
               <p>{{user.email}}</p>
             </div>
           </div>
@@ -31,9 +31,9 @@
             :start-index="1"
             direction="vertical"
           >
-            <v-tab title="Manage Account" icon="ti-user">
+            <v-tab title="Administrar Cuenta" icon="ti-user">
               <div class="ms__customer--content">
-                <h4>Personal Info</h4>
+                <h4 class="text-capitalize">Información personal</h4>
                 <form enctype="multipart/form-data">
                   <div class="row">
                     <div class="col-lg-6">
@@ -233,9 +233,9 @@
               </div>
             </v-tab>
 
-            <v-tab title="Recent Orders" icon="ti-settings">
+            <v-tab title="Ordenes recientes" icon="ti-settings">
               <div class="ms__customer--content">
-                <h4>Recent Order</h4>
+                <h4 class="text-capitalize">Orden reciente</h4>
                 <div class="ms__customer--container mb-3" v-if="last_five_orders.length" v-for="(order,index) in last_five_orders" :key="order.id">
                   <div class="ms__recentOrder_header d-flex justify-content-between">
                     <p class="order-id">#{{order.SKU}}</p>
@@ -292,10 +292,10 @@
               </div>
             </v-tab>
 
-            <v-tab title="Orders History" icon="ti-check">
+            <v-tab title="Historial De Pedidos" icon="ti-check">
 
               <div class="ms__customer--content position-relative">
-                <h4>Order History</h4>
+                <h4 class="text-capitalize">Historial de pedidos</h4>
                 <div class="timeline">
                   <div class="timeline-container right" v-if="all_orders.length" v-for="(order,index) in all_orders" :key="order.id">
                     <div class="content">
@@ -395,9 +395,9 @@
               </div>
             </v-tab>
 
-            <v-tab title="Change Password" icon="ti-lock">
+            <v-tab title="Cambiar La Contraseña" icon="ti-lock">
               <div class="ms__customer--content">
-                <h4>Personal Info</h4>
+                <h4 class="text-capitalize">Información personal</h4>
                 <form enctype="multipart/form-data">
                   <div class="row">
                     <div class="col-lg-6">

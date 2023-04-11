@@ -2,12 +2,12 @@
     <div class="ms__bestDeal--items big-card">
         <div class="figure position-relative mb-0 p-1">
           <div class="ms__bestDeal--img ms__beatuy--img">
-            <nuxt-link to="#">
+            <nuxt-link :to="`/producto/${product.slug}`">
               <img class="img img-fluid" :src="product.thumb" :alt="product.slug">
             </nuxt-link>
           </div>
           <div class="ms__bestDeal--information">
-            <NuxtLink to="#"><h6 class="title">{{product.name}}</h6></NuxtLink>
+            <NuxtLink :to="`/producto/${product.slug}`"><h6 class="title">{{product.name}}</h6></NuxtLink>
             <p class="small-price">${{product.price}}</p>
           </div>
         </div>

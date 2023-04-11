@@ -24,7 +24,7 @@
                 {{product.name}}
               </h3>
               <p class="ms__pass">{{product.short_description}}</p>
-              <h6 class="ms__price">${{product.price}}</h6>
+              <h6 class="ms__price mb-4">${{product.price}}</h6>
 <!--              <div class="ms__product-count">-->
 <!--                <button class="minize">-</button> <input type="text" />-->
 <!--                <button class="minize">+</button>-->
@@ -66,7 +66,7 @@
                 </p>
 
 
-                <h5 class="black mt-3 mb-2">Data sheet:</h5>
+                <h5 class="black mt-3 mb-2 text-capitalize">Ficha de datos:</h5>
                 <table class="table table-bordered">
                   <tr>
                     <td>
@@ -114,7 +114,7 @@
       <div class="container">
         <div class="ms__related--content ms__card">
           <div class="ms__title">
-            <h3 class="primary title">Related products</h3>
+            <h3 class="primary title text-capitalize">Productos relacionados</h3>
           </div>
           <div class="ms__related--slider slick-slider-relative">
             <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSetting" v-if="categoryProducts.length">
@@ -260,11 +260,11 @@
       <div class="container">
         <div class="ms__related--content ms__card">
           <div class="ms__title">
-            <h3 class="primary title">Products of the same brand</h3>
+            <h3 class="primary title text-capitalize">Productos de la misma marca</h3>
           </div>
           <div class="ms__related--slider slick-slider-relative">
             <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderTwoSetting" v-if="brandProducts.length">
-              <ProductoProduct v-for="(product,index) in brandProducts" :key="product.id" :product="product" />
+              <ProductoCardProduct v-for="(product,index) in brandProducts" :key="product.id" :product="product" />
             </VueSlickCarousel>
           </div>
         </div>

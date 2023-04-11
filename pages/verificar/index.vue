@@ -9,7 +9,7 @@
 
                 <div class="mb-4">
                   <div class="ms__title">
-                    <h4 class="title">Your Location</h4>
+                    <h4 class="title text-capitalize">Tu ubicación</h4>
                   </div>
                   <div class="row">
                     <div class="col-lg-12">
@@ -114,7 +114,7 @@
 
                 <div class="mb-4">
                   <div class="ms__title">
-                    <h4 class="title">Personal Details</h4>
+                    <h4 class="title text-capitalize">Detalles personales</h4>
                   </div>
                   <div class="row">
                     <div class="col-lg-12">

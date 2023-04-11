@@ -11,7 +11,7 @@
           <div class="ms__header--searchBar position-relative">
 <!--            <partials-search v-if="this.$nuxt.$route.name == 'index'"/>-->
             <partials-search v-if="isLoggedIn && this.$nuxt.$route.name == 'index'"/>
-<!--            <partials-search-box v-else/>-->
+            <partials-search-box v-else/>
           </div>
           <div class="ms__header--loginWith--cart">
             <button class="ic-btn-outline" @click="cartBox = !cartBox">
@@ -26,7 +26,7 @@
                   d="M4 6.414L.757 3.172l1.415-1.415L5.414 5h15.242a1 1 0 0 1 .958 1.287l-2.4 8a1 1 0 0 1-.958.713H6v2h11v2H5a1 1 0 0 1-1-1V6.414zM6 7v6h11.512l1.8-6H6zm-.5 16a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm12 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
                 />
               </svg>
-              <span>cart</span>
+              <span class="text-capitalize">Carro</span>
               <p class="cart--count">{{shoppingCart.length}}</p>
 <!--              <p class="cart&#45;&#45;count">{{countTotalItemInCart}}</p>-->
             </button>
@@ -34,7 +34,7 @@
                   <div class="avatar_box">
                     <img :src="user.avatar_url" alt="" class="avatar_img img-fluid">
                   </div>
-                  <span>Mi cuenta</span>
+                  <span class="text-capitalize">Mi cuenta</span>
             </NuxtLink>
             <li class="ms__navbar--items" v-if="isLoggedIn">
               <button class="ic-btn-outline" @click="logout">
@@ -355,7 +355,7 @@
             />
           </svg>
         </button>
-        <h5>Your Cart</h5>
+        <h5 class="text-capitalize">Tu carrito</h5>
         <div class="ic__shopping--cart--head">
           <p>Product</p>
           <p>Price</p>
@@ -590,7 +590,6 @@ export default {
         total += (item.productDiscountPrice * item.productQuantity);
       });
       this.subTotal = total;
-      console.log('countSubTotal')
     },
     countFinalTotal(){
       let finalTotal = 0;
@@ -601,7 +600,6 @@ export default {
 
       finalTotal = total + this.shippingCharge;
       this.finalTotal = finalTotal;
-      console.log('countFinalTotal')
     },
     handleScroll(){
       if(window.pageYOffset>250){

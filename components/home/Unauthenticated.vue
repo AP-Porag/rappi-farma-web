@@ -265,7 +265,7 @@
       <div class="container">
         <div class="ms__card">
           <div class="ms__title">
-            <h4 class="title primary mb-0 text-capitalize">official Brands</h4>
+            <h4 class="title primary mb-0 text-capitalize">Marcas Oficiales</h4>
           </div>
           <div class="ms__beatuy--slider mb-4 ms__bestDeal--slider slick-slider-relative">
             <VueSlickCarousel :arrows="true" :dots="false" v-bind="sliderFourSetting" v-if="brands.length">

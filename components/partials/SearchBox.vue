@@ -13,7 +13,8 @@
   >
     <ul v-if="items.length > 0">
       <li v-for="item in items" :key="item.id">
-        <NuxtLink to="/producto" @click.native="itemSelected"> {{item.name}}</NuxtLink>
+<!--        <NuxtLink to="/producto" @click.native="itemSelected"> {{item.name}}</NuxtLink>-->
+        <NuxtLink :to="`/producto/${item.slug}`" @click.native="itemSelected"> {{item.name}}</NuxtLink>
       </li>
     </ul>
     <ul v-else>
@@ -47,8 +48,14 @@ export default {
     }
   },
   methods:{
+    // itemSelected(){
+    //   window.location.reload()
+    // },
     itemSelected(){
-      window.location.reload()
+      this.show = false;
+      this.keywords = '';
+      this.items = [];
+      this.setKeywordToLocalStorage();
     },
     async getSearchedItem() {
       if (this.keywords !='' && this.keywords.length >= 3){
