@@ -85,15 +85,15 @@ export default {
   },
   methods:{
     async submit(){
-
       if (this.$v.form_data.$invalid) {
         this.$v.form_data.$touch()
         this.showError = true;
         return
       }
-
+      this.$nuxt.$emit('eventLoaderShow')
       await this.$axios.post('/login',this.form_data)
         .then(response => {
+          this.$nuxt.$emit('eventLoaderHide')
           if (response.data.status == 200){
             let user = response.data.data
             //console.log(user)
@@ -105,6 +105,7 @@ export default {
             //this.$router.push(`/cliente/${user.id}`);
             this.$router.push('/');
           }else {
+            this.$nuxt.$emit('eventLoaderHide')
             if (response.data.status == 401){
               this.$toast.error('Credenciales incorrectas', {
                 position: 'top-right',
@@ -114,6 +115,7 @@ export default {
           }
         })
         .catch(err => {
+          this.$nuxt.$emit('eventLoaderHide')
           console.log(err)
         })
     }

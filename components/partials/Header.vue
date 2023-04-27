@@ -421,8 +421,18 @@
           to="/verificar"
           class="ic-btn text-capitalize"
           @click.native="cartBox = !cartBox"
-          >Ir a la caja</NuxtLink
+          v-if="isLoggedIn"
+          >
+          Ir a la caja
+        </NuxtLink>
+        <NuxtLink
+          to="/autenticación/acceso"
+          class="ic-btn text-capitalize"
+          @click.native="cartBox = !cartBox"
+          v-else
         >
+          Login To Order
+        </NuxtLink>
         <button class="ic-btn-outline text-capitalize" @click="cartBox = !cartBox">
           Seguir comprando
         </button>

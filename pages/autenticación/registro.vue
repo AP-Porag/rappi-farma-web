@@ -207,8 +207,10 @@ export default {
         this.showError = true;
         return
       }
+      this.$nuxt.$emit('eventLoaderShow')
       await this.$axios.post('/registration',this.form_data)
         .then(response => {
+          this.$nuxt.$emit('eventLoaderHide')
           let response_status = response.data.status;
           if (response_status == 200){
             this.registration_response_message_box = true;
@@ -226,6 +228,7 @@ export default {
             //   duration:8000,
             // });
           }else {
+            this.$nuxt.$emit('eventLoaderHide')
             this.$toast.error(response.data.message, {
               position: 'top-right',
               duration:8000,
@@ -233,6 +236,7 @@ export default {
           }
         })
         .catch(err => {
+          this.$nuxt.$emit('eventLoaderHide')
           console.log(err)
         })
     },

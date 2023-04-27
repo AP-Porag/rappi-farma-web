@@ -190,7 +190,7 @@
                         <vue-phone-number-input
                           v-model="phone"
                           @update="getFormattedPhoneCountryCode"
-                          default-country-code="US"
+                          :default-country-code="form_data.country_code"
                           id="phone"
                         />
                         <p
@@ -315,6 +315,7 @@ export default {
   data(){
     return{
       shoppingCart : [],
+      customer:'',
       error:false,
       showError: false,
       message:'',
@@ -362,6 +363,8 @@ export default {
     this.countSubTotal();
     this.setCartProduct();
     this.locatorButtonPressed();
+    this.customer = JSON.parse(localStorage.getItem('rappiCustomer') || "[]");
+    this.setLoggedInUserInfo();
 
 
     //map location
@@ -475,9 +478,11 @@ export default {
         this.showError = true;
         return
       }
+      this.$nuxt.$emit('eventLoaderShow')
       // await this.$axios.post('/order/front/save-order',this.form_data)
       await this.$axios.post('/order/front/save-order',this.form_data)
         .then(response => {
+          this.$nuxt.$emit('eventLoaderHide')
           this.response_status = response.data.status;
           if (this.response_status == 200){
             this.customer_name = response.data.customer_name;
@@ -487,6 +492,7 @@ export default {
           }
         })
         .catch(err => {
+          this.$nuxt.$emit('eventLoaderHide')
           console.log(err)
         })
     },
@@ -589,6 +595,14 @@ export default {
         this.form_data.country_calling_code = payload.countryCallingCode;
       }
     },
+
+    setLoggedInUserInfo(){
+      this.form_data.first_name = this.customer.first_name
+      this.form_data.last_name = this.customer.last_name
+      this.form_data.email = this.customer.email
+      this.form_data.country_code = this.customer.country_code
+      this.phone = this.customer.phone
+    }
   },
   validations() {
     return {

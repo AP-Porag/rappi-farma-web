@@ -141,7 +141,7 @@
                         <vue-phone-number-input
                           v-model="form_data.phone"
                           @update="getFormattedPhoneCountryCode"
-                          default-country-code="US"
+                          :default-country-code="form_data.country_code"
                           id="phone"
                         />
                         <p
@@ -233,7 +233,7 @@
               </div>
             </v-tab>
 
-            <v-tab title="Ordenes recientes" icon="ti-settings">
+            <v-tab title="Ordenes Recientes" icon="ti-settings">
               <div class="ms__customer--content">
                 <h4 class="text-capitalize">Orden reciente</h4>
                 <div class="ms__customer--container mb-3" v-if="last_five_orders.length" v-for="(order,index) in last_five_orders" :key="order.id">
@@ -541,6 +541,7 @@ export default {
         this.showError = true;
         return
       }
+      this.$nuxt.$emit('eventLoaderShow')
       let formData = new FormData()
       // WE APPEND THE AVATAR TO THE FORMDATA WE'RE GONNA POST
       formData.append('avatarImageFile', this.avatarImageFile)
@@ -552,6 +553,7 @@ export default {
       try {
         await this.$axios.post(`/customer/profile-update/${this.$route.params.id}`,formData, {headers: {'content-type':'multipart/form-data;charset=utf-8; boundary='+ Math.random().toString().substr(2)}})
           .then((response)=>{
+            this.$nuxt.$emit('eventLoaderHide')
             if (response.data.status != 200){
               this.message = response.data.message;
               this.error = true;
@@ -562,10 +564,12 @@ export default {
             }
           })
           .catch((error)=>{
+            this.$nuxt.$emit('eventLoaderHide')
             this.message = 'Something went wrong !';
             this.error = true;
           })
       }catch (e) {
+        this.$nuxt.$emit('eventLoaderHide')
         console.log(e.message)
       }
     },
@@ -613,6 +617,7 @@ export default {
         this.showError = true;
         return
       }
+      this.$nuxt.$emit('eventLoaderShow')
       // let formData = new FormData()
       // // WE APPEND THE AVATAR TO THE FORMDATA WE'RE GONNA POST
       // formData.append('avatarImageFile', this.avatarImageFile)
@@ -624,6 +629,7 @@ export default {
       try {
         await this.$axios.post(`/customer/change/password`,this.form_data_pass, {headers: {'content-type':'multipart/form-data;charset=utf-8; boundary='+ Math.random().toString().substr(2)}})
           .then((response)=>{
+            this.$nuxt.$emit('eventLoaderHide')
             if (response.data.status != 200){
               this.message = response.data.message;
               this.error = true;
@@ -634,10 +640,12 @@ export default {
             }
           })
           .catch((error)=>{
+            this.$nuxt.$emit('eventLoaderHide')
             this.message = 'Something went wrong !';
             this.error = true;
           })
       }catch (e) {
+        this.$nuxt.$emit('eventLoaderHide')
         console.log(e.message)
       }
     },

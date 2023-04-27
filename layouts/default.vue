@@ -1,9 +1,11 @@
 <template>
   <div>
-    <LoadingBar v-if="showHideSpinner"/>
-    <partialsHeader/>
-    <nuxt/>
-    <partialsFooter/>
+    <ClientOnly>
+      <LoadingBar v-if="showHideSpinner"/>
+      <partialsHeader/>
+      <nuxt/>
+      <partialsFooter/>
+    </ClientOnly>
   </div>
 </template>
 <script>
@@ -21,6 +23,10 @@ export default {
       }]
     }
   },
+  created() {
+    this.$nuxt.$on('eventLoaderShow', ($event) => this.handleEventLoaderShow());
+    this.$nuxt.$on('eventLoaderHide', ($event) => this.handleEventLoaderHide());
+  },
   beforeCreate() {
     this.showHideSpinner = true;
   },
@@ -31,6 +37,14 @@ export default {
     return {
       showHideSpinner: true
     };
+  },
+  methods:{
+    handleEventLoaderShow(){
+      this.showHideSpinner = true;
+    },
+    handleEventLoaderHide(){
+      this.showHideSpinner = false;
+    }
   }
 }
 

@@ -1,24 +1,39 @@
 <template>
 <div class="">
-  <input type="text" placeholder="búsqueda"
-         @focus="show = true"
-         @blur="show = false"
-         v-model="keywords" />
-  <!--            <button>-->
-  <!--              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg>-->
-  <!--            </button>-->
+  <div class="form">
+    <input
+      class="search_input"
+      type="text"
+      placeholder="búsqueda"
+      @focus="show = true"
+      @blur="show = false"
+      v-model="keywords"
+    />
+    <button type="submit" @click="getSearchedItem">Search</button>
+  </div>
+<!--  <input type="text" placeholder="búsqueda"-->
+<!--         @focus="show = true"-->
+<!--         @blur="show = false"-->
+<!--         v-model="keywords" />-->
+<!--              <button>-->
+<!--                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg>-->
+<!--              </button>-->
   <div
     class="ms__header--searchBar--dropdwon"
-    v-if="keywords.length >= 3"
+    v-if="getSearchedItemClicked && keywords.length >= 3"
   >
-    <ul v-if="items.length > 0">
-      <li v-for="item in items" :key="item.id">
-<!--        <NuxtLink to="/producto" @click.native="itemSelected"> {{item.name}}</NuxtLink>-->
-        <NuxtLink :to="`/producto/${item.slug}`" @click.native="itemSelected"> {{item.name}}</NuxtLink>
+    <ul v-if="searching">
+      <li>
+        <p>Searching ... </p>
       </li>
     </ul>
     <ul v-else>
-      <li>
+      <li v-if="items.length > 0" v-for="item in items" :key="item.id">
+<!--        <NuxtLink to="/producto" @click.native="itemSelected"> {{item.name}}</NuxtLink>-->
+        <NuxtLink :to="`/producto/${item.slug}`" @click.native="itemSelected"> {{item.name}}</NuxtLink>
+      </li>
+
+      <li v-if="!searching && items.length < 1">
         <p>no hay productos coincidentes</p>
       </li>
     </ul>
@@ -34,16 +49,27 @@ export default {
       show:false,
       keywords:'',
       items:[],
+      getSearchedItemClicked:false,
+      searching:false,
     }
   },
+  // watch:{
+  //   keywords(after, before) {
+  //     if (this.keywords != ''){
+  //       this.items=[];
+  //       this.getSearchedItem();
+  //       this.setKeywordToLocalStorage();
+  //     }else {
+  //       window.localStorage.removeItem('rappiKywords');
+  //     }
+  //   }
+  // },
   watch:{
     keywords(after, before) {
-      if (this.keywords != ''){
-        this.items=[];
-        this.getSearchedItem();
-        this.setKeywordToLocalStorage();
-      }else {
-        window.localStorage.removeItem('rappiKywords');
+      if (this.keywords !='' && this.keywords.length >= 3){
+        this.getSearchedItemClicked = false;
+        this.items = [];
+        this.searching = false;
       }
     }
   },
@@ -58,15 +84,20 @@ export default {
       this.setKeywordToLocalStorage();
     },
     async getSearchedItem() {
+      this.getSearchedItemClicked = true;
       if (this.keywords !='' && this.keywords.length >= 3){
+        this.searching = true;
         await this.$axios.get('/product/get/search-products', { params: { keywords: this.keywords } })
           .then(response => {
             this.items = response.data.data.items
+            this.searching = false;
 
           })
           .catch(error => {
             console.log(error)
           });
+      }else {
+        this.getSearchedItemClicked = false;
       }
 
     },
@@ -148,50 +179,50 @@ export default {
     }
   }
   // search
-  .ms__header--searchBar {
-    flex: 1;
-    @media #{$max575}{
-      position: static!important;
-    }
-    input {
-      width: 100%;
-      height: 3rem;
-      position: relative;
-      background: #f9f9f9;
-      font-size: 1.2rem;
-      display: flex;
-      align-items: center;
-      border: 1px solid $primary !important;
-      border-radius: 4rem 4rem 4rem 4rem !important;
-      padding: 0 30px 0 30px;
-      font-size: 14px;
-      @media #{$max575} {
-        padding: 0 10px 0 10px;
-      }
-      &:focus-visible {
-        outline: 0;
-      }
-      &::placeholder {
-        font-size: 14px;
-      }
-    }
-    button {
-      position: absolute;
-      top: 0;
-      right: 0;
-      height: 100%;
-      padding: 0 20px;
-      background-color: $primary;
-      border: none;
-      border-radius: 0 2rem 2rem 0;
-      svg {
-        width: 20px;
-        path {
-          fill: white;
-        }
-      }
-    }
-  }
+  //.ms__header--searchBar {
+  //  flex: 1;
+  //  @media #{$max575}{
+  //    position: static!important;
+  //  }
+  //  input {
+  //    width: 100%;
+  //    height: 3rem;
+  //    position: relative;
+  //    background: #f9f9f9;
+  //    font-size: 1.2rem;
+  //    display: flex;
+  //    align-items: center;
+  //    border: 1px solid $primary !important;
+  //    border-radius: 4rem 4rem 4rem 4rem !important;
+  //    padding: 0 30px 0 30px;
+  //    font-size: 14px;
+  //    @media #{$max575} {
+  //      padding: 0 10px 0 10px;
+  //    }
+  //    &:focus-visible {
+  //      outline: 0;
+  //    }
+  //    &::placeholder {
+  //      font-size: 14px;
+  //    }
+  //  }
+  //  button {
+  //    position: absolute;
+  //    top: 0;
+  //    right: 0;
+  //    height: 100%;
+  //    padding: 0 20px;
+  //    background-color: $primary;
+  //    border: none;
+  //    border-radius: 0 2rem 2rem 0;
+  //    svg {
+  //      width: 20px;
+  //      path {
+  //        fill: white;
+  //      }
+  //    }
+  //  }
+  //}
   // cart
   .ms__header--loginWith--cart {
     @include d-flex();
@@ -604,5 +635,51 @@ export default {
       }
     }
   }
+}
+
+//search
+.form {
+  color: #555;
+  display: flex;
+  padding: 2px;
+  border: 1px solid #1b88f5;
+  border-radius: 5px;
+}
+.search_input {
+  border: none;
+  background: transparent;
+  margin: 0;
+  padding: 7px 8px;
+  font-size: 14px;
+  color: inherit;
+  border: 1px solid transparent;
+  border-radius: inherit;
+}
+
+.search_input::placeholder {
+  color: #bbb;
+}
+button[type="submit"] {
+  text-indent: -999px;
+  overflow: hidden;
+  width: 40px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: inherit;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search text-primary' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+button[type="submit"]:hover {
+  opacity: 1;
+}
+
+button[type="submit"]:focus,
+.search_input:focus {
+  box-shadow: 0 0 3px 0 #1183d6;
+  border-color: #1183d6;
+  outline: none;
 }
 </style>
