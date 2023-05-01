@@ -364,13 +364,14 @@ export default {
   mounted() {
     this.slug = this.$route.params.slug
     this.getItemData();
-    this.calculatePrice();
+    // this.calculatePrice();
   },
   methods:{
     async getItemData(){
       try {
         const response = await this.$axios.get(`product/${this.slug}`);
         this.product = response.data.item;
+        // this.item = this.product.price
         this.category_id = this.product.category.category_id;
         this.category_name = this.product.category.category_name;
         this.brand_id = this.product.brand.brand_id;
@@ -378,6 +379,7 @@ export default {
 
         //console.log(this.brand_id)
 
+        //console.log(this.product)
         if (this.category_id != '' || this.category_id != null){
           try {
             const response = await this.$axios.get(`/category/front/product/${this.category_id}`);
@@ -407,31 +409,34 @@ export default {
           this.item.productQuantity = 1;
           this.item.discount_type = this.product.discount_type;
           this.item.discount_value = this.product.discount;
+          await this.calculatePrice(this.product);
       }catch (e) {
         console.log(e.message)
       }
     },
-    async calculatePrice(){
-      //console.log(this.product)
+    async calculatePrice(product){
+      //console.log(product.price)
       let self = this;
-      if (this.product.discount !=null){
+      if (product.discount !=null){
 
-        self.discount_value = this.product.discount;
-        self.discount_type = this.product.discount_type;
+        self.discount_value = product.discount;
+        self.discount_type = product.discount_type;
         if(self.discount_type === 'fixed'){
-          let price = this.product.price - self.discount_value;
+          let price = product.price - self.discount_value;
           this.discountPrice = price.toFixed(2);
         }else {
-          let price = this.product.price - (this.product.price *(self.discount_value)/100);
+          let price = product.price - (product.price *(self.discount_value)/100);
           this.discountPrice = price.toFixed(2);
         }
 
       }else {
-        let price = this.product.price * 1
+        let price = product.price * 1
         this.price = price.toFixed(2)
         this.discountPrice = price.toFixed(2)
         this.item.productDiscountPrice = price.toFixed(2)
-        //console.log('discount price = '+this.discountPrice)
+        //console.log('hello'+product.price)
+        // console.log('hellooo'+price)
+        // console.log('discount price from details = '+this.item.productDiscountPrice)
         //console.log('original price = '+this.price)
       }
     },
